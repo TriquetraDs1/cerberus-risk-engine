@@ -43,20 +43,25 @@ the one thing a red-team background is directly useful for building.
 ```
 cerberus-risk-engine/
 ├── src/cerberus/
-│   ├── data/          # dataset loading + synthetic ring injection (Day 1-2)
-│   ├── features/       # velocity, amount z-score, entity-link features (Day 2-3)
-│   ├── detection/       # point-risk model (LightGBM) + ring detector (Louvain) (Day 3)
+│   ├── data/          # dataset loading + synthetic ring injection [done]
+│   ├── features/       # velocity, amount z-score, entity-link features [done]
+│   ├── detection/       # point-risk model (LightGBM) + ring detector (Louvain) [done]
 │   ├── decision/        # cost matrix, threshold optimization, 3-way routing (Day 4)
 │   ├── adversarial/      # the harness: evasion strategies + recall-decay report (Day 5-6)
 │   ├── serving/         # FastAPI /score endpoint, audit log, drift check (Day 7)
-│   └── common/          # shared config/paths
-├── scripts/            # CLI entry points (generate data, train, run harness, serve)
+│   └── common/          # shared config/paths (pydantic-settings)
+├── scripts/            # CLI entry points: generate_data, detect_rings, train_baseline,
+│                       #   export_dashboard_data (+ run harness / serve, later days)
 ├── data/raw/            # put a Kaggle creditcard.csv here if you have one (optional)
-├── data/processed/       # generated synthetic datasets land here
-├── models/             # trained model artifacts
-├── reports/figures/       # before/after adversarial recall-decay plots — your best slide
-├── dashboard/           # Next.js review-queue UI (stretch, day 8+)
+├── data/processed/       # generated synthetic datasets land here (gitignored)
+├── models/             # trained model artifacts (gitignored)
+├── reports/            # baseline_metrics.json, ring_detection_report.json [done];
+│                       #   figures/ for the Day 5-6 recall-decay plot — your best slide
+├── dashboard/           # Next.js analyst console: Review Queue, Ring Network,
+│                       #   System Health — reads real pipeline output, zero mocks [done]
 ├── docs/ARCHITECTURE.md   # full system design + trade-off analysis
+├── MODEL_CARD.md         # intended use, training data, known limitations
+├── Dockerfile / docker-compose.yml   # one-command reproducible pipeline
 └── tests/
 ```
 
@@ -66,10 +71,27 @@ cerberus-risk-engine/
 python -m venv .venv
 source .venv/Scripts/activate   # Windows Git Bash; use .venv\Scripts\Activate.ps1 in PowerShell
 pip install -r requirements.txt
+pip install -e .
 
-# Day 1-2: generate synthetic data (base fraud + injected rings) and train the baseline
+# Day 1-2: synthetic data + baseline point-risk model
 python scripts/generate_data.py
 python scripts/train_baseline.py
+
+# Day 3: Louvain ring detector, validated against ground truth
+python scripts/detect_rings.py
+
+# Export real pipeline output as JSON for the dashboard (no mock data)
+python scripts/export_dashboard_data.py
+```
+
+Or with Docker: `docker compose up` runs the same pipeline end-to-end into `./data`,
+`./models`, `./reports`.
+
+Then the analyst dashboard:
+```bash
+cd dashboard
+npm install
+npm run dev   # http://localhost:3000
 ```
 
 If you drop a Kaggle `creditcard.csv` into `data/raw/`, the loader blends its base rate
@@ -93,5 +115,16 @@ into the synthetic generator instead of using a fully synthetic baseline — see
 
 ## Status
 
-Day 1-2 of the 10-day plan: synthetic data generator with injectable fraud rings +
-baseline point-risk model. See `docs/ARCHITECTURE.md` for the full roadmap.
+Days 1-3 of the 10-day plan are done:
+- Synthetic data generator with injectable fraud rings + innocent household sharing
+- Baseline point-risk model (LightGBM), cost-sensitive threshold preview
+- Louvain ring detector — **25/25 injected rings recovered (100% mean recovery)**, and
+  an honest **9.3% false-positive rate** on innocent household device-sharing
+- An analyst dashboard (`dashboard/`, Next.js) rendering all of the above from real
+  pipeline output — Review Queue, Transaction detail, Ring Network, System Health
+- CI (lint + tests + full pipeline run), Docker, MODEL_CARD.md
+
+Days 4-10 (cost-matrix decision layer, the adversarial hardening harness, FastAPI
+serving, and the submission video) are still ahead — see `docs/ARCHITECTURE.md` for the
+full roadmap. The adversarial harness (Day 5-6) is the actual differentiator; nothing
+before it should be mistaken for the finished submission.
