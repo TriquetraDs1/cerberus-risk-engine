@@ -17,8 +17,8 @@ from sklearn.metrics import (
     precision_recall_curve,
     roc_auc_score,
 )
-from sklearn.model_selection import train_test_split
 
+from cerberus.common.config import settings
 from cerberus.features.pipeline import FEATURE_COLUMNS
 
 try:
@@ -32,10 +32,10 @@ except ImportError:  # pragma: no cover - environment-dependent
 
 
 # Placeholder cost ratio: blocking a legitimate transaction (FP) vs. missing fraud (FN).
-# Refine with real numbers in the Day 4 decision layer — this is intentionally a rough
-# starting assumption (a typical review/chargeback cost asymmetry), not a tuned constant.
-DEFAULT_FP_COST = 5.0
-DEFAULT_FN_COST = 50.0
+# Refine with real numbers in the Day 4 decision layer. Env-overridable via
+# CERBERUS_FP_COST / CERBERUS_FN_COST — see cerberus.common.config.Settings.
+DEFAULT_FP_COST = settings.fp_cost
+DEFAULT_FN_COST = settings.fn_cost
 
 
 @dataclass
@@ -66,11 +66,11 @@ def _fit_classifier(X_train: pd.DataFrame, y_train: pd.Series):
             learning_rate=0.05,
             num_leaves=31,
             class_weight="balanced",
-            random_state=1337,
+            random_state=settings.random_seed,
         )
     else:
         model = HistGradientBoostingClassifier(
-            max_iter=300, learning_rate=0.05, class_weight="balanced", random_state=1337
+            max_iter=300, learning_rate=0.05, class_weight="balanced", random_state=settings.random_seed
         )
     model.fit(X_train, y_train)
     return model
@@ -88,7 +88,7 @@ def cost_sensitive_threshold(
 
     best_threshold, best_cost = 0.5, float("inf")
     # precision_recall_curve returns thresholds of length len(precision)-1
-    for p, r, t in zip(precision[:-1], recall[:-1], thresholds):
+    for p, r, t in zip(precision[:-1], recall[:-1], thresholds, strict=True):
         tp = r * n_pos
         fn = n_pos - tp
         # precision = tp / (tp + fp)  =>  fp = tp * (1 - p) / p, guarding p == 0

@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-08-27T13:40:38.637379+00:00",
+  "n_train": 48456,
+  "n_test": 12114,
+  "roc_auc": 0.8625480828501829,
+  "pr_auc": 0.5061460116499058,
+  "fp_cost": 5.0,
+  "fn_cost": 50.0,
+  "cost_optimal_threshold": 0.7853582150405716,
+  "cost_at_optimal_threshold": 7950.0,
+  "cost_at_default_threshold": 9860.0
+}

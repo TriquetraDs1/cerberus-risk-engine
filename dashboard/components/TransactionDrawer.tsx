@@ -1,0 +1,133 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { WarningCircle, X } from "@phosphor-icons/react/dist/ssr";
+import { formatReasonCode } from "@/lib/format";
+import type { QueueTransaction } from "@/lib/types";
+import { RiskBadge } from "./RiskBadge";
+
+export function TransactionDrawer({
+  transaction,
+  onClose,
+}: {
+  transaction: QueueTransaction | null;
+  onClose: () => void;
+}) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!transaction) return;
+    closeButtonRef.current?.focus();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [transaction, onClose]);
+
+  if (!transaction) return null;
+  const t = transaction;
+
+  return (
+    <div className="fixed inset-0 z-40 flex justify-end" role="dialog" aria-modal="true" aria-label="Transaction detail">
+      {/* Scrim — strong enough to isolate the foreground panel, per modal-legibility guidance */}
+      <button
+        aria-label="Close transaction detail"
+        onClick={onClose}
+        className="absolute inset-0"
+        style={{ background: "rgba(9, 9, 11, 0.5)" }}
+      />
+      <div
+        className="relative w-full sm:w-[420px] h-full overflow-y-auto border-l shadow-xl"
+        style={{ background: "var(--surface)", borderColor: "var(--border)" }}
+      >
+        <div className="flex items-center justify-between px-5 py-4 border-b sticky top-0" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
+          <div>
+            <p className="text-xs" style={{ color: "var(--text-tertiary)" }}>Transaction</p>
+            <p className="mono-figure text-sm font-medium">{t.transaction_id}</p>
+          </div>
+          <button
+            ref={closeButtonRef}
+            onClick={onClose}
+            aria-label="Close"
+            className="p-2 rounded-md hover:bg-[var(--accent-soft)]"
+          >
+            <X size={16} aria-hidden />
+          </button>
+        </div>
+
+        <div className="px-5 py-5 flex flex-col gap-6">
+          <div className="flex items-center justify-between">
+            <RiskBadge decision={t.decision} />
+            <span className="mono-figure text-2xl font-semibold">{t.risk_score.toFixed(4)}</span>
+          </div>
+
+          <dl className="grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+            <div>
+              <dt className="text-xs" style={{ color: "var(--text-tertiary)" }}>Account</dt>
+              <dd className="mono-figure">{t.account_id}</dd>
+            </div>
+            <div>
+              <dt className="text-xs" style={{ color: "var(--text-tertiary)" }}>Amount</dt>
+              <dd className="mono-figure">₹{t.amount.toLocaleString("en-US")}</dd>
+            </div>
+            <div>
+              <dt className="text-xs" style={{ color: "var(--text-tertiary)" }}>Timestamp</dt>
+              <dd className="mono-figure text-xs">{new Date(t.timestamp).toLocaleString("en-US")}</dd>
+            </div>
+            <div>
+              <dt className="text-xs" style={{ color: "var(--text-tertiary)" }}>Ring</dt>
+              <dd className="mono-figure" style={{ color: t.ring_id ? "var(--accent)" : "var(--text-secondary)" }}>
+                {t.ring_id ?? "none detected"}
+              </dd>
+            </div>
+          </dl>
+
+          <div>
+            <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--text-tertiary)" }}>
+              Reason codes
+            </h3>
+            <ul className="flex flex-col gap-1.5">
+              {t.reason_codes.map((code) => (
+                <li key={code} className="flex items-center gap-2 text-sm">
+                  <WarningCircle size={14} style={{ color: "var(--risk-review)" }} aria-hidden />
+                  {formatReasonCode(code)}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--text-tertiary)" }}>
+              Cost basis
+            </h3>
+            <div
+              className="grid grid-cols-2 divide-x rounded-lg border text-center"
+              style={{ borderColor: "var(--border)" }}
+            >
+              <div className="px-3 py-2.5" style={{ borderColor: "var(--border)" }}>
+                <p className="mono-figure text-base font-medium">{t.cost_basis.fp_cost}</p>
+                <p className="text-[11px]" style={{ color: "var(--text-tertiary)" }}>FP cost</p>
+              </div>
+              <div className="px-3 py-2.5">
+                <p className="mono-figure text-base font-medium">{t.cost_basis.fn_cost}</p>
+                <p className="text-[11px]" style={{ color: "var(--text-tertiary)" }}>FN cost</p>
+              </div>
+            </div>
+            <p className="text-[11px] mt-2" style={{ color: "var(--text-tertiary)" }}>
+              Block ≥ {t.cost_basis.block_threshold.toFixed(3)} · Review ≥{" "}
+              {t.cost_basis.review_threshold.toFixed(3)} — preview routing, see System Health.
+            </p>
+          </div>
+
+          <div className="pt-3 border-t text-xs" style={{ borderColor: "var(--border)", color: "var(--text-tertiary)" }}>
+            Synthetic ground truth for this demo transaction:{" "}
+            <span className="font-medium" style={{ color: "var(--text-secondary)" }}>
+              {t.actual_label === 1 ? "labeled fraud" : "labeled legitimate"}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

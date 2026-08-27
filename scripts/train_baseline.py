@@ -6,7 +6,9 @@ Usage:
     python scripts/train_baseline.py
 """
 
+import json
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
@@ -14,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import pandas as pd
 
 from cerberus.common.config import (
+    BASELINE_METRICS_JSON,
     BASELINE_MODEL_PATH,
     SYNTHETIC_ENTITY_EDGES_CSV,
     SYNTHETIC_TRANSACTIONS_CSV,
@@ -59,6 +62,22 @@ def main() -> None:
 
         joblib.dump(result.model, str(BASELINE_MODEL_PATH.with_suffix(".joblib")))
         print(f"\nSaved model to {BASELINE_MODEL_PATH.with_suffix('.joblib')}")
+
+    # Real numbers for the dashboard to render — no hand-typed mock metrics.
+    metrics = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "n_train": result.n_train,
+        "n_test": result.n_test,
+        "roc_auc": result.roc_auc,
+        "pr_auc": result.pr_auc,
+        "fp_cost": DEFAULT_FP_COST,
+        "fn_cost": DEFAULT_FN_COST,
+        "cost_optimal_threshold": result.cost_optimal_threshold,
+        "cost_at_optimal_threshold": result.cost_at_optimal_threshold,
+        "cost_at_default_threshold": result.cost_at_default_threshold,
+    }
+    BASELINE_METRICS_JSON.write_text(json.dumps(metrics, indent=2))
+    print(f"Saved metrics to {BASELINE_METRICS_JSON}")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-08-27T13:43:10.779484+00:00",
+  "point_risk_model": {
+    "generated_at": "2026-08-27T13:40:38.637379+00:00",
+    "n_train": 48456,
+    "n_test": 12114,
+    "roc_auc": 0.8625480828501829,
+    "pr_auc": 0.5061460116499058,
+    "fp_cost": 5.0,
+    "fn_cost": 50.0,
+    "cost_optimal_threshold": 0.7853582150405716,
+    "cost_at_optimal_threshold": 7950.0,
+    "cost_at_default_threshold": 9860.0
+  },
+  "ring_detection": {
+    "n_rings": 25,
+    "n_perfectly_recovered": 25,
+    "mean_ring_recovery": 1.0,
+    "per_ring_recovery": {
+      "ring_000": 1.0,
+      "ring_001": 1.0,
+      "ring_002": 1.0,
+      "ring_003": 1.0,
+      "ring_004": 1.0,
+      "ring_005": 1.0,
+      "ring_006": 1.0,
+      "ring_007": 1.0,
+      "ring_008": 1.0,
+      "ring_009": 1.0,
+      "ring_010": 1.0,
+      "ring_011": 1.0,
+      "ring_012": 1.0,
+      "ring_013": 1.0,
+      "ring_014": 1.0,
+      "ring_015": 1.0,
+      "ring_016": 1.0,
+      "ring_017": 1.0,
+      "ring_018": 1.0,
+      "ring_019": 1.0,
+      "ring_020": 1.0,
+      "ring_021": 1.0,
+      "ring_022": 1.0,
+      "ring_023": 1.0,
+      "ring_024": 1.0
+    },
+    "n_household_pairs": 75,
+    "n_household_false_positives": 7,
+    "household_false_positive_rate": 0.09333333333333334,
+    "n_flagged_communities": 25,
+    "n_total_communities": 93,
+    "generated_at": "2026-08-27T13:36:35.684824+00:00"
+  },
+  "routing_preview": {
+    "block_threshold": 0.7854,
+    "review_threshold": 0.3927,
+    "note": "Preview routing derived from the Day 1-2 cost-optimal threshold. Full cost-matrix-driven 3-way routing is Day 4 in docs/ARCHITECTURE.md."
+  },
+  "graph_cache_status": "fresh"
+}

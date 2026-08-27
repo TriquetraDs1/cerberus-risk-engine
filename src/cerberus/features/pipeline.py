@@ -9,7 +9,6 @@ linked to N other accounts" as a signal today, before the Louvain ring detector 
 
 from __future__ import annotations
 
-import numpy as np
 import pandas as pd
 
 

@@ -1,0 +1,4896 @@
+{
+  "nodes": [
+    {
+      "id": "acct_000011",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_000073",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_000084",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_000087",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_000100",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_000112",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_000176",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_000229",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_000264",
+      "detected_ring_id": "detected_75",
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_000320",
+      "detected_ring_id": "detected_86",
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_000333",
+      "detected_ring_id": "detected_66",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_000350",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_000413",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_000416",
+      "detected_ring_id": "detected_87",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_000482",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_000490",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_000515",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_000522",
+      "detected_ring_id": "detected_8",
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_000559",
+      "detected_ring_id": "detected_14",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_000567",
+      "detected_ring_id": "detected_15",
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_000585",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_000592",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_000601",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_000602",
+      "detected_ring_id": "detected_87",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_000621",
+      "detected_ring_id": "detected_66",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_000640",
+      "detected_ring_id": "detected_21",
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_000671",
+      "detected_ring_id": "detected_87",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_000679",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_000685",
+      "detected_ring_id": "detected_28",
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_000749",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_000760",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_000828",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_000841",
+      "detected_ring_id": "detected_45",
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_000858",
+      "detected_ring_id": "detected_50",
+      "ground_truth_ring_id": "ring_008"
+    },
+    {
+      "id": "acct_000925",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_000928",
+      "detected_ring_id": "detected_8",
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_000945",
+      "detected_ring_id": "detected_87",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_000978",
+      "detected_ring_id": "detected_28",
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_000986",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_001004",
+      "detected_ring_id": "detected_45",
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_001005",
+      "detected_ring_id": "detected_75",
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_001069",
+      "detected_ring_id": "detected_86",
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_001075",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_001076",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_001079",
+      "detected_ring_id": "detected_28",
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_001085",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_001108",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_001133",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_001147",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_001193",
+      "detected_ring_id": "detected_75",
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_001208",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_001227",
+      "detected_ring_id": "detected_50",
+      "ground_truth_ring_id": "ring_008"
+    },
+    {
+      "id": "acct_001260",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_001268",
+      "detected_ring_id": "detected_21",
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_001283",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_001315",
+      "detected_ring_id": "detected_21",
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_001353",
+      "detected_ring_id": "detected_50",
+      "ground_truth_ring_id": "ring_008"
+    },
+    {
+      "id": "acct_001357",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_001386",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_001407",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_001418",
+      "detected_ring_id": "detected_74",
+      "ground_truth_ring_id": "ring_004"
+    },
+    {
+      "id": "acct_001440",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_001445",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_001448",
+      "detected_ring_id": "detected_87",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_001451",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_001473",
+      "detected_ring_id": "detected_74",
+      "ground_truth_ring_id": "ring_004"
+    },
+    {
+      "id": "acct_001484",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_001489",
+      "detected_ring_id": "detected_8",
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_001515",
+      "detected_ring_id": "detected_86",
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_001516",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_001518",
+      "detected_ring_id": "detected_8",
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_001538",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_001545",
+      "detected_ring_id": "detected_14",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_001556",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_001566",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_001586",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_001679",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_001707",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_001726",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_001776",
+      "detected_ring_id": "detected_86",
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_001789",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_001819",
+      "detected_ring_id": "detected_14",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_001888",
+      "detected_ring_id": "detected_86",
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_001892",
+      "detected_ring_id": "detected_13",
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_001901",
+      "detected_ring_id": "detected_45",
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_001917",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_001918",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_001922",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_001933",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_001940",
+      "detected_ring_id": "detected_28",
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_001991",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_002116",
+      "detected_ring_id": "detected_45",
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_002123",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_002165",
+      "detected_ring_id": "detected_13",
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_002190",
+      "detected_ring_id": "detected_15",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002250",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002257",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_002341",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_002362",
+      "detected_ring_id": "detected_8",
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_002367",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_002370",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_002441",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_002468",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_002486",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_002496",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_002503",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_002508",
+      "detected_ring_id": "detected_15",
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_002515",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_002545",
+      "detected_ring_id": "detected_87",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_002554",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002569",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_002596",
+      "detected_ring_id": "detected_21",
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_002606",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_002661",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_002670",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_002673",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_002691",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_002757",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_002839",
+      "detected_ring_id": "detected_75",
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_002851",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_002858",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_002869",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_002877",
+      "detected_ring_id": "detected_45",
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_002906",
+      "detected_ring_id": "detected_13",
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_002930",
+      "detected_ring_id": "detected_66",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_002937",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_003013",
+      "detected_ring_id": "detected_86",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_003036",
+      "detected_ring_id": "detected_42",
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_003037",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_003070",
+      "detected_ring_id": "detected_15",
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_003093",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_003100",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_003128",
+      "detected_ring_id": "detected_74",
+      "ground_truth_ring_id": "ring_004"
+    },
+    {
+      "id": "acct_003158",
+      "detected_ring_id": "detected_87",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_003161",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_003202",
+      "detected_ring_id": "detected_21",
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_003207",
+      "detected_ring_id": "detected_13",
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_003236",
+      "detected_ring_id": "detected_15",
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_003269",
+      "detected_ring_id": "detected_87",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_003270",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_003284",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_003286",
+      "detected_ring_id": "detected_13",
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_003289",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_003309",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_003315",
+      "detected_ring_id": "detected_8",
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_003322",
+      "detected_ring_id": "detected_42",
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_003377",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_003381",
+      "detected_ring_id": "detected_14",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_003383",
+      "detected_ring_id": "detected_8",
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_003403",
+      "detected_ring_id": "detected_66",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_003407",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_003437",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_003440",
+      "detected_ring_id": "detected_58",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_003446",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_003490",
+      "detected_ring_id": "detected_75",
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_003519",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_003557",
+      "detected_ring_id": "detected_45",
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_003576",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_003598",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_003640",
+      "detected_ring_id": "detected_66",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_003666",
+      "detected_ring_id": "detected_8",
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_003682",
+      "detected_ring_id": "detected_86",
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_003693",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_003803",
+      "detected_ring_id": "detected_64",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_003853",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_003963",
+      "detected_ring_id": "detected_15",
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_003987",
+      "detected_ring_id": "detected_13",
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_003997",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_004007",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_004027",
+      "detected_ring_id": "detected_14",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_004034",
+      "detected_ring_id": "detected_75",
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_004036",
+      "detected_ring_id": "detected_86",
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_004044",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_004076",
+      "detected_ring_id": "detected_45",
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_004093",
+      "detected_ring_id": "detected_42",
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_004115",
+      "detected_ring_id": "detected_42",
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_004138",
+      "detected_ring_id": "detected_13",
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_004151",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_004218",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_004221",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_004224",
+      "detected_ring_id": "detected_86",
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_004225",
+      "detected_ring_id": "detected_50",
+      "ground_truth_ring_id": "ring_008"
+    },
+    {
+      "id": "acct_004226",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_004294",
+      "detected_ring_id": "detected_15",
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_004296",
+      "detected_ring_id": "detected_4",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_004327",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_004390",
+      "detected_ring_id": "detected_66",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_004395",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_004405",
+      "detected_ring_id": "detected_43",
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_004452",
+      "detected_ring_id": "detected_27",
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_004495",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_004510",
+      "detected_ring_id": "detected_42",
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_004514",
+      "detected_ring_id": "detected_14",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_004520",
+      "detected_ring_id": "detected_90",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_004539",
+      "detected_ring_id": "detected_75",
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_004633",
+      "detected_ring_id": "detected_50",
+      "ground_truth_ring_id": "ring_008"
+    },
+    {
+      "id": "acct_004651",
+      "detected_ring_id": "detected_75",
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_004664",
+      "detected_ring_id": "detected_21",
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_004778",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_004782",
+      "detected_ring_id": "detected_8",
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_004816",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_004846",
+      "detected_ring_id": "detected_13",
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_004900",
+      "detected_ring_id": "detected_15",
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_004910",
+      "detected_ring_id": "detected_73",
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_004926",
+      "detected_ring_id": "detected_74",
+      "ground_truth_ring_id": "ring_004"
+    },
+    {
+      "id": "acct_004980",
+      "detected_ring_id": "detected_87",
+      "ground_truth_ring_id": "ring_015"
+    }
+  ],
+  "edges": [
+    {
+      "source": "acct_000011",
+      "target": "acct_000087",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_000413",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_000515",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_001108",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_001147",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_001407",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_002691",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_002869",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_003446",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_000011",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_000073",
+      "target": "acct_001566",
+      "weight": 1
+    },
+    {
+      "source": "acct_000073",
+      "target": "acct_002569",
+      "weight": 1
+    },
+    {
+      "source": "acct_000073",
+      "target": "acct_002670",
+      "weight": 1
+    },
+    {
+      "source": "acct_000073",
+      "target": "acct_003437",
+      "weight": 1
+    },
+    {
+      "source": "acct_000073",
+      "target": "acct_004044",
+      "weight": 1
+    },
+    {
+      "source": "acct_000073",
+      "target": "acct_004778",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_000490",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_000679",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_000760",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_001679",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_001726",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_002367",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_002370",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_002937",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_003519",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_000084",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_000413",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_000515",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_001108",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_001147",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_001407",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_002691",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_002869",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_003446",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_000087",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_000100",
+      "target": "acct_003437",
+      "weight": 1
+    },
+    {
+      "source": "acct_000112",
+      "target": "acct_000176",
+      "weight": 1
+    },
+    {
+      "source": "acct_000112",
+      "target": "acct_000925",
+      "weight": 1
+    },
+    {
+      "source": "acct_000112",
+      "target": "acct_001440",
+      "weight": 1
+    },
+    {
+      "source": "acct_000112",
+      "target": "acct_001789",
+      "weight": 1
+    },
+    {
+      "source": "acct_000112",
+      "target": "acct_002441",
+      "weight": 1
+    },
+    {
+      "source": "acct_000112",
+      "target": "acct_003100",
+      "weight": 1
+    },
+    {
+      "source": "acct_000112",
+      "target": "acct_004007",
+      "weight": 1
+    },
+    {
+      "source": "acct_000112",
+      "target": "acct_004405",
+      "weight": 1
+    },
+    {
+      "source": "acct_000176",
+      "target": "acct_000925",
+      "weight": 1
+    },
+    {
+      "source": "acct_000176",
+      "target": "acct_001440",
+      "weight": 1
+    },
+    {
+      "source": "acct_000176",
+      "target": "acct_001789",
+      "weight": 1
+    },
+    {
+      "source": "acct_000176",
+      "target": "acct_002441",
+      "weight": 1
+    },
+    {
+      "source": "acct_000176",
+      "target": "acct_003100",
+      "weight": 1
+    },
+    {
+      "source": "acct_000176",
+      "target": "acct_004007",
+      "weight": 1
+    },
+    {
+      "source": "acct_000176",
+      "target": "acct_004405",
+      "weight": 1
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_000592",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_001133",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_001586",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_001707",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_001918",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_002123",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_002468",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_002661",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_003161",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_000229",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_000264",
+      "target": "acct_001005",
+      "weight": 1
+    },
+    {
+      "source": "acct_000264",
+      "target": "acct_001193",
+      "weight": 1
+    },
+    {
+      "source": "acct_000264",
+      "target": "acct_002839",
+      "weight": 1
+    },
+    {
+      "source": "acct_000264",
+      "target": "acct_003490",
+      "weight": 1
+    },
+    {
+      "source": "acct_000264",
+      "target": "acct_004034",
+      "weight": 1
+    },
+    {
+      "source": "acct_000264",
+      "target": "acct_004539",
+      "weight": 1
+    },
+    {
+      "source": "acct_000264",
+      "target": "acct_004651",
+      "weight": 1
+    },
+    {
+      "source": "acct_000320",
+      "target": "acct_001069",
+      "weight": 2
+    },
+    {
+      "source": "acct_000320",
+      "target": "acct_001515",
+      "weight": 2
+    },
+    {
+      "source": "acct_000320",
+      "target": "acct_001776",
+      "weight": 2
+    },
+    {
+      "source": "acct_000320",
+      "target": "acct_001888",
+      "weight": 2
+    },
+    {
+      "source": "acct_000320",
+      "target": "acct_003682",
+      "weight": 2
+    },
+    {
+      "source": "acct_000320",
+      "target": "acct_004036",
+      "weight": 2
+    },
+    {
+      "source": "acct_000320",
+      "target": "acct_004224",
+      "weight": 2
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_000621",
+      "weight": 1
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_002930",
+      "weight": 1
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_003403",
+      "weight": 1
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_003640",
+      "weight": 1
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_004390",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_000585",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_000601",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_001075",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_001991",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_002341",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_002486",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_003997",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_004495",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_004816",
+      "weight": 1
+    },
+    {
+      "source": "acct_000350",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_000413",
+      "target": "acct_000515",
+      "weight": 1
+    },
+    {
+      "source": "acct_000413",
+      "target": "acct_001108",
+      "weight": 1
+    },
+    {
+      "source": "acct_000413",
+      "target": "acct_001147",
+      "weight": 1
+    },
+    {
+      "source": "acct_000413",
+      "target": "acct_001407",
+      "weight": 1
+    },
+    {
+      "source": "acct_000413",
+      "target": "acct_002691",
+      "weight": 1
+    },
+    {
+      "source": "acct_000413",
+      "target": "acct_002869",
+      "weight": 1
+    },
+    {
+      "source": "acct_000413",
+      "target": "acct_003446",
+      "weight": 1
+    },
+    {
+      "source": "acct_000413",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_000413",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_000416",
+      "target": "acct_000602",
+      "weight": 2
+    },
+    {
+      "source": "acct_000416",
+      "target": "acct_000671",
+      "weight": 2
+    },
+    {
+      "source": "acct_000416",
+      "target": "acct_000945",
+      "weight": 2
+    },
+    {
+      "source": "acct_000416",
+      "target": "acct_001448",
+      "weight": 2
+    },
+    {
+      "source": "acct_000416",
+      "target": "acct_002545",
+      "weight": 2
+    },
+    {
+      "source": "acct_000416",
+      "target": "acct_003158",
+      "weight": 2
+    },
+    {
+      "source": "acct_000416",
+      "target": "acct_003269",
+      "weight": 2
+    },
+    {
+      "source": "acct_000416",
+      "target": "acct_004980",
+      "weight": 2
+    },
+    {
+      "source": "acct_000482",
+      "target": "acct_001076",
+      "weight": 1
+    },
+    {
+      "source": "acct_000482",
+      "target": "acct_001085",
+      "weight": 1
+    },
+    {
+      "source": "acct_000482",
+      "target": "acct_001260",
+      "weight": 1
+    },
+    {
+      "source": "acct_000482",
+      "target": "acct_001516",
+      "weight": 1
+    },
+    {
+      "source": "acct_000482",
+      "target": "acct_002503",
+      "weight": 1
+    },
+    {
+      "source": "acct_000482",
+      "target": "acct_003576",
+      "weight": 1
+    },
+    {
+      "source": "acct_000482",
+      "target": "acct_004327",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_000679",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_000760",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_001679",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_001726",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_002367",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_002370",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_002937",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_003519",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_000490",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_000515",
+      "target": "acct_001108",
+      "weight": 1
+    },
+    {
+      "source": "acct_000515",
+      "target": "acct_001147",
+      "weight": 1
+    },
+    {
+      "source": "acct_000515",
+      "target": "acct_001407",
+      "weight": 1
+    },
+    {
+      "source": "acct_000515",
+      "target": "acct_002691",
+      "weight": 1
+    },
+    {
+      "source": "acct_000515",
+      "target": "acct_002869",
+      "weight": 1
+    },
+    {
+      "source": "acct_000515",
+      "target": "acct_003446",
+      "weight": 1
+    },
+    {
+      "source": "acct_000515",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_000515",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_000522",
+      "target": "acct_000928",
+      "weight": 2
+    },
+    {
+      "source": "acct_000522",
+      "target": "acct_001489",
+      "weight": 2
+    },
+    {
+      "source": "acct_000522",
+      "target": "acct_001518",
+      "weight": 2
+    },
+    {
+      "source": "acct_000522",
+      "target": "acct_002362",
+      "weight": 2
+    },
+    {
+      "source": "acct_000522",
+      "target": "acct_003315",
+      "weight": 2
+    },
+    {
+      "source": "acct_000522",
+      "target": "acct_003383",
+      "weight": 2
+    },
+    {
+      "source": "acct_000522",
+      "target": "acct_003666",
+      "weight": 2
+    },
+    {
+      "source": "acct_000522",
+      "target": "acct_004782",
+      "weight": 2
+    },
+    {
+      "source": "acct_000559",
+      "target": "acct_001545",
+      "weight": 2
+    },
+    {
+      "source": "acct_000559",
+      "target": "acct_001819",
+      "weight": 2
+    },
+    {
+      "source": "acct_000559",
+      "target": "acct_003381",
+      "weight": 2
+    },
+    {
+      "source": "acct_000559",
+      "target": "acct_004027",
+      "weight": 2
+    },
+    {
+      "source": "acct_000567",
+      "target": "acct_002508",
+      "weight": 2
+    },
+    {
+      "source": "acct_000567",
+      "target": "acct_003070",
+      "weight": 2
+    },
+    {
+      "source": "acct_000567",
+      "target": "acct_003236",
+      "weight": 2
+    },
+    {
+      "source": "acct_000567",
+      "target": "acct_003963",
+      "weight": 2
+    },
+    {
+      "source": "acct_000567",
+      "target": "acct_004294",
+      "weight": 2
+    },
+    {
+      "source": "acct_000567",
+      "target": "acct_004900",
+      "weight": 2
+    },
+    {
+      "source": "acct_000585",
+      "target": "acct_000601",
+      "weight": 1
+    },
+    {
+      "source": "acct_000585",
+      "target": "acct_001075",
+      "weight": 1
+    },
+    {
+      "source": "acct_000585",
+      "target": "acct_001991",
+      "weight": 1
+    },
+    {
+      "source": "acct_000585",
+      "target": "acct_002341",
+      "weight": 1
+    },
+    {
+      "source": "acct_000585",
+      "target": "acct_002486",
+      "weight": 1
+    },
+    {
+      "source": "acct_000585",
+      "target": "acct_003997",
+      "weight": 1
+    },
+    {
+      "source": "acct_000585",
+      "target": "acct_004495",
+      "weight": 1
+    },
+    {
+      "source": "acct_000585",
+      "target": "acct_004816",
+      "weight": 1
+    },
+    {
+      "source": "acct_000585",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_001133",
+      "weight": 2
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_001586",
+      "weight": 2
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_001707",
+      "weight": 2
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_001918",
+      "weight": 2
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_002123",
+      "weight": 2
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_002468",
+      "weight": 2
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_002661",
+      "weight": 2
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_003161",
+      "weight": 2
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_000592",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_000601",
+      "target": "acct_001075",
+      "weight": 1
+    },
+    {
+      "source": "acct_000601",
+      "target": "acct_001991",
+      "weight": 1
+    },
+    {
+      "source": "acct_000601",
+      "target": "acct_002341",
+      "weight": 1
+    },
+    {
+      "source": "acct_000601",
+      "target": "acct_002486",
+      "weight": 1
+    },
+    {
+      "source": "acct_000601",
+      "target": "acct_003997",
+      "weight": 1
+    },
+    {
+      "source": "acct_000601",
+      "target": "acct_004495",
+      "weight": 1
+    },
+    {
+      "source": "acct_000601",
+      "target": "acct_004816",
+      "weight": 1
+    },
+    {
+      "source": "acct_000601",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_000602",
+      "target": "acct_000671",
+      "weight": 2
+    },
+    {
+      "source": "acct_000602",
+      "target": "acct_000945",
+      "weight": 2
+    },
+    {
+      "source": "acct_000602",
+      "target": "acct_001448",
+      "weight": 2
+    },
+    {
+      "source": "acct_000602",
+      "target": "acct_002545",
+      "weight": 2
+    },
+    {
+      "source": "acct_000602",
+      "target": "acct_003158",
+      "weight": 2
+    },
+    {
+      "source": "acct_000602",
+      "target": "acct_003269",
+      "weight": 2
+    },
+    {
+      "source": "acct_000602",
+      "target": "acct_004980",
+      "weight": 2
+    },
+    {
+      "source": "acct_000621",
+      "target": "acct_002930",
+      "weight": 1
+    },
+    {
+      "source": "acct_000621",
+      "target": "acct_003403",
+      "weight": 1
+    },
+    {
+      "source": "acct_000621",
+      "target": "acct_003640",
+      "weight": 1
+    },
+    {
+      "source": "acct_000621",
+      "target": "acct_004390",
+      "weight": 1
+    },
+    {
+      "source": "acct_000640",
+      "target": "acct_001268",
+      "weight": 1
+    },
+    {
+      "source": "acct_000640",
+      "target": "acct_001315",
+      "weight": 1
+    },
+    {
+      "source": "acct_000640",
+      "target": "acct_002596",
+      "weight": 1
+    },
+    {
+      "source": "acct_000640",
+      "target": "acct_003202",
+      "weight": 1
+    },
+    {
+      "source": "acct_000640",
+      "target": "acct_004664",
+      "weight": 1
+    },
+    {
+      "source": "acct_000671",
+      "target": "acct_000945",
+      "weight": 2
+    },
+    {
+      "source": "acct_000671",
+      "target": "acct_001448",
+      "weight": 2
+    },
+    {
+      "source": "acct_000671",
+      "target": "acct_002545",
+      "weight": 2
+    },
+    {
+      "source": "acct_000671",
+      "target": "acct_003158",
+      "weight": 2
+    },
+    {
+      "source": "acct_000671",
+      "target": "acct_003269",
+      "weight": 2
+    },
+    {
+      "source": "acct_000671",
+      "target": "acct_004980",
+      "weight": 2
+    },
+    {
+      "source": "acct_000679",
+      "target": "acct_000760",
+      "weight": 1
+    },
+    {
+      "source": "acct_000679",
+      "target": "acct_001679",
+      "weight": 1
+    },
+    {
+      "source": "acct_000679",
+      "target": "acct_001726",
+      "weight": 1
+    },
+    {
+      "source": "acct_000679",
+      "target": "acct_002367",
+      "weight": 1
+    },
+    {
+      "source": "acct_000679",
+      "target": "acct_002370",
+      "weight": 1
+    },
+    {
+      "source": "acct_000679",
+      "target": "acct_002937",
+      "weight": 1
+    },
+    {
+      "source": "acct_000679",
+      "target": "acct_003519",
+      "weight": 1
+    },
+    {
+      "source": "acct_000679",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_000679",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_000685",
+      "target": "acct_000978",
+      "weight": 1
+    },
+    {
+      "source": "acct_000685",
+      "target": "acct_001079",
+      "weight": 1
+    },
+    {
+      "source": "acct_000685",
+      "target": "acct_001940",
+      "weight": 1
+    },
+    {
+      "source": "acct_000749",
+      "target": "acct_001208",
+      "weight": 2
+    },
+    {
+      "source": "acct_000749",
+      "target": "acct_001386",
+      "weight": 2
+    },
+    {
+      "source": "acct_000749",
+      "target": "acct_001445",
+      "weight": 2
+    },
+    {
+      "source": "acct_000749",
+      "target": "acct_003037",
+      "weight": 2
+    },
+    {
+      "source": "acct_000749",
+      "target": "acct_003407",
+      "weight": 2
+    },
+    {
+      "source": "acct_000749",
+      "target": "acct_004221",
+      "weight": 2
+    },
+    {
+      "source": "acct_000760",
+      "target": "acct_001679",
+      "weight": 1
+    },
+    {
+      "source": "acct_000760",
+      "target": "acct_001726",
+      "weight": 1
+    },
+    {
+      "source": "acct_000760",
+      "target": "acct_002367",
+      "weight": 1
+    },
+    {
+      "source": "acct_000760",
+      "target": "acct_002370",
+      "weight": 1
+    },
+    {
+      "source": "acct_000760",
+      "target": "acct_002937",
+      "weight": 1
+    },
+    {
+      "source": "acct_000760",
+      "target": "acct_003519",
+      "weight": 1
+    },
+    {
+      "source": "acct_000760",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_000760",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_000828",
+      "target": "acct_001283",
+      "weight": 1
+    },
+    {
+      "source": "acct_000828",
+      "target": "acct_001538",
+      "weight": 1
+    },
+    {
+      "source": "acct_000828",
+      "target": "acct_002496",
+      "weight": 1
+    },
+    {
+      "source": "acct_000828",
+      "target": "acct_002515",
+      "weight": 1
+    },
+    {
+      "source": "acct_000828",
+      "target": "acct_002606",
+      "weight": 1
+    },
+    {
+      "source": "acct_000828",
+      "target": "acct_003270",
+      "weight": 1
+    },
+    {
+      "source": "acct_000828",
+      "target": "acct_003693",
+      "weight": 1
+    },
+    {
+      "source": "acct_000828",
+      "target": "acct_003853",
+      "weight": 1
+    },
+    {
+      "source": "acct_000841",
+      "target": "acct_001004",
+      "weight": 2
+    },
+    {
+      "source": "acct_000841",
+      "target": "acct_001901",
+      "weight": 2
+    },
+    {
+      "source": "acct_000841",
+      "target": "acct_002116",
+      "weight": 2
+    },
+    {
+      "source": "acct_000841",
+      "target": "acct_002877",
+      "weight": 2
+    },
+    {
+      "source": "acct_000841",
+      "target": "acct_003557",
+      "weight": 2
+    },
+    {
+      "source": "acct_000841",
+      "target": "acct_004076",
+      "weight": 2
+    },
+    {
+      "source": "acct_000858",
+      "target": "acct_001227",
+      "weight": 2
+    },
+    {
+      "source": "acct_000858",
+      "target": "acct_001353",
+      "weight": 2
+    },
+    {
+      "source": "acct_000858",
+      "target": "acct_004225",
+      "weight": 2
+    },
+    {
+      "source": "acct_000858",
+      "target": "acct_004633",
+      "weight": 2
+    },
+    {
+      "source": "acct_000925",
+      "target": "acct_001440",
+      "weight": 1
+    },
+    {
+      "source": "acct_000925",
+      "target": "acct_001789",
+      "weight": 1
+    },
+    {
+      "source": "acct_000925",
+      "target": "acct_002441",
+      "weight": 1
+    },
+    {
+      "source": "acct_000925",
+      "target": "acct_003100",
+      "weight": 1
+    },
+    {
+      "source": "acct_000925",
+      "target": "acct_004007",
+      "weight": 1
+    },
+    {
+      "source": "acct_000925",
+      "target": "acct_004405",
+      "weight": 1
+    },
+    {
+      "source": "acct_000928",
+      "target": "acct_001489",
+      "weight": 2
+    },
+    {
+      "source": "acct_000928",
+      "target": "acct_001518",
+      "weight": 2
+    },
+    {
+      "source": "acct_000928",
+      "target": "acct_002362",
+      "weight": 2
+    },
+    {
+      "source": "acct_000928",
+      "target": "acct_003315",
+      "weight": 2
+    },
+    {
+      "source": "acct_000928",
+      "target": "acct_003383",
+      "weight": 2
+    },
+    {
+      "source": "acct_000928",
+      "target": "acct_003666",
+      "weight": 2
+    },
+    {
+      "source": "acct_000928",
+      "target": "acct_004782",
+      "weight": 2
+    },
+    {
+      "source": "acct_000945",
+      "target": "acct_001448",
+      "weight": 2
+    },
+    {
+      "source": "acct_000945",
+      "target": "acct_002545",
+      "weight": 2
+    },
+    {
+      "source": "acct_000945",
+      "target": "acct_003158",
+      "weight": 2
+    },
+    {
+      "source": "acct_000945",
+      "target": "acct_003269",
+      "weight": 2
+    },
+    {
+      "source": "acct_000945",
+      "target": "acct_004980",
+      "weight": 2
+    },
+    {
+      "source": "acct_000978",
+      "target": "acct_001079",
+      "weight": 1
+    },
+    {
+      "source": "acct_000978",
+      "target": "acct_001940",
+      "weight": 1
+    },
+    {
+      "source": "acct_000986",
+      "target": "acct_001357",
+      "weight": 1
+    },
+    {
+      "source": "acct_000986",
+      "target": "acct_001451",
+      "weight": 1
+    },
+    {
+      "source": "acct_000986",
+      "target": "acct_001484",
+      "weight": 1
+    },
+    {
+      "source": "acct_000986",
+      "target": "acct_001933",
+      "weight": 1
+    },
+    {
+      "source": "acct_000986",
+      "target": "acct_002757",
+      "weight": 1
+    },
+    {
+      "source": "acct_000986",
+      "target": "acct_002851",
+      "weight": 1
+    },
+    {
+      "source": "acct_000986",
+      "target": "acct_003093",
+      "weight": 1
+    },
+    {
+      "source": "acct_000986",
+      "target": "acct_003377",
+      "weight": 1
+    },
+    {
+      "source": "acct_000986",
+      "target": "acct_003803",
+      "weight": 1
+    },
+    {
+      "source": "acct_001004",
+      "target": "acct_001901",
+      "weight": 2
+    },
+    {
+      "source": "acct_001004",
+      "target": "acct_002116",
+      "weight": 2
+    },
+    {
+      "source": "acct_001004",
+      "target": "acct_002877",
+      "weight": 2
+    },
+    {
+      "source": "acct_001004",
+      "target": "acct_003557",
+      "weight": 2
+    },
+    {
+      "source": "acct_001004",
+      "target": "acct_004076",
+      "weight": 2
+    },
+    {
+      "source": "acct_001005",
+      "target": "acct_001193",
+      "weight": 1
+    },
+    {
+      "source": "acct_001005",
+      "target": "acct_002839",
+      "weight": 1
+    },
+    {
+      "source": "acct_001005",
+      "target": "acct_003490",
+      "weight": 1
+    },
+    {
+      "source": "acct_001005",
+      "target": "acct_004034",
+      "weight": 1
+    },
+    {
+      "source": "acct_001005",
+      "target": "acct_004539",
+      "weight": 1
+    },
+    {
+      "source": "acct_001005",
+      "target": "acct_004651",
+      "weight": 1
+    },
+    {
+      "source": "acct_001069",
+      "target": "acct_001515",
+      "weight": 2
+    },
+    {
+      "source": "acct_001069",
+      "target": "acct_001776",
+      "weight": 2
+    },
+    {
+      "source": "acct_001069",
+      "target": "acct_001888",
+      "weight": 2
+    },
+    {
+      "source": "acct_001069",
+      "target": "acct_003682",
+      "weight": 2
+    },
+    {
+      "source": "acct_001069",
+      "target": "acct_004036",
+      "weight": 2
+    },
+    {
+      "source": "acct_001069",
+      "target": "acct_004224",
+      "weight": 2
+    },
+    {
+      "source": "acct_001075",
+      "target": "acct_001991",
+      "weight": 1
+    },
+    {
+      "source": "acct_001075",
+      "target": "acct_002341",
+      "weight": 1
+    },
+    {
+      "source": "acct_001075",
+      "target": "acct_002486",
+      "weight": 1
+    },
+    {
+      "source": "acct_001075",
+      "target": "acct_003997",
+      "weight": 1
+    },
+    {
+      "source": "acct_001075",
+      "target": "acct_004495",
+      "weight": 1
+    },
+    {
+      "source": "acct_001075",
+      "target": "acct_004816",
+      "weight": 1
+    },
+    {
+      "source": "acct_001075",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_001076",
+      "target": "acct_001085",
+      "weight": 1
+    },
+    {
+      "source": "acct_001076",
+      "target": "acct_001260",
+      "weight": 1
+    },
+    {
+      "source": "acct_001076",
+      "target": "acct_001516",
+      "weight": 1
+    },
+    {
+      "source": "acct_001076",
+      "target": "acct_002503",
+      "weight": 1
+    },
+    {
+      "source": "acct_001076",
+      "target": "acct_003576",
+      "weight": 1
+    },
+    {
+      "source": "acct_001076",
+      "target": "acct_004327",
+      "weight": 1
+    },
+    {
+      "source": "acct_001079",
+      "target": "acct_001940",
+      "weight": 1
+    },
+    {
+      "source": "acct_001085",
+      "target": "acct_001260",
+      "weight": 1
+    },
+    {
+      "source": "acct_001085",
+      "target": "acct_001516",
+      "weight": 1
+    },
+    {
+      "source": "acct_001085",
+      "target": "acct_002503",
+      "weight": 1
+    },
+    {
+      "source": "acct_001085",
+      "target": "acct_003576",
+      "weight": 1
+    },
+    {
+      "source": "acct_001085",
+      "target": "acct_004327",
+      "weight": 1
+    },
+    {
+      "source": "acct_001108",
+      "target": "acct_001147",
+      "weight": 1
+    },
+    {
+      "source": "acct_001108",
+      "target": "acct_001407",
+      "weight": 1
+    },
+    {
+      "source": "acct_001108",
+      "target": "acct_002691",
+      "weight": 1
+    },
+    {
+      "source": "acct_001108",
+      "target": "acct_002869",
+      "weight": 1
+    },
+    {
+      "source": "acct_001108",
+      "target": "acct_003446",
+      "weight": 1
+    },
+    {
+      "source": "acct_001108",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_001108",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_001133",
+      "target": "acct_001586",
+      "weight": 2
+    },
+    {
+      "source": "acct_001133",
+      "target": "acct_001707",
+      "weight": 2
+    },
+    {
+      "source": "acct_001133",
+      "target": "acct_001918",
+      "weight": 2
+    },
+    {
+      "source": "acct_001133",
+      "target": "acct_002123",
+      "weight": 2
+    },
+    {
+      "source": "acct_001133",
+      "target": "acct_002468",
+      "weight": 2
+    },
+    {
+      "source": "acct_001133",
+      "target": "acct_002661",
+      "weight": 2
+    },
+    {
+      "source": "acct_001133",
+      "target": "acct_003161",
+      "weight": 2
+    },
+    {
+      "source": "acct_001133",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_001133",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_001147",
+      "target": "acct_001407",
+      "weight": 1
+    },
+    {
+      "source": "acct_001147",
+      "target": "acct_002691",
+      "weight": 1
+    },
+    {
+      "source": "acct_001147",
+      "target": "acct_002869",
+      "weight": 1
+    },
+    {
+      "source": "acct_001147",
+      "target": "acct_003446",
+      "weight": 1
+    },
+    {
+      "source": "acct_001147",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_001147",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_001193",
+      "target": "acct_002839",
+      "weight": 1
+    },
+    {
+      "source": "acct_001193",
+      "target": "acct_003490",
+      "weight": 1
+    },
+    {
+      "source": "acct_001193",
+      "target": "acct_004034",
+      "weight": 1
+    },
+    {
+      "source": "acct_001193",
+      "target": "acct_004539",
+      "weight": 1
+    },
+    {
+      "source": "acct_001193",
+      "target": "acct_004651",
+      "weight": 1
+    },
+    {
+      "source": "acct_001208",
+      "target": "acct_001386",
+      "weight": 2
+    },
+    {
+      "source": "acct_001208",
+      "target": "acct_001445",
+      "weight": 2
+    },
+    {
+      "source": "acct_001208",
+      "target": "acct_003037",
+      "weight": 2
+    },
+    {
+      "source": "acct_001208",
+      "target": "acct_003407",
+      "weight": 2
+    },
+    {
+      "source": "acct_001208",
+      "target": "acct_004221",
+      "weight": 2
+    },
+    {
+      "source": "acct_001227",
+      "target": "acct_001353",
+      "weight": 2
+    },
+    {
+      "source": "acct_001227",
+      "target": "acct_004225",
+      "weight": 2
+    },
+    {
+      "source": "acct_001227",
+      "target": "acct_004633",
+      "weight": 2
+    },
+    {
+      "source": "acct_001260",
+      "target": "acct_001516",
+      "weight": 1
+    },
+    {
+      "source": "acct_001260",
+      "target": "acct_002503",
+      "weight": 1
+    },
+    {
+      "source": "acct_001260",
+      "target": "acct_003576",
+      "weight": 1
+    },
+    {
+      "source": "acct_001260",
+      "target": "acct_004327",
+      "weight": 1
+    },
+    {
+      "source": "acct_001268",
+      "target": "acct_001315",
+      "weight": 1
+    },
+    {
+      "source": "acct_001268",
+      "target": "acct_002596",
+      "weight": 1
+    },
+    {
+      "source": "acct_001268",
+      "target": "acct_003202",
+      "weight": 1
+    },
+    {
+      "source": "acct_001268",
+      "target": "acct_004664",
+      "weight": 1
+    },
+    {
+      "source": "acct_001283",
+      "target": "acct_001538",
+      "weight": 1
+    },
+    {
+      "source": "acct_001283",
+      "target": "acct_002496",
+      "weight": 1
+    },
+    {
+      "source": "acct_001283",
+      "target": "acct_002515",
+      "weight": 1
+    },
+    {
+      "source": "acct_001283",
+      "target": "acct_002606",
+      "weight": 1
+    },
+    {
+      "source": "acct_001283",
+      "target": "acct_003270",
+      "weight": 1
+    },
+    {
+      "source": "acct_001283",
+      "target": "acct_003693",
+      "weight": 1
+    },
+    {
+      "source": "acct_001283",
+      "target": "acct_003853",
+      "weight": 1
+    },
+    {
+      "source": "acct_001315",
+      "target": "acct_002596",
+      "weight": 1
+    },
+    {
+      "source": "acct_001315",
+      "target": "acct_003202",
+      "weight": 1
+    },
+    {
+      "source": "acct_001315",
+      "target": "acct_004664",
+      "weight": 1
+    },
+    {
+      "source": "acct_001353",
+      "target": "acct_004225",
+      "weight": 2
+    },
+    {
+      "source": "acct_001353",
+      "target": "acct_004633",
+      "weight": 2
+    },
+    {
+      "source": "acct_001357",
+      "target": "acct_001451",
+      "weight": 1
+    },
+    {
+      "source": "acct_001357",
+      "target": "acct_001484",
+      "weight": 1
+    },
+    {
+      "source": "acct_001357",
+      "target": "acct_001933",
+      "weight": 1
+    },
+    {
+      "source": "acct_001357",
+      "target": "acct_002757",
+      "weight": 1
+    },
+    {
+      "source": "acct_001357",
+      "target": "acct_002851",
+      "weight": 1
+    },
+    {
+      "source": "acct_001357",
+      "target": "acct_003093",
+      "weight": 1
+    },
+    {
+      "source": "acct_001357",
+      "target": "acct_003377",
+      "weight": 1
+    },
+    {
+      "source": "acct_001357",
+      "target": "acct_003803",
+      "weight": 1
+    },
+    {
+      "source": "acct_001386",
+      "target": "acct_001445",
+      "weight": 2
+    },
+    {
+      "source": "acct_001386",
+      "target": "acct_003037",
+      "weight": 2
+    },
+    {
+      "source": "acct_001386",
+      "target": "acct_003407",
+      "weight": 2
+    },
+    {
+      "source": "acct_001386",
+      "target": "acct_004221",
+      "weight": 2
+    },
+    {
+      "source": "acct_001407",
+      "target": "acct_002691",
+      "weight": 1
+    },
+    {
+      "source": "acct_001407",
+      "target": "acct_002869",
+      "weight": 1
+    },
+    {
+      "source": "acct_001407",
+      "target": "acct_003446",
+      "weight": 1
+    },
+    {
+      "source": "acct_001407",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_001407",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_001418",
+      "target": "acct_001473",
+      "weight": 1
+    },
+    {
+      "source": "acct_001418",
+      "target": "acct_003128",
+      "weight": 1
+    },
+    {
+      "source": "acct_001418",
+      "target": "acct_004926",
+      "weight": 1
+    },
+    {
+      "source": "acct_001440",
+      "target": "acct_001789",
+      "weight": 1
+    },
+    {
+      "source": "acct_001440",
+      "target": "acct_002441",
+      "weight": 1
+    },
+    {
+      "source": "acct_001440",
+      "target": "acct_003100",
+      "weight": 1
+    },
+    {
+      "source": "acct_001440",
+      "target": "acct_004007",
+      "weight": 1
+    },
+    {
+      "source": "acct_001440",
+      "target": "acct_004405",
+      "weight": 1
+    },
+    {
+      "source": "acct_001445",
+      "target": "acct_003037",
+      "weight": 2
+    },
+    {
+      "source": "acct_001445",
+      "target": "acct_003407",
+      "weight": 2
+    },
+    {
+      "source": "acct_001445",
+      "target": "acct_004221",
+      "weight": 2
+    },
+    {
+      "source": "acct_001448",
+      "target": "acct_002545",
+      "weight": 2
+    },
+    {
+      "source": "acct_001448",
+      "target": "acct_003158",
+      "weight": 2
+    },
+    {
+      "source": "acct_001448",
+      "target": "acct_003269",
+      "weight": 2
+    },
+    {
+      "source": "acct_001448",
+      "target": "acct_004980",
+      "weight": 2
+    },
+    {
+      "source": "acct_001451",
+      "target": "acct_001484",
+      "weight": 1
+    },
+    {
+      "source": "acct_001451",
+      "target": "acct_001933",
+      "weight": 1
+    },
+    {
+      "source": "acct_001451",
+      "target": "acct_002757",
+      "weight": 1
+    },
+    {
+      "source": "acct_001451",
+      "target": "acct_002851",
+      "weight": 1
+    },
+    {
+      "source": "acct_001451",
+      "target": "acct_003093",
+      "weight": 1
+    },
+    {
+      "source": "acct_001451",
+      "target": "acct_003377",
+      "weight": 1
+    },
+    {
+      "source": "acct_001451",
+      "target": "acct_003803",
+      "weight": 1
+    },
+    {
+      "source": "acct_001473",
+      "target": "acct_003128",
+      "weight": 1
+    },
+    {
+      "source": "acct_001473",
+      "target": "acct_004926",
+      "weight": 1
+    },
+    {
+      "source": "acct_001484",
+      "target": "acct_001933",
+      "weight": 1
+    },
+    {
+      "source": "acct_001484",
+      "target": "acct_002757",
+      "weight": 1
+    },
+    {
+      "source": "acct_001484",
+      "target": "acct_002851",
+      "weight": 1
+    },
+    {
+      "source": "acct_001484",
+      "target": "acct_003093",
+      "weight": 1
+    },
+    {
+      "source": "acct_001484",
+      "target": "acct_003377",
+      "weight": 1
+    },
+    {
+      "source": "acct_001484",
+      "target": "acct_003803",
+      "weight": 1
+    },
+    {
+      "source": "acct_001489",
+      "target": "acct_001518",
+      "weight": 2
+    },
+    {
+      "source": "acct_001489",
+      "target": "acct_002362",
+      "weight": 2
+    },
+    {
+      "source": "acct_001489",
+      "target": "acct_003315",
+      "weight": 2
+    },
+    {
+      "source": "acct_001489",
+      "target": "acct_003383",
+      "weight": 2
+    },
+    {
+      "source": "acct_001489",
+      "target": "acct_003666",
+      "weight": 2
+    },
+    {
+      "source": "acct_001489",
+      "target": "acct_004782",
+      "weight": 2
+    },
+    {
+      "source": "acct_001515",
+      "target": "acct_001776",
+      "weight": 2
+    },
+    {
+      "source": "acct_001515",
+      "target": "acct_001888",
+      "weight": 2
+    },
+    {
+      "source": "acct_001515",
+      "target": "acct_003682",
+      "weight": 2
+    },
+    {
+      "source": "acct_001515",
+      "target": "acct_004036",
+      "weight": 2
+    },
+    {
+      "source": "acct_001515",
+      "target": "acct_004224",
+      "weight": 2
+    },
+    {
+      "source": "acct_001516",
+      "target": "acct_002503",
+      "weight": 1
+    },
+    {
+      "source": "acct_001516",
+      "target": "acct_003576",
+      "weight": 1
+    },
+    {
+      "source": "acct_001516",
+      "target": "acct_004327",
+      "weight": 1
+    },
+    {
+      "source": "acct_001518",
+      "target": "acct_002362",
+      "weight": 2
+    },
+    {
+      "source": "acct_001518",
+      "target": "acct_003315",
+      "weight": 2
+    },
+    {
+      "source": "acct_001518",
+      "target": "acct_003383",
+      "weight": 2
+    },
+    {
+      "source": "acct_001518",
+      "target": "acct_003666",
+      "weight": 2
+    },
+    {
+      "source": "acct_001518",
+      "target": "acct_004782",
+      "weight": 2
+    },
+    {
+      "source": "acct_001538",
+      "target": "acct_002496",
+      "weight": 1
+    },
+    {
+      "source": "acct_001538",
+      "target": "acct_002515",
+      "weight": 1
+    },
+    {
+      "source": "acct_001538",
+      "target": "acct_002606",
+      "weight": 1
+    },
+    {
+      "source": "acct_001538",
+      "target": "acct_003270",
+      "weight": 1
+    },
+    {
+      "source": "acct_001538",
+      "target": "acct_003693",
+      "weight": 1
+    },
+    {
+      "source": "acct_001538",
+      "target": "acct_003853",
+      "weight": 1
+    },
+    {
+      "source": "acct_001545",
+      "target": "acct_001819",
+      "weight": 2
+    },
+    {
+      "source": "acct_001545",
+      "target": "acct_003381",
+      "weight": 2
+    },
+    {
+      "source": "acct_001545",
+      "target": "acct_004027",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_001917",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_001922",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_002257",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_002673",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_002858",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_003309",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_003598",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_004151",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_004226",
+      "weight": 2
+    },
+    {
+      "source": "acct_001556",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_001566",
+      "target": "acct_002569",
+      "weight": 1
+    },
+    {
+      "source": "acct_001566",
+      "target": "acct_002670",
+      "weight": 1
+    },
+    {
+      "source": "acct_001566",
+      "target": "acct_003437",
+      "weight": 1
+    },
+    {
+      "source": "acct_001566",
+      "target": "acct_004044",
+      "weight": 1
+    },
+    {
+      "source": "acct_001566",
+      "target": "acct_004778",
+      "weight": 1
+    },
+    {
+      "source": "acct_001586",
+      "target": "acct_001707",
+      "weight": 2
+    },
+    {
+      "source": "acct_001586",
+      "target": "acct_001918",
+      "weight": 2
+    },
+    {
+      "source": "acct_001586",
+      "target": "acct_002123",
+      "weight": 2
+    },
+    {
+      "source": "acct_001586",
+      "target": "acct_002468",
+      "weight": 2
+    },
+    {
+      "source": "acct_001586",
+      "target": "acct_002661",
+      "weight": 2
+    },
+    {
+      "source": "acct_001586",
+      "target": "acct_003161",
+      "weight": 2
+    },
+    {
+      "source": "acct_001586",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_001586",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_001679",
+      "target": "acct_001726",
+      "weight": 1
+    },
+    {
+      "source": "acct_001679",
+      "target": "acct_002367",
+      "weight": 1
+    },
+    {
+      "source": "acct_001679",
+      "target": "acct_002370",
+      "weight": 1
+    },
+    {
+      "source": "acct_001679",
+      "target": "acct_002937",
+      "weight": 1
+    },
+    {
+      "source": "acct_001679",
+      "target": "acct_003519",
+      "weight": 1
+    },
+    {
+      "source": "acct_001679",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_001679",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_001707",
+      "target": "acct_001918",
+      "weight": 2
+    },
+    {
+      "source": "acct_001707",
+      "target": "acct_002123",
+      "weight": 2
+    },
+    {
+      "source": "acct_001707",
+      "target": "acct_002468",
+      "weight": 2
+    },
+    {
+      "source": "acct_001707",
+      "target": "acct_002661",
+      "weight": 2
+    },
+    {
+      "source": "acct_001707",
+      "target": "acct_003161",
+      "weight": 2
+    },
+    {
+      "source": "acct_001707",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_001707",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_001726",
+      "target": "acct_002367",
+      "weight": 1
+    },
+    {
+      "source": "acct_001726",
+      "target": "acct_002370",
+      "weight": 1
+    },
+    {
+      "source": "acct_001726",
+      "target": "acct_002937",
+      "weight": 1
+    },
+    {
+      "source": "acct_001726",
+      "target": "acct_003519",
+      "weight": 1
+    },
+    {
+      "source": "acct_001726",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_001726",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_001776",
+      "target": "acct_001888",
+      "weight": 2
+    },
+    {
+      "source": "acct_001776",
+      "target": "acct_003682",
+      "weight": 2
+    },
+    {
+      "source": "acct_001776",
+      "target": "acct_004036",
+      "weight": 2
+    },
+    {
+      "source": "acct_001776",
+      "target": "acct_004224",
+      "weight": 2
+    },
+    {
+      "source": "acct_001789",
+      "target": "acct_002441",
+      "weight": 1
+    },
+    {
+      "source": "acct_001789",
+      "target": "acct_003100",
+      "weight": 1
+    },
+    {
+      "source": "acct_001789",
+      "target": "acct_004007",
+      "weight": 1
+    },
+    {
+      "source": "acct_001789",
+      "target": "acct_004405",
+      "weight": 1
+    },
+    {
+      "source": "acct_001819",
+      "target": "acct_003381",
+      "weight": 2
+    },
+    {
+      "source": "acct_001819",
+      "target": "acct_004027",
+      "weight": 2
+    },
+    {
+      "source": "acct_001819",
+      "target": "acct_004514",
+      "weight": 1
+    },
+    {
+      "source": "acct_001888",
+      "target": "acct_003682",
+      "weight": 2
+    },
+    {
+      "source": "acct_001888",
+      "target": "acct_004036",
+      "weight": 2
+    },
+    {
+      "source": "acct_001888",
+      "target": "acct_004224",
+      "weight": 2
+    },
+    {
+      "source": "acct_001892",
+      "target": "acct_002165",
+      "weight": 1
+    },
+    {
+      "source": "acct_001892",
+      "target": "acct_002906",
+      "weight": 1
+    },
+    {
+      "source": "acct_001892",
+      "target": "acct_003207",
+      "weight": 1
+    },
+    {
+      "source": "acct_001892",
+      "target": "acct_003286",
+      "weight": 1
+    },
+    {
+      "source": "acct_001892",
+      "target": "acct_003987",
+      "weight": 1
+    },
+    {
+      "source": "acct_001892",
+      "target": "acct_004138",
+      "weight": 1
+    },
+    {
+      "source": "acct_001892",
+      "target": "acct_004846",
+      "weight": 1
+    },
+    {
+      "source": "acct_001901",
+      "target": "acct_002116",
+      "weight": 2
+    },
+    {
+      "source": "acct_001901",
+      "target": "acct_002877",
+      "weight": 2
+    },
+    {
+      "source": "acct_001901",
+      "target": "acct_003557",
+      "weight": 2
+    },
+    {
+      "source": "acct_001901",
+      "target": "acct_004076",
+      "weight": 2
+    },
+    {
+      "source": "acct_001917",
+      "target": "acct_001922",
+      "weight": 2
+    },
+    {
+      "source": "acct_001917",
+      "target": "acct_002257",
+      "weight": 2
+    },
+    {
+      "source": "acct_001917",
+      "target": "acct_002673",
+      "weight": 2
+    },
+    {
+      "source": "acct_001917",
+      "target": "acct_002858",
+      "weight": 2
+    },
+    {
+      "source": "acct_001917",
+      "target": "acct_003309",
+      "weight": 2
+    },
+    {
+      "source": "acct_001917",
+      "target": "acct_003598",
+      "weight": 2
+    },
+    {
+      "source": "acct_001917",
+      "target": "acct_004151",
+      "weight": 2
+    },
+    {
+      "source": "acct_001917",
+      "target": "acct_004226",
+      "weight": 2
+    },
+    {
+      "source": "acct_001917",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_001918",
+      "target": "acct_002123",
+      "weight": 2
+    },
+    {
+      "source": "acct_001918",
+      "target": "acct_002468",
+      "weight": 2
+    },
+    {
+      "source": "acct_001918",
+      "target": "acct_002661",
+      "weight": 2
+    },
+    {
+      "source": "acct_001918",
+      "target": "acct_003161",
+      "weight": 2
+    },
+    {
+      "source": "acct_001918",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_001918",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_001922",
+      "target": "acct_002257",
+      "weight": 2
+    },
+    {
+      "source": "acct_001922",
+      "target": "acct_002673",
+      "weight": 2
+    },
+    {
+      "source": "acct_001922",
+      "target": "acct_002858",
+      "weight": 2
+    },
+    {
+      "source": "acct_001922",
+      "target": "acct_003309",
+      "weight": 2
+    },
+    {
+      "source": "acct_001922",
+      "target": "acct_003598",
+      "weight": 2
+    },
+    {
+      "source": "acct_001922",
+      "target": "acct_004151",
+      "weight": 2
+    },
+    {
+      "source": "acct_001922",
+      "target": "acct_004226",
+      "weight": 2
+    },
+    {
+      "source": "acct_001922",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_001933",
+      "target": "acct_002757",
+      "weight": 1
+    },
+    {
+      "source": "acct_001933",
+      "target": "acct_002851",
+      "weight": 1
+    },
+    {
+      "source": "acct_001933",
+      "target": "acct_003093",
+      "weight": 1
+    },
+    {
+      "source": "acct_001933",
+      "target": "acct_003377",
+      "weight": 1
+    },
+    {
+      "source": "acct_001933",
+      "target": "acct_003803",
+      "weight": 1
+    },
+    {
+      "source": "acct_001991",
+      "target": "acct_002341",
+      "weight": 1
+    },
+    {
+      "source": "acct_001991",
+      "target": "acct_002486",
+      "weight": 1
+    },
+    {
+      "source": "acct_001991",
+      "target": "acct_003997",
+      "weight": 1
+    },
+    {
+      "source": "acct_001991",
+      "target": "acct_004495",
+      "weight": 1
+    },
+    {
+      "source": "acct_001991",
+      "target": "acct_004816",
+      "weight": 1
+    },
+    {
+      "source": "acct_001991",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_002116",
+      "target": "acct_002877",
+      "weight": 2
+    },
+    {
+      "source": "acct_002116",
+      "target": "acct_003557",
+      "weight": 2
+    },
+    {
+      "source": "acct_002116",
+      "target": "acct_004076",
+      "weight": 2
+    },
+    {
+      "source": "acct_002123",
+      "target": "acct_002468",
+      "weight": 2
+    },
+    {
+      "source": "acct_002123",
+      "target": "acct_002661",
+      "weight": 2
+    },
+    {
+      "source": "acct_002123",
+      "target": "acct_003161",
+      "weight": 2
+    },
+    {
+      "source": "acct_002123",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_002123",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_002906",
+      "weight": 1
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_003207",
+      "weight": 1
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_003286",
+      "weight": 1
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_003987",
+      "weight": 1
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_004138",
+      "weight": 1
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_004846",
+      "weight": 1
+    },
+    {
+      "source": "acct_002190",
+      "target": "acct_003963",
+      "weight": 1
+    },
+    {
+      "source": "acct_002250",
+      "target": "acct_002673",
+      "weight": 1
+    },
+    {
+      "source": "acct_002257",
+      "target": "acct_002673",
+      "weight": 2
+    },
+    {
+      "source": "acct_002257",
+      "target": "acct_002858",
+      "weight": 2
+    },
+    {
+      "source": "acct_002257",
+      "target": "acct_003309",
+      "weight": 2
+    },
+    {
+      "source": "acct_002257",
+      "target": "acct_003598",
+      "weight": 2
+    },
+    {
+      "source": "acct_002257",
+      "target": "acct_004151",
+      "weight": 2
+    },
+    {
+      "source": "acct_002257",
+      "target": "acct_004226",
+      "weight": 2
+    },
+    {
+      "source": "acct_002257",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_002341",
+      "target": "acct_002486",
+      "weight": 1
+    },
+    {
+      "source": "acct_002341",
+      "target": "acct_003997",
+      "weight": 1
+    },
+    {
+      "source": "acct_002341",
+      "target": "acct_004495",
+      "weight": 1
+    },
+    {
+      "source": "acct_002341",
+      "target": "acct_004816",
+      "weight": 1
+    },
+    {
+      "source": "acct_002341",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_002362",
+      "target": "acct_003315",
+      "weight": 2
+    },
+    {
+      "source": "acct_002362",
+      "target": "acct_003383",
+      "weight": 2
+    },
+    {
+      "source": "acct_002362",
+      "target": "acct_003666",
+      "weight": 2
+    },
+    {
+      "source": "acct_002362",
+      "target": "acct_004782",
+      "weight": 2
+    },
+    {
+      "source": "acct_002367",
+      "target": "acct_002370",
+      "weight": 1
+    },
+    {
+      "source": "acct_002367",
+      "target": "acct_002937",
+      "weight": 1
+    },
+    {
+      "source": "acct_002367",
+      "target": "acct_003519",
+      "weight": 1
+    },
+    {
+      "source": "acct_002367",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_002367",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_002370",
+      "target": "acct_002937",
+      "weight": 1
+    },
+    {
+      "source": "acct_002370",
+      "target": "acct_003519",
+      "weight": 1
+    },
+    {
+      "source": "acct_002370",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_002370",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_002441",
+      "target": "acct_003100",
+      "weight": 1
+    },
+    {
+      "source": "acct_002441",
+      "target": "acct_004007",
+      "weight": 1
+    },
+    {
+      "source": "acct_002441",
+      "target": "acct_004405",
+      "weight": 1
+    },
+    {
+      "source": "acct_002468",
+      "target": "acct_002661",
+      "weight": 2
+    },
+    {
+      "source": "acct_002468",
+      "target": "acct_003161",
+      "weight": 2
+    },
+    {
+      "source": "acct_002468",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_002468",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_002486",
+      "target": "acct_003997",
+      "weight": 1
+    },
+    {
+      "source": "acct_002486",
+      "target": "acct_004495",
+      "weight": 1
+    },
+    {
+      "source": "acct_002486",
+      "target": "acct_004816",
+      "weight": 1
+    },
+    {
+      "source": "acct_002486",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_002496",
+      "target": "acct_002515",
+      "weight": 1
+    },
+    {
+      "source": "acct_002496",
+      "target": "acct_002606",
+      "weight": 1
+    },
+    {
+      "source": "acct_002496",
+      "target": "acct_003270",
+      "weight": 1
+    },
+    {
+      "source": "acct_002496",
+      "target": "acct_003693",
+      "weight": 1
+    },
+    {
+      "source": "acct_002496",
+      "target": "acct_003853",
+      "weight": 1
+    },
+    {
+      "source": "acct_002503",
+      "target": "acct_003576",
+      "weight": 1
+    },
+    {
+      "source": "acct_002503",
+      "target": "acct_004327",
+      "weight": 1
+    },
+    {
+      "source": "acct_002508",
+      "target": "acct_003070",
+      "weight": 2
+    },
+    {
+      "source": "acct_002508",
+      "target": "acct_003236",
+      "weight": 2
+    },
+    {
+      "source": "acct_002508",
+      "target": "acct_003963",
+      "weight": 2
+    },
+    {
+      "source": "acct_002508",
+      "target": "acct_004294",
+      "weight": 2
+    },
+    {
+      "source": "acct_002508",
+      "target": "acct_004900",
+      "weight": 2
+    },
+    {
+      "source": "acct_002515",
+      "target": "acct_002606",
+      "weight": 1
+    },
+    {
+      "source": "acct_002515",
+      "target": "acct_003270",
+      "weight": 1
+    },
+    {
+      "source": "acct_002515",
+      "target": "acct_003693",
+      "weight": 1
+    },
+    {
+      "source": "acct_002515",
+      "target": "acct_003853",
+      "weight": 1
+    },
+    {
+      "source": "acct_002545",
+      "target": "acct_003158",
+      "weight": 2
+    },
+    {
+      "source": "acct_002545",
+      "target": "acct_003269",
+      "weight": 2
+    },
+    {
+      "source": "acct_002545",
+      "target": "acct_004980",
+      "weight": 2
+    },
+    {
+      "source": "acct_002554",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_002569",
+      "target": "acct_002670",
+      "weight": 1
+    },
+    {
+      "source": "acct_002569",
+      "target": "acct_003437",
+      "weight": 1
+    },
+    {
+      "source": "acct_002569",
+      "target": "acct_004044",
+      "weight": 1
+    },
+    {
+      "source": "acct_002569",
+      "target": "acct_004778",
+      "weight": 1
+    },
+    {
+      "source": "acct_002596",
+      "target": "acct_003202",
+      "weight": 1
+    },
+    {
+      "source": "acct_002596",
+      "target": "acct_004664",
+      "weight": 1
+    },
+    {
+      "source": "acct_002606",
+      "target": "acct_003270",
+      "weight": 1
+    },
+    {
+      "source": "acct_002606",
+      "target": "acct_003693",
+      "weight": 1
+    },
+    {
+      "source": "acct_002606",
+      "target": "acct_003853",
+      "weight": 1
+    },
+    {
+      "source": "acct_002661",
+      "target": "acct_003161",
+      "weight": 2
+    },
+    {
+      "source": "acct_002661",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_002661",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_002670",
+      "target": "acct_003437",
+      "weight": 1
+    },
+    {
+      "source": "acct_002670",
+      "target": "acct_004044",
+      "weight": 1
+    },
+    {
+      "source": "acct_002670",
+      "target": "acct_004778",
+      "weight": 1
+    },
+    {
+      "source": "acct_002673",
+      "target": "acct_002858",
+      "weight": 2
+    },
+    {
+      "source": "acct_002673",
+      "target": "acct_003309",
+      "weight": 2
+    },
+    {
+      "source": "acct_002673",
+      "target": "acct_003598",
+      "weight": 2
+    },
+    {
+      "source": "acct_002673",
+      "target": "acct_004151",
+      "weight": 2
+    },
+    {
+      "source": "acct_002673",
+      "target": "acct_004226",
+      "weight": 2
+    },
+    {
+      "source": "acct_002673",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_002691",
+      "target": "acct_002869",
+      "weight": 1
+    },
+    {
+      "source": "acct_002691",
+      "target": "acct_003446",
+      "weight": 1
+    },
+    {
+      "source": "acct_002691",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_002691",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_002757",
+      "target": "acct_002851",
+      "weight": 1
+    },
+    {
+      "source": "acct_002757",
+      "target": "acct_003093",
+      "weight": 1
+    },
+    {
+      "source": "acct_002757",
+      "target": "acct_003377",
+      "weight": 1
+    },
+    {
+      "source": "acct_002757",
+      "target": "acct_003803",
+      "weight": 1
+    },
+    {
+      "source": "acct_002839",
+      "target": "acct_003490",
+      "weight": 1
+    },
+    {
+      "source": "acct_002839",
+      "target": "acct_004034",
+      "weight": 1
+    },
+    {
+      "source": "acct_002839",
+      "target": "acct_004539",
+      "weight": 1
+    },
+    {
+      "source": "acct_002839",
+      "target": "acct_004651",
+      "weight": 1
+    },
+    {
+      "source": "acct_002851",
+      "target": "acct_003093",
+      "weight": 1
+    },
+    {
+      "source": "acct_002851",
+      "target": "acct_003377",
+      "weight": 1
+    },
+    {
+      "source": "acct_002851",
+      "target": "acct_003803",
+      "weight": 1
+    },
+    {
+      "source": "acct_002858",
+      "target": "acct_003309",
+      "weight": 2
+    },
+    {
+      "source": "acct_002858",
+      "target": "acct_003598",
+      "weight": 2
+    },
+    {
+      "source": "acct_002858",
+      "target": "acct_004151",
+      "weight": 2
+    },
+    {
+      "source": "acct_002858",
+      "target": "acct_004226",
+      "weight": 2
+    },
+    {
+      "source": "acct_002858",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_002869",
+      "target": "acct_003446",
+      "weight": 1
+    },
+    {
+      "source": "acct_002869",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_002869",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_002877",
+      "target": "acct_003557",
+      "weight": 2
+    },
+    {
+      "source": "acct_002877",
+      "target": "acct_004076",
+      "weight": 2
+    },
+    {
+      "source": "acct_002906",
+      "target": "acct_003207",
+      "weight": 1
+    },
+    {
+      "source": "acct_002906",
+      "target": "acct_003286",
+      "weight": 1
+    },
+    {
+      "source": "acct_002906",
+      "target": "acct_003987",
+      "weight": 1
+    },
+    {
+      "source": "acct_002906",
+      "target": "acct_004138",
+      "weight": 1
+    },
+    {
+      "source": "acct_002906",
+      "target": "acct_004846",
+      "weight": 1
+    },
+    {
+      "source": "acct_002930",
+      "target": "acct_003403",
+      "weight": 1
+    },
+    {
+      "source": "acct_002930",
+      "target": "acct_003640",
+      "weight": 1
+    },
+    {
+      "source": "acct_002930",
+      "target": "acct_004390",
+      "weight": 1
+    },
+    {
+      "source": "acct_002937",
+      "target": "acct_003519",
+      "weight": 1
+    },
+    {
+      "source": "acct_002937",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_002937",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_003013",
+      "target": "acct_004224",
+      "weight": 1
+    },
+    {
+      "source": "acct_003036",
+      "target": "acct_003322",
+      "weight": 2
+    },
+    {
+      "source": "acct_003036",
+      "target": "acct_004093",
+      "weight": 2
+    },
+    {
+      "source": "acct_003036",
+      "target": "acct_004115",
+      "weight": 2
+    },
+    {
+      "source": "acct_003036",
+      "target": "acct_004510",
+      "weight": 2
+    },
+    {
+      "source": "acct_003037",
+      "target": "acct_003407",
+      "weight": 2
+    },
+    {
+      "source": "acct_003037",
+      "target": "acct_004221",
+      "weight": 2
+    },
+    {
+      "source": "acct_003070",
+      "target": "acct_003236",
+      "weight": 2
+    },
+    {
+      "source": "acct_003070",
+      "target": "acct_003963",
+      "weight": 2
+    },
+    {
+      "source": "acct_003070",
+      "target": "acct_004294",
+      "weight": 2
+    },
+    {
+      "source": "acct_003070",
+      "target": "acct_004900",
+      "weight": 2
+    },
+    {
+      "source": "acct_003093",
+      "target": "acct_003377",
+      "weight": 1
+    },
+    {
+      "source": "acct_003093",
+      "target": "acct_003803",
+      "weight": 1
+    },
+    {
+      "source": "acct_003100",
+      "target": "acct_003284",
+      "weight": 1
+    },
+    {
+      "source": "acct_003100",
+      "target": "acct_004007",
+      "weight": 1
+    },
+    {
+      "source": "acct_003100",
+      "target": "acct_004405",
+      "weight": 1
+    },
+    {
+      "source": "acct_003128",
+      "target": "acct_004926",
+      "weight": 1
+    },
+    {
+      "source": "acct_003158",
+      "target": "acct_003269",
+      "weight": 2
+    },
+    {
+      "source": "acct_003158",
+      "target": "acct_004980",
+      "weight": 2
+    },
+    {
+      "source": "acct_003161",
+      "target": "acct_003289",
+      "weight": 2
+    },
+    {
+      "source": "acct_003161",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_003202",
+      "target": "acct_004664",
+      "weight": 1
+    },
+    {
+      "source": "acct_003207",
+      "target": "acct_003286",
+      "weight": 1
+    },
+    {
+      "source": "acct_003207",
+      "target": "acct_003987",
+      "weight": 1
+    },
+    {
+      "source": "acct_003207",
+      "target": "acct_004138",
+      "weight": 1
+    },
+    {
+      "source": "acct_003207",
+      "target": "acct_004846",
+      "weight": 1
+    },
+    {
+      "source": "acct_003236",
+      "target": "acct_003963",
+      "weight": 2
+    },
+    {
+      "source": "acct_003236",
+      "target": "acct_004294",
+      "weight": 2
+    },
+    {
+      "source": "acct_003236",
+      "target": "acct_004900",
+      "weight": 2
+    },
+    {
+      "source": "acct_003269",
+      "target": "acct_004980",
+      "weight": 2
+    },
+    {
+      "source": "acct_003270",
+      "target": "acct_003693",
+      "weight": 1
+    },
+    {
+      "source": "acct_003270",
+      "target": "acct_003853",
+      "weight": 1
+    },
+    {
+      "source": "acct_003286",
+      "target": "acct_003987",
+      "weight": 1
+    },
+    {
+      "source": "acct_003286",
+      "target": "acct_004138",
+      "weight": 1
+    },
+    {
+      "source": "acct_003286",
+      "target": "acct_004846",
+      "weight": 1
+    },
+    {
+      "source": "acct_003289",
+      "target": "acct_003440",
+      "weight": 2
+    },
+    {
+      "source": "acct_003309",
+      "target": "acct_003598",
+      "weight": 2
+    },
+    {
+      "source": "acct_003309",
+      "target": "acct_004151",
+      "weight": 2
+    },
+    {
+      "source": "acct_003309",
+      "target": "acct_004226",
+      "weight": 2
+    },
+    {
+      "source": "acct_003309",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_003315",
+      "target": "acct_003383",
+      "weight": 2
+    },
+    {
+      "source": "acct_003315",
+      "target": "acct_003666",
+      "weight": 2
+    },
+    {
+      "source": "acct_003315",
+      "target": "acct_004782",
+      "weight": 2
+    },
+    {
+      "source": "acct_003322",
+      "target": "acct_004093",
+      "weight": 2
+    },
+    {
+      "source": "acct_003322",
+      "target": "acct_004115",
+      "weight": 2
+    },
+    {
+      "source": "acct_003322",
+      "target": "acct_004510",
+      "weight": 2
+    },
+    {
+      "source": "acct_003377",
+      "target": "acct_003803",
+      "weight": 1
+    },
+    {
+      "source": "acct_003381",
+      "target": "acct_004027",
+      "weight": 2
+    },
+    {
+      "source": "acct_003383",
+      "target": "acct_003666",
+      "weight": 2
+    },
+    {
+      "source": "acct_003383",
+      "target": "acct_004782",
+      "weight": 2
+    },
+    {
+      "source": "acct_003403",
+      "target": "acct_003640",
+      "weight": 1
+    },
+    {
+      "source": "acct_003403",
+      "target": "acct_004390",
+      "weight": 1
+    },
+    {
+      "source": "acct_003407",
+      "target": "acct_004221",
+      "weight": 2
+    },
+    {
+      "source": "acct_003437",
+      "target": "acct_004044",
+      "weight": 1
+    },
+    {
+      "source": "acct_003437",
+      "target": "acct_004778",
+      "weight": 1
+    },
+    {
+      "source": "acct_003446",
+      "target": "acct_004218",
+      "weight": 1
+    },
+    {
+      "source": "acct_003446",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_003490",
+      "target": "acct_004034",
+      "weight": 1
+    },
+    {
+      "source": "acct_003490",
+      "target": "acct_004539",
+      "weight": 1
+    },
+    {
+      "source": "acct_003490",
+      "target": "acct_004651",
+      "weight": 1
+    },
+    {
+      "source": "acct_003519",
+      "target": "acct_004395",
+      "weight": 1
+    },
+    {
+      "source": "acct_003519",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_003557",
+      "target": "acct_004076",
+      "weight": 2
+    },
+    {
+      "source": "acct_003576",
+      "target": "acct_004327",
+      "weight": 1
+    },
+    {
+      "source": "acct_003598",
+      "target": "acct_004151",
+      "weight": 2
+    },
+    {
+      "source": "acct_003598",
+      "target": "acct_004226",
+      "weight": 2
+    },
+    {
+      "source": "acct_003598",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_003640",
+      "target": "acct_004390",
+      "weight": 1
+    },
+    {
+      "source": "acct_003666",
+      "target": "acct_004782",
+      "weight": 2
+    },
+    {
+      "source": "acct_003682",
+      "target": "acct_004036",
+      "weight": 2
+    },
+    {
+      "source": "acct_003682",
+      "target": "acct_004224",
+      "weight": 2
+    },
+    {
+      "source": "acct_003693",
+      "target": "acct_003853",
+      "weight": 1
+    },
+    {
+      "source": "acct_003963",
+      "target": "acct_004294",
+      "weight": 2
+    },
+    {
+      "source": "acct_003963",
+      "target": "acct_004900",
+      "weight": 2
+    },
+    {
+      "source": "acct_003987",
+      "target": "acct_004138",
+      "weight": 1
+    },
+    {
+      "source": "acct_003987",
+      "target": "acct_004846",
+      "weight": 1
+    },
+    {
+      "source": "acct_003997",
+      "target": "acct_004495",
+      "weight": 1
+    },
+    {
+      "source": "acct_003997",
+      "target": "acct_004816",
+      "weight": 1
+    },
+    {
+      "source": "acct_003997",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_004007",
+      "target": "acct_004405",
+      "weight": 1
+    },
+    {
+      "source": "acct_004034",
+      "target": "acct_004539",
+      "weight": 1
+    },
+    {
+      "source": "acct_004034",
+      "target": "acct_004651",
+      "weight": 1
+    },
+    {
+      "source": "acct_004036",
+      "target": "acct_004224",
+      "weight": 2
+    },
+    {
+      "source": "acct_004044",
+      "target": "acct_004778",
+      "weight": 1
+    },
+    {
+      "source": "acct_004093",
+      "target": "acct_004115",
+      "weight": 2
+    },
+    {
+      "source": "acct_004093",
+      "target": "acct_004510",
+      "weight": 2
+    },
+    {
+      "source": "acct_004115",
+      "target": "acct_004510",
+      "weight": 2
+    },
+    {
+      "source": "acct_004138",
+      "target": "acct_004846",
+      "weight": 1
+    },
+    {
+      "source": "acct_004151",
+      "target": "acct_004226",
+      "weight": 2
+    },
+    {
+      "source": "acct_004151",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_004218",
+      "target": "acct_004296",
+      "weight": 1
+    },
+    {
+      "source": "acct_004225",
+      "target": "acct_004633",
+      "weight": 2
+    },
+    {
+      "source": "acct_004226",
+      "target": "acct_004520",
+      "weight": 2
+    },
+    {
+      "source": "acct_004294",
+      "target": "acct_004900",
+      "weight": 2
+    },
+    {
+      "source": "acct_004395",
+      "target": "acct_004452",
+      "weight": 1
+    },
+    {
+      "source": "acct_004495",
+      "target": "acct_004816",
+      "weight": 1
+    },
+    {
+      "source": "acct_004495",
+      "target": "acct_004910",
+      "weight": 1
+    },
+    {
+      "source": "acct_004539",
+      "target": "acct_004651",
+      "weight": 1
+    },
+    {
+      "source": "acct_004816",
+      "target": "acct_004910",
+      "weight": 1
+    }
+  ]
+}

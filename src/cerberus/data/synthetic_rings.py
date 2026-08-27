@@ -32,7 +32,7 @@ from datetime import datetime, timedelta
 import numpy as np
 import pandas as pd
 
-from cerberus.common.config import RANDOM_SEED
+from cerberus.common.config import settings
 
 
 def _short_id(prefix: str, rng: np.random.Generator) -> str:
@@ -58,12 +58,18 @@ class GeneratorConfig:
     start_time: datetime = field(default_factory=lambda: datetime(2026, 1, 1))
     window_days: int = 60
 
-    random_seed: int = RANDOM_SEED
+    random_seed: int = settings.random_seed
 
 
-def generate_accounts(rng: np.random.Generator, cfg: GeneratorConfig) -> pd.DataFrame:
+def generate_accounts(
+    rng: np.random.Generator, cfg: GeneratorConfig
+) -> tuple[pd.DataFrame, list[tuple[str, str]]]:
     """One row per account with its 'home' device/ip/card, plus a few innocent
     household clusters that share a device — the honest FP-risk case for the graph layer.
+
+    Returns the accounts table and the list of (account_a, account_b) household pairs,
+    so the Day 3 ring detector can measure its false-positive rate against something
+    real: innocent entity-sharing it should *not* flag as a coordinated ring.
     """
     account_ids = [f"acct_{i:06d}" for i in range(cfg.n_accounts)]
     devices = [_short_id("dev", rng) for _ in range(cfg.n_accounts)]
@@ -78,12 +84,14 @@ def generate_accounts(rng: np.random.Generator, cfg: GeneratorConfig) -> pd.Data
     # implication. This is what lets the graph layer's FP rate be measured honestly later.
     n_household_accounts = int(cfg.n_accounts * cfg.household_sharing_rate)
     n_household_accounts -= n_household_accounts % 2
+    household_pairs: list[tuple[str, str]] = []
     if n_household_accounts >= 2:
         idx = rng.choice(cfg.n_accounts, size=n_household_accounts, replace=False)
         for a, b in idx.reshape(-1, 2):
             accounts.loc[b, "device_id"] = accounts.loc[a, "device_id"]
+            household_pairs.append((accounts.loc[a, "account_id"], accounts.loc[b, "account_id"]))
 
-    return accounts
+    return accounts, household_pairs
 
 
 def generate_base_transactions(
@@ -110,7 +118,7 @@ def generate_base_transactions(
     hours = np.where(is_fraud, hour_fraud, hour_legit)
     timestamps = [
         cfg.start_time + timedelta(days=float(d), hours=float(h))
-        for d, h in zip(offsets_days, hours)
+        for d, h in zip(offsets_days, hours, strict=True)
     ]
 
     txns = pd.DataFrame(
@@ -226,7 +234,7 @@ def generate_dataset(cfg: GeneratorConfig | None = None) -> dict:
     cfg = cfg or GeneratorConfig()
     rng = np.random.default_rng(cfg.random_seed)
 
-    accounts = generate_accounts(rng, cfg)
+    accounts, household_pairs = generate_accounts(rng, cfg)
     base_txns = generate_base_transactions(rng, accounts, cfg)
     ring_txns, rings_ground_truth = inject_fraud_rings(rng, accounts, cfg)
 
@@ -240,4 +248,5 @@ def generate_dataset(cfg: GeneratorConfig | None = None) -> dict:
         "transactions": all_txns,
         "entity_edges": entity_edges,
         "rings_ground_truth": rings_ground_truth,
+        "household_pairs": household_pairs,
     }

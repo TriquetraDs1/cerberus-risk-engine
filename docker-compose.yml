@@ -1,0 +1,10 @@
+services:
+  pipeline:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+    # `docker compose up` reproduces the full offline pipeline: synthetic data
+    # generation -> ring detection -> baseline model training. Outputs land in
+    # the mounted ./data, ./models, ./reports so they're inspectable on the host.

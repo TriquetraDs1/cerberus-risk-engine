@@ -48,8 +48,8 @@ def test_entity_edges_recover_ring_membership():
     rings = result["rings_ground_truth"]
 
     assert not edges.empty
-    linked_pairs = set(zip(edges["entity_a"], edges["entity_b"])) | set(
-        zip(edges["entity_b"], edges["entity_a"])
+    linked_pairs = set(zip(edges["entity_a"], edges["entity_b"], strict=True)) | set(
+        zip(edges["entity_b"], edges["entity_a"], strict=True)
     )
     # every ring of size >= 2 should contribute at least one recoverable edge
     for member_accounts in rings.values():

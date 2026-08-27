@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/*
+  Cerberus dashboard design tokens.
+  Cockpit density: no card-boxes for data rows, thin 1px dividers, tabular mono
+  figures for every score/amount. Zinc/slate neutral base with a single desaturated
+  accent; risk is a semantic 3-state ramp (approve/review/block), each always paired
+  with an icon + text label, never color alone.
+*/
+
+:root {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --border: #e4e4e7;
+  --border-strong: #d4d4d8;
+  --text-primary: #18181b;
+  --text-secondary: #71717a;
+  --text-tertiary: #a1a1aa;
+  --accent: #2563eb;
+  --accent-soft: #eff6ff;
+
+  --risk-approve: #059669;
+  --risk-approve-bg: #ecfdf5;
+  --risk-approve-border: #a7f3d0;
+  --risk-review: #d97706;
+  --risk-review-bg: #fffbeb;
+  --risk-review-border: #fde68a;
+  --risk-block: #e11d48;
+  --risk-block-bg: #fff1f2;
+  --risk-block-border: #fecdd3;
+
+  --focus-ring: #2563eb;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a0a0b;
+    --surface: #131316;
+    --surface-raised: #18181b;
+    --border: #27272a;
+    --border-strong: #3f3f46;
+    --text-primary: #f4f4f5;
+    --text-secondary: #a1a1aa;
+    --text-tertiary: #71717a;
+    --accent: #60a5fa;
+    --accent-soft: #1e293b;
+
+    --risk-approve: #34d399;
+    --risk-approve-bg: #064e3b;
+    --risk-approve-border: #065f46;
+    --risk-review: #fbbf24;
+    --risk-review-bg: #451a03;
+    --risk-review-border: #78350f;
+    --risk-block: #fb7185;
+    --risk-block-bg: #4c0519;
+    --risk-block-border: #881337;
+
+    --focus-ring: #60a5fa;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a0a0b;
+  --surface: #131316;
+  --surface-raised: #18181b;
+  --border: #27272a;
+  --border-strong: #3f3f46;
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --accent: #60a5fa;
+  --accent-soft: #1e293b;
+
+  --risk-approve: #34d399;
+  --risk-approve-bg: #064e3b;
+  --risk-approve-border: #065f46;
+  --risk-review: #fbbf24;
+  --risk-review-bg: #451a03;
+  --risk-review-border: #78350f;
+  --risk-block: #fb7185;
+  --risk-block-bg: #4c0519;
+  --risk-block-border: #881337;
+
+  --focus-ring: #60a5fa;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-risk-approve: var(--risk-approve);
+  --color-risk-approve-bg: var(--risk-approve-bg);
+  --color-risk-approve-border: var(--risk-approve-border);
+  --color-risk-review: var(--risk-review);
+  --color-risk-review-bg: var(--risk-review-bg);
+  --color-risk-review-border: var(--risk-review-border);
+  --color-risk-block: var(--risk-block);
+  --color-risk-block-bg: var(--risk-block-bg);
+  --color-risk-block-border: var(--risk-block-border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.mono-figure {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--border) 25%, var(--border-strong) 37%, var(--border) 63%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}
