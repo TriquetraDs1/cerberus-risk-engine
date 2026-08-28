@@ -1,0 +1,25 @@
+# Render Blueprint for the Cerberus backend API (FastAPI /score, /explain, ...).
+# The frontend (dashboard/) deploys separately to Vercel — see DEPLOYMENT.md.
+#
+# Deploy: push this file, then in Render -> "New +" -> "Blueprint" -> pick this repo.
+# The Docker build's last stage is `serving-standalone`, which self-bootstraps the
+# pipeline on first boot (~2-3 min) if no model is baked in.
+services:
+  - type: web
+    name: cerberus-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      # Set in the Render dashboard (Environment tab). Enables LLM-written narration;
+      # without it /explain falls back to the deterministic template.
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      # Set to the deployed dashboard origin (e.g. https://cerberus-xyz.vercel.app)
+      # once the frontend is live, so the browser can call this API. Comma-separate
+      # multiple origins. Leave unset and CORS stays off.
+      - key: CERBERUS_CORS_ORIGINS
+        sync: false

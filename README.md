@@ -2,6 +2,7 @@
 
 > **Picking this project back up?** Read [HANDOFF.md](HANDOFF.md) first — current
 > status, how to run everything, key design decisions, and what's genuinely left.
+> Deploying it live? See [DEPLOYMENT.md](DEPLOYMENT.md).
 
 > **Scope and guardrail, stated up front:** Cerberus is a **defensive** fraud-detection
 > research project. The "adversarial" component in this repo is a red-team harness that

@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import time
 from contextlib import asynccontextmanager
 from datetime import timedelta
@@ -121,6 +122,20 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="Cerberus Risk Engine", version="0.1.0", lifespan=lifespan)
+
+# Off by default (no behaviour change for the local demo). Set CERBERUS_CORS_ORIGINS to a
+# comma-separated origin list — e.g. the deployed dashboard's URL — to let a browser
+# frontend call this API directly. See DEPLOYMENT.md.
+_cors_origins = [o.strip() for o in os.getenv("CERBERUS_CORS_ORIGINS", "").split(",") if o.strip()]
+if _cors_origins:
+    from fastapi.middleware.cors import CORSMiddleware
+
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=_cors_origins,
+        allow_methods=["GET", "POST"],
+        allow_headers=["*"],
+    )
 
 
 def _build_feature_row(req: ScoreRequest, model: ModelBundle, state: ServingState) -> pd.DataFrame:

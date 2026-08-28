@@ -1,12 +1,15 @@
-# Two build targets from one image:
-#   docker build --target pipeline -t cerberus-pipeline .   (default)
-#   docker build --target serving  -t cerberus-serving .
+# Build targets from one image:
+#   docker build --target pipeline           -t cerberus-pipeline .
+#   docker build --target serving            -t cerberus-serving .
+#   docker build --target serving-standalone -t cerberus-serving-standalone .   (also the default — last stage)
 #
 # `pipeline` reproduces every number in the README without setting up Python
 # locally: data generation -> ring detection -> training -> decision layer ->
-# adversarial hardening. `serving` runs the Day 7 /score API against whatever
-# model artifacts are present in the mounted ./models and ./reports (run the
-# pipeline target first, or mount pre-generated artifacts).
+# adversarial hardening. `serving` runs the Day 7 /score API against model
+# artifacts present in the mounted ./models and ./reports (run the pipeline
+# target first, or mount pre-generated artifacts) — this is what docker-compose
+# uses. `serving-standalone` is for a volume-less container host: it bundles the
+# LLM extra and self-bootstraps the pipeline on first start. See DEPLOYMENT.md.
 
 FROM python:3.11-slim AS base
 
@@ -30,3 +33,14 @@ FROM base AS serving
 
 EXPOSE 8000
 CMD ["uvicorn", "cerberus.serving.app:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
+# `serving-standalone` — for a container host with NO mounted volumes (Render, Railway,
+# Fly, a bare `docker run`). Adds the optional LLM extra and a self-bootstrapping
+# entrypoint that runs the pipeline once if no model is baked in. See DEPLOYMENT.md.
+#   docker build --target serving-standalone -t cerberus-serving-standalone .
+FROM base AS serving-standalone
+
+RUN pip install --no-cache-dir -e ".[llm]"
+EXPOSE 8000
+CMD ["sh", "scripts/serve.sh"]
