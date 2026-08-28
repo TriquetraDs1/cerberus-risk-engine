@@ -3,14 +3,17 @@
 import { useEffect, useRef } from "react";
 import { WarningCircle, X } from "@phosphor-icons/react/dist/ssr";
 import { formatReasonCode, formatSegment } from "@/lib/format";
-import type { QueueTransaction } from "@/lib/types";
+import type { CaseAction, QueueTransaction } from "@/lib/types";
+import { CaseActionControls } from "./CaseActionControls";
 import { RiskBadge } from "./RiskBadge";
 
 export function TransactionDrawer({
   transaction,
+  currentAction,
   onClose,
 }: {
   transaction: QueueTransaction | null;
+  currentAction?: CaseAction;
   onClose: () => void;
 }) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -120,8 +123,21 @@ export function TransactionDrawer({
             </div>
             <p className="text-[11px] mt-2" style={{ color: "var(--text-tertiary)" }}>
               Block ≥ {t.cost_basis.block_threshold.toFixed(3)} · Review ≥{" "}
-              {t.cost_basis.review_threshold.toFixed(3)} — preview routing, see System Health.
+              {t.cost_basis.review_threshold.toFixed(3)} — this segment&apos;s cost-optimal
+              thresholds, see System Health for all four segments.
             </p>
+          </div>
+
+          <div>
+            <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--text-tertiary)" }}>
+              Case action
+            </h3>
+            <CaseActionControls
+              key={t.transaction_id}
+              targetType="transaction"
+              targetId={t.transaction_id}
+              currentAction={currentAction}
+            />
           </div>
 
           <div className="pt-3 border-t text-xs" style={{ borderColor: "var(--border)", color: "var(--text-tertiary)" }}>

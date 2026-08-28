@@ -2,7 +2,8 @@
 
 import { forceCenter, forceCollide, forceLink, forceManyBody, forceSimulation } from "d3-force";
 import { useEffect, useMemo, useState } from "react";
-import type { RingGraph as RingGraphData } from "@/lib/types";
+import { CaseActionControls } from "./CaseActionControls";
+import type { CaseAction, RingGraph as RingGraphData } from "@/lib/types";
 
 interface SimNode {
   id: string;
@@ -41,7 +42,13 @@ interface Layout {
   links: SimLink[];
 }
 
-export function RingGraph({ graph }: { graph: RingGraphData }) {
+export function RingGraph({
+  graph,
+  ringActions = {},
+}: {
+  graph: RingGraphData;
+  ringActions?: Record<string, CaseAction>;
+}) {
   const [selected, setSelected] = useState<string | null>(null);
 
   // d3-force's tie-breaking jitter for coincident starting positions is not
@@ -203,6 +210,21 @@ export function RingGraph({ graph }: { graph: RingGraphData }) {
             </p>
           )}
         </div>
+
+        {selectedNode?.detected_ring_id && (
+          <div className="rounded-lg border p-3" style={{ borderColor: "var(--border)" }}>
+            <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--text-tertiary)" }}>
+              Case action — {selectedNode.detected_ring_id}
+            </h3>
+            <CaseActionControls
+              key={selectedNode.detected_ring_id}
+              targetType="ring"
+              targetId={selectedNode.detected_ring_id}
+              currentAction={ringActions[selectedNode.detected_ring_id]}
+              compact
+            />
+          </div>
+        )}
       </aside>
     </div>
   );

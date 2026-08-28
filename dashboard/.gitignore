@@ -13,6 +13,10 @@
 # testing
 /coverage
 
+# runtime case-action store — analyst actions recorded through the app itself,
+# not a repo asset (see lib/caseActions.ts)
+/data/case_actions.json
+
 # next.js
 /.next/
 /out/

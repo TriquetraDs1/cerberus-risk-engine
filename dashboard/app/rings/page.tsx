@@ -2,11 +2,24 @@ import { PageHeader } from "@/components/PageHeader";
 import { RingGraph } from "@/components/RingGraph";
 import { EmptyState } from "@/components/EmptyState";
 import { StatRow, StatTile } from "@/components/StatTile";
+import { latestActionByTarget } from "@/lib/caseActions";
 import { getRingGraph, getSystemHealth } from "@/lib/data";
+import type { CaseAction } from "@/lib/types";
+
+// See app/page.tsx for why this is required: this page reads case_actions.json,
+// mutable state a plain fs.readFile gives Next.js no signal about — without this it
+// would be prerendered once at build time and never show a case action again.
+export const dynamic = "force-dynamic";
 
 export default async function RingNetworkPage() {
-  const [graph, health] = await Promise.all([getRingGraph(), getSystemHealth()]);
+  const [graph, health, actionsByTarget] = await Promise.all([getRingGraph(), getSystemHealth(), latestActionByTarget()]);
   const report = health?.ring_detection;
+
+  // Re-key from "ring:detected_8" to "detected_8" — what RingGraph looks up by.
+  const ringActions: Record<string, CaseAction> = {};
+  for (const action of Object.values(actionsByTarget)) {
+    if (action.target_type === "ring") ringActions[action.target_id] = action;
+  }
 
   return (
     <div className="flex flex-col h-full">
@@ -43,7 +56,7 @@ export default async function RingNetworkPage() {
 
       <div className="p-6 flex-1 min-h-0 overflow-auto">
         {graph ? (
-          <RingGraph graph={graph} />
+          <RingGraph graph={graph} ringActions={ringActions} />
         ) : (
           <EmptyState
             title="No ring graph yet."

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 import { formatReasonCode, formatSegment } from "@/lib/format";
-import type { Decision, QueueTransaction } from "@/lib/types";
+import type { CaseAction, Decision, QueueTransaction } from "@/lib/types";
 import { RiskBadge } from "./RiskBadge";
 import { TransactionDrawer } from "./TransactionDrawer";
 
@@ -30,7 +30,13 @@ function formatTime(iso: string) {
   return `${MONTHS[d.getUTCMonth()]} ${String(d.getUTCDate()).padStart(2, "0")}, ${hour12}:${minute} ${ampm}`;
 }
 
-export function QueueTable({ transactions }: { transactions: QueueTransaction[] }) {
+export function QueueTable({
+  transactions,
+  transactionActions = {},
+}: {
+  transactions: QueueTransaction[];
+  transactionActions?: Record<string, CaseAction>;
+}) {
   const [filter, setFilter] = useState<Decision | "all">("all");
   const [query, setQuery] = useState("");
   const [selected, setSelected] = useState<QueueTransaction | null>(null);
@@ -168,7 +174,11 @@ export function QueueTable({ transactions }: { transactions: QueueTransaction[] 
         </div>
       )}
 
-      <TransactionDrawer transaction={selected} onClose={() => setSelected(null)} />
+      <TransactionDrawer
+        transaction={selected}
+        currentAction={selected ? transactionActions[selected.transaction_id] : undefined}
+        onClose={() => setSelected(null)}
+      />
     </div>
   );
 }

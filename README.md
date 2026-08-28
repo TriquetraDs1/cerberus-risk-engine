@@ -137,7 +137,8 @@ into the synthetic generator instead of using a fully synthetic baseline — see
 
 ## Status
 
-Days 1-7 of the 10-day plan are done, plus a calibration pass beyond the original scope:
+Days 1-7 of the 10-day plan are done, plus calibration and a case-management workflow
+beyond the original scope:
 - Synthetic data generator with injectable fraud rings, innocent household sharing, and
   four merchant segments with genuinely different fraud economics
 - Baseline point-risk model (LightGBM) with **isotonic probability calibration** —
@@ -159,7 +160,11 @@ Days 1-7 of the 10-day plan are done, plus a calibration pass beyond the origina
   way a classifier is. The regression gate (`--min-recovery`) runs in CI on every push.
 - An analyst dashboard (`dashboard/`, Next.js) rendering all of the above from real
   pipeline output — Review Queue, Transaction detail, Ring Network, Adversarial
-  Hardening (the before/attack/after chart), System Health
+  Hardening (the before/attack/after chart), System Health — plus a **case-management
+  workflow**: escalate or dismiss a detected ring from its side panel, mark a
+  transaction reviewed from its drawer, and the action persists across reloads
+  (`app/api/case-actions`). Turns the dashboard from a read-only viewer into something
+  an analyst actually works in.
 - **Live `/score` API** (`cerberus.serving`, FastAPI) — serves the hardened model by
   default, real-time feature computation (in-process per-account velocity history),
   segment-aware 3-way routing, SHAP reason codes, a SQLite audit log (`/audit/recent`),
@@ -170,6 +175,5 @@ Days 1-7 of the 10-day plan are done, plus a calibration pass beyond the origina
 - CI (lint + full pipeline + adversarial regression gate + tests, including live
   serving smoke tests), two-stage Docker (`pipeline` / `serving`), MODEL_CARD.md
 
-Days 8-10 (case-management actions in the dashboard, a stretch LLM layer if time
-allows, and the submission video) are still ahead — see `docs/ARCHITECTURE.md` for the
-full roadmap.
+Days 9-10 (a stretch LLM layer if time allows, and the submission video) are still
+ahead — see `docs/ARCHITECTURE.md` for the full roadmap.

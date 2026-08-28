@@ -148,3 +148,19 @@ export interface AdversarialHardeningReport {
   strategies: Record<EvasionStrategy, StrategyHardeningResult>;
   limitations: string[];
 }
+
+export type CaseTargetType = "ring" | "transaction";
+export type CaseActionType = "escalate" | "dismiss" | "mark_reviewed" | "clear";
+
+export interface CaseActionInput {
+  target_type: CaseTargetType;
+  target_id: string;
+  action: CaseActionType;
+  analyst: string;
+  note?: string;
+}
+
+export interface CaseAction extends CaseActionInput {
+  id: string;
+  timestamp: string;
+}
