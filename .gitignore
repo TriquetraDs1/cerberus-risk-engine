@@ -16,3 +16,6 @@ reports/figures/*
 node_modules/
 .next/
 *.egg-info/
+
+AGENTS.md
+CLAUDE.md
