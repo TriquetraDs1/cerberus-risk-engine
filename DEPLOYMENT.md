@@ -39,8 +39,9 @@ Path B / roadmap C1.
 ### A2. Backend → Render (or Railway / Fly)
 
 The API needs model artifacts. The `serving-standalone` Docker target (the Dockerfile's
-last stage) self-bootstraps: on first boot with no model present, it runs the pipeline
-once (~2-3 min) then serves.
+last stage) **bakes them in at build time** — training runs on the build machine, and the
+running container only loads a ~1 MB booster, so it stays well under a 512 MB free-tier
+RAM limit and boots instantly.
 
 - **Render Blueprint:** `render.yaml` is in the repo. Render → New → Blueprint → pick this
   repo → it creates a Docker web service on the free plan with a `/health` check.
@@ -51,24 +52,28 @@ once (~2-3 min) then serves.
     only if you do Path B. Leave unset for Path A.
 
 **Free-tier gotchas:**
-- The service spins down after ~15 min idle; next request has a ~50s cold start, and the
-  *first ever* boot also runs the pipeline. **Hit the URL once a few minutes before you
-  present.**
+- The service spins down after ~15 min idle; next request has a ~50 s cold start (just the
+  container, no pipeline). **Hit the URL once a few minutes before you present.**
 - The SQLite audit log lives in the container's ephemeral filesystem — it resets on every
   deploy/restart. Fine for a demo. Persistence = roadmap C2 (Postgres) or a Fly.io volume.
-- To skip the first-boot pipeline wait, bake the artifacts into the image instead: add
-  this line to the `serving-standalone` stage in the `Dockerfile`, before `CMD`:
-  ```dockerfile
-  RUN python scripts/generate_data.py && python scripts/detect_rings.py \
-   && python scripts/train_baseline.py && python scripts/build_decision_layer.py \
-   && python scripts/run_adversarial_harness.py --min-recovery -1.0
-  ```
-  Trade-off: slower image build (may hit free-tier build timeouts), instant boot.
+- The baked image serves the **baseline** model (the adversarial harness is skipped at
+  build). `/score` and `/explain` need nothing more. To serve the hardened model instead,
+  add `run_adversarial_harness.py --min-recovery -1.0` to that `RUN` in the Dockerfile.
 
-**Railway:** New Project → Deploy from repo → it reads the `Dockerfile` → add the same env
-vars. **Fly.io:** `fly launch` (generates `fly.toml`), `fly deploy`, `fly secrets set
-ANTHROPIC_API_KEY=…`; add `fly volumes create` + a `[mounts]` block for a persistent
-`data/` if you want the audit log to survive.
+### Alternative: Hugging Face Spaces (16 GB RAM free, no card)
+
+Best free option for the ML stack. Create a **Docker** Space, then:
+- Point it at this repo, or add the repo as a remote and push.
+- In the Space's `README.md` YAML frontmatter set `app_port: 8000` (Spaces serve on 7860
+  by default; the API listens on `${PORT:-8000}`), or set a `PORT` space variable to 7860.
+- Space **Settings → Variables and secrets**: add `ANTHROPIC_API_KEY` as a secret.
+- The Space builds the Dockerfile's last stage (`serving-standalone`) automatically.
+- Free Spaces sleep after 48 h idle (much longer than Render's 15 min).
+
+**Railway:** Deploy from repo → reads the `Dockerfile` → add the env vars. Free trial
+credit only, then paid. **Fly.io:** `fly launch`, `fly deploy`, `fly secrets set
+ANTHROPIC_API_KEY=…`; add a volume + `[mounts]` for a persistent `data/`. Also trial
+credit, then paid.
 
 ### A3. LLM layer
 

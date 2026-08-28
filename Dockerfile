@@ -42,5 +42,14 @@ CMD ["uvicorn", "cerberus.serving.app:app", "--host", "0.0.0.0", "--port", "8000
 FROM base AS serving-standalone
 
 RUN pip install --no-cache-dir -e ".[llm]"
+# Bake the model artifacts at build time: training runs on the (larger) build machine,
+# so the running container only loads a ~1 MB booster + calibrator and stays well under
+# a 512 MB free-tier RAM limit. The adversarial harness is skipped here — the API serves
+# the baseline model, which is all /score and /explain need. serve.sh then sees the
+# artifacts already present and goes straight to uvicorn.
+RUN python scripts/generate_data.py \
+ && python scripts/detect_rings.py \
+ && python scripts/train_baseline.py \
+ && python scripts/build_decision_layer.py
 EXPOSE 8000
 CMD ["sh", "scripts/serve.sh"]
