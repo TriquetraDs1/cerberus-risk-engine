@@ -77,6 +77,16 @@ recovers** — it targets the Louvain ring detector specifically, and Louvain is
 unsupervised: retraining the point-risk model can't teach a graph community-detection
 algorithm anything. This is reported as an open, real limitation, not patched over.
 
+## Narration layer (A1)
+
+`cerberus.llm` attaches a 2-3 sentence plain-English summary to each decision (in the
+dashboard queue and the `GET /explain/{id}` endpoint). It is **not part of the model**:
+it reads a decision that has already been made and restates it. The structured
+`reason_codes` remain authoritative — the summary is an additional field, and `/explain`
+echoes the reason codes so the prose can be checked against them. It runs on Claude when
+`ANTHROPIC_API_KEY` is set and on a deterministic template otherwise; it never feeds back
+into scoring, calibration, or routing.
+
 ## Known limitations
 
 - **Cost matrices are estimates**, not a calibrated business study — derived from mean

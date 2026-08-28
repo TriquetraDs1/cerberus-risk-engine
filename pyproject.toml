@@ -8,6 +8,11 @@ version = "0.1.0"
 description = "Adversarially-hardened transaction risk engine (defensive research project)"
 requires-python = ">=3.10"
 
+[project.optional-dependencies]
+# A1 narration layer. Not required: with no anthropic and no ANTHROPIC_API_KEY the
+# pipeline, dashboard export, API, and CI all run and use the deterministic template.
+llm = ["anthropic>=0.40"]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

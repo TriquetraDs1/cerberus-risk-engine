@@ -102,6 +102,21 @@ def test_graph_degradation_is_demoable(client):
     client.post("/admin/graph-status", params={"status": "fresh"})
 
 
+def test_explain_narrates_a_scored_transaction(client):
+    client.post("/score", json=_sample_request(transaction_id="txn_test_explain"))
+    resp = client.get("/explain/txn_test_explain")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["transaction_id"] == "txn_test_explain"
+    assert body["explanation"]  # non-empty prose
+    assert body["reason_codes"]  # echoed so prose can be checked against structure
+    assert body["narration_source"] in ("llm", "template")
+
+
+def test_explain_404s_for_an_unscored_transaction(client):
+    assert client.get("/explain/txn_never_scored").status_code == 404
+
+
 def test_audit_log_records_every_score(client):
     client.post("/score", json=_sample_request(transaction_id="txn_test_audit"))
     resp = client.get("/audit/recent", params={"limit": 5})

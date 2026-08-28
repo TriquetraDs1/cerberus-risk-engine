@@ -42,10 +42,17 @@ from cerberus.common.config import (
 from cerberus.data.synthetic_rings import SEGMENTS
 from cerberus.detection.explain import reason_codes_for_row
 from cerberus.features.pipeline import FEATURE_COLUMNS, add_entity_degree
+from cerberus.llm.narrate import DecisionContext, narrate_decision, narration_source
 from cerberus.serving.audit import AuditLog
 from cerberus.serving.logging_config import configure_logging, log_with_fields
 from cerberus.serving.metrics import RING_CHECK_STATUS, SCORE_LATENCY, SCORE_REQUESTS, registry
-from cerberus.serving.schemas import CostBasis, HealthResponse, ScoreRequest, ScoreResponse
+from cerberus.serving.schemas import (
+    CostBasis,
+    ExplainResponse,
+    HealthResponse,
+    ScoreRequest,
+    ScoreResponse,
+)
 from cerberus.serving.state import ServingState
 
 DECISION_LAYER_JSON = REPORTS_DIR / "decision_layer.json"
@@ -252,6 +259,46 @@ def metrics() -> PlainTextResponse:
 def audit_recent(limit: int = 50) -> list[dict]:
     audit: AuditLog = app.state.audit
     return audit.recent(limit=limit)
+
+
+@app.get("/explain/{transaction_id}", response_model=ExplainResponse)
+def explain(transaction_id: str) -> ExplainResponse:
+    """A1: a plain-English summary of a decision already in the audit log. Rebuilt from
+    the logged decision plus this segment's routing/cost basis — it describes the
+    recorded outcome, it does not re-score. `reason_codes` are echoed so the caller can
+    check the prose against the structured output.
+    """
+    audit: AuditLog = app.state.audit
+    model: ModelBundle = app.state.model
+
+    record = audit.get(transaction_id)
+    if record is None:
+        raise HTTPException(404, f"No scored transaction {transaction_id!r} in the audit log.")
+
+    reason_codes = [c for c in (record["reason_codes"] or "").split(",") if c]
+    routing = model.segment_routing.get(record["segment"])
+    block_threshold = routing["block_threshold"] if routing else model.global_default_threshold
+    review_threshold = routing["review_threshold"] if routing else block_threshold * 0.5
+
+    ctx = DecisionContext(
+        transaction_id=transaction_id,
+        decision=record["decision"],
+        risk_score=float(record["risk_score"]),
+        reason_codes=tuple(reason_codes),
+        ring_id=record["ring_id"],
+        segment=record["segment"],
+        amount=float(record["amount"]),
+        fp_cost=routing["cost_matrix"]["fp_cost"] if routing else 5.0,
+        fn_cost=routing["cost_matrix"]["fn_cost"] if routing else 50.0,
+        block_threshold=block_threshold,
+        review_threshold=review_threshold,
+    )
+    return ExplainResponse(
+        transaction_id=transaction_id,
+        explanation=narrate_decision(ctx),
+        reason_codes=reason_codes,
+        narration_source=narration_source(),
+    )
 
 
 @app.post("/admin/graph-status")

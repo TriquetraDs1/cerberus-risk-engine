@@ -90,6 +90,20 @@ export function TransactionDrawer({
             </div>
           </dl>
 
+          {t.explanation ? (
+            <div>
+              <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--text-tertiary)" }}>
+                Summary
+              </h3>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                {t.explanation}
+              </p>
+              <p className="text-[11px] mt-1.5" style={{ color: "var(--text-tertiary)" }}>
+                Generated from this transaction&apos;s reason codes and cost basis — it does not re-score.
+              </p>
+            </div>
+          ) : null}
+
           <div>
             <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--text-tertiary)" }}>
               Reason codes

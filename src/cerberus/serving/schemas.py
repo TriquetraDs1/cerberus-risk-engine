@@ -61,3 +61,13 @@ class AuditRecord(BaseModel):
     decision: Decision
     ring_id: str | None
     scored_at: str
+
+
+class ExplainResponse(BaseModel):
+    transaction_id: str
+    explanation: str
+    reason_codes: list[str]
+    # "llm" if a live model wrote the text, "template" if the deterministic fallback did.
+    # reason_codes are echoed so a caller can confirm the prose matches the structured
+    # output it's meant to describe.
+    narration_source: Literal["llm", "template"]

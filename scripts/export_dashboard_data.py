@@ -41,6 +41,7 @@ from cerberus.common.config import (
 from cerberus.detection.explain import reason_codes_for_row
 from cerberus.detection.point_risk import three_way_split
 from cerberus.features.pipeline import FEATURE_COLUMNS, build_features
+from cerberus.llm.narrate import DecisionContext, narrate_batch, narration_source
 
 DECISION_LAYER_JSON = REPORTS_DIR / "decision_layer.json"
 ADVERSARIAL_REPORT_JSON = REPORTS_DIR / "adversarial_hardening_report.json"
@@ -148,6 +149,14 @@ def main() -> None:
     bucket_caps = {"block": 90, "review": 130, "approve": 30}
     queue = [r for bucket in bucket_caps for r in by_decision[bucket][: bucket_caps[bucket]]]
     queue = queue[:QUEUE_SAMPLE_SIZE]
+
+    # A1: attach a plain-English explanation to every queued row, built from that row's
+    # own already-computed decision/score/reason codes/cost basis — no re-scoring. Uses
+    # an LLM if ANTHROPIC_API_KEY is set, a deterministic template otherwise.
+    print(f"Narrating {len(queue)} queued decisions ({narration_source()} mode)...")
+    explanations = narrate_batch([DecisionContext.from_queue_row(r) for r in queue])
+    for r, explanation in zip(queue, explanations, strict=True):
+        r["explanation"] = explanation
 
     (DASHBOARD_DATA_DIR / "queue.json").write_text(json.dumps(queue, indent=2))
     decision_counts = {d: len(by_decision[d]) for d in bucket_caps}

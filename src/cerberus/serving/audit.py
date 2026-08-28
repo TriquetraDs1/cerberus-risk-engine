@@ -85,3 +85,13 @@ class AuditLog:
                 "SELECT * FROM decisions ORDER BY id DESC LIMIT ?", (limit,)
             ).fetchall()
             return [dict(row) for row in rows]
+
+    def get(self, transaction_id: str) -> dict | None:
+        """Most recent decision row for a transaction id, or None. Used by /explain."""
+        with self._connect() as conn:
+            conn.row_factory = sqlite3.Row
+            row = conn.execute(
+                "SELECT * FROM decisions WHERE transaction_id = ? ORDER BY id DESC LIMIT 1",
+                (transaction_id,),
+            ).fetchone()
+            return dict(row) if row else None

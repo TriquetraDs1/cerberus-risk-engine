@@ -16,9 +16,11 @@ harness that attacks the model and proves hardening works. Built for Razorpay's 
 hackathon. Defensive-only — see README.md's first paragraph for the scope statement;
 repeat that framing in anything you write about this project.
 
-## Status: Days 1-7 of the 10-day plan done, plus 2 items beyond original scope
+## Status: Days 1-7 of the 10-day plan done, plus 3 items beyond original scope
 
 Everything below is **built, tested, and verified working** — not aspirational.
+Beyond the original plan: probability calibration, the case-management workflow, and
+the Day 8 A1 narration layer (A2/A3 remain optional stretch).
 
 | Component | Where | Real result |
 |---|---|---|
@@ -27,11 +29,12 @@ Everything below is **built, tested, and verified working** — not aspirational
 | **Calibration** | `src/cerberus/detection/calibration.py` | Brier 0.0645→0.0164, ECE 0.140→0.003 (isotonic regression) |
 | Ring detector (Louvain) | `src/cerberus/detection/ring_detector.py` | 25/25 rings recovered (100%), 9.3% honest FP rate on innocent sharing |
 | **Decision layer (Day 4)** | `src/cerberus/decision/cost_matrix.py` | Per-segment cost matrices, 10.7% cheaper than one global threshold |
-| **Adversarial harness (Day 5-6)** | `src/cerberus/adversarial/` | 3 adaptive strategies; detection dropped 33-67% under attack, recovered 14-42 points after hardening. Identity rotation barely recovers (honest, reported limitation — Louvain isn't retrainable). |
-| **Serving API (Day 7)** | `src/cerberus/serving/app.py` | FastAPI `/score`, `/health`, `/metrics`, SQLite audit log, demoable graceful degradation |
-| **Dashboard** | `dashboard/` (Next.js) | Review Queue, Ring Network, Adversarial Hardening, System Health — all reading real pipeline output |
+| **Adversarial harness (Day 5-6)** | `src/cerberus/adversarial/` | 3 adaptive strategies; recall decayed 45-67% under attack, recovered 14-42 points after hardening. Identity rotation barely recovers (honest, reported limitation — Louvain isn't retrainable). |
+| **Serving API (Day 7)** | `src/cerberus/serving/app.py` | FastAPI `/score`, `/health`, `/metrics`, `/explain/{id}`, SQLite audit log, demoable graceful degradation |
+| **A1 narration (Day 8)** | `src/cerberus/llm/` | 2-3 sentence plain-English summary per decision, in `queue.json` and `/explain`. LLM (Claude) if `ANTHROPIC_API_KEY` set, deterministic template otherwise. Never re-scores. |
+| **Dashboard** | `dashboard/` (Next.js) | Review Queue, Ring Network, Adversarial Hardening, System Health — all reading real pipeline output; the drawer shows the A1 Summary |
 | **Case management** | `dashboard/app/api/case-actions/`, `lib/caseActions.ts` | Escalate/dismiss rings, mark transactions reviewed, persists server-side |
-| CI | `.github/workflows/ci.yml` | Lint → full pipeline → adversarial regression gate → tests (17/17 passing) |
+| CI | `.github/workflows/ci.yml` | Lint → full pipeline → adversarial regression gate → tests (28/28 passing) |
 | Docker | `Dockerfile`, `docker-compose.yml` | Two-stage: `pipeline` target and `serving` target |
 
 ## How to run everything (from a clean clone)
@@ -40,6 +43,7 @@ Everything below is **built, tested, and verified working** — not aspirational
 cd cerberus-risk-engine
 python -m venv .venv && source .venv/Scripts/activate   # or .venv\Scripts\Activate.ps1
 pip install -r requirements.txt && pip install -e .
+pip install -e ".[llm]"                   # optional: A1 LLM narration (template fallback without it)
 
 python scripts/generate_data.py           # Day 1-2: synthetic data
 python scripts/detect_rings.py            # Day 3: Louvain ring detector
@@ -57,8 +61,9 @@ uvicorn cerberus.serving.app:app --reload   # http://localhost:8000
 
 Or: `docker compose run pipeline` then `docker compose up serving`.
 
-Tests: `pytest tests/ -v` (17 tests; `test_serving.py` skips gracefully if the pipeline
-hasn't run yet, since it needs a trained model on disk).
+Tests: `pytest tests/ -v` (28 tests; `test_serving.py` skips gracefully if the pipeline
+hasn't run yet, since it needs a trained model on disk; `test_llm.py` needs neither a
+model nor an API key — it pins the deterministic template path).
 
 ## Where every number comes from (no mock data anywhere)
 
@@ -95,12 +100,20 @@ change the model/pipeline, re-run the scripts above in order and the dashboard u
   case-action state from a local JSON file. Don't remove that export or a production
   build will silently serve stale case-action state. `/health` and `/adversarial`
   correctly stay static.
+- **A1 narration (`src/cerberus/llm/`) is strictly downstream and non-decisional.** It
+  reads a decision that's already been made and writes prose about it. The structured
+  `reason_codes` stay authoritative; the LLM text is an extra field. It must never feed
+  back into scoring, and it must always have a working templated fallback — the repo,
+  the export, and CI all run with no `anthropic` and no `ANTHROPIC_API_KEY`. `anthropic`
+  is imported lazily inside `_call_claude`, never at module load.
 
 ## What's NOT done (the honest remainder)
 
-- **Day 8 (optional stretch):** LLM layer — dispute drafting or plain-English reason
-  codes. Explicitly optional; the original plan says skip it if behind schedule, and
-  a rushed version would hurt "AI Judgment" more than help.
+- **Day 8 A1 — DONE.** Plain-English reason-code narration is built (`src/cerberus/llm/`,
+  `queue.json` `explanation` field, `GET /explain/{id}`, drawer Summary block). What's
+  still stretch: **A2** (chargeback dispute drafting) and **A3** (analyst copilot) — see
+  `IMPLEMENTATION_ROADMAP.md` Phase 1. Both explicitly optional; do only if the video is
+  recorded with days to spare.
 - **Day 9-10:** record the submission video, final docs pass, submit by Sept 5. This is
   the actual highest-priority remaining work — not more features.
 - **Case-action store is file-based** (`dashboard/data/case_actions.json`, gitignored),
@@ -116,9 +129,9 @@ change the model/pipeline, re-run the scripts above in order and the dashboard u
    before/attack/after chart on `/adversarial` — that's your best 30 seconds.
 2. **Re-read `MODEL_CARD.md` and `docs/ARCHITECTURE.md`'s "Anticipated panel pushback"
    section** and rehearse answering those two questions out loud.
-3. Only if 1-2 are done with days to spare: Day 8 LLM layer, or unify the two audit
-   trails, or add a real-data backtest for the ring detector's FP rate (both named as
-   "would strengthen this further" in earlier planning, neither required).
+3. Only if 1-2 are done with days to spare: A2 (dispute drafting), unify the two audit
+   trails, or add a real-data backtest for the ring detector's FP rate (all named as
+   "would strengthen this further" in earlier planning, none required).
 
 Do not restart the ML pipeline design, re-litigate synthetic-vs-real data, or rebuild
 the dashboard's design system from scratch — all of that is settled and working.

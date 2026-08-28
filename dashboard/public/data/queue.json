@@ -19,7 +19,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: amount anomalous for account, large transaction amount, shared device with flagged ring: detected_89. The account is linked to flagged ring detected_89. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00017893",
@@ -40,7 +41,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00010366",
@@ -61,7 +63,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_ring_037014a9b9",
@@ -83,7 +86,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_87966d06b1",
@@ -105,7 +109,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_ring_6f52d85da2",
@@ -127,7 +132,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_c3fffca68d",
@@ -149,7 +155,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_ring_91a06b69ee",
@@ -171,7 +178,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_44ac4a8575",
@@ -193,7 +201,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_c58db269f2",
@@ -215,7 +224,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_ring_5f6c2812cc",
@@ -237,7 +247,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_7fbacff342",
@@ -259,7 +270,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_fb3b51f058",
@@ -281,7 +293,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_ring_ae50f21cd8",
@@ -303,7 +316,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_13160aaad4",
@@ -325,7 +339,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_799fa8d21b",
@@ -347,7 +362,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_9de7a016cf",
@@ -369,7 +385,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_a23bcf7a7a",
@@ -391,7 +408,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high transaction velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_ring_07898ea665",
@@ -413,7 +431,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_ring_52915ebafb",
@@ -435,7 +454,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_ring_72be3b29ad",
@@ -457,7 +477,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_ring_c492608120",
@@ -479,7 +500,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00048181",
@@ -500,7 +522,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00009891",
@@ -521,7 +544,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00006210",
@@ -542,7 +566,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.94. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00010927",
@@ -563,7 +588,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.90. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00011342",
@@ -584,7 +610,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.90. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00051159",
@@ -605,7 +632,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.90. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00031554",
@@ -626,7 +654,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.90. Primary factors: high value velocity, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00012120",
@@ -647,7 +676,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.90. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_ring_ac7817d8c2",
@@ -669,7 +699,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.90. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00020036",
@@ -690,7 +721,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.90. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_ring_881846f1c1",
@@ -712,7 +744,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.88. Primary factors: large transaction amount, linked to multiple accounts, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00007469",
@@ -733,7 +766,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.86. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00035543",
@@ -754,7 +788,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.80. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00056689",
@@ -775,7 +810,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.80. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00036509",
@@ -796,7 +832,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.80. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00021523",
@@ -817,7 +854,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.80. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00003405",
@@ -838,7 +876,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00046863",
@@ -859,7 +898,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, amount anomalous for account. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00002686",
@@ -881,7 +921,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: amount anomalous for account, high value velocity, shared device with flagged ring: detected_86. The account is linked to flagged ring detected_86. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00049040",
@@ -902,7 +943,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_00037430",
@@ -923,7 +965,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00007314",
@@ -944,7 +987,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00020856",
@@ -965,7 +1009,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00040107",
@@ -986,7 +1031,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00018482",
@@ -1007,7 +1053,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00044882",
@@ -1028,7 +1075,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00035737",
@@ -1049,7 +1097,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00055002",
@@ -1070,7 +1119,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00003432",
@@ -1091,7 +1141,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00000733",
@@ -1112,7 +1163,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_00044066",
@@ -1133,7 +1185,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, amount anomalous for account. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00013415",
@@ -1154,7 +1207,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00021948",
@@ -1175,7 +1229,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: amount anomalous for account, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00046475",
@@ -1196,7 +1251,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00015555",
@@ -1217,7 +1273,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00007558",
@@ -1238,7 +1295,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00007021",
@@ -1259,7 +1317,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, amount anomalous for account. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00024968",
@@ -1280,7 +1339,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00008574",
@@ -1301,7 +1361,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, amount anomalous for account. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00044350",
@@ -1322,7 +1383,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: amount anomalous for account, high value velocity. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00002792",
@@ -1343,7 +1405,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_00027116",
@@ -1364,7 +1427,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00018830",
@@ -1386,7 +1450,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount, shared device with flagged ring: detected_4. The account is linked to flagged ring detected_4. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_ring_2fa70603a2",
@@ -1408,7 +1473,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, linked to multiple accounts, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_ring_e82e8ce0ca",
@@ -1430,7 +1496,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_00033648",
@@ -1451,7 +1518,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00009374",
@@ -1472,7 +1540,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00018251",
@@ -1493,7 +1562,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00001477",
@@ -1514,7 +1584,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00055643",
@@ -1535,7 +1606,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00027697",
@@ -1556,7 +1628,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, amount anomalous for account. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00056256",
@@ -1577,7 +1650,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_00046384",
@@ -1598,7 +1672,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00009358",
@@ -1619,7 +1694,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_00059259",
@@ -1640,7 +1716,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_00008756",
@@ -1661,7 +1738,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.41. Primary factors: high value velocity, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00032096",
@@ -1682,7 +1760,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00059046",
@@ -1703,7 +1782,8 @@
       "fn_cost": 1517.79,
       "block_threshold": 0.0101,
       "review_threshold": 0.005
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, large transaction amount. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.010."
   },
   {
     "transaction_id": "txn_00019446",
@@ -1724,7 +1804,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: amount anomalous for account, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00018066",
@@ -1745,7 +1826,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00050684",
@@ -1766,7 +1848,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00020935",
@@ -1787,7 +1870,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00028665",
@@ -1808,7 +1892,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00055304",
@@ -1829,7 +1914,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00012947",
@@ -1850,7 +1936,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: amount anomalous for account, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00023507",
@@ -1871,7 +1958,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00042923",
@@ -1892,7 +1980,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00046232",
@@ -1913,7 +2002,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Blocked at a calibrated risk score of 0.33. Primary factors: high value velocity, amount anomalous for account. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00020348",
@@ -1934,7 +2024,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.24. Primary factors: amount anomalous for account, high value velocity. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00054767",
@@ -1955,7 +2046,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, high value velocity. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00039030",
@@ -1976,7 +2068,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00059754",
@@ -1997,7 +2090,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00034241",
@@ -2018,7 +2112,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, high value velocity. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00008950",
@@ -2039,7 +2134,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, high value velocity. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00009240",
@@ -2060,7 +2156,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: high value velocity, amount anomalous for account. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00045130",
@@ -2081,7 +2178,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00038601",
@@ -2102,7 +2200,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00004140",
@@ -2123,7 +2222,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, large transaction amount. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00001829",
@@ -2144,7 +2244,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, high value velocity. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00026073",
@@ -2165,7 +2266,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.23. Primary factors: amount anomalous for account, high value velocity. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.250."
   },
   {
     "transaction_id": "txn_00014779",
@@ -2186,7 +2288,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00017729",
@@ -2207,7 +2310,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00007081",
@@ -2228,7 +2332,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00009674",
@@ -2249,7 +2354,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00052288",
@@ -2270,7 +2376,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, amount anomalous for account. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00015192",
@@ -2291,7 +2398,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00013404",
@@ -2312,7 +2420,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00049904",
@@ -2333,7 +2442,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00002670",
@@ -2354,7 +2464,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00014692",
@@ -2375,7 +2486,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00002162",
@@ -2396,7 +2508,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00025266",
@@ -2417,7 +2530,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00047916",
@@ -2438,7 +2552,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00018630",
@@ -2459,7 +2574,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00025189",
@@ -2480,7 +2596,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00043871",
@@ -2501,7 +2618,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00006161",
@@ -2522,7 +2640,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00034930",
@@ -2543,7 +2662,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00052854",
@@ -2564,7 +2684,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00020119",
@@ -2585,7 +2706,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00001452",
@@ -2606,7 +2728,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00016991",
@@ -2627,7 +2750,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00000670",
@@ -2648,7 +2772,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00059648",
@@ -2669,7 +2794,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00015904",
@@ -2690,7 +2816,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, amount anomalous for account. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00002844",
@@ -2711,7 +2838,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00050058",
@@ -2732,7 +2860,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00036483",
@@ -2753,7 +2882,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00004174",
@@ -2774,7 +2904,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00018688",
@@ -2795,7 +2926,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00029790",
@@ -2816,7 +2948,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00056368",
@@ -2837,7 +2970,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00022578",
@@ -2858,7 +2992,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00030471",
@@ -2879,7 +3014,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00003810",
@@ -2900,7 +3036,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00015393",
@@ -2921,7 +3058,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00053708",
@@ -2942,7 +3080,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00028446",
@@ -2963,7 +3102,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00031892",
@@ -2984,7 +3124,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00047990",
@@ -3005,7 +3146,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00054197",
@@ -3026,7 +3168,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00036834",
@@ -3047,7 +3190,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00017414",
@@ -3068,7 +3212,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, amount anomalous for account. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00032781",
@@ -3089,7 +3234,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00017432",
@@ -3110,7 +3256,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00058769",
@@ -3131,7 +3278,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, amount anomalous for account. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00059572",
@@ -3152,7 +3300,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00045700",
@@ -3173,7 +3322,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00052397",
@@ -3194,7 +3344,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, amount anomalous for account. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00027329",
@@ -3215,7 +3366,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00018882",
@@ -3236,7 +3388,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00037386",
@@ -3257,7 +3410,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00031990",
@@ -3278,7 +3432,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00014705",
@@ -3299,7 +3454,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00040612",
@@ -3320,7 +3476,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00018701",
@@ -3341,7 +3498,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, amount anomalous for account. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00039088",
@@ -3362,7 +3520,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00021980",
@@ -3383,7 +3542,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00045527",
@@ -3404,7 +3564,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00008110",
@@ -3425,7 +3586,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00033449",
@@ -3446,7 +3608,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00016824",
@@ -3467,7 +3630,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00056513",
@@ -3488,7 +3652,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00020176",
@@ -3509,7 +3674,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00025656",
@@ -3530,7 +3696,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00009851",
@@ -3551,7 +3718,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00002317",
@@ -3572,7 +3740,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00011405",
@@ -3593,7 +3762,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00055624",
@@ -3614,7 +3784,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, amount anomalous for account. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00042990",
@@ -3635,7 +3806,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00005758",
@@ -3656,7 +3828,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00010179",
@@ -3677,7 +3850,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00010962",
@@ -3698,7 +3872,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00016516",
@@ -3719,7 +3894,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00034156",
@@ -3740,7 +3916,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00043828",
@@ -3761,7 +3938,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00007611",
@@ -3782,7 +3960,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00036877",
@@ -3803,7 +3982,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00053579",
@@ -3824,7 +4004,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00020568",
@@ -3845,7 +4026,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00023759",
@@ -3866,7 +4048,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00052465",
@@ -3887,7 +4070,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00032847",
@@ -3908,7 +4092,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00010258",
@@ -3929,7 +4114,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00041786",
@@ -3950,7 +4136,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.08. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00014818",
@@ -3971,7 +4158,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: large transaction amount, amount anomalous for account. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00058328",
@@ -3992,7 +4180,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00041706",
@@ -4013,7 +4202,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00056240",
@@ -4034,7 +4224,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00003793",
@@ -4055,7 +4246,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00010694",
@@ -4076,7 +4268,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00007862",
@@ -4097,7 +4290,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00001444",
@@ -4118,7 +4312,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: large transaction amount, amount anomalous for account. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00038072",
@@ -4139,7 +4334,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00059625",
@@ -4160,7 +4356,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00030596",
@@ -4181,7 +4378,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00041347",
@@ -4202,7 +4400,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00028249",
@@ -4224,7 +4423,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount, shared device with flagged ring: detected_7. The account is linked to flagged ring detected_7. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00009505",
@@ -4245,7 +4445,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00001889",
@@ -4266,7 +4467,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00034145",
@@ -4287,7 +4489,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: large transaction amount, amount anomalous for account. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00034226",
@@ -4308,7 +4511,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00010296",
@@ -4329,7 +4533,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00033987",
@@ -4350,7 +4555,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00039440",
@@ -4371,7 +4577,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00006196",
@@ -4392,7 +4599,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00059887",
@@ -4413,7 +4621,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00041051",
@@ -4434,7 +4643,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00020232",
@@ -4455,7 +4665,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00052161",
@@ -4476,7 +4687,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00035703",
@@ -4497,7 +4709,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00024188",
@@ -4518,7 +4731,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00059363",
@@ -4539,7 +4753,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: large transaction amount, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00019782",
@@ -4560,7 +4775,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00042165",
@@ -4581,7 +4797,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, high value velocity. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00001660",
@@ -4602,7 +4819,8 @@
       "fn_cost": 755.9,
       "block_threshold": 0.1053,
       "review_threshold": 0.0526
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.105."
   },
   {
     "transaction_id": "txn_00021013",
@@ -4623,7 +4841,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: large transaction amount, amount anomalous for account. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00045001",
@@ -4644,7 +4863,8 @@
       "fn_cost": 208.13,
       "block_threshold": 0.0829,
       "review_threshold": 0.0415
-    }
+    },
+    "explanation": "Flagged for review at a calibrated risk score of 0.07. Primary factors: amount anomalous for account, large transaction amount. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.083."
   },
   {
     "transaction_id": "txn_00055500",
@@ -4665,7 +4885,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.11. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00025860",
@@ -4686,7 +4907,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.11. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00048458",
@@ -4707,7 +4929,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.11. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00022563",
@@ -4728,7 +4951,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.11. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00004129",
@@ -4749,7 +4973,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00023770",
@@ -4770,7 +4995,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00023574",
@@ -4791,7 +5017,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00049366",
@@ -4812,7 +5039,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00031809",
@@ -4833,7 +5061,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00008625",
@@ -4854,7 +5083,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00007991",
@@ -4875,7 +5105,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were large transaction amount, amount anomalous for account, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00037664",
@@ -4896,7 +5127,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00054554",
@@ -4917,7 +5149,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00046569",
@@ -4938,7 +5171,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00025008",
@@ -4959,7 +5193,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00033788",
@@ -4980,7 +5215,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00011344",
@@ -5001,7 +5237,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00032260",
@@ -5022,7 +5259,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00054805",
@@ -5043,7 +5281,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00053766",
@@ -5064,7 +5303,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00036110",
@@ -5085,7 +5325,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00032711",
@@ -5106,7 +5347,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were large transaction amount, amount anomalous for account, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00059145",
@@ -5127,7 +5369,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00001760",
@@ -5148,7 +5391,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00051438",
@@ -5169,7 +5413,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00052863",
@@ -5190,7 +5435,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, high value velocity, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00043764",
@@ -5211,7 +5457,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00030924",
@@ -5232,7 +5479,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00036279",
@@ -5253,7 +5501,8 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   },
   {
     "transaction_id": "txn_00030424",
@@ -5274,6 +5523,7 @@
       "fn_cost": 149.18,
       "block_threshold": 0.25,
       "review_threshold": 0.125
-    }
+    },
+    "explanation": "Approved at a calibrated risk score of 0.08. The strongest contributing factors were amount anomalous for account, large transaction amount, but the score stays below this segment's review threshold of 0.125."
   }
 ]

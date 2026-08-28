@@ -75,6 +75,9 @@ python -m venv .venv
 source .venv/Scripts/activate   # Windows Git Bash; use .venv\Scripts\Activate.ps1 in PowerShell
 pip install -r requirements.txt
 pip install -e .
+# optional: the A1 narration layer. Without it, explanations fall back to a
+# deterministic template. With it, set ANTHROPIC_API_KEY for LLM-written summaries.
+pip install -e ".[llm]"
 
 # Day 1-2: synthetic data + calibrated baseline point-risk model
 python scripts/generate_data.py
@@ -116,6 +119,7 @@ curl -X POST localhost:8000/score -H "Content-Type: application/json" -d '{
 curl localhost:8000/health
 curl localhost:8000/metrics
 curl localhost:8000/audit/recent
+curl localhost:8000/explain/txn_1                                   # plain-English summary of a scored txn
 curl -X POST "localhost:8000/admin/graph-status?status=degraded"   # demo the degraded path
 ```
 
@@ -156,7 +160,7 @@ beyond the original scope:
 - **Adversarial hardening harness** (`cerberus.adversarial`) — the actual
   differentiator. Three evasion strategies (structuring, identity rotation, slow-ramp
   timing), each found by an adaptive local search against the live model, not a fixed
-  script. Detection dropped **33-55%** under attack; retraining on what the search
+  script. Recall decayed **45-67%** under attack; retraining on what the search
   found recovered **31-42 points** for structuring and slow-ramp. Identity rotation's
   evasion of the graph layer barely recovers (+14 points) — reported as an honest,
   unresolved limitation, not silently patched, because Louvain isn't retrainable the
@@ -175,8 +179,15 @@ beyond the original scope:
   degradation path (`POST /admin/graph-status`) — flip the graph service to
   "unavailable" and watch `/score` keep serving decisions with `ring_check:
   "unavailable"` instead of crashing.
+- **Plain-English narration (A1)** (`cerberus.llm`) — every queued decision and the
+  `GET /explain/{transaction_id}` endpoint carry a 2-3 sentence summary built from that
+  decision's own reason codes and cost basis. It describes the deterministic output, it
+  never re-scores. Uses Claude if `ANTHROPIC_API_KEY` is set (`pip install -e ".[llm]"`),
+  a deterministic template otherwise — so the repo, the dashboard export, and CI all run
+  with no key and no network.
 - CI (lint + full pipeline + adversarial regression gate + tests, including live
   serving smoke tests), two-stage Docker (`pipeline` / `serving`), MODEL_CARD.md
 
-Days 9-10 (a stretch LLM layer if time allows, and the submission video) are still
-ahead — see `docs/ARCHITECTURE.md` for the full roadmap.
+Still ahead: Day 8 stretch items A2 (chargeback dispute drafting) and A3 (analyst
+copilot), and the submission video — see `docs/ARCHITECTURE.md` and
+`IMPLEMENTATION_ROADMAP.md` for the full roadmap.

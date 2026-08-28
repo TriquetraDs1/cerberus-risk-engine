@@ -13,3 +13,8 @@ matplotlib>=3.8
 pytest>=8.2
 httpx>=0.27
 prometheus-client>=0.20
+
+# Optional: the A1 narration layer. Without it (and without ANTHROPIC_API_KEY) the
+# pipeline falls back to deterministic templated explanations. Install with:
+#   pip install -e ".[llm]"
+# anthropic>=0.40
