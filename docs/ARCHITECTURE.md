@@ -112,16 +112,16 @@ collection; a replicated store for the entity-graph cache.
 
 ## 6. 10-day build plan
 
-| Day | Deliverable |
-|---|---|
-| 1–2 | Synthetic data generator with injectable fraud rings + baseline point-risk model. Get a number, any honest number. |
-| 3 | Entity-link graph + Louvain on synthetic rings. Confirm it recovers the injected rings. |
-| 4 | Cost matrix + threshold optimization + 3-way routing. |
-| 5–6 | Adversarial harness: 2–3 evasion strategies, measure recall decay, retrain, show recovery. This is the differentiator — protect this time budget above all else. |
-| 7 | FastAPI serving + audit log + drift check. Thin, enterprise-shaped not enterprise-scale. |
-| 8 | Stretch LLM layer (dispute drafting / plain-English reason codes) only if on schedule. |
-| 9 | README + this doc + record the video. |
-| 10 | Submit. |
+| Day | Deliverable | Status |
+|---|---|---|
+| 1–2 | Synthetic data generator with injectable fraud rings + baseline point-risk model. Get a number, any honest number. | ✅ Done — ROC-AUC 0.80, calibrated (Brier 0.0645→0.0164) |
+| 3 | Entity-link graph + Louvain on synthetic rings. Confirm it recovers the injected rings. | ✅ Done — 25/25 rings, 100% recovery, 9.3% honest FP rate |
+| 4 | Cost matrix + threshold optimization + 3-way routing. | ✅ Done — per-segment, 10.7% cheaper than one global threshold |
+| 5–6 | Adversarial harness: 2–3 evasion strategies, measure recall decay, retrain, show recovery. This is the differentiator — protect this time budget above all else. | ✅ Done — 3 adaptive strategies, before/attack/after chart, CI regression gate |
+| 7 | FastAPI serving + audit log + drift check. Thin, enterprise-shaped not enterprise-scale. | Not started |
+| 8 | Stretch LLM layer (dispute drafting / plain-English reason codes) only if on schedule. | Not started |
+| 9 | README + this doc + record the video. | Not started |
+| 10 | Submit. | — |
 
 ## 7. Anticipated panel pushback (pre-answered)
 

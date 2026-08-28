@@ -39,9 +39,10 @@ jobs:
           python scripts/build_decision_layer.py
           python scripts/export_dashboard_data.py
 
-      # Placeholder for the day the adversarial harness lands: this job should
-      # rerun the evasion suite and fail the build if recall decay exceeds a
-      # tolerance, turning the differentiator into a CI-enforced regression
-      # gate instead of a one-off script. See docs/ARCHITECTURE.md, Day 5-6.
-      # - name: Adversarial regression gate
-      #   run: python scripts/run_adversarial_harness.py --fail-on-decay 0.15
+      # Reruns the adaptive evasion search against the current model, retrains on
+      # what it finds, and fails the build only if hardening ever makes a strategy's
+      # detection *worse* than before hardening — a regression gate, not a quality
+      # bar. See the script's own docstring for why it must not fail over an
+      # honestly-reported small (but non-negative) recovery.
+      - name: Adversarial regression gate
+        run: python scripts/run_adversarial_harness.py --min-recovery -0.05

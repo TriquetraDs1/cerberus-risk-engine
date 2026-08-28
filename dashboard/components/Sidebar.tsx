@@ -1,9 +1,10 @@
-import { ChartLine, Graph, Queue as QueueIcon, ShieldWarning } from "@phosphor-icons/react/dist/ssr";
+import { ChartLine, Graph, Queue as QueueIcon, ShieldWarning, Sword } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 
 const NAV = [
   { href: "/", label: "Review Queue", Icon: QueueIcon },
   { href: "/rings", label: "Ring Network", Icon: Graph },
+  { href: "/adversarial", label: "Adversarial Hardening", Icon: Sword },
   { href: "/health", label: "System Health", Icon: ChartLine },
 ];
 

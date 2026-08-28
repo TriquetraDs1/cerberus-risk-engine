@@ -81,7 +81,7 @@ def time_based_split(txns: pd.DataFrame, test_fraction: float = 0.2):
     return txns.iloc[:cutoff], txns.iloc[cutoff:]
 
 
-def _fit_classifier(X_train: pd.DataFrame, y_train: pd.Series):
+def fit_classifier(X_train: pd.DataFrame, y_train: pd.Series):
     if _HAS_LIGHTGBM:
         model = lgb.LGBMClassifier(
             n_estimators=300,
@@ -145,7 +145,7 @@ def train(
     X_calib, y_calib = calib_df[FEATURE_COLUMNS], calib_df["label"]
     X_test, y_test = test_df[FEATURE_COLUMNS], test_df["label"]
 
-    model = _fit_classifier(X_train, y_train)
+    model = fit_classifier(X_train, y_train)
 
     raw_calib_scores = model.predict_proba(X_calib)[:, 1]
     raw_test_scores = model.predict_proba(X_test)[:, 1]

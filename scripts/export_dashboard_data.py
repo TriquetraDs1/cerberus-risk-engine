@@ -43,6 +43,7 @@ from cerberus.detection.point_risk import three_way_split
 from cerberus.features.pipeline import FEATURE_COLUMNS, build_features
 
 DECISION_LAYER_JSON = REPORTS_DIR / "decision_layer.json"
+ADVERSARIAL_REPORT_JSON = REPORTS_DIR / "adversarial_hardening_report.json"
 
 QUEUE_SAMPLE_SIZE = 250
 
@@ -222,6 +223,12 @@ def main() -> None:
     }
     (DASHBOARD_DATA_DIR / "system_health.json").write_text(json.dumps(system_health, indent=2))
     print("Wrote system_health.json")
+
+    if ADVERSARIAL_REPORT_JSON.exists():
+        (DASHBOARD_DATA_DIR / "adversarial_hardening.json").write_text(ADVERSARIAL_REPORT_JSON.read_text())
+        print("Wrote adversarial_hardening.json")
+    else:
+        print("No adversarial hardening report yet — skipping (run scripts/run_adversarial_harness.py).")
 
 
 if __name__ == "__main__":

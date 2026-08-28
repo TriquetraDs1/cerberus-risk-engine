@@ -122,3 +122,29 @@ export interface SystemHealth {
   decision_layer: DecisionLayer;
   graph_cache_status: string;
 }
+
+export type EvasionStrategy = "structuring" | "identity_rotation" | "slow_ramp";
+
+export interface DetectionScoreBreakdown {
+  point_risk_caught_fraction: number;
+  ring_recovered_fraction: number;
+  combined_score: number;
+}
+
+export interface StrategyHardeningResult {
+  baseline_detection: DetectionScoreBreakdown;
+  evaded_original_model: DetectionScoreBreakdown;
+  evaded_hardened_model: DetectionScoreBreakdown;
+  best_evasion_params: Record<string, number>;
+  recall_decay_original: number;
+  recall_recovered_after_hardening: number;
+}
+
+export interface AdversarialHardeningReport {
+  generated_at: string;
+  n_restarts: number;
+  n_steps: number;
+  n_adversarial_examples: number;
+  strategies: Record<EvasionStrategy, StrategyHardeningResult>;
+  limitations: string[];
+}

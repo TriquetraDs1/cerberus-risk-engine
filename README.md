@@ -47,7 +47,7 @@ cerberus-risk-engine/
 │   ├── features/       # velocity, amount z-score, entity-link features [done]
 │   ├── detection/       # point-risk model (LightGBM) + ring detector (Louvain) [done]
 │   ├── decision/        # cost matrix, threshold optimization, 3-way routing (Day 4)
-│   ├── adversarial/      # the harness: evasion strategies + recall-decay report (Day 5-6)
+│   ├── adversarial/      # evasion strategies + adaptive search + hardening loop [done]
 │   ├── serving/         # FastAPI /score endpoint, audit log, drift check (Day 7)
 │   └── common/          # shared config/paths (pydantic-settings)
 ├── scripts/            # CLI entry points: generate_data, detect_rings, train_baseline,
@@ -82,6 +82,9 @@ python scripts/detect_rings.py
 
 # Day 4: per-segment cost matrix + 3-way routing thresholds
 python scripts/build_decision_layer.py
+
+# Day 5-6: attack the model, harden it, prove the recovery — takes ~1-2 min
+python scripts/run_adversarial_harness.py
 
 # Export real pipeline output as JSON for the dashboard (no mock data)
 python scripts/export_dashboard_data.py
@@ -118,7 +121,7 @@ into the synthetic generator instead of using a fully synthetic baseline — see
 
 ## Status
 
-Days 1-4 of the 10-day plan are done, plus a calibration pass beyond the original scope:
+Days 1-6 of the 10-day plan are done, plus a calibration pass beyond the original scope:
 - Synthetic data generator with injectable fraud rings, innocent household sharing, and
   four merchant segments with genuinely different fraud economics
 - Baseline point-risk model (LightGBM) with **isotonic probability calibration** —
@@ -130,12 +133,19 @@ Days 1-4 of the 10-day plan are done, plus a calibration pass beyond the origina
   segment's FP/FN cost is derived from its own transaction data, not one global
   assumption. Segmented routing costs **10.7% less** than applying one threshold to
   every segment.
+- **Adversarial hardening harness** (`cerberus.adversarial`) — the actual
+  differentiator. Three evasion strategies (structuring, identity rotation, slow-ramp
+  timing), each found by an adaptive local search against the live model, not a fixed
+  script. Detection dropped **33-55%** under attack; retraining on what the search
+  found recovered **31-42 points** for structuring and slow-ramp. Identity rotation's
+  evasion of the graph layer barely recovers (+14 points) — reported as an honest,
+  unresolved limitation, not silently patched, because Louvain isn't retrainable the
+  way a classifier is. The regression gate (`--min-recovery`) runs in CI on every push.
 - An analyst dashboard (`dashboard/`, Next.js) rendering all of the above from real
-  pipeline output — Review Queue, Transaction detail, Ring Network, System Health
-  (with a calibration reliability diagram and the per-segment routing table)
-- CI (lint + tests + full pipeline run), Docker, MODEL_CARD.md
+  pipeline output — Review Queue, Transaction detail, Ring Network, Adversarial
+  Hardening (the before/attack/after chart), System Health
+- CI (lint + tests + full pipeline + adversarial regression gate), Docker, MODEL_CARD.md
 
-Days 5-10 (the adversarial hardening harness, FastAPI serving, and the submission
-video) are still ahead — see `docs/ARCHITECTURE.md` for the full roadmap. The
-adversarial harness is the actual differentiator; nothing before it should be mistaken
-for the finished submission.
+Days 7-10 (FastAPI serving with metrics/audit log, case-management actions in the
+dashboard, and the submission video) are still ahead — see `docs/ARCHITECTURE.md` for
+the full roadmap.
