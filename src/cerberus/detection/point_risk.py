@@ -1,9 +1,9 @@
 """Point-risk model: per-transaction fraud probability.
 
-Day 1-2 baseline. Cost-sensitive threshold selection here is a preview of the Day 4
-decision layer — real cost values belong there once the cost matrix work happens; the
-placeholders below exist so this script prints something more honest than a bare
-accuracy-maximizing threshold on day one.
+Trains on a chronological split and reports a *calibrated* probability, not a bare
+ranking score — see `cerberus.detection.calibration` for why that distinction matters.
+The cost-sensitive threshold here is a preview of the Day 4 decision layer's global
+threshold; per-segment thresholds live in `cerberus.decision.cost_matrix`.
 """
 
 from __future__ import annotations
@@ -19,6 +19,7 @@ from sklearn.metrics import (
 )
 
 from cerberus.common.config import settings
+from cerberus.detection.calibration import CalibrationReport, calibrate_and_report
 from cerberus.features.pipeline import FEATURE_COLUMNS
 
 try:
@@ -31,9 +32,9 @@ except ImportError:  # pragma: no cover - environment-dependent
     _HAS_LIGHTGBM = False
 
 
-# Placeholder cost ratio: blocking a legitimate transaction (FP) vs. missing fraud (FN).
-# Refine with real numbers in the Day 4 decision layer. Env-overridable via
-# CERBERUS_FP_COST / CERBERUS_FN_COST — see cerberus.common.config.Settings.
+# Placeholder global cost ratio: blocking a legitimate transaction (FP) vs. missing
+# fraud (FN). Refined per-segment in cerberus.decision.cost_matrix (Day 4).
+# Env-overridable via CERBERUS_FP_COST / CERBERUS_FN_COST.
 DEFAULT_FP_COST = settings.fp_cost
 DEFAULT_FN_COST = settings.fn_cost
 
@@ -41,18 +42,39 @@ DEFAULT_FN_COST = settings.fn_cost
 @dataclass
 class TrainResult:
     model: object
+    calibration: CalibrationReport
     roc_auc: float
     pr_auc: float
     cost_optimal_threshold: float
     cost_at_optimal_threshold: float
     cost_at_default_threshold: float
     n_train: int
+    n_calib: int
     n_test: int
+    test_df: pd.DataFrame  # held-out rows, for downstream export/segmentation
+    test_scores_calibrated: np.ndarray
+
+
+def three_way_split(txns: pd.DataFrame, calib_fraction: float = 0.16, test_fraction: float = 0.2):
+    """Chronological train / calibration / test split.
+
+    Three-way, not two — the calibration split must be genuinely held out from
+    training (so the isotonic map reflects real generalization error, not memorized
+    training scores) AND disjoint from the test split (so "held-out" metrics aren't
+    contaminated by data the calibrator already saw). Time-ordered, not random,
+    for the same reason as Day 1-2's split: fraud rings cluster in short windows, and
+    a random split would leak ring members across the boundary.
+    """
+    txns = txns.sort_values("timestamp")
+    n = len(txns)
+    train_end = int(n * (1 - calib_fraction - test_fraction))
+    calib_end = int(n * (1 - test_fraction))
+    return txns.iloc[:train_end], txns.iloc[train_end:calib_end], txns.iloc[calib_end:]
 
 
 def time_based_split(txns: pd.DataFrame, test_fraction: float = 0.2):
-    """Split by time, not randomly — fraud rings cluster in short windows, so a random
-    split would leak ring members between train and test and overstate performance.
+    """Two-way chronological split (train / test only), used where a calibration
+    split isn't needed — e.g. quick sanity checks outside the main training script.
     """
     txns = txns.sort_values("timestamp")
     cutoff = int(len(txns) * (1 - test_fraction))
@@ -82,6 +104,12 @@ def cost_sensitive_threshold(
     """Sweep thresholds from the PR curve and return the one minimizing total expected
     cost = fp_cost * false_positives + fn_cost * false_negatives, plus that cost.
     """
+    if len(y_true) == 0 or y_true.sum() == 0:
+        # No positives in this slice (e.g. a small segment) — no threshold can trade
+        # off recall against cost, so fall back to the neutral default rather than
+        # returning a nonsensical "optimal" threshold from an empty sweep.
+        return 0.5, cost_at_threshold(y_true, y_score, 0.5, fp_cost, fn_cost)
+
     precision, recall, thresholds = precision_recall_curve(y_true, y_score)
     n_pos = y_true.sum()
     n_neg = len(y_true) - n_pos
@@ -111,27 +139,44 @@ def train(
     fp_cost: float = DEFAULT_FP_COST,
     fn_cost: float = DEFAULT_FN_COST,
 ) -> TrainResult:
-    train_df, test_df = time_based_split(txns)
+    train_df, calib_df, test_df = three_way_split(txns)
 
     X_train, y_train = train_df[FEATURE_COLUMNS], train_df["label"]
+    X_calib, y_calib = calib_df[FEATURE_COLUMNS], calib_df["label"]
     X_test, y_test = test_df[FEATURE_COLUMNS], test_df["label"]
 
     model = _fit_classifier(X_train, y_train)
-    scores = model.predict_proba(X_test)[:, 1]
 
-    roc_auc = roc_auc_score(y_test, scores)
-    pr_auc = average_precision_score(y_test, scores)
+    raw_calib_scores = model.predict_proba(X_calib)[:, 1]
+    raw_test_scores = model.predict_proba(X_test)[:, 1]
 
-    best_threshold, best_cost = cost_sensitive_threshold(y_test.to_numpy(), scores, fp_cost, fn_cost)
-    default_cost = cost_at_threshold(y_test.to_numpy(), scores, 0.5, fp_cost, fn_cost)
+    calibration = calibrate_and_report(
+        raw_calib_scores, y_calib.to_numpy(), raw_test_scores, y_test.to_numpy()
+    )
+    calibrated_scores = calibration.calibrator.predict(raw_test_scores)
+
+    # Isotonic calibration is monotonic, so ranking-based metrics are unchanged by
+    # construction — computed on the calibrated scores anyway so every reported number
+    # downstream traces back to the same score the model actually serves.
+    roc_auc = roc_auc_score(y_test, calibrated_scores)
+    pr_auc = average_precision_score(y_test, calibrated_scores)
+
+    best_threshold, best_cost = cost_sensitive_threshold(
+        y_test.to_numpy(), calibrated_scores, fp_cost, fn_cost
+    )
+    default_cost = cost_at_threshold(y_test.to_numpy(), calibrated_scores, 0.5, fp_cost, fn_cost)
 
     return TrainResult(
         model=model,
+        calibration=calibration,
         roc_auc=roc_auc,
         pr_auc=pr_auc,
         cost_optimal_threshold=best_threshold,
         cost_at_optimal_threshold=best_cost,
         cost_at_default_threshold=default_cost,
         n_train=len(train_df),
+        n_calib=len(calib_df),
         n_test=len(test_df),
+        test_df=test_df,
+        test_scores_calibrated=calibrated_scores,
     )

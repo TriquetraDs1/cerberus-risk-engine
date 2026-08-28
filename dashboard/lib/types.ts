@@ -1,5 +1,11 @@
 export type Decision = "approve" | "review" | "block";
 
+export type Segment =
+  | "grocery_essentials"
+  | "electronics_highvalue"
+  | "digital_subscription"
+  | "travel_luxury";
+
 export interface CostBasis {
   fp_cost: number;
   fn_cost: number;
@@ -10,6 +16,7 @@ export interface CostBasis {
 export interface QueueTransaction {
   transaction_id: string;
   account_id: string;
+  segment: Segment;
   timestamp: string;
   amount: number;
   risk_score: number;
@@ -37,9 +44,25 @@ export interface RingGraph {
   edges: RingGraphEdge[];
 }
 
+export interface ReliabilityBin {
+  bin_center: number;
+  predicted_mean: number;
+  observed_rate: number;
+  count: number;
+}
+
+export interface CalibrationMetrics {
+  brier_before: number;
+  brier_after: number;
+  expected_calibration_error_before: number;
+  expected_calibration_error_after: number;
+  reliability_curve: ReliabilityBin[];
+}
+
 export interface PointRiskMetrics {
   generated_at: string;
   n_train: number;
+  n_calib: number;
   n_test: number;
   roc_auc: number;
   pr_auc: number;
@@ -48,6 +71,7 @@ export interface PointRiskMetrics {
   cost_optimal_threshold: number;
   cost_at_optimal_threshold: number;
   cost_at_default_threshold: number;
+  calibration: CalibrationMetrics;
 }
 
 export interface RingDetectionReport {
@@ -63,14 +87,38 @@ export interface RingDetectionReport {
   generated_at: string;
 }
 
+export interface SegmentCostMatrix {
+  segment: Segment;
+  mean_amount: number;
+  fp_cost: number;
+  fn_cost: number;
+}
+
+export interface SegmentRouting {
+  cost_matrix: SegmentCostMatrix;
+  block_threshold: number;
+  review_threshold: number;
+  n_transactions: number;
+  n_block: number;
+  n_review: number;
+  n_approve: number;
+  cost_at_optimal_threshold: number;
+  cost_at_global_default_threshold: number;
+  cost_savings_pct: number;
+}
+
+export interface DecisionLayer {
+  generated_at: string;
+  global_default_threshold: number;
+  overall_savings_pct_vs_global_threshold: number;
+  segments: Record<Segment, SegmentRouting>;
+  limitations: string[];
+}
+
 export interface SystemHealth {
   generated_at: string;
   point_risk_model: PointRiskMetrics;
   ring_detection: RingDetectionReport | null;
-  routing_preview: {
-    block_threshold: number;
-    review_threshold: number;
-    note: string;
-  };
+  decision_layer: DecisionLayer;
   graph_cache_status: string;
 }

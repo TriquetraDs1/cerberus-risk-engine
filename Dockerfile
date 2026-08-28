@@ -17,4 +17,4 @@ COPY scripts/ scripts/
 COPY tests/ tests/
 RUN pip install --no-cache-dir -e .
 
-CMD ["sh", "-c", "python scripts/generate_data.py && python scripts/detect_rings.py && python scripts/train_baseline.py"]
+CMD ["sh", "-c", "python scripts/generate_data.py && python scripts/detect_rings.py && python scripts/train_baseline.py && python scripts/build_decision_layer.py"]

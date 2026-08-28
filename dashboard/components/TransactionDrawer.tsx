@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { WarningCircle, X } from "@phosphor-icons/react/dist/ssr";
-import { formatReasonCode } from "@/lib/format";
+import { formatReasonCode, formatSegment } from "@/lib/format";
 import type { QueueTransaction } from "@/lib/types";
 import { RiskBadge } from "./RiskBadge";
 
@@ -70,6 +70,10 @@ export function TransactionDrawer({
             <div>
               <dt className="text-xs" style={{ color: "var(--text-tertiary)" }}>Amount</dt>
               <dd className="mono-figure">₹{t.amount.toLocaleString("en-US")}</dd>
+            </div>
+            <div>
+              <dt className="text-xs" style={{ color: "var(--text-tertiary)" }}>Segment</dt>
+              <dd>{formatSegment(t.segment)}</dd>
             </div>
             <div>
               <dt className="text-xs" style={{ color: "var(--text-tertiary)" }}>Timestamp</dt>

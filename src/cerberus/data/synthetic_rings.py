@@ -42,6 +42,23 @@ def _short_id(prefix: str, rng: np.random.Generator) -> str:
     return f"{prefix}_{uuid.UUID(bytes=raw).hex[:10]}"
 
 
+# Merchant segments give the Day 4 decision layer something real to segment on: fraud
+# economics genuinely differ by category (a lost travel booking costs far more than a
+# lost grocery order; digital goods carry higher friendly-fraud/chargeback rates than
+# physical retail), so treating every transaction with one global cost ratio is the
+# thing a real payments team would immediately flag as naive. See
+# cerberus.decision.cost_matrix for how these translate into per-segment thresholds.
+SEGMENTS = ("grocery_essentials", "electronics_highvalue", "digital_subscription", "travel_luxury")
+SEGMENT_WEIGHTS = (0.40, 0.25, 0.25, 0.10)
+# (amount_multiplier, fraud_rate_multiplier) relative to the base distributions.
+SEGMENT_PROFILES = {
+    "grocery_essentials": (0.35, 0.6),
+    "electronics_highvalue": (2.4, 1.1),
+    "digital_subscription": (0.55, 1.8),  # friendly fraud / chargebacks skew this up
+    "travel_luxury": (5.0, 1.3),
+}
+
+
 @dataclass
 class GeneratorConfig:
     n_accounts: int = 5000
@@ -75,9 +92,16 @@ def generate_accounts(
     devices = [_short_id("dev", rng) for _ in range(cfg.n_accounts)]
     ips = [_short_id("ip", rng) for _ in range(cfg.n_accounts)]
     cards = [_short_id("card", rng) for _ in range(cfg.n_accounts)]
+    segments = rng.choice(SEGMENTS, size=cfg.n_accounts, p=SEGMENT_WEIGHTS)
 
     accounts = pd.DataFrame(
-        {"account_id": account_ids, "device_id": devices, "ip": ips, "card_fingerprint": cards}
+        {
+            "account_id": account_ids,
+            "device_id": devices,
+            "ip": ips,
+            "card_fingerprint": cards,
+            "segment": segments,
+        }
     )
 
     # Innocent household sharing: pair up accounts and force a shared device_id, no fraud
@@ -103,12 +127,19 @@ def generate_base_transactions(
     """
     n = cfg.n_base_transactions
     acct_idx = rng.integers(0, len(accounts), size=n)
-    is_fraud = rng.random(n) < cfg.base_fraud_rate
+    txn_segments = accounts["segment"].to_numpy()[acct_idx]
 
-    amounts = np.where(
-        is_fraud,
-        rng.lognormal(mean=6.5, sigma=1.1, size=n),  # fraud: heavier tail, higher mean
-        rng.lognormal(mean=5.2, sigma=0.9, size=n),  # legit: tighter, lower mean
+    amount_mult = np.array([SEGMENT_PROFILES[s][0] for s in txn_segments])
+    fraud_mult = np.array([SEGMENT_PROFILES[s][1] for s in txn_segments])
+    is_fraud = rng.random(n) < np.clip(cfg.base_fraud_rate * fraud_mult, 0, 1)
+
+    amounts = (
+        np.where(
+            is_fraud,
+            rng.lognormal(mean=6.5, sigma=1.1, size=n),  # fraud: heavier tail, higher mean
+            rng.lognormal(mean=5.2, sigma=0.9, size=n),  # legit: tighter, lower mean
+        )
+        * amount_mult
     ).round(2)
 
     offsets_days = rng.random(n) * cfg.window_days
@@ -128,6 +159,7 @@ def generate_base_transactions(
             "device_id": accounts.loc[acct_idx, "device_id"].to_numpy(),
             "ip": accounts.loc[acct_idx, "ip"].to_numpy(),
             "card_fingerprint": accounts.loc[acct_idx, "card_fingerprint"].to_numpy(),
+            "segment": txn_segments,
             "amount": amounts,
             "timestamp": timestamps,
             "label": is_fraud.astype(int),
@@ -180,6 +212,7 @@ def inject_fraud_rings(
                         "device_id": shared_device,
                         "ip": accounts.loc[acc_idx, "ip"],
                         "card_fingerprint": shared_card or accounts.loc[acc_idx, "card_fingerprint"],
+                        "segment": accounts.loc[acc_idx, "segment"],
                         "amount": round(max(amount, 50.0), 2),
                         "timestamp": burst_start + timedelta(minutes=float(offset_min)),
                         "label": 1,

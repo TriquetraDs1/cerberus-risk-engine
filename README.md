@@ -73,12 +73,15 @@ source .venv/Scripts/activate   # Windows Git Bash; use .venv\Scripts\Activate.p
 pip install -r requirements.txt
 pip install -e .
 
-# Day 1-2: synthetic data + baseline point-risk model
+# Day 1-2: synthetic data + calibrated baseline point-risk model
 python scripts/generate_data.py
 python scripts/train_baseline.py
 
 # Day 3: Louvain ring detector, validated against ground truth
 python scripts/detect_rings.py
+
+# Day 4: per-segment cost matrix + 3-way routing thresholds
+python scripts/build_decision_layer.py
 
 # Export real pipeline output as JSON for the dashboard (no mock data)
 python scripts/export_dashboard_data.py
@@ -115,16 +118,24 @@ into the synthetic generator instead of using a fully synthetic baseline — see
 
 ## Status
 
-Days 1-3 of the 10-day plan are done:
-- Synthetic data generator with injectable fraud rings + innocent household sharing
-- Baseline point-risk model (LightGBM), cost-sensitive threshold preview
+Days 1-4 of the 10-day plan are done, plus a calibration pass beyond the original scope:
+- Synthetic data generator with injectable fraud rings, innocent household sharing, and
+  four merchant segments with genuinely different fraud economics
+- Baseline point-risk model (LightGBM) with **isotonic probability calibration** —
+  Brier score 0.0645 → 0.0164, expected calibration error 0.140 → 0.003. `risk_score`
+  is a real probability, not just a ranking.
 - Louvain ring detector — **25/25 injected rings recovered (100% mean recovery)**, and
   an honest **9.3% false-positive rate** on innocent household device-sharing
+- **Per-segment cost matrix + 3-way routing** (`cerberus.decision.cost_matrix`) — each
+  segment's FP/FN cost is derived from its own transaction data, not one global
+  assumption. Segmented routing costs **10.7% less** than applying one threshold to
+  every segment.
 - An analyst dashboard (`dashboard/`, Next.js) rendering all of the above from real
   pipeline output — Review Queue, Transaction detail, Ring Network, System Health
+  (with a calibration reliability diagram and the per-segment routing table)
 - CI (lint + tests + full pipeline run), Docker, MODEL_CARD.md
 
-Days 4-10 (cost-matrix decision layer, the adversarial hardening harness, FastAPI
-serving, and the submission video) are still ahead — see `docs/ARCHITECTURE.md` for the
-full roadmap. The adversarial harness (Day 5-6) is the actual differentiator; nothing
-before it should be mistaken for the finished submission.
+Days 5-10 (the adversarial hardening harness, FastAPI serving, and the submission
+video) are still ahead — see `docs/ARCHITECTURE.md` for the full roadmap. The
+adversarial harness is the actual differentiator; nothing before it should be mistaken
+for the finished submission.

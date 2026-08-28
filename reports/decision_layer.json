@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-08-28T06:01:23.486639+00:00",
+  "global_default_threshold": 0.10526315789473684,
+  "overall_savings_pct_vs_global_threshold": 10.666902712873307,
+  "segments": {
+    "grocery_essentials": {
+      "cost_matrix": {
+        "segment": "grocery_essentials",
+        "mean_amount": 124.17918809980806,
+        "fp_cost": 18.626878214971207,
+        "fn_cost": 149.17918809980807
+      },
+      "block_threshold": 0.25,
+      "review_threshold": 0.125,
+      "n_transactions": 4869,
+      "n_block": 24,
+      "n_review": 12,
+      "n_approve": 4833,
+      "cost_at_optimal_threshold": 6992.63080009597,
+      "cost_at_global_default_threshold": 7122.85478522073,
+      "cost_savings_pct": 1.8282555106270493
+    },
+    "electronics_highvalue": {
+      "cost_matrix": {
+        "segment": "electronics_highvalue",
+        "mean_amount": 730.8955378779898,
+        "fp_cost": 36.54477689389949,
+        "fn_cost": 755.8955378779898
+      },
+      "block_threshold": 0.10526315789473684,
+      "review_threshold": 0.05263157894736842,
+      "n_transactions": 3017,
+      "n_block": 66,
+      "n_review": 104,
+      "n_approve": 2847,
+      "cost_at_optimal_threshold": 30332.00062269519,
+      "cost_at_global_default_threshold": 30332.00062269519,
+      "cost_savings_pct": 0.0
+    },
+    "digital_subscription": {
+      "cost_matrix": {
+        "segment": "digital_subscription",
+        "mean_amount": 183.12520028539396,
+        "fp_cost": 18.312520028539396,
+        "fn_cost": 208.12520028539396
+      },
+      "block_threshold": 0.08290155440414508,
+      "review_threshold": 0.04145077720207254,
+      "n_transactions": 3018,
+      "n_block": 298,
+      "n_review": 456,
+      "n_approve": 2264,
+      "cost_at_optimal_threshold": 13227.8258189787,
+      "cost_at_global_default_threshold": 13927.513619406789,
+      "cost_savings_pct": 5.023781125247906
+    },
+    "travel_luxury": {
+      "cost_matrix": {
+        "segment": "travel_luxury",
+        "mean_amount": 1492.7856542178113,
+        "fp_cost": 29.855713084356225,
+        "fn_cost": 1517.7856542178113
+      },
+      "block_threshold": 0.01007705986959099,
+      "review_threshold": 0.005038529934795495,
+      "n_transactions": 1209,
+      "n_block": 446,
+      "n_review": 399,
+      "n_approve": 364,
+      "cost_at_optimal_threshold": 20128.32776651867,
+      "cost_at_global_default_threshold": 27738.12175910159,
+      "cost_savings_pct": 27.434424214703547
+    }
+  },
+  "limitations": [
+    "Cost matrices are derived from mean transaction amount + a fixed retention-sensitivity multiplier per segment, not a calibrated business study.",
+    "The review-band width (REVIEW_BAND_FACTOR) is a heuristic, not itself cost-optimized."
+  ]
+}

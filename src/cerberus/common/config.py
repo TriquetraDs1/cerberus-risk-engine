@@ -27,6 +27,7 @@ DETECTED_RINGS_JSON = DATA_PROCESSED / "rings_detected.json"
 RING_DETECTION_REPORT_JSON = REPORTS_DIR / "ring_detection_report.json"
 
 BASELINE_MODEL_PATH = MODELS_DIR / "point_risk_baseline.txt"
+CALIBRATOR_PATH = MODELS_DIR / "point_risk_calibrator.joblib"
 BASELINE_METRICS_JSON = REPORTS_DIR / "baseline_metrics.json"
 
 # The Next.js dashboard reads its data as static JSON from its own public/ dir —

@@ -33,6 +33,6 @@
   "n_household_false_positives": 7,
   "household_false_positive_rate": 0.09333333333333334,
   "n_flagged_communities": 25,
-  "n_total_communities": 93,
-  "generated_at": "2026-08-27T13:36:35.684824+00:00"
+  "n_total_communities": 92,
+  "generated_at": "2026-08-28T06:00:45.250705+00:00"
 }

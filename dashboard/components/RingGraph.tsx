@@ -147,9 +147,10 @@ export function RingGraph({ graph }: { graph: RingGraphData }) {
                     if (e.key === "Enter" || e.key === " ") setSelected(n.id);
                   }}
                 >
-                  <title>
-                    {n.id} — detected: {n.detected_ring_id ?? "none"} · ground truth: {n.ground_truth_ring_id ?? "none (household or clean)"}
-                  </title>
+                  {/* single string child, not interleaved text/expression nodes — see
+                      the note in CalibrationChart.tsx on why this is a hydration bug,
+                      not just a console warning, for the tag name "title". */}
+                  <title>{`${n.id} — detected: ${n.detected_ring_id ?? "none"} · ground truth: ${n.ground_truth_ring_id ?? "none (household or clean)"}`}</title>
                 </circle>
               );
             })}

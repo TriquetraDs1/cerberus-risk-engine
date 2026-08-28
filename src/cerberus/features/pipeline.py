@@ -11,6 +11,11 @@ from __future__ import annotations
 
 import pandas as pd
 
+# Fixed, known set — one-hot columns must be deterministic across train/calibration/
+# test splits and across the export script's later re-featurization, so this list
+# can't just be "whatever segments happen to appear in this dataframe."
+from cerberus.data.synthetic_rings import SEGMENTS
+
 
 def add_velocity_features(txns: pd.DataFrame, window: str = "1h") -> pd.DataFrame:
     """Trailing transaction count and amount sum per account within `window`
@@ -58,6 +63,18 @@ def add_time_features(txns: pd.DataFrame) -> pd.DataFrame:
     return txns
 
 
+def add_segment_features(txns: pd.DataFrame) -> pd.DataFrame:
+    """One-hot the merchant segment. Fraud economics genuinely differ by category
+    (see cerberus.data.synthetic_rings.SEGMENT_PROFILES), so this is a real signal for
+    the point-risk model, not just plumbing for the Day 4 decision layer — though the
+    decision layer is what actually turns "which segment" into "which threshold."
+    """
+    txns = txns.copy()
+    for seg in SEGMENTS:
+        txns[f"segment_{seg}"] = (txns["segment"] == seg).astype(int)
+    return txns
+
+
 def add_entity_degree(txns: pd.DataFrame, entity_edges: pd.DataFrame) -> pd.DataFrame:
     """How many distinct accounts is this account linked to via any shared entity?
     A cheap preview of graph structure ahead of the Day 3 Louvain layer.
@@ -81,6 +98,7 @@ FEATURE_COLUMNS = [
     "is_off_hours",
     "day_of_week",
     "entity_degree",
+    *(f"segment_{seg}" for seg in SEGMENTS),
 ]
 
 
@@ -92,4 +110,5 @@ def build_features(txns: pd.DataFrame, entity_edges: pd.DataFrame) -> pd.DataFra
     out = add_amount_zscore(out)
     out = add_time_features(out)
     out = add_entity_degree(out, entity_edges)
+    out = add_segment_features(out)
     return out

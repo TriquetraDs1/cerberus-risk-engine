@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
-import { formatReasonCode } from "@/lib/format";
+import { formatReasonCode, formatSegment } from "@/lib/format";
 import type { Decision, QueueTransaction } from "@/lib/types";
 import { RiskBadge } from "./RiskBadge";
 import { TransactionDrawer } from "./TransactionDrawer";
@@ -49,6 +49,7 @@ export function QueueTable({ transactions }: { transactions: QueueTransaction[] 
       return (
         t.account_id.toLowerCase().includes(q) ||
         t.transaction_id.toLowerCase().includes(q) ||
+        t.segment.toLowerCase().includes(q) ||
         (t.ring_id ?? "").toLowerCase().includes(q)
       );
     });
@@ -95,7 +96,7 @@ export function QueueTable({ transactions }: { transactions: QueueTransaction[] 
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search account, txn, or ring…"
+            placeholder="Search account, txn, segment, or ring…"
             aria-label="Search transactions"
             className="w-full pl-8 pr-3 py-1.5 text-xs rounded-md border outline-none"
             style={{ borderColor: "var(--border)", background: "var(--surface)" }}
@@ -117,6 +118,7 @@ export function QueueTable({ transactions }: { transactions: QueueTransaction[] 
               >
                 <th className="font-medium px-6 py-2">Time</th>
                 <th className="font-medium px-3 py-2">Account</th>
+                <th className="font-medium px-3 py-2">Segment</th>
                 <th className="font-medium px-3 py-2 text-right">Amount</th>
                 <th className="font-medium px-3 py-2 text-right">Risk score</th>
                 <th className="font-medium px-3 py-2">Decision</th>
@@ -145,6 +147,9 @@ export function QueueTable({ transactions }: { transactions: QueueTransaction[] 
                     {formatTime(t.timestamp)}
                   </td>
                   <td className="px-3 py-2.5 mono-figure text-xs">{t.account_id}</td>
+                  <td className="px-3 py-2.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+                    {formatSegment(t.segment)}
+                  </td>
                   <td className="px-3 py-2.5 text-right mono-figure">₹{t.amount.toLocaleString("en-US")}</td>
                   <td className="px-3 py-2.5 text-right mono-figure font-medium">{t.risk_score.toFixed(3)}</td>
                   <td className="px-3 py-2.5">
