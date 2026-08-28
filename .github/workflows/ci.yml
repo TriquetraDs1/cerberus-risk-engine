@@ -28,16 +28,12 @@ jobs:
       - name: Lint (ruff)
         run: ruff check src/ scripts/ tests/
 
-      - name: Run tests
-        run: pytest tests/ -v
-
-      - name: Run the full offline pipeline
+      - name: Run the offline pipeline (data -> detection -> decision layer)
         run: |
           python scripts/generate_data.py
           python scripts/detect_rings.py
           python scripts/train_baseline.py
           python scripts/build_decision_layer.py
-          python scripts/export_dashboard_data.py
 
       # Reruns the adaptive evasion search against the current model, retrains on
       # what it finds, and fails the build only if hardening ever makes a strategy's
@@ -46,3 +42,11 @@ jobs:
       # honestly-reported small (but non-negative) recovery.
       - name: Adversarial regression gate
         run: python scripts/run_adversarial_harness.py --min-recovery -0.05
+
+      - name: Export dashboard data
+        run: python scripts/export_dashboard_data.py
+
+      # Runs last, not first: test_serving.py needs the trained model + decision
+      # layer produced above to exercise the live API rather than skipping.
+      - name: Run tests
+        run: pytest tests/ -v

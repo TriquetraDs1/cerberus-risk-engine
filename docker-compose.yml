@@ -1,10 +1,29 @@
 services:
   pipeline:
-    build: .
+    build:
+      context: .
+      target: pipeline
     volumes:
       - ./data:/app/data
       - ./models:/app/models
       - ./reports:/app/reports
-    # `docker compose up` reproduces the full offline pipeline: synthetic data
-    # generation -> ring detection -> baseline model training. Outputs land in
-    # the mounted ./data, ./models, ./reports so they're inspectable on the host.
+    # `docker compose run pipeline` reproduces the full offline pipeline: synthetic
+    # data generation -> ring detection -> calibrated training -> decision layer ->
+    # adversarial hardening. Outputs land in the mounted ./data, ./models, ./reports
+    # so they're inspectable on the host, and so `serving` below can read them.
+
+  serving:
+    build:
+      context: .
+      target: serving
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./reports:/app/reports
+    depends_on:
+      - pipeline
+    # `docker compose up serving` runs the /score API against whatever the pipeline
+    # produced. Run `docker compose run pipeline` at least once first — serving
+    # reads models/reports from the mounted volumes, it doesn't generate them.

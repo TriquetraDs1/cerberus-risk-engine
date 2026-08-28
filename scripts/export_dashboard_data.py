@@ -23,7 +23,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import joblib
 import lightgbm as lgb
-import numpy as np
 import pandas as pd
 import shap
 
@@ -39,6 +38,7 @@ from cerberus.common.config import (
     SYNTHETIC_RINGS_JSON,
     SYNTHETIC_TRANSACTIONS_CSV,
 )
+from cerberus.detection.explain import reason_codes_for_row
 from cerberus.detection.point_risk import three_way_split
 from cerberus.features.pipeline import FEATURE_COLUMNS, build_features
 
@@ -47,20 +47,6 @@ ADVERSARIAL_REPORT_JSON = REPORTS_DIR / "adversarial_hardening_report.json"
 
 QUEUE_SAMPLE_SIZE = 250
 
-# Human-readable labels for the point-risk model's features — this is what turns a
-# SHAP value into the `reason_codes` field of the /score API contract in
-# docs/ARCHITECTURE.md, rather than leaving feature names as internal jargon.
-FEATURE_REASON_LABELS = {
-    "amount": "large_transaction_amount",
-    "amount_zscore": "amount_anomalous_for_account",
-    "velocity_count_1h": "high_transaction_velocity",
-    "velocity_amount_1h": "high_value_velocity",
-    "hour_of_day": "unusual_hour",
-    "is_off_hours": "off_hours_transaction",
-    "day_of_week": "unusual_day_pattern",
-    "entity_degree": "linked_to_multiple_accounts",
-}
-
 
 def load_detected_ring_membership() -> dict[str, str]:
     """account_id -> detected ring id, from the Day 3 Louvain output."""
@@ -68,19 +54,6 @@ def load_detected_ring_membership() -> dict[str, str]:
         return {}
     detected = json.loads(DETECTED_RINGS_JSON.read_text())
     return {account: ring_id for ring_id, members in detected.items() for account in members}
-
-
-def reason_codes_for_row(shap_row: np.ndarray, ring_id: str | None) -> list[str]:
-    contributions = list(zip(FEATURE_COLUMNS, shap_row, strict=True))
-    # only positive contributions (pushing toward fraud) are useful "reasons"; segment
-    # one-hot columns are excluded — "segment_travel_luxury=1" isn't a human reason,
-    # it's plumbing for the decision layer's threshold choice, not a risk signal to cite.
-    positive = [(f, v) for f, v in contributions if v > 0 and not f.startswith("segment_")]
-    positive.sort(key=lambda x: x[1], reverse=True)
-    reasons = [FEATURE_REASON_LABELS.get(f, f) for f, _ in positive[:2]]
-    if ring_id:
-        reasons.append(f"shared_device_with_flagged_ring:{ring_id}")
-    return reasons or ["low_risk_no_dominant_factor"]
 
 
 def main() -> None:

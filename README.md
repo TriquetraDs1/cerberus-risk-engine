@@ -48,7 +48,7 @@ cerberus-risk-engine/
 │   ├── detection/       # point-risk model (LightGBM) + ring detector (Louvain) [done]
 │   ├── decision/        # cost matrix, threshold optimization, 3-way routing (Day 4)
 │   ├── adversarial/      # evasion strategies + adaptive search + hardening loop [done]
-│   ├── serving/         # FastAPI /score endpoint, audit log, drift check (Day 7)
+│   ├── serving/         # FastAPI /score, audit log (SQLite), Prometheus metrics [done]
 │   └── common/          # shared config/paths (pydantic-settings)
 ├── scripts/            # CLI entry points: generate_data, detect_rings, train_baseline,
 │                       #   export_dashboard_data (+ run harness / serve, later days)
@@ -90,14 +90,30 @@ python scripts/run_adversarial_harness.py
 python scripts/export_dashboard_data.py
 ```
 
-Or with Docker: `docker compose up` runs the same pipeline end-to-end into `./data`,
-`./models`, `./reports`.
+Or with Docker: `docker compose run pipeline` runs the same pipeline end-to-end into
+`./data`, `./models`, `./reports`.
 
 Then the analyst dashboard:
 ```bash
 cd dashboard
 npm install
 npm run dev   # http://localhost:3000
+```
+
+And the live `/score` API (Day 7):
+```bash
+uvicorn cerberus.serving.app:app --reload   # http://localhost:8000
+# or: docker compose up serving
+
+curl -X POST localhost:8000/score -H "Content-Type: application/json" -d '{
+  "transaction_id": "txn_1", "account_id": "acct_1", "device_id": "dev_1",
+  "ip": "ip_1", "card_fingerprint": "card_1", "amount": 1899.0,
+  "timestamp": "2026-06-01T02:15:00", "segment": "travel_luxury"
+}'
+curl localhost:8000/health
+curl localhost:8000/metrics
+curl localhost:8000/audit/recent
+curl -X POST "localhost:8000/admin/graph-status?status=degraded"   # demo the degraded path
 ```
 
 If you drop a Kaggle `creditcard.csv` into `data/raw/`, the loader blends its base rate
@@ -121,7 +137,7 @@ into the synthetic generator instead of using a fully synthetic baseline — see
 
 ## Status
 
-Days 1-6 of the 10-day plan are done, plus a calibration pass beyond the original scope:
+Days 1-7 of the 10-day plan are done, plus a calibration pass beyond the original scope:
 - Synthetic data generator with injectable fraud rings, innocent household sharing, and
   four merchant segments with genuinely different fraud economics
 - Baseline point-risk model (LightGBM) with **isotonic probability calibration** —
@@ -144,8 +160,16 @@ Days 1-6 of the 10-day plan are done, plus a calibration pass beyond the origina
 - An analyst dashboard (`dashboard/`, Next.js) rendering all of the above from real
   pipeline output — Review Queue, Transaction detail, Ring Network, Adversarial
   Hardening (the before/attack/after chart), System Health
-- CI (lint + tests + full pipeline + adversarial regression gate), Docker, MODEL_CARD.md
+- **Live `/score` API** (`cerberus.serving`, FastAPI) — serves the hardened model by
+  default, real-time feature computation (in-process per-account velocity history),
+  segment-aware 3-way routing, SHAP reason codes, a SQLite audit log (`/audit/recent`),
+  Prometheus metrics (`/metrics`), structured JSON logs, and a demoable graceful-
+  degradation path (`POST /admin/graph-status`) — flip the graph service to
+  "unavailable" and watch `/score` keep serving decisions with `ring_check:
+  "unavailable"` instead of crashing.
+- CI (lint + full pipeline + adversarial regression gate + tests, including live
+  serving smoke tests), two-stage Docker (`pipeline` / `serving`), MODEL_CARD.md
 
-Days 7-10 (FastAPI serving with metrics/audit log, case-management actions in the
-dashboard, and the submission video) are still ahead — see `docs/ARCHITECTURE.md` for
-the full roadmap.
+Days 8-10 (case-management actions in the dashboard, a stretch LLM layer if time
+allows, and the submission video) are still ahead — see `docs/ARCHITECTURE.md` for the
+full roadmap.
