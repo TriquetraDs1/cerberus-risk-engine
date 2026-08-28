@@ -19,4 +19,6 @@ if [ ! -f models/point_risk_baseline.txt ]; then
     echo "serve.sh: adversarial harness failed — serving the baseline model instead."
 fi
 
-exec uvicorn cerberus.serving.app:app --host 0.0.0.0 --port "${PORT:-8000}"
+# $PORT is set by most hosts (Render injects it). Fall back to 7860, which is what
+# Hugging Face Spaces expects, so the same image runs on both without extra config.
+exec uvicorn cerberus.serving.app:app --host 0.0.0.0 --port "${PORT:-7860}"
