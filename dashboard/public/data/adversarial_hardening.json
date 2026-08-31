@@ -1,10 +1,56 @@
 {
-  "generated_at": "2026-08-31T08:41:11.211025+00:00",
+  "generated_at": "2026-08-31T09:06:01.681433+00:00",
   "n_restarts": 5,
   "n_steps": 15,
-  "n_adversarial_examples": 2894,
+  "searcher": "hillclimb",
+  "n_adversarial_examples": 3377,
   "strategies": {
     "structuring": {
+      "baseline_detection": {
+        "point_risk_caught_fraction": 1.0,
+        "ring_recovered_fraction": 1.0,
+        "combined_score": 1.0
+      },
+      "evaded_original_model": {
+        "point_risk_caught_fraction": 0.0,
+        "ring_recovered_fraction": 1.0,
+        "combined_score": 0.5
+      },
+      "evaded_hardened_model": {
+        "point_risk_caught_fraction": 0.9791666666666666,
+        "ring_recovered_fraction": 1.0,
+        "combined_score": 0.9895833333333333
+      },
+      "best_evasion_params": {
+        "n_splits": 8.639954188972972,
+        "jitter": 0.4
+      },
+      "recall_decay_original": 0.5,
+      "recall_recovered_after_hardening": 0.48958333333333326
+    },
+    "identity_rotation": {
+      "baseline_detection": {
+        "point_risk_caught_fraction": 0.75,
+        "ring_recovered_fraction": 1.0,
+        "combined_score": 0.875
+      },
+      "evaded_original_model": {
+        "point_risk_caught_fraction": 0.047619047619047616,
+        "ring_recovered_fraction": 0.0,
+        "combined_score": 0.023809523809523808
+      },
+      "evaded_hardened_model": {
+        "point_risk_caught_fraction": 0.9333333333333333,
+        "ring_recovered_fraction": 0.0,
+        "combined_score": 0.4666666666666667
+      },
+      "best_evasion_params": {
+        "n_devices": 5.753891603995172
+      },
+      "recall_decay_original": 0.8511904761904762,
+      "recall_recovered_after_hardening": 0.44285714285714284
+    },
+    "slow_ramp": {
       "baseline_detection": {
         "point_risk_caught_fraction": 1.0,
         "ring_recovered_fraction": 1.0,
@@ -21,60 +67,15 @@
         "combined_score": 1.0
       },
       "best_evasion_params": {
-        "n_splits": 6.780923497724695,
-        "jitter": 0.31184063739832685
+        "ramp_multiplier": 22.254150438243485
       },
       "recall_decay_original": 0.5,
       "recall_recovered_after_hardening": 0.5
-    },
-    "identity_rotation": {
-      "baseline_detection": {
-        "point_risk_caught_fraction": 1.0,
-        "ring_recovered_fraction": 1.0,
-        "combined_score": 1.0
-      },
-      "evaded_original_model": {
-        "point_risk_caught_fraction": 0.08333333333333333,
-        "ring_recovered_fraction": 0.0,
-        "combined_score": 0.041666666666666664
-      },
-      "evaded_hardened_model": {
-        "point_risk_caught_fraction": 1.0,
-        "ring_recovered_fraction": 0.0,
-        "combined_score": 0.5
-      },
-      "best_evasion_params": {
-        "n_devices": 2.650307859481509
-      },
-      "recall_decay_original": 0.9583333333333334,
-      "recall_recovered_after_hardening": 0.4583333333333333
-    },
-    "slow_ramp": {
-      "baseline_detection": {
-        "point_risk_caught_fraction": 1.0,
-        "ring_recovered_fraction": 1.0,
-        "combined_score": 1.0
-      },
-      "evaded_original_model": {
-        "point_risk_caught_fraction": 0.6,
-        "ring_recovered_fraction": 1.0,
-        "combined_score": 0.8
-      },
-      "evaded_hardened_model": {
-        "point_risk_caught_fraction": 1.0,
-        "ring_recovered_fraction": 1.0,
-        "combined_score": 1.0
-      },
-      "best_evasion_params": {
-        "ramp_multiplier": 7.828034902125829
-      },
-      "recall_decay_original": 0.19999999999999996,
-      "recall_recovered_after_hardening": 0.19999999999999996
     }
   },
   "limitations": [
     "This validates robustness to the three evasion classes implemented here, searched adaptively within their parameter ranges \u2014 not a general adversarial-robustness guarantee. A real fraud ring is not obligated to restrict itself to these strategies.",
-    "The search is a randomized local hill-climb, not a certified worst-case search \u2014 it can miss a better evasion than the one it reports.",
+    "The search is not a certified worst-case search \u2014 it can miss a better evasion than the one it reports. Which optimiser produced these numbers is recorded in the `searcher` field above; 'bayesopt' explores the surface more thoroughly than the default 'hillclimb'.",
     "The ring detector is not retrained during hardening (Louvain is unsupervised); identity rotation's evasion of the graph layer is reported honestly as an open vulnerability, not silently patched."
   ]
 }

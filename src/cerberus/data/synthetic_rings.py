@@ -66,6 +66,18 @@ class GeneratorConfig:
     base_fraud_rate: float = 0.018  # ordinary, uncoordinated fraud
     household_sharing_rate: float = 0.03  # fraction of accounts in an innocent shared-device pair
 
+    # Lognormal amount parameters, legitimate vs. fraudulent. Defaults are hand-picked
+    # for a plausible shape; `data.loader.calibrate_config_to_reference` replaces them
+    # (and base_fraud_rate) with values measured off the real Kaggle dataset when
+    # data/raw/creditcard.csv is present.
+    legit_amount_mu: float = 5.2
+    legit_amount_sigma: float = 0.9
+    fraud_amount_mu: float = 6.5  # heavier tail, higher mean
+    fraud_amount_sigma: float = 1.1
+    # Set by the calibration helper so downstream reports can state, honestly, whether
+    # the run's marginals were measured or assumed.
+    calibrated_from_reference: bool = False
+
     n_rings: int = 25
     ring_size_range: tuple[int, int] = (4, 12)
     txns_per_ring_account_range: tuple[int, int] = (2, 5)
@@ -136,8 +148,8 @@ def generate_base_transactions(
     amounts = (
         np.where(
             is_fraud,
-            rng.lognormal(mean=6.5, sigma=1.1, size=n),  # fraud: heavier tail, higher mean
-            rng.lognormal(mean=5.2, sigma=0.9, size=n),  # legit: tighter, lower mean
+            rng.lognormal(mean=cfg.fraud_amount_mu, sigma=cfg.fraud_amount_sigma, size=n),
+            rng.lognormal(mean=cfg.legit_amount_mu, sigma=cfg.legit_amount_sigma, size=n),
         )
         * amount_mult
     ).round(2)

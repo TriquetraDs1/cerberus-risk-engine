@@ -110,17 +110,96 @@ keep the old identity-rotation number — the two do not go together.
 
 ---
 
+---
+
+## Step 1 — calibrating against real data (Kaggle `creditcard.csv`, 284,807 rows)
+
+`data/loader.py` now measures the reference set and can anchor the generator to it.
+Two things it found, and one it broke.
+
+### The reference overturned two hand-picked assumptions
+
+| | Assumed | Measured |
+|---|---|---|
+| Base fraud rate | 1.8% | **0.17%** — an order of magnitude rarer |
+| Fraud amount vs. legitimate | higher mean (μ 6.5 vs 5.2) | **lower** mean, far wider spread (μ 2.65/σ 2.56 vs μ 3.01/σ 1.87) |
+
+The second is the more interesting error. The generator assumed fraud means big-ticket
+transactions. Real card fraud is full of *small* card-testing charges — the distribution
+is lower-centred and much heavier-tailed, not simply shifted up.
+
+### Amounts are not transferable; the rate is
+
+Importing the reference's amount parameters wholesale made things measurably worse:
+per-segment routing savings collapsed to **0.0%** and the unattacked adversarial
+baselines fell to 0.50. The cause is a units mismatch — the reference is European card
+data with a ~$22 median, while this generator models an INR stream whose ring-structuring
+threshold is ₹2000. Transferred amounts produced rings priced ~100× the legitimate
+median: internally incoherent data on which segments stopped differing in any way a cost
+matrix could exploit.
+
+So `calibrate_config_to_reference` takes the **rate** (dimensionless, comparable across
+markets) and leaves amounts synthetic, with `calibrate_amounts=True` available for a
+reference that actually shares a currency.
+
+### Rate-only calibration: better model, thinner demo
+
+`python scripts/generate_data.py --calibrate-rate`
+
+| Metric | Assumed 1.8% | Real 0.17% | |
+|---|---|---|---|
+| ROC-AUC | 0.8153 | **0.8577** | ↑ |
+| PR-AUC | 0.3141 | **0.5091** | ↑ |
+| ECE (calibrated) | 0.0023 | 0.0012 | ↑ |
+| Segmented routing savings | 16.5% | **9.0%** | ↓ |
+| Review-tier volume | 772 | **0** | ↓ |
+| Adversarial baselines | ~1.00 | 0.64–0.89 | ↓ |
+
+The model gets *better* on the truthful distribution — notably PR-AUC, the metric that
+matters under class imbalance. What thins out is everything downstream that needs
+positives to work with: at a tenth the fraud rate, 60k transactions hold ~100 base-fraud
+rows, the review tier empties, and the harness's sandbox baselines weaken.
+
+Those are **small-sample artefacts, not findings about the method.** The statistically
+correct response is more transactions, not a fatter fraud rate — unspent pipeline time
+this build hasn't paid yet. Until then the real rate is behind `--calibrate-rate`,
+both configurations reproduce, and the numbers for both are in this table. Cite whichever
+you run; just say which one it was.
+
+---
+
+## Step 4 (B3) — Bayesian-optimisation searcher
+
+`src/cerberus/adversarial/search.py`, selected with
+`python scripts/run_adversarial_harness.py --searcher bayesopt`. Gaussian-process
+optimisation over the same `STRATEGY_PARAM_BOUNDS`, same evaluation budget, same sandbox
+guardrail. The chosen searcher is recorded in the report JSON.
+
+**It found essentially the same evasions as the hill-climb** — structuring 0.50 under
+both, identity rotation 0.04 under both. That is a null result and worth keeping:
+`attacker.py` has always *asserted* that this detection surface is "small and fairly
+smooth", such that a simple auditable search finds what a heavier method would. That
+claim is now tested rather than asserted, by the heavier method agreeing with it.
+
+Caveat on comparing the two: each searcher consumes the shared RNG differently, so the
+freshly-drawn sandbox rings differ between runs and the unattacked baselines move
+(1.00 vs 0.57 for identity rotation across the two runs above). Cross-searcher numbers
+are indicative, not paired. A paired comparison would need the ring draw seeded
+independently of the search — worth doing before quoting a head-to-head anywhere.
+
+The default stays `hillclimb`: no extra dependency, and now with evidence it is not
+leaving anything on the table.
+
+---
+
 ## Not done on this branch
 
-- **Step 1 — real Kaggle data.** Needs `data/raw/creditcard.csv`, which requires a Kaggle
-  login. Drop the file in and re-run the pipeline; `data/loader.py` blends its base rate in.
-- **Step 4 (B3) — Bayesian-opt adversarial searcher.** `scikit-optimize` is installed.
-- **Step 5 (B2) — per-account sequence model.** Needs PyTorch (~2.5 GB) and real training
-  iteration. The clearest remaining answer to slow-ramp.
-- **Step 6 (B1) — GNN ring detector.** Needs PyTorch Geometric. Note that
-  `shared_entity_strength` and `component_size` are already computed and waiting for it —
-  a graph model is the *right* consumer for graph features, which is the flip side of the
-  regression documented above.
+- **Step 5 (B2) — per-account sequence model.** PyTorch 2.13.0+cpu is installed. The
+  clearest remaining answer to slow-ramp.
+- **Step 6 (B1) — GNN ring detector.** torch-geometric 2.8.0 is installed.
+  `shared_entity_strength` and `component_size` are already computed and waiting — a
+  graph model is the *right* consumer for graph features, which is the flip side of the
+  point-risk regression documented above.
 
 ## Reproducing
 

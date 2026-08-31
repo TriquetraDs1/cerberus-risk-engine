@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-31T08:42:05.337552+00:00",
+  "generated_at": "2026-08-31T09:06:30.014599+00:00",
   "point_risk_model": {
-    "generated_at": "2026-08-31T08:40:35.240760+00:00",
+    "generated_at": "2026-08-31T09:01:02.717736+00:00",
     "n_train": 38761,
     "n_calib": 9691,
     "n_test": 12113,
@@ -117,10 +117,10 @@
     "household_false_positive_rate": 0.09333333333333334,
     "n_flagged_communities": 25,
     "n_total_communities": 92,
-    "generated_at": "2026-08-28T06:00:45.250705+00:00"
+    "generated_at": "2026-08-31T09:00:48.221445+00:00"
   },
   "decision_layer": {
-    "generated_at": "2026-08-31T08:41:48.756124+00:00",
+    "generated_at": "2026-08-31T09:01:17.424249+00:00",
     "global_default_threshold": 0.136986301369863,
     "overall_savings_pct_vs_global_threshold": 16.53282616262044,
     "segments": {
