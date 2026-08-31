@@ -170,9 +170,78 @@ nothing about the GNN.
 
 ---
 
+## 5b. Testing
+
+```powershell
+$py -m pytest tests/ -q          # all 44
+$py -m ruff check src/ scripts/ tests/
+cd dashboard; npm run build; cd ..
+```
+
+| File | Covers | Needs |
+|---|---|---|
+| `test_synthetic_rings.py` (3) | generator, ring injection, household pairs | nothing |
+| `test_ring_detector.py` (3) | Louvain recovery + honest FP rate | nothing |
+| `test_adversarial.py` (5) | evasion strategies, search, hardening | nothing |
+| `test_llm.py` (9) | A1 narration, templated path | nothing |
+| `test_llm_features.py` (16) | A2 dispute, A3 copilot, escalate-only ensemble | nothing |
+| `test_serving.py` (8) | live API incl. `/explain` | a trained model on disk |
+
+Only `test_serving.py` needs the pipeline to have run; it skips cleanly otherwise. **No
+test needs an API key** — they pin the deterministic template paths, which is what CI
+runs and what a reviewer without a key will see.
+
+Two tests are worth not deleting when they get in the way:
+`test_sequence_opinion_never_relaxes_a_decision` pins the safety property that makes the
+live ensemble sound without recalibration, and `test_copilot_treats_injected_instructions_as_data`
+pins that hostile case text stays inside the fenced bundle.
+
+### Testing the live API by hand
+
+```powershell
+uvicorn cerberus.serving.app:app          # separate terminal, venv active
+```
+
+```bash
+curl -X POST localhost:8000/score -H "Content-Type: application/json" -d '{"transaction_id":"t1","account_id":"a1","device_id":"d","ip":"i","card_fingerprint":"c","amount":1899,"timestamp":"2026-06-01T02:15:00","segment":"travel_luxury"}'
+```
+
+```bash
+curl localhost:8000/explain/t1
+```
+
+```bash
+curl -X POST localhost:8000/dispute/t1
+```
+
+```bash
+curl -X POST localhost:8000/copilot/detected_89 -H "Content-Type: application/json" -d '{"messages":[{"role":"user","content":"Why is this ring flagged?"}]}'
+```
+
+`/score` now also returns `sequence_score` and `gnn_ring_score` when those optional
+checkpoints exist (`scripts/train_sequence.py`, `scripts/train_gnn_rings.py`). Absent
+them both fields are null and the response is otherwise unchanged.
+
+### Testing the dashboard against a live API
+
+```powershell
+"NEXT_PUBLIC_API_BASE_URL=http://localhost:8000" | Out-File -Encoding utf8 dashboard/.env.local
+$env:CERBERUS_CORS_ORIGINS = "http://localhost:3000"; uvicorn cerberus.serving.app:app
+```
+
+Both are required — the first tells the browser where to call, the second lets the API
+accept it. Without them the dispute and copilot panels render an honest "not connected"
+note, which is a supported state, not a bug.
+
+**Restart uvicorn after any change to `src/`.** It does not hot-reload without
+`--reload`, and a stale process silently serving old code cost real debugging time here:
+the dispute endpoint kept returning 404 from a build that predated the fix.
+
+---
+
 ## 6. Before you commit a model change
 
-- [ ] `pytest tests/ -q` — 28 passing
+- [ ] `pytest tests/ -q` — 44 passing
 - [ ] `ruff check src/ scripts/ tests/` — clean
 - [ ] Adversarial harness re-run and compared, not just the accuracy metrics
 - [ ] A trivial baseline exists for any score above ~0.95
