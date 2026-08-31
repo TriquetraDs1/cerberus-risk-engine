@@ -155,7 +155,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount, shared device with flagged ring: detected_4. The account is linked to flagged ring detected_4. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_8ac2651d27",
+    "transaction_id": "txn_ring_c273ed0686",
     "account_id": "acct_003373",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:29:04.014861",
@@ -178,7 +178,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, linked to multiple accounts, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_d9a0313a85",
+    "transaction_id": "txn_ring_91c127cdfc",
     "account_id": "acct_003535",
     "segment": "digital_subscription",
     "timestamp": "2026-02-27T02:29:23.836961",
@@ -201,7 +201,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.098."
   },
   {
-    "transaction_id": "txn_ring_6df796edf4",
+    "transaction_id": "txn_ring_cbddaea2c2",
     "account_id": "acct_003900",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:29:59.392481",
@@ -224,7 +224,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, amount anomalous for account, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_e46663d23e",
+    "transaction_id": "txn_ring_7a6c638f2a",
     "account_id": "acct_004031",
     "segment": "digital_subscription",
     "timestamp": "2026-02-27T02:30:24.773496",
@@ -247,7 +247,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.098."
   },
   {
-    "transaction_id": "txn_ring_0d2efd40d6",
+    "transaction_id": "txn_ring_b798b668e8",
     "account_id": "acct_001841",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:32:01.526010",
@@ -270,7 +270,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_6eb89a4e2c",
+    "transaction_id": "txn_ring_d38e62f8f1",
     "account_id": "acct_001841",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:32:21.185183",
@@ -293,7 +293,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_299e1cb877",
+    "transaction_id": "txn_ring_6776c54a19",
     "account_id": "acct_003535",
     "segment": "digital_subscription",
     "timestamp": "2026-02-27T02:32:40.840729",
@@ -316,7 +316,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.098."
   },
   {
-    "transaction_id": "txn_ring_312cfa943d",
+    "transaction_id": "txn_ring_d814a4b3a5",
     "account_id": "acct_001845",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:32:54.304808",
@@ -339,7 +339,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_19b5dba090",
+    "transaction_id": "txn_ring_17333b563f",
     "account_id": "acct_003900",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:33:03.060585",
@@ -362,7 +362,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_d9883a82ca",
+    "transaction_id": "txn_ring_c6811df520",
     "account_id": "acct_000393",
     "segment": "electronics_highvalue",
     "timestamp": "2026-02-27T02:34:06.855309",
@@ -385,7 +385,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.048."
   },
   {
-    "transaction_id": "txn_ring_84efdf69e8",
+    "transaction_id": "txn_ring_7e46e260cb",
     "account_id": "acct_001845",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:35:12.533704",
@@ -408,7 +408,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_a30c6d0280",
+    "transaction_id": "txn_ring_414cf1eed1",
     "account_id": "acct_003373",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:35:32.488996",
@@ -431,7 +431,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_ec597dc2be",
+    "transaction_id": "txn_ring_87b8353b08",
     "account_id": "acct_003373",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:36:23.525647",
@@ -454,7 +454,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_9fc76e25f0",
+    "transaction_id": "txn_ring_6da681671e",
     "account_id": "acct_001845",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:39:14.398998",
@@ -477,7 +477,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: high value velocity, large transaction amount, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the grocery essentials cost matrix (a missed fraud costs about \u20b9149 versus about \u20b919 for a wrong block) the block threshold is set to 0.238."
   },
   {
-    "transaction_id": "txn_ring_0e9ef03332",
+    "transaction_id": "txn_ring_b4ec77ee4d",
     "account_id": "acct_000415",
     "segment": "travel_luxury",
     "timestamp": "2026-02-27T02:39:39.008886",
@@ -500,7 +500,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.019."
   },
   {
-    "transaction_id": "txn_ring_bf657346db",
+    "transaction_id": "txn_ring_6aa43cbe60",
     "account_id": "acct_000415",
     "segment": "travel_luxury",
     "timestamp": "2026-02-27T02:39:57.806164",
@@ -523,7 +523,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.019."
   },
   {
-    "transaction_id": "txn_ring_190c664baa",
+    "transaction_id": "txn_ring_bb9fc7240d",
     "account_id": "acct_004031",
     "segment": "digital_subscription",
     "timestamp": "2026-02-27T02:40:00.756061",
@@ -546,7 +546,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.098."
   },
   {
-    "transaction_id": "txn_ring_ea4e217df5",
+    "transaction_id": "txn_ring_f277f9e78b",
     "account_id": "acct_003864",
     "segment": "electronics_highvalue",
     "timestamp": "2026-02-27T02:41:27.195869",
@@ -569,7 +569,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, linked to multiple accounts, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.048."
   },
   {
-    "transaction_id": "txn_ring_ec11811a68",
+    "transaction_id": "txn_ring_e3af7999c1",
     "account_id": "acct_004458",
     "segment": "travel_luxury",
     "timestamp": "2026-02-27T02:41:50.478963",
@@ -592,7 +592,7 @@
     "explanation": "Blocked at a calibrated risk score of 1.00. Primary factors: large transaction amount, high value velocity, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the travel luxury cost matrix (a missed fraud costs about \u20b91,518 versus about \u20b930 for a wrong block) the block threshold is set to 0.019."
   },
   {
-    "transaction_id": "txn_ring_979546641a",
+    "transaction_id": "txn_ring_6885f78b47",
     "account_id": "acct_003373",
     "segment": "grocery_essentials",
     "timestamp": "2026-02-27T02:41:52.123333",
@@ -725,7 +725,7 @@
     "explanation": "Blocked at a calibrated risk score of 0.67. Primary factors: large transaction amount, high value velocity. Under the digital subscription cost matrix (a missed fraud costs about \u20b9208 versus about \u20b918 for a wrong block) the block threshold is set to 0.098."
   },
   {
-    "transaction_id": "txn_ring_8832d74ecd",
+    "transaction_id": "txn_ring_3a6e18d7e4",
     "account_id": "acct_000393",
     "segment": "electronics_highvalue",
     "timestamp": "2026-02-27T02:28:49.942125",
@@ -748,7 +748,7 @@
     "explanation": "Blocked at a calibrated risk score of 0.67. Primary factors: large transaction amount, linked to multiple accounts, shared device with flagged ring: detected_16. The account is linked to flagged ring detected_16. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.048."
   },
   {
-    "transaction_id": "txn_ring_9c4432d754",
+    "transaction_id": "txn_ring_827e3be63e",
     "account_id": "acct_003864",
     "segment": "electronics_highvalue",
     "timestamp": "2026-02-27T02:40:17.956733",
@@ -1898,7 +1898,7 @@
     "explanation": "Blocked at a calibrated risk score of 0.29. Primary factors: high value velocity, large transaction amount. Under the electronics highvalue cost matrix (a missed fraud costs about \u20b9756 versus about \u20b937 for a wrong block) the block threshold is set to 0.048."
   },
   {
-    "transaction_id": "txn_ring_517b150793",
+    "transaction_id": "txn_ring_7c455eb6c4",
     "account_id": "acct_000415",
     "segment": "travel_luxury",
     "timestamp": "2026-02-27T02:29:55.639719",

@@ -223,6 +223,14 @@ Everything is seeded by `CERBERUS_RANDOM_SEED` (default 1337).
 $env:CERBERUS_RANDOM_SEED = "42"; $py scripts/generate_data.py
 ```
 
-Same seed, same machine, same results. **Re-run any surprising result on two or three
+Same seed, same machine, same *metrics*. **Re-run any surprising result on two or three
 seeds before believing it** — especially the adversarial numbers, where the sandbox rings
 are freshly drawn each run and a single run's baseline can swing.
+
+**Known gap:** synthetic transaction IDs come from bare `uuid.uuid4()` in
+`synthetic_rings.py` and `adversarial/strategies.py`, so `transactions.csv` differs
+between runs even though every metric computed from it is identical. Verify determinism
+by diffing `reports/*.json` (ignoring `generated_at`), not by hashing the CSV. The fix is
+to use the seeded `_short_id(prefix, rng)`; it shifts the rng stream and moves every
+documented number, so it needs a full re-run and doc pass — see `MODEL_CARD.md`
+§Retraining.

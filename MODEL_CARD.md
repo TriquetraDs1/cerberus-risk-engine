@@ -165,4 +165,18 @@ python scripts/build_decision_layer.py
 python scripts/run_adversarial_harness.py
 ```
 
-Deterministic given the same `CERBERUS_RANDOM_SEED`.
+**Metrics are deterministic given the same `CERBERUS_RANDOM_SEED`** — re-running the
+pipeline reproduces every reported number exactly, verified by diffing `reports/*.json`
+across runs (only the `generated_at` timestamps move).
+
+Synthetic **transaction IDs are not** seeded: `synthetic_rings.py` and
+`adversarial/strategies.py` mint them with bare `uuid.uuid4()` while every other random
+draw goes through the seeded generator. So `data/processed/transactions.csv` is not
+byte-identical between runs even though everything computed from it is.
+
+Left as-is deliberately rather than silently: `_short_id(prefix, rng)` is the seeded
+replacement and swapping it in is a two-line change, but it consumes rng draws and
+therefore shifts the whole stream — measured effect, 60,565 transactions becomes 60,610
+and every documented figure moves with it. Not a change worth making days before a
+submission whose numbers are already written down. Post-submission, apply it and re-run
+the full pipeline plus the doc pass in `docs/TRAINING.md` §6.
