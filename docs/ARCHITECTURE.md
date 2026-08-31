@@ -108,7 +108,7 @@ Four tables: `transactions`, `entity_edges`, `decisions` (append-only audit log)
 |---|---|---|---|
 | Two separate detectors vs. one joint model | Separate | Single GNN over all features | Faster to build solo in 10 days, independently explainable, isolated failure modes |
 | Synchronous API vs. event-driven | Synchronous + batch job | Kafka/streaming | Matches actual scale of a submission; no infra that adds risk without adding signal |
-| Louvain vs. GNN for ring detection | Louvain | GNN | Explainable, fast to validate against synthetic ground truth; a GNN needs far more data/time than 10 days allow, and is a much harder explainability story |
+| Louvain vs. GNN for ring detection | Louvain | GNN | Explainable, fast to validate against synthetic ground truth. A GraphSAGE detector was later built and evaluated (`detection/gnn_ring.py`): it scores 1.0000 held out, but so does a `degree >= 2` threshold, so this graph tests neither. Louvain stays the default on explainability, not on a score. |
 | SQLite vs. Postgres | SQLite | Postgres | Zero setup for a reviewer; Postgres is the noted production path |
 
 **What would change heading toward production:** real labeled fraud data instead of
@@ -120,9 +120,9 @@ collection; a replicated store for the entity-graph cache.
 
 | Day | Deliverable | Status |
 |---|---|---|
-| 1–2 | Synthetic data generator with injectable fraud rings + baseline point-risk model. Get a number, any honest number. | ✅ Done — ROC-AUC 0.80, calibrated (Brier 0.0645→0.0164) |
+| 1–2 | Synthetic data generator with injectable fraud rings + baseline point-risk model. Get a number, any honest number. | ✅ Done — ROC-AUC 0.8153, calibrated (Brier 0.0819→0.0163) |
 | 3 | Entity-link graph + Louvain on synthetic rings. Confirm it recovers the injected rings. | ✅ Done — 25/25 rings, 100% recovery, 9.3% honest FP rate |
-| 4 | Cost matrix + threshold optimization + 3-way routing. | ✅ Done — per-segment, 10.7% cheaper than one global threshold |
+| 4 | Cost matrix + threshold optimization + 3-way routing. | ✅ Done — per-segment, 16.5% cheaper than one global threshold |
 | 5–6 | Adversarial harness: 2–3 evasion strategies, measure recall decay, retrain, show recovery. This is the differentiator — protect this time budget above all else. | ✅ Done — 3 adaptive strategies, before/attack/after chart, CI regression gate |
 | 7 | FastAPI serving + audit log + drift check. Thin, enterprise-shaped not enterprise-scale. | ✅ Done — /score, /health, /metrics, SQLite audit log, demoable graceful degradation |
 | 8 | Stretch LLM layer (dispute drafting / plain-English reason codes) only if on schedule. | ◑ Partial — A1 (plain-English reason-code narration) done: `cerberus.llm`, `queue.json` `explanation`, `GET /explain/{id}`, drawer Summary, deterministic template fallback. A2 (dispute drafting) and A3 (copilot) not started — see `IMPLEMENTATION_ROADMAP.md`. |
@@ -135,6 +135,10 @@ collection; a replicated store for the entity-graph cache.
   against yourself?"* Yes — and that's the honest framing, stated explicitly: this
   validates robustness to known evasion classes, not a real-world adversarial guarantee.
   Naming the limitation is the point of "honest metrics."
-- *"Louvain on synthetic data is easy — validated on anything real?"* Backtest the ring
-  detector's false-positive rate on the non-fraud portion of the Kaggle set (e.g. family
-  members sharing a device) — that's the real FP-cost story for the graph layer.
+- *"Louvain on synthetic data is easy — validated on anything real?"* Not yet, and the
+  evidence now says the critique is right. A GraphSAGE detector scores a perfect 1.0000
+  on this graph — but so does `degree >= 2`, so the graph is separable without any
+  learning at all (`scripts/train_gnn_rings.py` runs that control on every invocation).
+  What that measures is the dataset's easiness, not either detector's power. The honest
+  next step is harder ring topologies plus a backtest of the FP rate against the
+  non-fraud portion of a real dataset.

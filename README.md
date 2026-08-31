@@ -150,22 +150,26 @@ beyond the original scope:
 - Synthetic data generator with injectable fraud rings, innocent household sharing, and
   four merchant segments with genuinely different fraud economics
 - Baseline point-risk model (LightGBM) with **isotonic probability calibration** —
-  Brier score 0.0645 → 0.0164, expected calibration error 0.140 → 0.003. `risk_score`
+  Brier score 0.0819 → 0.0163, expected calibration error 0.1926 → 0.0023. `risk_score`
   is a real probability, not just a ranking.
 - Louvain ring detector — **25/25 injected rings recovered (100% mean recovery)**, and
   an honest **9.3% false-positive rate** on innocent household device-sharing
 - **Per-segment cost matrix + 3-way routing** (`cerberus.decision.cost_matrix`) — each
   segment's FP/FN cost is derived from its own transaction data, not one global
-  assumption. Segmented routing costs **10.7% less** than applying one threshold to
+  assumption. Segmented routing costs **16.5% less** than applying one threshold to
   every segment.
 - **Adversarial hardening harness** (`cerberus.adversarial`) — the actual
   differentiator. Three evasion strategies (structuring, identity rotation, slow-ramp
   timing), each found by an adaptive local search against the live model, not a fixed
-  script. Recall decayed **45-67%** under attack; retraining on what the search
-  found recovered **31-42 points** for structuring and slow-ramp. Identity rotation's
-  evasion of the graph layer barely recovers (+14 points) — reported as an honest,
-  unresolved limitation, not silently patched, because Louvain isn't retrainable the
-  way a classifier is. The regression gate (`--min-recovery`) runs in CI on every push.
+  script (hill-climb by default, `--searcher bayesopt` available). Recall decayed
+  **50-86%** under attack; retraining recovered structuring to 0.99 and slow-ramp to
+  1.00. Identity rotation's evasion of the graph layer recovers only to 0.47 — reported
+  as an honest, unresolved limitation, not silently patched, because Louvain isn't
+  retrainable the way a classifier is. It is also *worse* than an earlier model version
+  (0.33 -> 0.02 under attack): adding graph features to the point-risk model let it lean
+  on structure that rotation destroys. ROC-AUC was highest in exactly that configuration
+  — only the harness caught it. See `docs/EXPERIMENT_ADVANCED_TRAINING.md`. The
+  regression gate (`--min-recovery`) runs in CI on every push.
 - An analyst dashboard (`dashboard/`, Next.js) rendering all of the above from real
   pipeline output — Review Queue, Transaction detail, Ring Network, Adversarial
   Hardening (the before/attack/after chart), System Health — plus a **case-management

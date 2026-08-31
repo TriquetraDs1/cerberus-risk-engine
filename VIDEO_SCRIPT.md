@@ -52,8 +52,8 @@ the dashboard + a terminal, your voice over it. Every number below matches
 
 > "The point-risk model is gradient-boosted trees, ROC-AUC 0.80, on a chronological
 > three-way split — never random, because fraud rings cluster in time and would leak
-> across a random boundary. The score is isotonic-calibrated: Brier score drops from 0.064
-> to 0.016, expected calibration error from 0.14 to 0.003. So `risk_score` is a real
+> across a random boundary. The score is isotonic-calibrated: Brier score drops from 0.082
+> to 0.016, expected calibration error from 0.19 to 0.002. So `risk_score` is a real
 > probability the decision layer can reason about, not just a ranking."
 
 ---
@@ -68,7 +68,7 @@ the dashboard + a terminal, your voice over it. Every number below matches
 >
 > Routing is cost-optimised per segment, not accuracy-optimised. Each segment's
 > false-positive and false-negative costs come from its own transaction data. Segmented
-> routing costs 10.7 percent less than one global threshold — and most of that saving is
+> routing costs 16.5 percent less than one global threshold — and most of that saving is
 > in travel, where the ticket size is large and a missed fraud is expensive."
 
 **On screen:** the open drawer — point at Reason codes and Cost basis.
@@ -134,6 +134,12 @@ curl -s localhost:8000/explain/txn_demo | jq
 > Identity rotation attacks Louvain specifically, and Louvain is unsupervised — retraining
 > a classifier can't teach a community-detection algorithm anything, so that evasion is
 > reported as an open limitation, not patched over.
+>
+> It also got worse, and I'll tell you why. I added graph features to the point-risk
+> model. ROC-AUC went up — to its highest of any configuration I tried — and identity
+> rotation collapsed, because the classifier had learned to lean on structure that
+> rotation exists to destroy. Aggregate metrics scored that as a clean win. Only the
+> harness caught it. That's the argument for having the harness.
 >
 > Days one through seven of the plan are done, plus calibration, a case-management
 > workflow, and the plain-English layer. 28 tests, CI-gated, reproducible from a clean
