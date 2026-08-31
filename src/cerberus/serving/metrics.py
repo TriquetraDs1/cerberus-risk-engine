@@ -30,3 +30,13 @@ RING_CHECK_STATUS = Counter(
     ["status"],
     registry=registry,
 )
+
+
+# How often the sequence model raised a decision. Worth a counter rather than only a log
+# line: if this is near zero the second model is inert, and if it is very high it is
+# overriding the primary model rather than complementing it. Both are worth alerting on.
+SEQUENCE_ESCALATIONS = Counter(
+    "cerberus_sequence_escalations_total",
+    "Decisions escalated by the sequence model's second opinion",
+    registry=registry,
+)
