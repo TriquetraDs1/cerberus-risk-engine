@@ -7,6 +7,8 @@
 This file exists so a new session (or you, later) can pick up work without re-deriving
 context from chat history. If you're an AI assistant starting fresh: read this file,
 then `docs/ARCHITECTURE.md`, then you're ready to build — don't re-plan from scratch.
+Retraining or changing the model? `docs/TRAINING.md` is the runbook: exact command
+order, what to re-run after what, and the checks that keep a result honest.
 
 ## What Cerberus is
 
