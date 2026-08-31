@@ -12,6 +12,9 @@ requires-python = ">=3.10"
 # A1 narration layer. Not required: with no anthropic and no ANTHROPIC_API_KEY the
 # pipeline, dashboard export, API, and CI all run and use the deterministic template.
 llm = ["anthropic>=0.40"]
+# Offline research tooling — scripts/tune_baseline.py only. Not needed to run the
+# pipeline, the API, or CI: the tuned params it finds are checked in as LGBM_PARAMS.
+tuning = ["optuna>=4.0", "scikit-optimize>=0.10"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
