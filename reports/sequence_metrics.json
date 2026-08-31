@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T09:11:36.775639+00:00",
+  "sequence_length": 8,
+  "n_features_per_step": 8,
+  "n_train": 38761,
+  "n_test": 12113,
+  "epochs": 8,
+  "final_train_loss": 0.7775297639401335,
+  "sequence_roc_auc": 0.8371148112341477,
+  "sequence_pr_auc": 0.30113180767398534,
+  "point_risk_roc_auc": 0.8153004804111932,
+  "point_risk_pr_auc": 0.31409167977946895,
+  "ensemble_weight_sequence": 0.3,
+  "ensemble_roc_auc": 0.8271628320429393,
+  "ensemble_pr_auc": 0.3340705635508142,
+  "limitations": [
+    "The sequence model has no SHAP-equivalent explanation, so it cannot produce reason codes. It is a second opinion, not a decision-maker \u2014 docs/ARCHITECTURE.md requires a reason code on every block.",
+    "The ensemble weight is a chosen constant, not a fitted one. Fitting it would need a fourth split to avoid selecting on the test set.",
+    "Windows are fixed-length and left-padded; an account's first transactions are scored on mostly padding."
+  ]
+}

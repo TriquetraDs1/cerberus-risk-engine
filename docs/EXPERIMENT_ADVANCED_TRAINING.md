@@ -192,14 +192,71 @@ leaving anything on the table.
 
 ---
 
+## Step 5 (B2) — per-account sequence model
+
+`features/sequences.py`, `detection/sequence_risk.py`, `scripts/train_sequence.py`.
+A 2-layer GRU (48 hidden, ~20k params) over the 8 transactions ending at the one being
+scored: log amount, log inter-arrival gap, cyclical hour, one-hot segment. Strictly
+causal, left-padded, split on the same chronological boundaries.
+
+| Held-out | ROC-AUC | PR-AUC |
+|---|---|---|
+| Point-risk (LightGBM) | 0.8153 | 0.3141 |
+| Sequence (GRU) | **0.8371** | 0.3011 |
+| Ensemble (70/30) | 0.8272 | **0.3341** |
+
+The GRU beats the booster on ROC-AUC and loses on PR-AUC — they are finding different
+things, which is the case for keeping both. The ensemble beats point-risk alone on
+PR-AUC (0.3341 vs 0.3141), which is the only comparison that justifies shipping a second
+model at all.
+
+**It stays a second opinion at weight 0.3, not a co-equal vote,** because it produces no
+reason codes. `docs/ARCHITECTURE.md` §1 makes an explanation mandatory on every block; a
+model that scores well but cannot say why is not allowed to overrule one that can. The
+weight is a chosen constant, not a fitted one — fitting it would need a fourth split.
+
+## Step 6 (B1) — GNN ring detector, and why its perfect score means the opposite of what it looks like
+
+`detection/gnn_ring.py`, `scripts/train_gnn_rings.py`. GraphSAGE, 2 layers, 5 node
+features, temporal node split by each account's first transaction.
+
+Held-out **ROC-AUC 1.0000, PR-AUC 1.0000**. 25/25 rings recovered, household
+false-positive rate 1.3% against Louvain's 9.3%.
+
+A perfect held-out score is a reason for suspicion, so the script now always runs a
+one-line control: **flag every account with `degree >= 2`.**
+
+| | Recovery | Household FP |
+|---|---|---|
+| Louvain | 100% | 9.3% |
+| GraphSAGE | 100% | 1.3% |
+| **`degree >= 2`** | **100%** | **1.3%** |
+
+The trivial baseline matches the GNN exactly. Message passing contributed nothing: the
+injected rings are dense cliques (degree 5–11) and the innocent households are single
+links (degree 1), so one integer comparison separates them perfectly.
+
+**The correct reading is that this measures the synthetic graph's easiness, not the
+GNN's power** — and by extension it is evidence *for* the panel's pushback ("Louvain on
+synthetic data is easy"), not against it. Reporting the 1.0000 as a GNN achievement
+would be the single most misleading number this project could publish. The control runs
+on every invocation and its output is written into `reports/gnn_ring_metrics.json`
+precisely so that number can never be quoted alone.
+
+What would make the comparison meaningful: ring shapes that are not uniformly dense
+(chains, stars, partial overlaps), innocent clusters larger than pairs, and an inductive
+split where a held-out account's neighbours are also held out. Until the generator
+produces graphs a degree threshold cannot solve, no graph model — learned or
+unsupervised — is being tested by this dataset.
+
 ## Not done on this branch
 
-- **Step 5 (B2) — per-account sequence model.** PyTorch 2.13.0+cpu is installed. The
-  clearest remaining answer to slow-ramp.
-- **Step 6 (B1) — GNN ring detector.** torch-geometric 2.8.0 is installed.
-  `shared_entity_strength` and `component_size` are already computed and waiting — a
-  graph model is the *right* consumer for graph features, which is the flip side of the
-  point-risk regression documented above.
+- Regenerating the synthetic graph with harder, more varied ring topologies, which is
+  the prerequisite for Step 6's comparison to mean anything.
+- Wiring the sequence model into the live decision layer (it is trained, calibrated, and
+  saved, but `decision/cost_matrix.py` still consumes point-risk alone).
+- A paired searcher comparison with the sandbox ring draw seeded independently of the
+  search (see Step 4's caveat).
 
 ## Reproducing
 
