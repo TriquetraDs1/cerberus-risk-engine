@@ -5,6 +5,7 @@ import { WarningCircle, X } from "@phosphor-icons/react/dist/ssr";
 import { formatReasonCode, formatSegment } from "@/lib/format";
 import type { CaseAction, QueueTransaction } from "@/lib/types";
 import { CaseActionControls } from "./CaseActionControls";
+import { DisputeDraft } from "./DisputeDraft";
 import { RiskBadge } from "./RiskBadge";
 
 export function TransactionDrawer({
@@ -152,6 +153,13 @@ export function TransactionDrawer({
               targetId={t.transaction_id}
               currentAction={currentAction}
             />
+          </div>
+
+          <div>
+            <h3 className="kicker block mb-2" style={{ color: "var(--ink-tertiary)" }}>
+              Chargeback evidence
+            </h3>
+            <DisputeDraft key={t.transaction_id} transaction={t} />
           </div>
 
           <div className="pt-3 border-t text-xs" style={{ borderColor: "var(--rule)", color: "var(--ink-tertiary)" }}>

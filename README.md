@@ -193,6 +193,17 @@ beyond the original scope:
 - CI (lint + full pipeline + adversarial regression gate + tests, including live
   serving smoke tests), two-stage Docker (`pipeline` / `serving`), MODEL_CARD.md
 
-Still ahead: Day 8 stretch items A2 (chargeback dispute drafting) and A3 (analyst
-copilot), and the submission video — see `docs/ARCHITECTURE.md` and
+- **Dispute drafting + case copilot (A2, A3)** (`cerberus.llm`) — `POST /dispute/{id}`
+  drafts sectioned chargeback evidence for a logged decision; `POST /copilot/{ring_id}`
+  answers analyst questions about one ring, grounded only in a pre-assembled case bundle.
+  The copilot holds no tools and performs no writes, so a prompt injection in case data
+  has nothing to escalate to. Both fall back to deterministic templates with no API key.
+- **Sequence model and GNN, live** — `/score` returns `sequence_score` and
+  `gnn_ring_score` alongside the point-risk decision. The sequence model is
+  **escalate-only** (it can raise caution, never clear a transaction, because the
+  thresholds were fitted on the point-risk distribution); the GNN is a **second opinion**
+  on ring membership, with `gnn_agrees_with_louvain` as the field worth watching. Both
+  are optional: absent their checkpoints, `/score` behaves exactly as before.
+
+Still ahead: the submission video — see `docs/ARCHITECTURE.md` and
 `IMPLEMENTATION_ROADMAP.md` for the full roadmap.

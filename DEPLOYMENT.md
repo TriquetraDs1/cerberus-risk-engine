@@ -102,6 +102,39 @@ Open the Vercel URL, click a `block` row, confirm the drawer + Summary render.
 
 ---
 
+## Connecting the dashboard to the live API (optional)
+
+The four analytical pages never need a backend. Two panels do: **Draft dispute evidence**
+in the transaction drawer, and the **case copilot** on the ring page. Without an API they
+render an honest note saying so, which is a supported deployment — nothing breaks.
+
+To enable them:
+
+1. **Vercel** → project → Settings → Environment Variables → add
+   `NEXT_PUBLIC_API_BASE_URL` = `https://cerberus-api-eocy.onrender.com` → redeploy.
+2. **Render** → service → Environment → add `CERBERUS_CORS_ORIGINS` =
+   `https://cerberus-risk-engine.vercel.app` → it redeploys itself.
+
+Both must be set. The first tells the browser where to call; the second lets the API
+accept the call.
+
+**Before demoing either panel, wake the API.** The free tier sleeps after 15 minutes and
+takes ~50 seconds to start. The panels say so rather than appearing hung, but a judge
+watching a spinner for a minute has already moved on:
+
+```bash
+curl https://cerberus-api-eocy.onrender.com/health
+```
+
+**Why the dispute panel sends the decision with the request:** the review queue is
+generated offline by `scripts/export_dashboard_data.py`, so the live service has no
+record of those transactions. `/dispute` accepts the decision in the request body for
+exactly this case, and the response's `facts_from` field states whether the facts came
+from the service's own audit log (`audit_log`) or from the caller (`supplied`). A dispute
+submission should never blur those two.
+
+---
+
 ## Path B — wire them into one full-stack app (post-deadline)
 
 This is the "real" integrated system. It's days of work and most of it is already scoped

@@ -38,7 +38,9 @@ from cerberus.common.config import (
     DETECTED_RINGS_JSON,
     MODELS_DIR,
     REPORTS_DIR,
+    RING_DETECTION_REPORT_JSON,
     SYNTHETIC_ENTITY_EDGES_CSV,
+    SYNTHETIC_RINGS_JSON,
     SYNTHETIC_TRANSACTIONS_CSV,
 )
 from cerberus.data.synthetic_rings import SEGMENTS
@@ -49,12 +51,25 @@ from cerberus.features.pipeline import (
     add_entity_degree,
     add_graph_features,
 )
+from cerberus.llm.copilot import RingCase, answer_case_question
+from cerberus.llm.dispute import DisputeContext, draft_dispute
 from cerberus.llm.narrate import DecisionContext, narrate_decision, narration_source
 from cerberus.serving.audit import AuditLog
+from cerberus.serving.ensemble import apply_sequence_opinion
 from cerberus.serving.logging_config import configure_logging, log_with_fields
-from cerberus.serving.metrics import RING_CHECK_STATUS, SCORE_LATENCY, SCORE_REQUESTS, registry
+from cerberus.serving.metrics import (
+    RING_CHECK_STATUS,
+    SCORE_LATENCY,
+    SCORE_REQUESTS,
+    SEQUENCE_ESCALATIONS,
+    registry,
+)
 from cerberus.serving.schemas import (
+    CopilotRequest,
+    CopilotResponse,
     CostBasis,
+    DisputeRequest,
+    DisputeResponse,
     ExplainResponse,
     HealthResponse,
     ScoreRequest,
@@ -113,6 +128,16 @@ class ModelBundle:
             detected = json.loads(DETECTED_RINGS_JSON.read_text())
             self.ring_membership = {a: rid for rid, members in detected.items() for a in members}
 
+        # Ground-truth ring membership, so the copilot can say whether a detected
+        # community corresponds to an injected ring. Without it the only honest answer is
+        # "unknown" — and asserting "no match" when ground truth was never loaded would be
+        # a claim the service cannot support. Synthetic-data only; a production deployment
+        # has no such file and the copilot correctly reports unknown.
+        self.ground_truth_membership: dict[str, str] = {}
+        if SYNTHETIC_RINGS_JSON.exists():
+            truth = json.loads(SYNTHETIC_RINGS_JSON.read_text())
+            self.ground_truth_membership = {a: rid for rid, members in truth.items() for a in members}
+
         self.entity_degree: dict[str, int] = {}
         self.entity_strength: dict[str, float] = {}
         self.component_size: dict[str, int] = {}
@@ -134,6 +159,65 @@ class ModelBundle:
                 zip(graph_df["account_id"], graph_df["component_size"], strict=True)
             )
 
+        # Sequence model (roadmap B2). Entirely optional: it needs torch and a trained
+        # checkpoint, and the service must run without either. When absent, /score
+        # behaves exactly as before and reports sequence_score: null.
+        self.sequence_model = None
+        self.sequence_calibrator = None
+        seq_path = MODELS_DIR / "sequence_risk.pt"
+        seq_calib_path = MODELS_DIR / "sequence_risk_calibrator.joblib"
+        if seq_path.exists() and seq_calib_path.exists():
+            try:
+                import torch
+
+                from cerberus.detection.sequence_risk import build_model
+
+                model = build_model()
+                model.load_state_dict(torch.load(seq_path, map_location="cpu"))
+                model.eval()
+                self.sequence_model = model
+                self.sequence_calibrator = joblib.load(seq_calib_path)
+            except Exception as exc:  # noqa: BLE001 - an optional signal must never block startup
+                log_with_fields(
+                    logger, logging.WARNING, "sequence model unavailable", error=f"{type(exc).__name__}: {exc}"
+                )
+
+        # GNN ring detector (roadmap B1), as a SECOND OPINION only — never authoritative.
+        # docs/EXPERIMENT_ADVANCED_TRAINING.md records that its perfect held-out score is
+        # matched exactly by a `degree >= 2` threshold, so treating it as the ring
+        # detector would be promoting a number that measures the dataset's easiness.
+        # Louvain stays the decision-maker; this exists so an analyst can see when the two
+        # disagree, which is the genuinely informative signal.
+        #
+        # Transductive, so scores for every account are computed once here against the
+        # whole cached graph rather than per request.
+        self.gnn_ring_score: dict[str, float] = {}
+        gnn_path = MODELS_DIR / "gnn_ring.pt"
+        if gnn_path.exists() and SYNTHETIC_ENTITY_EDGES_CSV.exists():
+            try:
+                import torch
+
+                from cerberus.detection.gnn_ring import (
+                    build_edge_index,
+                    build_model,
+                    build_node_features,
+                    predict_ring_scores,
+                )
+                from cerberus.detection.ring_detector import build_graph
+
+                graph = build_graph(pd.read_csv(SYNTHETIC_ENTITY_EDGES_CSV))
+                features, node_index = build_node_features(graph)
+                edge_index = build_edge_index(graph, node_index)
+                gnn = build_model(in_channels=features.shape[1])
+                gnn.load_state_dict(torch.load(gnn_path, map_location="cpu"))
+                gnn.eval()
+                scores = predict_ring_scores(gnn, features, edge_index)
+                self.gnn_ring_score = {a: float(scores[i]) for a, i in node_index.items()}
+            except Exception as exc:  # noqa: BLE001 - optional signal, never blocks startup
+                log_with_fields(
+                    logger, logging.WARNING, "gnn ring detector unavailable", error=f"{type(exc).__name__}: {exc}"
+                )
+
         self.global_amount_mean, self.global_amount_std = 0.0, 1.0
         if SYNTHETIC_TRANSACTIONS_CSV.exists():
             txns = pd.read_csv(SYNTHETIC_TRANSACTIONS_CSV, usecols=["amount"])
@@ -146,6 +230,13 @@ async def lifespan(app: FastAPI):
     app.state.model = ModelBundle()
     app.state.serving = ServingState()
     app.state.audit = AuditLog(AUDIT_DB_PATH)
+    # Read once at startup so the copilot can ground an answer about false positives in
+    # the detector's measured rate rather than an adjective.
+    app.state.household_fp_rate = None
+    if RING_DETECTION_REPORT_JSON.exists():
+        app.state.household_fp_rate = json.loads(RING_DETECTION_REPORT_JSON.read_text()).get(
+            "household_false_positive_rate"
+        )
     log_with_fields(logger, logging.INFO, "startup complete", model_version=app.state.model.model_version)
     yield
 
@@ -215,6 +306,48 @@ def _build_feature_row(req: ScoreRequest, model: ModelBundle, state: ServingStat
     return pd.DataFrame([row])[FEATURE_COLUMNS]
 
 
+def _sequence_score(req: ScoreRequest, model: ModelBundle, state: ServingState) -> float | None:
+    """Calibrated sequence-model score for this account's recent history, or None when
+    the model isn't loaded. Builds the same window shape the offline trainer used, from
+    the live per-account history rather than a dataframe."""
+    if model.sequence_model is None:
+        return None
+    try:
+        import numpy as np
+        import torch
+
+        from cerberus.features.sequences import N_SEQUENCE_FEATURES, SEQUENCE_LENGTH
+
+        history = state.get_history(req.account_id)
+        window = np.zeros((1, SEQUENCE_LENGTH, N_SEQUENCE_FEATURES), dtype=np.float32)
+
+        # Most recent SEQUENCE_LENGTH transactions, oldest first, left-padded — matching
+        # features/sequences.build_sequences exactly. A mismatch here would feed the model
+        # a shape it never trained on and produce a confident, meaningless number.
+        amounts = history.amounts[-SEQUENCE_LENGTH:]
+        stamps = history.timestamps[-SEQUENCE_LENGTH:]
+        offset = SEQUENCE_LENGTH - len(amounts)
+        for i, (ts, amount) in enumerate(zip(stamps, amounts, strict=True)):
+            prev = stamps[i - 1] if i > 0 else None
+            gap_hours = (ts - prev).total_seconds() / 3600.0 if prev else 24.0 * 30
+            radians = 2 * math.pi * ts.hour / 24.0
+            row = [
+                math.log1p(amount),
+                math.log1p(max(gap_hours, 0.0)),
+                math.sin(radians),
+                math.cos(radians),
+                *(1.0 if req.segment == seg else 0.0 for seg in SEGMENTS),
+            ]
+            window[0, offset + i, :] = row
+
+        with torch.no_grad():
+            raw = float(torch.sigmoid(model.sequence_model(torch.from_numpy(window)))[0])
+        return float(model.sequence_calibrator.predict([raw])[0])
+    except Exception as exc:  # noqa: BLE001 - a second opinion must never break scoring
+        log_with_fields(logger, logging.WARNING, "sequence scoring failed", error=f"{type(exc).__name__}: {exc}")
+        return None
+
+
 @app.post("/score", response_model=ScoreResponse)
 def score(req: ScoreRequest) -> ScoreResponse:
     start = time.perf_counter()
@@ -236,9 +369,16 @@ def score(req: ScoreRequest) -> ScoreResponse:
     # lookup entirely rather than crashing or serving a stale/wrong ring_id — the
     # point-risk model still serves a decision on its own. See docs/ARCHITECTURE.md,
     # "Error handling / retry logic."
+    gnn_score = None
+    gnn_agrees = None
     if state.is_graph_available():
         ring_id = model.ring_membership.get(req.account_id)
         ring_check = "ok"
+        if model.gnn_ring_score:
+            gnn_score = model.gnn_ring_score.get(req.account_id, 0.0)
+            # Agreement between two independent detectors, not a verdict. Disagreement is
+            # the interesting case and is what an analyst should see.
+            gnn_agrees = (gnn_score >= 0.5) == (ring_id is not None)
     else:
         ring_id = None
         ring_check = "unavailable"
@@ -251,6 +391,15 @@ def score(req: ScoreRequest) -> ScoreResponse:
     if ring_check == "unavailable":
         reason_codes = [c for c in reason_codes if not c.startswith("shared_device_with_flagged_ring")]
         reason_codes.append("ring_check_unavailable")
+
+    # Roadmap B2, escalate-only. See cerberus.serving.ensemble for why this raises
+    # caution rather than blending into the score: the thresholds above were fitted on
+    # the point-risk distribution, so routing a blended score through them would be
+    # applying a boundary to a distribution it was never calibrated for.
+    outcome = apply_sequence_opinion(decision, reason_codes, _sequence_score(req, model, state))
+    decision, reason_codes = outcome.decision, outcome.reason_codes
+    if outcome.escalated:
+        SEQUENCE_ESCALATIONS.inc()
 
     cost_basis = CostBasis(
         fp_cost=routing["cost_matrix"]["fp_cost"] if routing else 5.0,
@@ -268,6 +417,10 @@ def score(req: ScoreRequest) -> ScoreResponse:
         ring_check=ring_check,
         cost_basis=cost_basis,
         model_version=model.model_version,
+        sequence_score=round(outcome.sequence_score, 4) if outcome.sequence_score is not None else None,
+        sequence_escalated=outcome.escalated,
+        gnn_ring_score=round(gnn_score, 4) if gnn_score is not None else None,
+        gnn_agrees_with_louvain=gnn_agrees,
     )
 
     audit.record(
@@ -337,13 +490,25 @@ def explain(transaction_id: str) -> ExplainResponse:
     if record is None:
         raise HTTPException(404, f"No scored transaction {transaction_id!r} in the audit log.")
 
+    ctx, reason_codes = _decision_context_from_audit(record, model)
+    return ExplainResponse(
+        transaction_id=transaction_id,
+        explanation=narrate_decision(ctx),
+        reason_codes=reason_codes,
+        narration_source=narration_source(),
+    )
+
+
+def _decision_context_from_audit(record: dict, model: ModelBundle) -> tuple[DecisionContext, list[str]]:
+    """Rebuild the scoring context from a logged decision. Shared by /explain, /dispute
+    and anything else that describes a decision after the fact, so all of them describe
+    the same recorded outcome rather than each reconstructing it slightly differently."""
     reason_codes = [c for c in (record["reason_codes"] or "").split(",") if c]
     routing = model.segment_routing.get(record["segment"])
     block_threshold = routing["block_threshold"] if routing else model.global_default_threshold
     review_threshold = routing["review_threshold"] if routing else block_threshold * 0.5
-
     ctx = DecisionContext(
-        transaction_id=transaction_id,
+        transaction_id=record["transaction_id"],
         decision=record["decision"],
         risk_score=float(record["risk_score"]),
         reason_codes=tuple(reason_codes),
@@ -355,11 +520,130 @@ def explain(transaction_id: str) -> ExplainResponse:
         block_threshold=block_threshold,
         review_threshold=review_threshold,
     )
-    return ExplainResponse(
+    return ctx, reason_codes
+
+
+@app.post("/dispute/{transaction_id}", response_model=DisputeResponse)
+def dispute(transaction_id: str, req: DisputeRequest | None = None) -> DisputeResponse:
+    """A2: draft chargeback dispute evidence for a decision.
+
+    Facts come from the audit log when this service scored the transaction, and from the
+    request body otherwise. The dashboard's review queue is generated offline by
+    `scripts/export_dashboard_data.py`, so its rows are legitimately not in the serving
+    log — refusing those would make the feature unusable from the surface it exists for.
+
+    The response records which source was used. That distinction is not cosmetic: audit
+    facts were observed by this service, supplied facts were asserted by the caller, and
+    a dispute submission should never blur the two.
+
+    POST rather than GET because drafting is a billable generative call and GET should
+    stay safe to retry and prefetch. Nothing is written server-side either way.
+    """
+    audit: AuditLog = app.state.audit
+    model: ModelBundle = app.state.model
+    record = audit.get(transaction_id)
+
+    if record is not None:
+        ctx, reason_codes = _decision_context_from_audit(record, model)
+        account_id, timestamp, facts_from = record["account_id"], record["scored_at"], "audit_log"
+    elif req is not None:
+        routing = model.segment_routing.get(req.segment)
+        block_threshold = routing["block_threshold"] if routing else model.global_default_threshold
+        reason_codes = req.reason_codes
+        ctx = DecisionContext(
+            transaction_id=transaction_id,
+            decision=req.decision,
+            risk_score=req.risk_score,
+            reason_codes=tuple(reason_codes),
+            ring_id=req.ring_id,
+            segment=req.segment,
+            amount=req.amount,
+            fp_cost=routing["cost_matrix"]["fp_cost"] if routing else 5.0,
+            fn_cost=routing["cost_matrix"]["fn_cost"] if routing else 50.0,
+            block_threshold=block_threshold,
+            review_threshold=routing["review_threshold"] if routing else block_threshold * 0.5,
+        )
+        account_id, timestamp, facts_from = req.account_id, req.timestamp or "(not supplied)", "supplied"
+    else:
+        raise HTTPException(
+            404,
+            f"No scored transaction {transaction_id!r} in the audit log. Supply the decision "
+            "in the request body to draft for a transaction this service did not score.",
+        )
+
+    history = app.state.serving.get_history(account_id)
+    ring_members = [a for a, rid in model.ring_membership.items() if rid == ctx.ring_id]
+
+    draft = draft_dispute(
+        DisputeContext(
+            decision=ctx,
+            account_id=account_id,
+            timestamp=timestamp,
+            n_account_transactions=len(history.amounts),
+            account_total_amount=float(sum(history.amounts)),
+            recent_amounts=tuple(history.amounts[-5:]),
+            ring_member_count=len(ring_members) or None,
+        )
+    )
+    return DisputeResponse(
         transaction_id=transaction_id,
-        explanation=narrate_decision(ctx),
+        draft=draft,
         reason_codes=reason_codes,
-        narration_source=narration_source(),
+        source=narration_source(),
+        facts_from=facts_from,
+    )
+
+
+@app.post("/copilot/{ring_id}", response_model=CopilotResponse)
+def copilot(ring_id: str, req: CopilotRequest) -> CopilotResponse:
+    """A3: answer an analyst's question about one detected ring.
+
+    Read-only by construction — the copilot has no tools and cannot change any state, so
+    a prompt injection in the case data has nothing to escalate to. See
+    cerberus.llm.copilot for the full reasoning.
+    """
+    model: ModelBundle = app.state.model
+    audit: AuditLog = app.state.audit
+
+    members = sorted(a for a, rid in model.ring_membership.items() if rid == ring_id)
+    if not members:
+        raise HTTPException(404, f"No detected ring {ring_id!r}.")
+
+    member_set = set(members)
+    case_transactions = [
+        {
+            "transaction_id": r["transaction_id"],
+            "account_id": r["account_id"],
+            "amount": r["amount"],
+            "risk_score": r["risk_score"],
+            "decision": r["decision"],
+            "segment": r["segment"],
+            "scored_at": r["scored_at"],
+        }
+        for r in audit.recent(limit=500)
+        if r["account_id"] in member_set
+    ]
+
+    answer = answer_case_question(
+        RingCase(
+            ring_id=ring_id,
+            member_account_ids=members,
+            n_edges=sum(model.entity_degree.get(a, 0) for a in members) // 2,
+            ground_truth_ring_id=next(
+                (model.ground_truth_membership[a] for a in members if a in model.ground_truth_membership),
+                None,
+            ),
+            ground_truth_available=bool(model.ground_truth_membership),
+            transactions=case_transactions,
+            household_false_positive_rate=app.state.household_fp_rate,
+        ),
+        [m.model_dump() for m in req.messages],
+    )
+    return CopilotResponse(
+        ring_id=ring_id,
+        answer=answer,
+        n_members=len(members),
+        source=narration_source(),
     )
 
 

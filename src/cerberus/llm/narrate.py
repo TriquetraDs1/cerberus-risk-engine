@@ -77,7 +77,11 @@ def _warn_once(message: str) -> None:
         _llm_warning_emitted = True
 
 
-def _call_claude(system: str, user: str, model: str) -> str:
+def _call_claude(system: str, user: str, model: str, max_tokens: int = _MAX_TOKENS) -> str:
+    """Shared Claude call for every generative surface (narration, dispute drafting,
+    the case copilot). Never raises: on any failure the caller falls back to its own
+    deterministic template, so a missing key or a network blip degrades the text rather
+    than breaking the response."""
     try:
         import anthropic  # optional dependency, imported lazily
     except ModuleNotFoundError:
@@ -88,7 +92,7 @@ def _call_claude(system: str, user: str, model: str) -> str:
         client = anthropic.Anthropic()
         msg = client.messages.create(
             model=model,
-            max_tokens=_MAX_TOKENS,
+            max_tokens=max_tokens,
             temperature=0,
             system=system,
             messages=[{"role": "user", "content": user}],

@@ -110,9 +110,19 @@ it. See `docs/EXPERIMENT_ADVANCED_TRAINING.md` for the three-way ablation.
 one being scored. Held out: ROC-AUC 0.8371 (above the booster's 0.8153), PR-AUC 0.3011
 (below its 0.3141). A 70/30 ensemble reaches PR-AUC 0.3341, beating point-risk alone.
 
-It is weighted 0.3 and is **not** permitted to overrule the booster, because it produces
-no reason codes and `docs/ARCHITECTURE.md` §1 requires an explanation on every block. It
-is trained and calibrated but not yet wired into the live decision layer.
+It is weighted 0.3 in the offline comparison and is **not** permitted to overrule the
+booster, because it produces no reason codes and `docs/ARCHITECTURE.md` §1 requires an
+explanation on every block.
+
+**Live integration is escalate-only** (`cerberus.serving.ensemble`). The sequence model
+can move a decision toward caution (approve → review, review → block) and can never move
+it the other way. That is not timidity: the per-segment thresholds in
+`reports/decision_layer.json` were fitted on the *calibrated point-risk* score
+distribution, so routing a blended score through them would apply a boundary to a
+distribution it was never fitted for. Refitting on the blend is the correct fix and would
+move every documented figure; until then, raising caution on a second opinion needs no
+recalibration, because it never claims the blended score crossed a fitted boundary. Every
+escalation attaches its own reason code naming which model raised it.
 
 ## GNN ring detector (evaluated, not adopted)
 
@@ -127,6 +137,31 @@ number measures how easy the synthetic graph is, which makes it evidence *for* t
 "Louvain on synthetic data is easy" critique rather than against it. The control runs on
 every invocation and is written into `reports/gnn_ring_metrics.json` so the 1.0000 cannot
 be quoted on its own. Louvain remains the default detector.
+
+**Live integration is second-opinion only.** `/score` returns `gnn_ring_score` and
+`gnn_agrees_with_louvain` alongside the authoritative Louvain `ring_id`. Agreement is
+unremarkable; disagreement is the informative case and is what an analyst should look at.
+Promoting the GNN to decision-maker would mean acting on a number this model card
+documents as measuring the dataset rather than the model.
+
+## Dispute drafting (A2) and the case copilot (A3)
+
+`cerberus.llm.dispute` drafts chargeback evidence for a decision already in the audit log
+(`POST /dispute/{transaction_id}`), closing the last unbuilt functional requirement in
+`docs/ARCHITECTURE.md` §1. Sectioned SUMMARY / EVIDENCE / RISK METHODOLOGY / LIMITATIONS,
+with the limitations section mandatory and substantive — a draft that overclaims is worse
+than no draft, because one inflated claim discounts the rest.
+
+`cerberus.llm.copilot` answers analyst questions about one ring case
+(`POST /copilot/{ring_id}`). It is the only surface in the project that accepts free text,
+and it is defended structurally rather than by filtering: it holds **no tools and performs
+no writes**, so a prompt injection has nothing to escalate to, and the case bundle is
+assembled before the conversation starts, so there is no retrieval step to steer. Case
+data is fenced and labelled untrusted; the system prompt instructs the model to report
+injected instructions rather than follow them.
+
+Both share A1's contract: they describe decisions the pipeline already made, they never
+re-score, and both fall back to deterministic templates with no API key.
 
 ## Narration layer (A1)
 
