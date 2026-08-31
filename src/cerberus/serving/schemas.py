@@ -82,11 +82,37 @@ class ExplainResponse(BaseModel):
     narration_source: Literal["llm", "template"]
 
 
+class DisputeRequest(BaseModel):
+    """Optional body for /dispute.
+
+    A dispute draft is a pure function of a decision context, so requiring the API to
+    have scored the transaction itself is artificial coupling — the dashboard's queue is
+    produced offline by the export script and those rows are legitimately absent from the
+    serving audit log. Supplying the decision lets a caller draft for any decision it
+    already holds.
+
+    The response always states which of the two happened, because it matters: facts from
+    the audit log were recorded by this service, and facts in a request body were not.
+    """
+
+    decision: Decision
+    risk_score: float = Field(ge=0, le=1)
+    segment: str
+    amount: float = Field(gt=0)
+    account_id: str
+    reason_codes: list[str] = Field(default_factory=list)
+    ring_id: str | None = None
+    timestamp: str | None = None
+
+
 class DisputeResponse(BaseModel):
     transaction_id: str
     draft: str
     reason_codes: list[str]
     source: Literal["llm", "template"]
+    # "audit_log" = the service scored this itself and the facts are its own record.
+    # "supplied"  = the caller provided the decision; the draft restates what it was told.
+    facts_from: Literal["audit_log", "supplied"]
 
 
 class CopilotMessage(BaseModel):

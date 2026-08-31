@@ -68,6 +68,7 @@ from cerberus.serving.schemas import (
     CopilotRequest,
     CopilotResponse,
     CostBasis,
+    DisputeRequest,
     DisputeResponse,
     ExplainResponse,
     HealthResponse,
@@ -523,28 +524,61 @@ def _decision_context_from_audit(record: dict, model: ModelBundle) -> tuple[Deci
 
 
 @app.post("/dispute/{transaction_id}", response_model=DisputeResponse)
-def dispute(transaction_id: str) -> DisputeResponse:
-    """A2: draft chargeback dispute evidence for a decision already in the audit log.
+def dispute(transaction_id: str, req: DisputeRequest | None = None) -> DisputeResponse:
+    """A2: draft chargeback dispute evidence for a decision.
 
-    POST rather than GET because drafting is a billable generative call, and GET should
-    stay safe to retry, prefetch and cache. Nothing is written server-side.
+    Facts come from the audit log when this service scored the transaction, and from the
+    request body otherwise. The dashboard's review queue is generated offline by
+    `scripts/export_dashboard_data.py`, so its rows are legitimately not in the serving
+    log — refusing those would make the feature unusable from the surface it exists for.
+
+    The response records which source was used. That distinction is not cosmetic: audit
+    facts were observed by this service, supplied facts were asserted by the caller, and
+    a dispute submission should never blur the two.
+
+    POST rather than GET because drafting is a billable generative call and GET should
+    stay safe to retry and prefetch. Nothing is written server-side either way.
     """
     audit: AuditLog = app.state.audit
     model: ModelBundle = app.state.model
-
     record = audit.get(transaction_id)
-    if record is None:
-        raise HTTPException(404, f"No scored transaction {transaction_id!r} in the audit log.")
 
-    ctx, reason_codes = _decision_context_from_audit(record, model)
-    history = app.state.serving.get_history(record["account_id"])
-    ring_members = [a for a, rid in model.ring_membership.items() if rid == record["ring_id"]]
+    if record is not None:
+        ctx, reason_codes = _decision_context_from_audit(record, model)
+        account_id, timestamp, facts_from = record["account_id"], record["scored_at"], "audit_log"
+    elif req is not None:
+        routing = model.segment_routing.get(req.segment)
+        block_threshold = routing["block_threshold"] if routing else model.global_default_threshold
+        reason_codes = req.reason_codes
+        ctx = DecisionContext(
+            transaction_id=transaction_id,
+            decision=req.decision,
+            risk_score=req.risk_score,
+            reason_codes=tuple(reason_codes),
+            ring_id=req.ring_id,
+            segment=req.segment,
+            amount=req.amount,
+            fp_cost=routing["cost_matrix"]["fp_cost"] if routing else 5.0,
+            fn_cost=routing["cost_matrix"]["fn_cost"] if routing else 50.0,
+            block_threshold=block_threshold,
+            review_threshold=routing["review_threshold"] if routing else block_threshold * 0.5,
+        )
+        account_id, timestamp, facts_from = req.account_id, req.timestamp or "(not supplied)", "supplied"
+    else:
+        raise HTTPException(
+            404,
+            f"No scored transaction {transaction_id!r} in the audit log. Supply the decision "
+            "in the request body to draft for a transaction this service did not score.",
+        )
+
+    history = app.state.serving.get_history(account_id)
+    ring_members = [a for a, rid in model.ring_membership.items() if rid == ctx.ring_id]
 
     draft = draft_dispute(
         DisputeContext(
             decision=ctx,
-            account_id=record["account_id"],
-            timestamp=record["scored_at"],
+            account_id=account_id,
+            timestamp=timestamp,
             n_account_transactions=len(history.amounts),
             account_total_amount=float(sum(history.amounts)),
             recent_amounts=tuple(history.amounts[-5:]),
@@ -556,6 +590,7 @@ def dispute(transaction_id: str) -> DisputeResponse:
         draft=draft,
         reason_codes=reason_codes,
         source=narration_source(),
+        facts_from=facts_from,
     )
 
 

@@ -3,6 +3,7 @@
 import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from "d3-force";
 import { useEffect, useMemo, useState } from "react";
 import { CaseActionControls } from "./CaseActionControls";
+import { CaseCopilot } from "./CaseCopilot";
 import type { CaseAction, RingGraph as RingGraphData } from "@/lib/types";
 
 interface SimNode {
@@ -187,7 +188,7 @@ export function RingGraph({
 
       <aside className="w-full lg:w-64 shrink-0 flex flex-col gap-4">
         <div>
-          <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--ink-tertiary)" }}>
+          <h3 className="kicker block mb-2" style={{ color: "var(--ink-tertiary)" }}>
             Legend
           </h3>
           <ul className="flex flex-col gap-2 text-xs" style={{ color: "var(--ink-secondary)" }}>
@@ -233,7 +234,7 @@ export function RingGraph({
 
         {selectedNode?.detected_ring_id && (
           <div className="rounded-lg border p-3" style={{ borderColor: "var(--rule)" }}>
-            <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--ink-tertiary)" }}>
+            <h3 className="kicker block mb-2" style={{ color: "var(--ink-tertiary)" }}>
               Case action — {selectedNode.detected_ring_id}
             </h3>
             <CaseActionControls
@@ -244,6 +245,12 @@ export function RingGraph({
               compact
             />
           </div>
+        )}
+
+        {/* A3. Keyed on the ring id so switching selection starts a fresh conversation
+            rather than carrying the previous case's transcript into a new one. */}
+        {selectedNode?.detected_ring_id && (
+          <CaseCopilot key={selectedNode.detected_ring_id} ringId={selectedNode.detected_ring_id} />
         )}
       </aside>
     </div>
