@@ -49,6 +49,7 @@ from cerberus.adversarial.harness import (
     run_evasion_search,
     score_summary,
 )
+from cerberus.adversarial.search import SEARCHERS
 from cerberus.common.config import (
     BASELINE_MODEL_PATH,
     CALIBRATOR_PATH,
@@ -109,6 +110,18 @@ def main() -> None:
             "not a bar over an honestly-reported small recovery."
         ),
     )
+    parser.add_argument(
+        "--searcher",
+        choices=SEARCHERS,
+        default="hillclimb",
+        help=(
+            "How the attacker explores each strategy's parameter space. 'hillclimb' is "
+            "the dependency-free local search; 'bayesopt' models the detection surface "
+            "and finds deeper evasions on the same evaluation budget (needs the 'tuning' "
+            "extra). A stronger searcher reports *lower*, more honest robustness — see "
+            "cerberus.adversarial.search."
+        ),
+    )
     args = parser.parse_args()
 
     for path in (SYNTHETIC_TRANSACTIONS_CSV, BASELINE_MODEL_PATH, CALIBRATOR_PATH, DECISION_LAYER_JSON):
@@ -130,9 +143,13 @@ def main() -> None:
     features = build_features(txns, edges)
     train_df, calib_df, _ = three_way_split(features)
 
-    print(f"\n--- Phase 1: attacking the original model ({N_RESTARTS} restarts x {N_STEPS} steps per strategy) ---")
+    print(
+        f"\n--- Phase 1: attacking the original model ({N_RESTARTS} restarts x {N_STEPS} "
+        f"steps per strategy, searcher={args.searcher}) ---"
+    )
     original_results = run_evasion_search(
-        booster, calibrator, segment_routing, global_default_threshold, rng, N_RESTARTS, N_STEPS
+        booster, calibrator, segment_routing, global_default_threshold, rng, N_RESTARTS, N_STEPS,
+        searcher=args.searcher,
     )
     for name, result in original_results.items():
         print(
@@ -149,7 +166,8 @@ def main() -> None:
 
     print("\n--- Phase 3: re-attacking the hardened model (fresh search, same budget) ---")
     hardened_results = run_evasion_search(
-        hardened_model, hardened_calibrator, segment_routing, global_default_threshold, rng, N_RESTARTS, N_STEPS
+        hardened_model, hardened_calibrator, segment_routing, global_default_threshold, rng,
+        N_RESTARTS, N_STEPS, searcher=args.searcher,
     )
     for name, result in hardened_results.items():
         print(f"  {name:20s} best evasion vs. hardened model={result.best_score.combined_score:.2f}")
@@ -171,6 +189,7 @@ def main() -> None:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "n_restarts": N_RESTARTS,
         "n_steps": N_STEPS,
+        "searcher": args.searcher,
         "n_adversarial_examples": len(adversarial_examples),
         "strategies": report_dict,
         "limitations": [
@@ -178,8 +197,10 @@ def main() -> None:
             "searched adaptively within their parameter ranges — not a general "
             "adversarial-robustness guarantee. A real fraud ring is not obligated to "
             "restrict itself to these strategies.",
-            "The search is a randomized local hill-climb, not a certified worst-case "
-            "search — it can miss a better evasion than the one it reports.",
+            "The search is not a certified worst-case search — it can miss a better "
+            "evasion than the one it reports. Which optimiser produced these numbers is "
+            "recorded in the `searcher` field above; 'bayesopt' explores the surface "
+            "more thoroughly than the default 'hillclimb'.",
             "The ring detector is not retrained during hardening (Louvain is "
             "unsupervised); identity rotation's evasion of the graph layer is reported "
             "honestly as an open vulnerability, not silently patched.",

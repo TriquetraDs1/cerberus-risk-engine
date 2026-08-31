@@ -21,7 +21,8 @@ from dataclasses import asdict, dataclass
 import numpy as np
 import pandas as pd
 
-from cerberus.adversarial.attacker import DetectionScore, SearchResult, adaptive_search, score_ring
+from cerberus.adversarial.attacker import DetectionScore, SearchResult, score_ring
+from cerberus.adversarial.search import get_searcher
 from cerberus.adversarial.strategies import (
     STRATEGY_APPLIERS,
     STRATEGY_PARAM_BOUNDS,
@@ -53,15 +54,22 @@ def run_evasion_search(
     rng: np.random.Generator,
     n_restarts: int = 5,
     n_steps: int = 15,
+    searcher: str = "hillclimb",
 ) -> dict[str, SearchResult]:
-    """Run the adaptive search for all three strategies against one model+calibrator."""
+    """Run the adaptive search for all three strategies against one model+calibrator.
+
+    `searcher` selects how the parameter space is explored — "hillclimb" (default, no
+    extra dependency) or "bayesopt" (scikit-optimize, finds deeper evasions on the same
+    budget). See cerberus.adversarial.search.
+    """
+    search_fn = get_searcher(searcher)
 
     def scorer(ring):
         return score_ring(ring, booster, calibrator, segment_routing, global_default_threshold)
 
     results = {}
     for strategy in STRATEGIES:
-        results[strategy] = adaptive_search(
+        results[strategy] = search_fn(
             strategy_name=strategy,
             applier=STRATEGY_APPLIERS[strategy],
             param_bounds=STRATEGY_PARAM_BOUNDS[strategy],

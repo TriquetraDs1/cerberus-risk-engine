@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-08-31T08:35:15.438960+00:00",
+  "objective": "cost at the cost-optimal threshold, calibration split",
+  "fp_cost": 5.0,
+  "fn_cost": 50.0,
+  "n_trials": 40,
+  "baseline_params": {
+    "n_estimators": 300,
+    "learning_rate": 0.05,
+    "num_leaves": 31
+  },
+  "baseline_cost": 7840.0,
+  "best_params": {
+    "n_estimators": 150,
+    "learning_rate": 0.04614631830201643,
+    "num_leaves": 22,
+    "min_child_samples": 56,
+    "subsample": 0.8750190740714211,
+    "colsample_bytree": 0.8247883249706528,
+    "reg_alpha": 3.650640949071032e-05,
+    "reg_lambda": 8.968297370559914e-07
+  },
+  "best_cost": 7505.0,
+  "improvement_pct_vs_baseline": 4.2729591836734695,
+  "limitations": [
+    "Tuned on the calibration split, which is also what the isotonic map is fit on \u2014 the split does double duty here. A fourth split would be cleaner; at this dataset size it would cost more in variance than it buys in independence.",
+    "The objective uses the global FP/FN cost preview, not the per-segment cost matrices of the Day 4 decision layer."
+  ]
+}
