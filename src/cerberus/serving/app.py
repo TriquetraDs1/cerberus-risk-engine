@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import os
 import time
 from contextlib import asynccontextmanager
@@ -42,7 +43,12 @@ from cerberus.common.config import (
 )
 from cerberus.data.synthetic_rings import SEGMENTS
 from cerberus.detection.explain import reason_codes_for_row
-from cerberus.features.pipeline import FEATURE_COLUMNS, add_entity_degree
+from cerberus.features.pipeline import (
+    FEATURE_COLUMNS,
+    VELOCITY_WINDOWS,
+    add_entity_degree,
+    add_graph_features,
+)
 from cerberus.llm.narrate import DecisionContext, narrate_decision, narration_source
 from cerberus.serving.audit import AuditLog
 from cerberus.serving.logging_config import configure_logging, log_with_fields
@@ -58,6 +64,14 @@ from cerberus.serving.state import ServingState
 
 DECISION_LAYER_JSON = REPORTS_DIR / "decision_layer.json"
 AUDIT_DB_PATH = DATA_PROCESSED / "audit_log.db"
+
+# The offline pipeline names its windows as pandas offset strings; the serving path
+# needs real timedeltas for the same spans. One mapping so the two can't drift.
+_WINDOW_TIMEDELTAS = {
+    "1h": timedelta(hours=1),
+    "24h": timedelta(hours=24),
+    "7d": timedelta(days=7),
+}
 
 logger = configure_logging(logging.INFO)
 
@@ -100,10 +114,25 @@ class ModelBundle:
             self.ring_membership = {a: rid for rid, members in detected.items() for a in members}
 
         self.entity_degree: dict[str, int] = {}
+        self.entity_strength: dict[str, float] = {}
+        self.component_size: dict[str, int] = {}
         if SYNTHETIC_ENTITY_EDGES_CSV.exists():
             edges = pd.read_csv(SYNTHETIC_ENTITY_EDGES_CSV)
-            degree_df = add_entity_degree(pd.DataFrame({"account_id": pd.concat([edges["entity_a"], edges["entity_b"]]).unique()}), edges)
+            accounts = pd.DataFrame(
+                {"account_id": pd.concat([edges["entity_a"], edges["entity_b"]]).unique()}
+            )
+            degree_df = add_entity_degree(accounts, edges)
             self.entity_degree = dict(zip(degree_df["account_id"], degree_df["entity_degree"], strict=True))
+            # Same graph features the offline pipeline computes, precomputed once at
+            # startup from the batch-built entity graph — the cached-lookup design named
+            # in docs/ARCHITECTURE.md §3 ("Entity graph caching").
+            graph_df = add_graph_features(accounts, edges)
+            self.entity_strength = dict(
+                zip(graph_df["account_id"], graph_df["shared_entity_strength"], strict=True)
+            )
+            self.component_size = dict(
+                zip(graph_df["account_id"], graph_df["component_size"], strict=True)
+            )
 
         self.global_amount_mean, self.global_amount_std = 0.0, 1.0
         if SYNTHETIC_TRANSACTIONS_CSV.exists():
@@ -142,26 +171,44 @@ def _build_feature_row(req: ScoreRequest, model: ModelBundle, state: ServingStat
     history = state.get_history(req.account_id)
     history.record(req.timestamp, req.amount)  # inclusive-of-self, matching the offline pipeline's convention
 
-    velocity_count, velocity_amount = history.trailing(req.timestamp, timedelta(hours=1))
-
     if len(history.amounts) >= 2:
         mean, std = history.mean_std()
     else:
         mean, std = model.global_amount_mean, model.global_amount_std
     amount_zscore = (req.amount - mean) / std
 
+    # Mirror of the offline add_trailing_amount_features fallbacks: a first-ever
+    # transaction gets a neutral ratio of 1.0 and a long-quiet-period gap, not 0/NaN.
+    trailing_mean = history.trailing_mean_excluding_current()
+    amount_vs_trailing_mean = req.amount / (trailing_mean or req.amount or 1e-9)
+    hours_since_last = history.hours_since_previous()
+    if hours_since_last is None:
+        hours_since_last = 24.0 * 30
+
     segment = req.segment if req.segment in SEGMENTS else "digital_subscription"
+    radians = 2 * math.pi * req.timestamp.hour / 24.0
 
     row = {
         "amount": req.amount,
         "amount_zscore": amount_zscore,
-        "velocity_count_1h": float(velocity_count),
-        "velocity_amount_1h": velocity_amount,
+        "amount_vs_trailing_mean": amount_vs_trailing_mean,
+        "hours_since_last_txn": hours_since_last,
         "hour_of_day": req.timestamp.hour,
+        "hour_sin": math.sin(radians),
+        "hour_cos": math.cos(radians),
         "is_off_hours": int(0 <= req.timestamp.hour <= 5),
         "day_of_week": req.timestamp.weekday(),
         "entity_degree": model.entity_degree.get(req.account_id, 0),
+        "shared_entity_strength": model.entity_strength.get(req.account_id, 0.0),
+        "component_size": model.component_size.get(req.account_id, 1),
     }
+    # Every trailing window the offline pipeline computes, from the same in-process
+    # history — so the live model sees the same shape of input it was trained on.
+    for window in VELOCITY_WINDOWS:
+        count, total = history.trailing(req.timestamp, _WINDOW_TIMEDELTAS[window])
+        row[f"velocity_count_{window}"] = float(count)
+        row[f"velocity_amount_{window}"] = total
+
     for seg in SEGMENTS:
         row[f"segment_{seg}"] = int(segment == seg)
 

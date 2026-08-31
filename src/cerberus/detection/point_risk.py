@@ -81,18 +81,42 @@ def time_based_split(txns: pd.DataFrame, test_fraction: float = 0.2):
     return txns.iloc[:cutoff], txns.iloc[cutoff:]
 
 
-def fit_classifier(X_train: pd.DataFrame, y_train: pd.Series):
+# Single source of truth for the booster's hyperparameters. Found by
+# `scripts/tune_baseline.py` — an Optuna study whose objective is *cost at the
+# cost-optimal threshold* on the held-out calibration split, not ROC-AUC. Tuning for
+# a ranking metric would optimise something this project explicitly argues is the
+# wrong target (see docs/ARCHITECTURE.md §1, "honesty over headline accuracy").
+# Re-run that script to regenerate; it writes reports/tuning_study.json alongside.
+LGBM_PARAMS: dict = {
+    "n_estimators": 150,
+    "learning_rate": 0.046146318302016,
+    "num_leaves": 22,
+    "min_child_samples": 56,
+    "subsample": 0.875019074071421,
+    "colsample_bytree": 0.824788324970652,
+    "reg_alpha": 3.650640949071e-05,
+    "reg_lambda": 8.96829737056e-07,
+}
+
+
+def fit_classifier(X_train: pd.DataFrame, y_train: pd.Series, params: dict | None = None):
+    params = {**LGBM_PARAMS, **(params or {})}
     if _HAS_LIGHTGBM:
         model = lgb.LGBMClassifier(
-            n_estimators=300,
-            learning_rate=0.05,
-            num_leaves=31,
+            **params,
             class_weight="balanced",
             random_state=settings.random_seed,
+            verbose=-1,
         )
     else:
+        # The sklearn fallback names a few things differently; map only what overlaps
+        # so a tuned LightGBM config degrades gracefully rather than crashing.
         model = HistGradientBoostingClassifier(
-            max_iter=300, learning_rate=0.05, class_weight="balanced", random_state=settings.random_seed
+            max_iter=params.get("n_estimators", 300),
+            learning_rate=params.get("learning_rate", 0.05),
+            max_leaf_nodes=params.get("num_leaves", 31),
+            class_weight="balanced",
+            random_state=settings.random_seed,
         )
     model.fit(X_train, y_train)
     return model
@@ -138,6 +162,7 @@ def train(
     txns: pd.DataFrame,
     fp_cost: float = DEFAULT_FP_COST,
     fn_cost: float = DEFAULT_FN_COST,
+    params: dict | None = None,
 ) -> TrainResult:
     train_df, calib_df, test_df = three_way_split(txns)
 
@@ -145,7 +170,7 @@ def train(
     X_calib, y_calib = calib_df[FEATURE_COLUMNS], calib_df["label"]
     X_test, y_test = test_df[FEATURE_COLUMNS], test_df["label"]
 
-    model = fit_classifier(X_train, y_train)
+    model = fit_classifier(X_train, y_train, params)
 
     raw_calib_scores = model.predict_proba(X_calib)[:, 1]
     raw_test_scores = model.predict_proba(X_test)[:, 1]

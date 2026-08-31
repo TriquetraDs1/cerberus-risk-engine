@@ -46,6 +46,26 @@ class AccountHistory:
         std = statistics.pstdev(self.amounts) if len(self.amounts) > 1 else 0.0
         return mean, std or 1.0
 
+    def trailing_mean_excluding_current(self) -> float | None:
+        """Mean of every amount before the most recent one — the serving-time twin of
+        the offline `amount_vs_trailing_mean` (an expanding mean over shift(1)). Returns
+        None when this is the account's first transaction, so the caller can apply the
+        same neutral fallback the offline pipeline uses.
+        """
+        if len(self.amounts) < 2:
+            return None
+        import statistics
+
+        return statistics.fmean(self.amounts[:-1])
+
+    def hours_since_previous(self) -> float | None:
+        """Gap in hours between the two most recent transactions, or None if this is the
+        account's first."""
+        if len(self.timestamps) < 2:
+            return None
+        delta = self.timestamps[-1] - self.timestamps[-2]
+        return delta.total_seconds() / 3600.0
+
 
 class ServingState:
     """Thread-safe holder for the process's in-memory serving state. One instance

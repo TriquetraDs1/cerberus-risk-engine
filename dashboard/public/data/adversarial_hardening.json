@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-28T06:28:30.577812+00:00",
+  "generated_at": "2026-08-31T08:41:11.211025+00:00",
   "n_restarts": 5,
   "n_steps": 15,
-  "n_adversarial_examples": 3451,
+  "n_adversarial_examples": 2894,
   "strategies": {
     "structuring": {
       "baseline_detection": {
@@ -11,21 +11,21 @@
         "combined_score": 1.0
       },
       "evaded_original_model": {
-        "point_risk_caught_fraction": 0.014814814814814815,
+        "point_risk_caught_fraction": 0.0,
         "ring_recovered_fraction": 1.0,
-        "combined_score": 0.5074074074074074
+        "combined_score": 0.5
       },
       "evaded_hardened_model": {
-        "point_risk_caught_fraction": 0.8448275862068966,
+        "point_risk_caught_fraction": 1.0,
         "ring_recovered_fraction": 1.0,
-        "combined_score": 0.9224137931034483
+        "combined_score": 1.0
       },
       "best_evasion_params": {
-        "n_splits": 8.639954188972972,
-        "jitter": 0.39555628051766906
+        "n_splits": 6.780923497724695,
+        "jitter": 0.31184063739832685
       },
-      "recall_decay_original": 0.4925925925925926,
-      "recall_recovered_after_hardening": 0.41500638569604087
+      "recall_decay_original": 0.5,
+      "recall_recovered_after_hardening": 0.5
     },
     "identity_rotation": {
       "baseline_detection": {
@@ -34,20 +34,20 @@
         "combined_score": 1.0
       },
       "evaded_original_model": {
-        "point_risk_caught_fraction": 0.6666666666666666,
+        "point_risk_caught_fraction": 0.08333333333333333,
         "ring_recovered_fraction": 0.0,
-        "combined_score": 0.3333333333333333
+        "combined_score": 0.041666666666666664
       },
       "evaded_hardened_model": {
-        "point_risk_caught_fraction": 0.9375,
+        "point_risk_caught_fraction": 1.0,
         "ring_recovered_fraction": 0.0,
-        "combined_score": 0.46875
+        "combined_score": 0.5
       },
       "best_evasion_params": {
-        "n_devices": 2.841235084346673
+        "n_devices": 2.650307859481509
       },
-      "recall_decay_original": 0.6666666666666667,
-      "recall_recovered_after_hardening": 0.13541666666666669
+      "recall_decay_original": 0.9583333333333334,
+      "recall_recovered_after_hardening": 0.4583333333333333
     },
     "slow_ramp": {
       "baseline_detection": {
@@ -56,20 +56,20 @@
         "combined_score": 1.0
       },
       "evaded_original_model": {
-        "point_risk_caught_fraction": 0.09090909090909091,
+        "point_risk_caught_fraction": 0.6,
         "ring_recovered_fraction": 1.0,
-        "combined_score": 0.5454545454545454
+        "combined_score": 0.8
       },
       "evaded_hardened_model": {
-        "point_risk_caught_fraction": 0.7142857142857143,
+        "point_risk_caught_fraction": 1.0,
         "ring_recovered_fraction": 1.0,
-        "combined_score": 0.8571428571428572
+        "combined_score": 1.0
       },
       "best_evasion_params": {
-        "ramp_multiplier": 34.6036327052804
+        "ramp_multiplier": 7.828034902125829
       },
-      "recall_decay_original": 0.4545454545454546,
-      "recall_recovered_after_hardening": 0.3116883116883118
+      "recall_decay_original": 0.19999999999999996,
+      "recall_recovered_after_hardening": 0.19999999999999996
     }
   },
   "limitations": [
