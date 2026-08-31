@@ -63,12 +63,12 @@ export function QueueTable({
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex flex-col sm:flex-row sm:items-center gap-3 px-6 py-3 border-b" style={{ borderColor: "var(--border)" }}>
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 px-6 py-3 border-b" style={{ borderColor: "var(--rule)" }}>
         <div
           role="tablist"
           aria-label="Filter by decision"
           className="flex gap-1 rounded-lg p-1 w-fit"
-          style={{ background: "var(--surface-raised)", border: "1px solid var(--border)" }}
+          style={{ background: "var(--surface-sunken)", border: "1px solid var(--rule)" }}
         >
           {FILTERS.map((f) => (
             <button
@@ -79,12 +79,12 @@ export function QueueTable({
               className="px-3 py-1.5 text-xs font-medium rounded-md transition-colors"
               style={
                 filter === f.key
-                  ? { background: "var(--surface)", color: "var(--text-primary)", boxShadow: "0 1px 2px rgba(0,0,0,0.06)" }
-                  : { color: "var(--text-secondary)" }
+                  ? { background: "var(--surface)", color: "var(--ink)", boxShadow: "0 1px 1px oklch(0 0 0 / 0.05)" }
+                  : { color: "var(--ink-secondary)" }
               }
             >
               {f.label}
-              <span className="mono-figure ml-1.5 text-[10px]" style={{ color: "var(--text-tertiary)" }}>
+              <span className="mono-figure ml-1.5 text-[10px]" style={{ color: "var(--ink-tertiary)" }}>
                 {counts[f.key]}
               </span>
             </button>
@@ -95,7 +95,7 @@ export function QueueTable({
           <MagnifyingGlass
             size={14}
             className="absolute left-2.5 top-1/2 -translate-y-1/2"
-            style={{ color: "var(--text-tertiary)" }}
+            style={{ color: "var(--ink-tertiary)" }}
             aria-hidden
           />
           <input
@@ -105,13 +105,13 @@ export function QueueTable({
             placeholder="Search account, txn, segment, or ring…"
             aria-label="Search transactions"
             className="w-full pl-8 pr-3 py-1.5 text-xs rounded-md border outline-none"
-            style={{ borderColor: "var(--border)", background: "var(--surface)" }}
+            style={{ borderColor: "var(--rule)", background: "var(--surface)" }}
           />
         </div>
       </div>
 
       {filtered.length === 0 ? (
-        <p className="px-6 py-12 text-sm text-center" style={{ color: "var(--text-secondary)" }}>
+        <p className="px-6 py-12 text-sm text-center" style={{ color: "var(--ink-secondary)" }}>
           No transactions match this filter.
         </p>
       ) : (
@@ -119,20 +119,20 @@ export function QueueTable({
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr
-                className="sticky top-0 text-left text-[11px] uppercase tracking-wide"
-                style={{ background: "var(--bg)", color: "var(--text-tertiary)" }}
+                className="sticky top-0 text-left kicker z-10 border-b"
+                style={{ background: "var(--surface-sunken)", color: "var(--ink-tertiary)" }}
               >
-                <th className="font-medium px-6 py-2">Time</th>
-                <th className="font-medium px-3 py-2">Account</th>
-                <th className="font-medium px-3 py-2">Segment</th>
-                <th className="font-medium px-3 py-2 text-right">Amount</th>
-                <th className="font-medium px-3 py-2 text-right">Risk score</th>
-                <th className="font-medium px-3 py-2">Decision</th>
-                <th className="font-medium px-3 py-2">Top reason</th>
-                <th className="font-medium px-3 py-2">Ring</th>
+                <th className="font-semibold px-6 py-2.5">Time</th>
+                <th className="font-semibold px-3 py-2.5">Account</th>
+                <th className="font-semibold px-3 py-2.5">Segment</th>
+                <th className="font-semibold px-3 py-2.5 text-right">Amount</th>
+                <th className="font-semibold px-3 py-2.5 text-right">Risk score</th>
+                <th className="font-semibold px-3 py-2.5">Decision</th>
+                <th className="font-semibold px-3 py-2.5">Top reason</th>
+                <th className="font-semibold px-3 py-2.5">Ring</th>
               </tr>
             </thead>
-            <tbody className="divide-y" style={{ borderColor: "var(--border)" }}>
+            <tbody className="divide-y" style={{ borderColor: "var(--rule)" }}>
               {filtered.map((t) => (
                 <tr
                   key={t.transaction_id}
@@ -146,25 +146,25 @@ export function QueueTable({
                       setSelected(t);
                     }
                   }}
-                  className="cursor-pointer hover:bg-[var(--accent-soft)] focus-visible:bg-[var(--accent-soft)] transition-colors"
-                  style={{ borderColor: "var(--border)" }}
+                  className="cursor-pointer hover:bg-[var(--rust-soft)] focus-visible:bg-[var(--rust-soft)] transition-colors duration-150"
+                  style={{ borderColor: "var(--rule)" }}
                 >
-                  <td className="px-6 py-2.5 whitespace-nowrap mono-figure text-xs" style={{ color: "var(--text-secondary)" }}>
+                  <td className="px-6 py-2 whitespace-nowrap mono-figure text-[12px]" style={{ color: "var(--ink-secondary)" }}>
                     {formatTime(t.timestamp)}
                   </td>
-                  <td className="px-3 py-2.5 mono-figure text-xs">{t.account_id}</td>
-                  <td className="px-3 py-2.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+                  <td className="px-3 py-2 mono-figure text-[12px]">{t.account_id}</td>
+                  <td className="px-3 py-2 text-[12.5px]" style={{ color: "var(--ink-secondary)" }}>
                     {formatSegment(t.segment)}
                   </td>
-                  <td className="px-3 py-2.5 text-right mono-figure">₹{t.amount.toLocaleString("en-US")}</td>
-                  <td className="px-3 py-2.5 text-right mono-figure font-medium">{t.risk_score.toFixed(3)}</td>
-                  <td className="px-3 py-2.5">
+                  <td className="px-3 py-2 text-right mono-figure text-[13px]" style={{ color: "var(--ink-secondary)" }}>₹{t.amount.toLocaleString("en-US")}</td>
+                  <td className="px-3 py-2 text-right mono-figure font-semibold">{t.risk_score.toFixed(3)}</td>
+                  <td className="px-3 py-2">
                     <RiskBadge decision={t.decision} />
                   </td>
-                  <td className="px-3 py-2.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+                  <td className="px-3 py-2 text-[12.5px]" style={{ color: "var(--ink-secondary)" }}>
                     {t.reason_codes[0] ? formatReasonCode(t.reason_codes[0]) : "—"}
                   </td>
-                  <td className="px-3 py-2.5 mono-figure text-xs" style={{ color: t.ring_id ? "var(--accent)" : "var(--text-tertiary)" }}>
+                  <td className="px-3 py-2 mono-figure text-[12px]" style={{ color: t.ring_id ? "var(--rust)" : "var(--ink-tertiary)" }}>
                     {t.ring_id ?? "—"}
                   </td>
                 </tr>

@@ -1,7 +1,7 @@
 import type { EvasionStrategy, StrategyHardeningResult } from "@/lib/types";
 
 const WIDTH = 640;
-const HEIGHT = 320;
+const HEIGHT = 268;
 const MARGIN = { top: 20, right: 16, bottom: 44, left: 44 };
 const PLOT_W = WIDTH - MARGIN.left - MARGIN.right;
 const PLOT_H = HEIGHT - MARGIN.top - MARGIN.bottom;
@@ -12,10 +12,22 @@ const STRATEGY_LABELS: Record<EvasionStrategy, string> = {
   slow_ramp: "Slow ramp",
 };
 
+/**
+ * Colour vocabulary, deliberately NOT the risk ramp.
+ *
+ * Green/amber/red mean approve/review/block everywhere else in this console. Reusing
+ * green here for "unattacked" and red for "under attack" would overload those signals
+ * with a second, unrelated meaning on the one page where precision matters most — an
+ * analyst reading a red bar has to stop and ask which red it is.
+ *
+ * So this chart uses the adversarial vocabulary instead: neutral for the baseline, rust
+ * for damage, ink for the recovered state. The same three colours the /about page uses
+ * for the same three quantities.
+ */
 const SERIES = [
-  { key: "baseline_detection" as const, label: "Unattacked", color: "var(--risk-approve)" },
-  { key: "evaded_original_model" as const, label: "Under attack (original model)", color: "var(--risk-block)" },
-  { key: "evaded_hardened_model" as const, label: "Under attack (hardened model)", color: "var(--accent)" },
+  { key: "baseline_detection" as const, label: "Unattacked", color: "var(--ink-tertiary)" },
+  { key: "evaded_original_model" as const, label: "Under attack (original model)", color: "var(--rust)" },
+  { key: "evaded_hardened_model" as const, label: "Under attack (hardened model)", color: "var(--ink)" },
 ];
 
 /**
@@ -53,10 +65,10 @@ export function RecallDecayChart({ strategies }: { strategies: Record<EvasionStr
               x2={WIDTH - MARGIN.right}
               y1={yFor(v)}
               y2={yFor(v)}
-              stroke="var(--border)"
+              stroke="var(--rule)"
               strokeWidth={1}
             />
-            <text x={MARGIN.left - 8} y={yFor(v) + 3} textAnchor="end" fontSize={9} fill="var(--text-tertiary)">
+            <text x={MARGIN.left - 8} y={yFor(v) + 3} textAnchor="end" fontSize={9} fill="var(--ink-tertiary)">
               {v}
             </text>
           </g>
@@ -78,13 +90,13 @@ export function RecallDecayChart({ strategies }: { strategies: Record<EvasionStr
                     width={barWidth * 0.85}
                     height={MARGIN.top + PLOT_H - barY}
                     fill={s.color}
-                    rx={2}
+                    rx={1}
                   >
                     <title>{`${STRATEGY_LABELS[name]} — ${s.label}: ${value.toFixed(3)}`}</title>
                   </rect>
                 );
               })}
-              <text x={groupX} y={HEIGHT - MARGIN.bottom + 18} textAnchor="middle" fontSize={11} fill="var(--text-secondary)">
+              <text x={groupX} y={HEIGHT - MARGIN.bottom + 18} textAnchor="middle" fontSize={11} fill="var(--ink-secondary)">
                 {STRATEGY_LABELS[name]}
               </text>
             </g>
@@ -92,7 +104,7 @@ export function RecallDecayChart({ strategies }: { strategies: Record<EvasionStr
         })}
       </svg>
 
-      <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs" style={{ color: "var(--text-secondary)" }}>
+      <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs" style={{ color: "var(--ink-secondary)" }}>
         {SERIES.map((s) => (
           <span key={s.key} className="flex items-center gap-1.5">
             <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: s.color }} />
@@ -105,7 +117,7 @@ export function RecallDecayChart({ strategies }: { strategies: Record<EvasionStr
         <table className="text-xs w-full">
           <caption className="sr-only">Detection scores by strategy and model state</caption>
           <thead>
-            <tr style={{ color: "var(--text-tertiary)" }}>
+            <tr style={{ color: "var(--ink-tertiary)" }}>
               <th className="text-left font-medium pr-4 py-1">Strategy</th>
               {SERIES.map((s) => (
                 <th key={s.key} className="text-right font-medium pr-4 py-1">
@@ -114,7 +126,7 @@ export function RecallDecayChart({ strategies }: { strategies: Record<EvasionStr
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y" style={{ borderColor: "var(--border)" }}>
+          <tbody className="divide-y" style={{ borderColor: "var(--rule)" }}>
             {names.map((name) => (
               <tr key={name}>
                 <td className="py-1 pr-4">{STRATEGY_LABELS[name]}</td>

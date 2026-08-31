@@ -1,6 +1,6 @@
 "use client";
 
-import { forceCenter, forceCollide, forceLink, forceManyBody, forceSimulation } from "d3-force";
+import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from "d3-force";
 import { useEffect, useMemo, useState } from "react";
 import { CaseActionControls } from "./CaseActionControls";
 import type { CaseAction, RingGraph as RingGraphData } from "@/lib/types";
@@ -28,10 +28,16 @@ interface ResolvedSimLink {
   weight: number;
 }
 
+// Categorical, not semantic: these separate one detected community from its neighbour
+// and carry no meaning beyond "different ring". Held at a consistent lightness and
+// chroma so no single ring reads as more urgent than another, and kept clear of the
+// routing ramp's greens and reds so a node is never mistaken for a decision.
 const PALETTE = [
-  "#2563eb", "#059669", "#d97706", "#dc2626", "#7c3aed",
-  "#0891b2", "#c026d3", "#65a30d", "#e11d48", "#0d9488",
-  "#9333ea", "#ca8a04", "#4f46e5", "#16a34a", "#db2777",
+  "oklch(0.58 0.13 42)", "oklch(0.56 0.11 268)", "oklch(0.58 0.10 196)",
+  "oklch(0.56 0.12 318)", "oklch(0.60 0.11 118)", "oklch(0.57 0.12 12)",
+  "oklch(0.59 0.10 232)", "oklch(0.61 0.12 78)", "oklch(0.55 0.11 292)",
+  "oklch(0.60 0.10 166)", "oklch(0.57 0.13 348)", "oklch(0.62 0.11 96)",
+  "oklch(0.55 0.12 250)", "oklch(0.59 0.11 140)", "oklch(0.58 0.12 24)",
 ];
 
 const WIDTH = 900;
@@ -78,7 +84,15 @@ export function RingGraph({
   // static triage read (taste-skill MOTION_INTENSITY=4: settle once, don't animate),
   // so 300 ticks up front replaces a live physics loop entirely.
   const layout = useMemo<Layout>(() => {
-    const nodes: SimNode[] = graph.nodes.map((n) => ({ ...n, x: WIDTH / 2, y: HEIGHT / 2 }));
+    // Seed on a phyllotaxis spiral rather than stacking every node on the exact centre.
+    // Coincident start positions give the charge force nothing to push apart, so the
+    // whole graph settles as one dense blob; a spread start lets the rings separate.
+    // Deterministic, so this stays reproducible between runs.
+    const nodes: SimNode[] = graph.nodes.map((n, i) => {
+      const radius = 13 * Math.sqrt(i);
+      const angle = i * 2.399963;
+      return { ...n, x: WIDTH / 2 + radius * Math.cos(angle), y: HEIGHT / 2 + radius * Math.sin(angle) };
+    });
     const links: SimLink[] = graph.edges.map((e) => ({ ...e }));
 
     const simulation = forceSimulation(nodes as unknown as { x: number; y: number }[])
@@ -86,15 +100,21 @@ export function RingGraph({
         "link",
         forceLink(links as unknown as { source: string; target: string }[])
           .id((d: unknown) => (d as SimNode).id)
-          .distance((l: unknown) => 40 / Math.max(1, (l as SimLink).weight))
-          .strength(0.5),
+          .distance((l: unknown) => 26 / Math.max(1, (l as SimLink).weight))
+          .strength(0.75),
       )
-      .force("charge", forceManyBody().strength(-45))
-      .force("center", forceCenter(WIDTH / 2, HEIGHT / 2))
-      .force("collide", forceCollide(7))
+      .force("charge", forceManyBody().strength(-115).distanceMax(320))
+      // forceX/forceY instead of forceCenter: this graph is ~25 separate rings plus
+      // household pairs, and forceCenter only translates the whole system — it applies
+      // no attraction, so disconnected components drift apart or pile up. A weak pull
+      // toward the middle on each axis keeps every component on canvas while still
+      // letting them separate from each other.
+      .force("x", forceX(WIDTH / 2).strength(0.055))
+      .force("y", forceY(HEIGHT / 2).strength(0.075))
+      .force("collide", forceCollide(9).strength(0.9))
       .stop();
 
-    for (let i = 0; i < 300; i++) simulation.tick();
+    for (let i = 0; i < 420; i++) simulation.tick();
 
     return { nodes, links };
   }, [graph]);
@@ -110,7 +130,7 @@ export function RingGraph({
 
   return (
     <div className="flex flex-col lg:flex-row gap-4">
-      <div className="flex-1 min-w-0 rounded-lg border overflow-hidden" style={{ borderColor: "var(--border)", background: "var(--surface)" }}>
+      <div className="flex-1 min-w-0 rounded-lg border overflow-hidden" style={{ borderColor: "var(--rule)", background: "var(--surface)" }}>
         <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="w-full h-auto" role="img" aria-label="Fraud ring entity-link network">
           <g opacity={0.35}>
             {(layout.links as unknown as ResolvedSimLink[]).map((l, i) => {
@@ -124,7 +144,7 @@ export function RingGraph({
                   y1={s.y}
                   x2={t.x}
                   y2={t.y}
-                  stroke="var(--border-strong)"
+                  stroke="var(--rule-strong)"
                   strokeWidth={Math.min(l.weight, 2)}
                 />
               );
@@ -133,7 +153,7 @@ export function RingGraph({
           <g>
             {positions.map((n) => {
               const isFalsePositive = n.detected_ring_id !== null && n.ground_truth_ring_id === null;
-              const color = n.detected_ring_id ? colorByRing.get(n.detected_ring_id) : "var(--text-tertiary)";
+              const color = n.detected_ring_id ? colorByRing.get(n.detected_ring_id) : "var(--ink-tertiary)";
               const isSelected = n.id === selected;
               return (
                 <circle
@@ -142,7 +162,7 @@ export function RingGraph({
                   cy={n.y}
                   r={isSelected ? 7 : 5}
                   fill={color}
-                  stroke={isFalsePositive ? "var(--risk-block)" : isSelected ? "var(--text-primary)" : "none"}
+                  stroke={isFalsePositive ? "var(--risk-block)" : isSelected ? "var(--ink)" : "none"}
                   strokeWidth={isFalsePositive ? 2 : 1.5}
                   strokeDasharray={isFalsePositive ? "2,1.5" : undefined}
                   className="cursor-pointer"
@@ -167,12 +187,12 @@ export function RingGraph({
 
       <aside className="w-full lg:w-64 shrink-0 flex flex-col gap-4">
         <div>
-          <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--text-tertiary)" }}>
+          <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--ink-tertiary)" }}>
             Legend
           </h3>
-          <ul className="flex flex-col gap-2 text-xs" style={{ color: "var(--text-secondary)" }}>
+          <ul className="flex flex-col gap-2 text-xs" style={{ color: "var(--ink-secondary)" }}>
             <li className="flex items-center gap-2">
-              <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: "var(--accent)" }} />
+              <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: "var(--rust)" }} />
               Node color = detected community
             </li>
             <li className="flex items-center gap-2">
@@ -185,35 +205,35 @@ export function RingGraph({
           </ul>
         </div>
 
-        <div className="rounded-lg border p-3" style={{ borderColor: "var(--border)" }}>
-          <h3 className="text-xs font-medium uppercase tracking-wide mb-1" style={{ color: "var(--text-tertiary)" }}>
+        <div className="rounded-lg border p-3" style={{ borderColor: "var(--rule)" }}>
+          <h3 className="text-xs font-medium uppercase tracking-wide mb-1" style={{ color: "var(--ink-tertiary)" }}>
             {selectedNode ? "Selected account" : "Select a node"}
           </h3>
           {selectedNode ? (
             <dl className="text-xs flex flex-col gap-1">
               <div className="flex justify-between">
-                <dt style={{ color: "var(--text-tertiary)" }}>Account</dt>
+                <dt style={{ color: "var(--ink-tertiary)" }}>Account</dt>
                 <dd className="mono-figure">{selectedNode.id}</dd>
               </div>
               <div className="flex justify-between">
-                <dt style={{ color: "var(--text-tertiary)" }}>Detected ring</dt>
+                <dt style={{ color: "var(--ink-tertiary)" }}>Detected ring</dt>
                 <dd className="mono-figure">{selectedNode.detected_ring_id ?? "—"}</dd>
               </div>
               <div className="flex justify-between">
-                <dt style={{ color: "var(--text-tertiary)" }}>Ground truth ring</dt>
+                <dt style={{ color: "var(--ink-tertiary)" }}>Ground truth ring</dt>
                 <dd className="mono-figure">{selectedNode.ground_truth_ring_id ?? "—"}</dd>
               </div>
             </dl>
           ) : (
-            <p className="text-xs" style={{ color: "var(--text-tertiary)" }}>
+            <p className="text-xs" style={{ color: "var(--ink-tertiary)" }}>
               Click any node to inspect it.
             </p>
           )}
         </div>
 
         {selectedNode?.detected_ring_id && (
-          <div className="rounded-lg border p-3" style={{ borderColor: "var(--border)" }}>
-            <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--text-tertiary)" }}>
+          <div className="rounded-lg border p-3" style={{ borderColor: "var(--rule)" }}>
+            <h3 className="text-xs font-medium uppercase tracking-wide mb-2" style={{ color: "var(--ink-tertiary)" }}>
               Case action — {selectedNode.detected_ring_id}
             </h3>
             <CaseActionControls

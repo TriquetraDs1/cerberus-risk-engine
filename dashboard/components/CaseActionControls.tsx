@@ -72,7 +72,7 @@ export function CaseActionControls({
           onClick={() => record("clear")}
           disabled={pending !== null}
           className={btnBase}
-          style={{ color: "var(--text-secondary)", border: "1px solid var(--border)" }}
+          style={{ color: "var(--ink-secondary)", border: "1px solid var(--rule)" }}
         >
           <ArrowCounterClockwise size={12} aria-hidden />
           {pending === "clear" ? "Clearing…" : "Clear"}
@@ -97,7 +97,7 @@ export function CaseActionControls({
           onClick={() => record("dismiss")}
           disabled={pending !== null}
           className={btnBase}
-          style={{ color: "var(--text-secondary)", border: "1px solid var(--border)" }}
+          style={{ color: "var(--ink-secondary)", border: "1px solid var(--rule)" }}
         >
           <Prohibit size={13} aria-hidden />
           {pending === "dismiss" ? "Dismissing…" : compact ? "Dismiss" : "Dismiss as false positive"}

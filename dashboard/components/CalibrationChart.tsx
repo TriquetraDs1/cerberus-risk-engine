@@ -20,7 +20,7 @@ function toPx(v: number) {
  */
 export function CalibrationChart({ curve }: { curve: ReliabilityBin[] }) {
   if (curve.length === 0) {
-    return <p className="text-sm" style={{ color: "var(--text-secondary)" }}>No calibration data yet.</p>;
+    return <p className="text-sm" style={{ color: "var(--ink-secondary)" }}>No calibration data yet.</p>;
   }
 
   const maxCount = Math.max(...curve.map((b) => b.count));
@@ -43,12 +43,12 @@ export function CalibrationChart({ curve }: { curve: ReliabilityBin[] }) {
           {/* gridlines — low contrast so they don't compete with the data */}
           {[0, 0.25, 0.5, 0.75, 1].map((v) => (
             <g key={v}>
-              <line x1={toPx(v)} y1={MARGIN} x2={toPx(v)} y2={SIZE - MARGIN} stroke="var(--border)" strokeWidth={1} />
-              <line x1={MARGIN} y1={toPx(1 - v)} x2={SIZE - MARGIN} y2={toPx(1 - v)} stroke="var(--border)" strokeWidth={1} />
-              <text x={toPx(v)} y={SIZE - MARGIN + 16} textAnchor="middle" fontSize={9} fill="var(--text-tertiary)">
+              <line x1={toPx(v)} y1={MARGIN} x2={toPx(v)} y2={SIZE - MARGIN} stroke="var(--rule)" strokeWidth={1} />
+              <line x1={MARGIN} y1={toPx(1 - v)} x2={SIZE - MARGIN} y2={toPx(1 - v)} stroke="var(--rule)" strokeWidth={1} />
+              <text x={toPx(v)} y={SIZE - MARGIN + 16} textAnchor="middle" fontSize={9} fill="var(--ink-tertiary)">
                 {v}
               </text>
-              <text x={MARGIN - 8} y={toPx(1 - v) + 3} textAnchor="end" fontSize={9} fill="var(--text-tertiary)">
+              <text x={MARGIN - 8} y={toPx(1 - v) + 3} textAnchor="end" fontSize={9} fill="var(--ink-tertiary)">
                 {v}
               </text>
             </g>
@@ -60,7 +60,7 @@ export function CalibrationChart({ curve }: { curve: ReliabilityBin[] }) {
             y1={toPx(1)}
             x2={toPx(1)}
             y2={toPx(0)}
-            stroke="var(--text-tertiary)"
+            stroke="var(--ink-tertiary)"
             strokeWidth={1.5}
             strokeDasharray="4,3"
           />
@@ -69,7 +69,7 @@ export function CalibrationChart({ curve }: { curve: ReliabilityBin[] }) {
           <polyline
             points={curve.map((b) => `${toPx(b.predicted_mean)},${toPx(1 - b.observed_rate)}`).join(" ")}
             fill="none"
-            stroke="var(--accent)"
+            stroke="var(--rust)"
             strokeWidth={2}
           />
           {curve.map((b) => (
@@ -78,7 +78,7 @@ export function CalibrationChart({ curve }: { curve: ReliabilityBin[] }) {
               cx={toPx(b.predicted_mean)}
               cy={toPx(1 - b.observed_rate)}
               r={radius(b.count)}
-              fill="var(--accent)"
+              fill="var(--rust)"
               fillOpacity={0.85}
             >
               {/* SVG <title> (and HTML <title>) must receive a single string child, not
@@ -90,7 +90,7 @@ export function CalibrationChart({ curve }: { curve: ReliabilityBin[] }) {
             </circle>
           ))}
 
-          <text x={SIZE / 2} y={SIZE - 4} textAnchor="middle" fontSize={10} fill="var(--text-secondary)">
+          <text x={SIZE / 2} y={SIZE - 4} textAnchor="middle" fontSize={10} fill="var(--ink-secondary)">
             Predicted probability
           </text>
           <text
@@ -98,7 +98,7 @@ export function CalibrationChart({ curve }: { curve: ReliabilityBin[] }) {
             y={SIZE / 2}
             textAnchor="middle"
             fontSize={10}
-            fill="var(--text-secondary)"
+            fill="var(--ink-secondary)"
             transform={`rotate(-90, 10, ${SIZE / 2})`}
           >
             Observed rate
@@ -110,13 +110,13 @@ export function CalibrationChart({ curve }: { curve: ReliabilityBin[] }) {
         <table className="text-xs w-full">
           <caption className="sr-only">Calibration bins: predicted vs. observed fraud rate</caption>
           <thead>
-            <tr style={{ color: "var(--text-tertiary)" }}>
+            <tr style={{ color: "var(--ink-tertiary)" }}>
               <th className="text-left font-medium pr-4 py-1">Predicted</th>
               <th className="text-left font-medium pr-4 py-1">Observed</th>
               <th className="text-left font-medium py-1">n</th>
             </tr>
           </thead>
-          <tbody className="divide-y" style={{ borderColor: "var(--border)" }}>
+          <tbody className="divide-y" style={{ borderColor: "var(--rule)" }}>
             {curve.map((b) => (
               <tr key={b.bin_center}>
                 <td className="mono-figure pr-4 py-1">{b.predicted_mean.toFixed(3)}</td>

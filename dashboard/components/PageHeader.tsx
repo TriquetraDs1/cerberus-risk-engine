@@ -9,12 +9,17 @@ export function PageHeader({
 }) {
   return (
     <header
-      className="flex items-start justify-between gap-4 px-6 py-5 border-b"
-      style={{ borderColor: "var(--border)" }}
+      className="flex flex-wrap items-end justify-between gap-x-6 gap-y-3 px-6 sm:px-7 pt-6 pb-5 border-b"
+      style={{ borderColor: "var(--rule)", background: "var(--surface)" }}
     >
-      <div>
-        <h1 className="text-lg font-semibold tracking-tight">{title}</h1>
-        <p className="text-sm mt-0.5" style={{ color: "var(--text-secondary)" }}>
+      <div className="min-w-0">
+        <h1 className="text-[19px] font-bold tracking-[-0.025em] leading-none">{title}</h1>
+        {/* Capped near 75ch: this is prose, and a subtitle running the full width of a
+            wide monitor is a paragraph nobody finishes. */}
+        <p
+          className="text-[13.5px] mt-2 leading-relaxed max-w-[72ch]"
+          style={{ color: "var(--ink-secondary)" }}
+        >
           {subtitle}
         </p>
       </div>
