@@ -50,7 +50,7 @@ the dashboard + a terminal, your voice over it. Every number below matches
 
 **On screen:** `/health` (System Health) — the reliability diagram.
 
-> "The point-risk model is gradient-boosted trees, ROC-AUC 0.80, on a chronological
+> "The point-risk model is gradient-boosted trees, ROC-AUC 0.82, on a chronological
 > three-way split — never random, because fraud rings cluster in time and would leak
 > across a random boundary. The score is isotonic-calibrated: Brier score drops from 0.082
 > to 0.016, expected calibration error from 0.19 to 0.002. So `risk_score` is a real
@@ -141,9 +141,9 @@ curl -s localhost:8000/explain/txn_demo | jq
 > rotation exists to destroy. Aggregate metrics scored that as a clean win. Only the
 > harness caught it. That's the argument for having the harness.
 >
-> Days one through seven of the plan are done, plus calibration, a case-management
-> workflow, and the plain-English layer. 28 tests, CI-gated, reproducible from a clean
-> clone in five minutes. Thanks for watching."
+> The ten-day plan is complete, plus calibration, a case-management workflow, and a
+> plain-English explanation on every decision. 44 tests, CI-gated, reproducible from a
+> clean clone in five minutes. Thanks for watching."
 
 ---
 

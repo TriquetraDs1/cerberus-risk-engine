@@ -35,7 +35,7 @@ from the reason codes / cost basis the pipeline already produces.
 - `GET /explain/{transaction_id}` in `serving/app.py` (+ `AuditLog.get`), returning
   `{transaction_id, explanation, reason_codes, narration_source}`.
 - `TransactionDrawer.tsx` "Summary" block; `explanation?: string` on `QueueTransaction`.
-- `tests/test_llm.py` (9) + 2 in `tests/test_serving.py`. 28/28 green.
+- `tests/test_llm.py` (9) + 2 in `tests/test_serving.py`. (Suite is now 44 tests.)
 - `[project.optional-dependencies] llm = ["anthropic>=0.40"]`; not on CI (template path).
 
 The three invariants held: non-decisional, offline-safe (no key → template), no network

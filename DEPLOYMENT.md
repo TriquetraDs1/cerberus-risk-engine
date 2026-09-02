@@ -8,11 +8,12 @@
 | **Backend** | `cerberus.serving.app` — FastAPI `/score`, `/explain/{id}`, `/health`, `/metrics`, `/audit/recent`, `/admin/graph-status` | Model artifacts on disk (`models/`, `reports/decision_layer.json`, `data/processed/*.csv`). SQLite audit log. |
 | **AI / LLM** | `cerberus.llm` — decision narration | Nothing to run the template path. `ANTHROPIC_API_KEY` for LLM-written text. |
 
-**Important:** the frontend does **not** call the backend right now. The four dashboard
-pages render *analytical export* data (queue, ring graph, calibration, adversarial report)
-produced offline by `scripts/export_dashboard_data.py`. The `/score` + `/explain` API is a
-separate live service. They can be deployed independently (Path A) or wired together
-(Path B).
+**How coupled they are:** the four analytical pages (queue, ring graph, calibration,
+adversarial report) render *offline export* data produced by
+`scripts/export_dashboard_data.py` and need no backend at all. Two panels do call the live
+API — dispute drafting in the transaction drawer and the case copilot on the ring page —
+and both render an honest "not connected" note when it isn't configured. So the two halves
+still deploy independently (Path A); connecting them is optional and additive.
 
 ---
 

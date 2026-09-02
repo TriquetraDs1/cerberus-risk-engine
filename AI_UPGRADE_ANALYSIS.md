@@ -18,7 +18,7 @@ Worth being precise, because "add proper AI" implies there's none — there's a 
 | Layer | Technique | Not trivial because |
 |---|---|---|
 | Point-risk model | Gradient-boosted trees (LightGBM) | Cost-sensitive threshold, not accuracy-max; chronological splits to prevent ring leakage |
-| Probability calibration | Isotonic regression on a disjoint split | Makes `risk_score` a real probability; Brier 0.0645 → 0.0164 |
+| Probability calibration | Isotonic regression on a disjoint split | Makes `risk_score` a real probability; Brier 0.0819 → 0.0163 |
 | Ring detection | Entity-link graph + Louvain community detection | Unsupervised structure learning over a ~750-edge entity graph; validated against ground truth |
 | Decision layer | Per-segment cost-matrix optimisation | Each segment's FP/FN cost derived from its own data |
 | Adversarial hardening | Adaptive local hill-climb over an evasion parameter space, then retrain | This is the differentiator — an optimisation loop searching for model failure |

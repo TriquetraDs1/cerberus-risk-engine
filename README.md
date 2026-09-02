@@ -1,8 +1,17 @@
 # Cerberus — an adversarially-hardened transaction risk engine
 
-> **Picking this project back up?** Read [HANDOFF.md](HANDOFF.md) first — current
-> status, how to run everything, key design decisions, and what's genuinely left.
-> Retraining? [docs/TRAINING.md](docs/TRAINING.md). Deploying? [DEPLOYMENT.md](DEPLOYMENT.md).
+> **Where to start**
+>
+> | You want to | Read |
+> |---|---|
+> | Pick the project back up | [HANDOFF.md](HANDOFF.md) — status, run commands, decisions not to undo |
+> | Understand the design | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
+> | Know what the model can and can't do | [MODEL_CARD.md](MODEL_CARD.md) |
+> | Retrain or change the model | [docs/TRAINING.md](docs/TRAINING.md) — runbook + testing |
+> | See what was tried and what it found | [docs/EXPERIMENT_ADVANCED_TRAINING.md](docs/EXPERIMENT_ADVANCED_TRAINING.md) |
+> | Deploy it | [DEPLOYMENT.md](DEPLOYMENT.md) |
+> | Know what to build next | [IMPLEMENTATION_ROADMAP.md](IMPLEMENTATION_ROADMAP.md) |
+> | Work on the dashboard's design | [DESIGN.md](DESIGN.md), [PRODUCT.md](PRODUCT.md) |
 
 > **Scope and guardrail, stated up front:** Cerberus is a **defensive** fraud-detection
 > research project. The "adversarial" component in this repo is a red-team harness that
@@ -145,8 +154,8 @@ into the synthetic generator instead of using a fully synthetic baseline — see
 
 ## Status
 
-Days 1-7 of the 10-day plan are done, plus calibration and a case-management workflow
-beyond the original scope:
+The 10-day plan is complete, plus calibration, a case-management workflow, the full LLM
+layer, and two additional models beyond the original scope:
 - Synthetic data generator with injectable fraud rings, innocent household sharing, and
   four merchant segments with genuinely different fraud economics
 - Baseline point-risk model (LightGBM) with **isotonic probability calibration** —
@@ -205,5 +214,10 @@ beyond the original scope:
   on ring membership, with `gnn_agrees_with_louvain` as the field worth watching. Both
   are optional: absent their checkpoints, `/score` behaves exactly as before.
 
-Still ahead: the submission video — see `docs/ARCHITECTURE.md` and
-`IMPLEMENTATION_ROADMAP.md` for the full roadmap.
+**What's genuinely next** is not another model. `docs/EXPERIMENT_ADVANCED_TRAINING.md`
+records that a `degree >= 2` threshold matches the GraphSAGE detector's perfect score
+exactly, which means this dataset cannot distinguish between graph detectors at all. The
+highest-value next work is generator variety — non-uniform ring topologies, larger
+innocent clusters, gradual ring formation — which would make the graph layer measurable
+for the first time and would likely move the headline numbers down. See
+`IMPLEMENTATION_ROADMAP.md`.

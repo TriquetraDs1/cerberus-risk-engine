@@ -125,7 +125,7 @@ collection; a replicated store for the entity-graph cache.
 | 4 | Cost matrix + threshold optimization + 3-way routing. | ✅ Done — per-segment, 16.5% cheaper than one global threshold |
 | 5–6 | Adversarial harness: 2–3 evasion strategies, measure recall decay, retrain, show recovery. This is the differentiator — protect this time budget above all else. | ✅ Done — 3 adaptive strategies, before/attack/after chart, CI regression gate |
 | 7 | FastAPI serving + audit log + drift check. Thin, enterprise-shaped not enterprise-scale. | ✅ Done — /score, /health, /metrics, SQLite audit log, demoable graceful degradation |
-| 8 | Stretch LLM layer (dispute drafting / plain-English reason codes) only if on schedule. | ◑ Partial — A1 (plain-English reason-code narration) done: `cerberus.llm`, `queue.json` `explanation`, `GET /explain/{id}`, drawer Summary, deterministic template fallback. A2 (dispute drafting) and A3 (copilot) not started — see `IMPLEMENTATION_ROADMAP.md`. |
+| 8 | Stretch LLM layer (dispute drafting / plain-English reason codes) only if on schedule. | ✅ Done, all three: A1 narration (`queue.json` `explanation`, `GET /explain/{id}`), A2 dispute drafting (`POST /dispute/{id}`), A3 case copilot (`POST /copilot/{ring_id}`). Each has dashboard UI and a deterministic template fallback, so the repo runs with no API key. |
 | 9 | README + this doc + record the video. | Docs done; video is the remaining work |
 | 10 | Submit. | — |
 

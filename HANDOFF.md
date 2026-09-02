@@ -18,11 +18,14 @@ harness that attacks the model and proves hardening works. Built for Razorpay's 
 hackathon. Defensive-only — see README.md's first paragraph for the scope statement;
 repeat that framing in anything you write about this project.
 
-## Status: Days 1-7 of the 10-day plan done, plus 3 items beyond original scope
+## Status: the 10-day plan is complete, plus several items beyond it
 
 Everything below is **built, tested, and verified working** — not aspirational.
-Beyond the original plan: probability calibration, the case-management workflow, and
-the Day 8 A1 narration layer (A2/A3 remain optional stretch).
+Beyond the original plan: probability calibration, a case-management workflow, the full
+LLM layer (A1 narration, A2 dispute drafting, A3 case copilot), Optuna cost-tuning, a
+Bayesian-optimisation adversarial searcher, and a sequence model and GNN both live in
+`/score` as second opinions. What remains is the submission video and the research work
+named in `IMPLEMENTATION_ROADMAP.md`.
 
 | Component | Where | Real result |
 |---|---|---|
@@ -36,7 +39,7 @@ the Day 8 A1 narration layer (A2/A3 remain optional stretch).
 | **A1 narration (Day 8)** | `src/cerberus/llm/` | 2-3 sentence plain-English summary per decision, in `queue.json` and `/explain`. LLM (Claude) if `ANTHROPIC_API_KEY` set, deterministic template otherwise. Never re-scores. |
 | **Dashboard** | `dashboard/` (Next.js) | Review Queue, Ring Network, Adversarial Hardening, System Health — all reading real pipeline output; the drawer shows the A1 Summary |
 | **Case management** | `dashboard/app/api/case-actions/`, `lib/caseActions.ts` | Escalate/dismiss rings, mark transactions reviewed, persists server-side |
-| CI | `.github/workflows/ci.yml` | Lint → full pipeline → adversarial regression gate → tests (28/28 passing) |
+| CI | `.github/workflows/ci.yml` | Lint → full pipeline → adversarial regression gate → tests (44/44 passing) |
 | Docker | `Dockerfile`, `docker-compose.yml` | Two-stage: `pipeline` target and `serving` target |
 
 ## How to run everything (from a clean clone)
@@ -63,7 +66,7 @@ uvicorn cerberus.serving.app:app --reload   # http://localhost:8000
 
 Or: `docker compose run pipeline` then `docker compose up serving`.
 
-Tests: `pytest tests/ -v` (28 tests; `test_serving.py` skips gracefully if the pipeline
+Tests: `pytest tests/ -v` (44 tests; `test_serving.py` skips gracefully if the pipeline
 hasn't run yet, since it needs a trained model on disk; `test_llm.py` needs neither a
 model nor an API key — it pins the deterministic template path).
 
