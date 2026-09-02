@@ -332,10 +332,22 @@ coordination as well as structure.
 
 ## What is actually blocking progress now
 
-Real data. The ring detector's false-positive rate has still never been checked against
-the non-fraud portion of a real dataset, and it is the one number a panel is most likely
-to push on. Everything else remaining is infrastructure (Phase 3) or B4, which is now
-worth attempting because the dataset can finally distinguish between graph detectors.
+**One download.** `scripts/validate_rings_real_data.py` is built and tested; it needs
+IEEE-CIS `train_transaction.csv` in `data/raw/`, which is a Kaggle *competition* dataset
+and so requires manually accepting its rules before it can be fetched.
+
+Why that dataset and not `creditcard.csv`: the latter is anonymised PCA components with no
+card, device, or address field, so no entity graph can be built from it — it was never
+capable of validating a graph detector. IEEE-CIS carries real card, address and device
+identifiers alongside a real fraud label.
+
+And why this is measurable at all, which took longer to see than it should have:
+validating a *false-positive* rate needs real innocent entity-sharing, not fraud-ring
+labels. No public dataset has ring labels. Every public dataset with identifiers has
+families sharing a card.
+
+After that: B4 is now worth attempting, because the dataset can finally distinguish
+between graph detectors. Everything else remaining is infrastructure (Phase 3).
 
 Re-run the full pipeline and the adversarial harness after every ML change (Phase 2) and
 re-check CI after every phase. Update `MODEL_CARD.md`, `docs/ARCHITECTURE.md`, and

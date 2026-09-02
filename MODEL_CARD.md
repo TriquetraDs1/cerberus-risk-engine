@@ -184,6 +184,33 @@ echoes the reason codes so the prose can be checked against them. It runs on Cla
 `ANTHROPIC_API_KEY` is set and on a deterministic template otherwise; it never feeds back
 into scoring, calibration, or routing.
 
+## Real-data validation of the false-positive rate
+
+The 22.3% household false-positive rate above is measured against households this repo
+invented, so it describes the generator as much as the detector.
+`scripts/validate_rings_real_data.py` closes that gap, and the reasoning behind it is
+worth stating because it took a while to see:
+
+**`creditcard.csv` cannot answer this question.** It is `Time`, `V1`-`V28`, `Amount`,
+`Class` — anonymised principal components with no card, device, or address field. There is
+nothing to build an entity graph from. It validates a base rate and nothing about a graph
+detector, which is why the graph layer stayed unvalidated for so long.
+
+**Validating a false-positive rate does not need ring labels.** No public dataset has
+fraud-ring ground truth, which is the reason this looked impossible. But a false-positive
+rate only needs real people who genuinely share identifiers and are *not* a ring —
+families on one card, offices behind one billing address. IEEE-CIS has hundreds of
+thousands of them, with real card, address and device fields and a real `isFraud` label.
+
+The harness builds the entity graph the same way the synthetic pipeline does, runs the
+same detector, and reports what fraction of flagged communities contain no fraud at all.
+It measures the false-positive side only; recall stays unvalidated, because a flagged
+all-fraud community may be a real ring or a coincidence and nothing distinguishes them.
+
+Run it with `train_transaction.csv` from the IEEE-CIS competition in `data/raw/`. Results
+land in `reports/ring_validation_real_data.json`. **Not yet run** — the dataset is a
+competition download requiring manual acceptance of its rules.
+
 ## Known limitations
 
 - **Cost matrices are estimates**, not a calibrated business study — derived from mean

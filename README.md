@@ -104,6 +104,11 @@ python scripts/run_adversarial_harness.py
 
 # Export real pipeline output as JSON for the dashboard (no mock data)
 python scripts/export_dashboard_data.py
+
+# Optional: validate the ring detector's false-positive rate against real entity-sharing.
+# Needs IEEE-CIS train_transaction.csv in data/raw/ (creditcard.csv cannot be used — it
+# has no card/device/address fields, so no entity graph can be built from it).
+python scripts/validate_rings_real_data.py
 ```
 
 Or with Docker: `docker compose run pipeline` runs the same pipeline end-to-end into

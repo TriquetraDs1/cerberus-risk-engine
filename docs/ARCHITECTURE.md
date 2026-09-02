@@ -142,5 +142,10 @@ collection; a replicated store for the entity-graph cache.
   four ring topologies, gradual formation, and multi-person households. The GNN now
   scores 0.8863, the degree control no longer matches it, and Louvain-on-structure turned
   out to false-positive on 94% of families, which is why the detector now requires
-  behavioural coordination too. Still outstanding: a backtest of the FP rate against the
-  non-fraud portion of a real dataset.
+  behavioural coordination too. The remaining step, a backtest of the false-positive rate
+  against real data, now has a harness: `scripts/validate_rings_real_data.py`. It runs
+  against IEEE-CIS rather than `creditcard.csv`, because that dataset is anonymised PCA
+  components with no identifiers and cannot build an entity graph at all. The insight that
+  made it tractable is that validating a *false-positive* rate needs real innocent
+  entity-sharing, not ring labels — and no public dataset has ring labels, which is why
+  this looked impossible for longer than it should have.

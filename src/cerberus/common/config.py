@@ -19,6 +19,13 @@ REPORTS_DIR = ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 
 KAGGLE_CREDITCARD_CSV = DATA_RAW / "creditcard.csv"
+
+# IEEE-CIS Fraud Detection. Unlike creditcard.csv (anonymised PCA components with no
+# identifiers), this carries real card, address, and device fields — which is what makes
+# it the only public dataset that can validate the ring detector's false-positive rate
+# against genuine innocent entity-sharing. See scripts/validate_rings_real_data.py.
+IEEE_TRANSACTION_CSV = DATA_RAW / "train_transaction.csv"
+IEEE_IDENTITY_CSV = DATA_RAW / "train_identity.csv"
 SYNTHETIC_TRANSACTIONS_CSV = DATA_PROCESSED / "transactions.csv"
 SYNTHETIC_ENTITY_EDGES_CSV = DATA_PROCESSED / "entity_edges.csv"
 SYNTHETIC_RINGS_JSON = DATA_PROCESSED / "rings_ground_truth.json"
