@@ -90,6 +90,32 @@ consistent DPI and a heading that shrinks inside a panel looks worse, not better
 - `/about`: one staggered `.rise` on the hero, `ease-out-quart`. Nothing else.
 - Everything collapses under `prefers-reduced-motion`.
 
+## Interaction
+
+`components/Button.tsx` is the only button. Before it, every control styled itself inline,
+which is how the app ended up with buttons that had no press feedback at all: `:hover`,
+`:active` and `:focus-visible` cannot be expressed as inline styles, so nothing that
+styled itself inline could have them.
+
+Guaranteed by the primitive, not by each caller remembering:
+
+- **40px minimum height** (34px compact, inside dense table rows). Set as `min-height`, not
+  padding, so a short label cannot shrink the target below the floor.
+- **Four distinct states.** Hover darkens in light mode and *lightens* in dark — darkening
+  an already-dark surface reads as disabled, not as hover.
+- **Press is `transform: scale(0.975)`**, a compositor property only. Never a layout
+  property, so pressing a button never reflows the row it sits in.
+- **Loading disables and swaps the icon** rather than appending a spinner, so the button's
+  width does not change mid-action and the action cannot be double-fired.
+- **Disabled is visible and semantic**: reduced opacity, `not-allowed` cursor, and the real
+  `disabled` attribute, so assistive tech announces it rather than users discovering it by
+  clicking.
+- 150ms, `ease-out-quart`, and everything collapses under `prefers-reduced-motion`.
+
+Tone maps onto the existing vocabulary and invents no colour: `danger` borrows the routing
+ramp's block red because escalation *is* that decision; `primary` is rust, this product's
+action colour.
+
 ## Things not to undo
 
 1. **Don't reuse the routing ramp for a non-decision meaning.** See the table above.
@@ -97,7 +123,9 @@ consistent DPI and a heading that shrinks inside a panel looks worse, not better
    this design is deliberately outside of.
 3. **Don't hardcode `StatRow` to four columns.**
 4. **Don't collapse `--rust-surface` back into `--rust`.** Dark mode needs them separate.
-5. **Don't seed the ring-graph force layout at a single point.** Coincident starts give
+5. **Don't style a button inline again.** Use `Button`. The states above are the reason
+   it exists, and an inline-styled control silently loses all four of them.
+6. **Don't seed the ring-graph force layout at a single point.** Coincident starts give
    the charge force nothing to separate, and the graph settles as one blob; the
    phyllotaxis seed plus `forceX`/`forceY` (not `forceCenter`, which only translates) is
    what makes the 25 rings legible as 25 clusters.

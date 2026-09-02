@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { ArrowUp, Warning } from "@phosphor-icons/react/dist/ssr";
 import { ApiError, apiConfigured, askCopilot } from "@/lib/api";
+import { Button } from "./Button";
 
 type Turn = { role: "user" | "assistant"; content: string };
 
@@ -71,14 +72,15 @@ export function CaseCopilot({ ringId }: { ringId: string }) {
         {turns.length === 0 && !busy && (
           <div className="flex flex-col gap-1.5 items-start">
             {SUGGESTIONS.map((q) => (
-              <button
+              <Button
                 key={q}
+                tone="ghost"
+                compact
                 onClick={() => send(q)}
-                className="text-[12.5px] text-left hover:underline"
-                style={{ color: "var(--rust)" }}
+                style={{ color: "var(--rust)", marginLeft: -12, justifyContent: "flex-start" }}
               >
                 {q}
-              </button>
+              </Button>
             ))}
           </div>
         )}
@@ -132,15 +134,16 @@ export function CaseCopilot({ ringId }: { ringId: string }) {
           maxLength={800}
           className="flex-1 min-w-0 text-[12.5px] bg-transparent outline-none disabled:opacity-60"
         />
-        <button
+        <Button
           type="submit"
+          tone="primary"
+          compact
+          loading={busy}
           disabled={busy || !input.trim()}
-          aria-label="Send"
-          className="p-1.5 shrink-0 disabled:opacity-30 transition-opacity"
-          style={{ background: "var(--rust)", color: "var(--on-rust)", borderRadius: 3 }}
-        >
-          <ArrowUp size={13} weight="bold" aria-hidden />
-        </button>
+          aria-label="Send question"
+          style={{ minWidth: 34, paddingLeft: 0, paddingRight: 0 }}
+          icon={busy ? undefined : <ArrowUp size={13} weight="bold" aria-hidden />}
+        />
       </form>
     </div>
   );

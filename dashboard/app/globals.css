@@ -267,3 +267,56 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Button interaction states.
+   Kept in CSS rather than inline style because :hover, :active and :focus-visible cannot
+   be expressed inline, and defining them per-component is how the app ended up with
+   controls that had no press feedback at all. */
+.cerb-btn:hover:not(:disabled) {
+  filter: brightness(0.97);
+}
+:root:not([data-theme="light"]) .cerb-btn:hover:not(:disabled),
+:root[data-theme="dark"] .cerb-btn:hover:not(:disabled) {
+  /* Darkening a dark surface reads as "disabled", not "hover", so lift instead. */
+  filter: brightness(1.12);
+}
+.cerb-btn[data-tone="ghost"]:hover:not(:disabled) {
+  background: var(--rust-soft);
+  filter: none;
+}
+/* Transform only — never a layout property — so pressing a button never reflows the row
+   it sits in. */
+.cerb-btn:active:not(:disabled) {
+  transform: scale(0.975);
+}
+
+@keyframes cerb-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.cerb-spin {
+  animation: cerb-spin 0.7s linear infinite;
+}
+
+/* Row affordance in the review queue: the whole row is clickable, so it needs to look it. */
+.cerb-row {
+  transition: background-color 130ms var(--ease-out-quart);
+  cursor: pointer;
+}
+.cerb-row[aria-selected="true"] {
+  background: var(--rust-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cerb-btn,
+  .cerb-row {
+    transition: none;
+  }
+  .cerb-btn:active:not(:disabled) {
+    transform: none;
+  }
+  .cerb-spin {
+    animation-duration: 2s;
+  }
+}

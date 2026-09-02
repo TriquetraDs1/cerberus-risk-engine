@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CheckCircle, Copy, FileText, Warning } from "@phosphor-icons/react/dist/ssr";
 import { ApiError, apiConfigured, draftDispute } from "@/lib/api";
 import type { QueueTransaction } from "@/lib/types";
+import { Button } from "./Button";
 
 /**
  * A2 in the drawer. Deliberately not fetched on open: drafting is a generative call, and
@@ -66,15 +67,14 @@ export function DisputeDraft({ transaction }: { transaction: QueueTransaction })
   return (
     <div>
       {state !== "done" && (
-        <button
+        <Button
+          tone="neutral"
+          loading={state === "loading"}
           onClick={run}
-          disabled={state === "loading"}
-          className="inline-flex items-center gap-2 px-3 py-2 text-[13px] font-medium border transition-colors duration-150 disabled:opacity-60"
-          style={{ borderColor: "var(--rule-strong)", background: "var(--surface)", borderRadius: 3 }}
+          icon={<FileText size={14} aria-hidden />}
         >
-          <FileText size={14} aria-hidden />
           {state === "loading" ? "Drafting…" : "Draft dispute evidence"}
-        </button>
+        </Button>
       )}
 
       {state === "loading" && (
@@ -90,13 +90,9 @@ export function DisputeDraft({ transaction }: { transaction: QueueTransaction })
             <p className="text-[12px] leading-relaxed" style={{ color: "var(--ink-secondary)" }}>
               {error}
             </p>
-            <button
-              onClick={run}
-              className="text-[12px] font-medium mt-1.5 hover:underline"
-              style={{ color: "var(--rust)" }}
-            >
+            <Button tone="ghost" compact onClick={run} style={{ marginTop: 6, marginLeft: -12 }}>
               Try again
-            </button>
+            </Button>
           </div>
         </div>
       )}
@@ -107,14 +103,16 @@ export function DisputeDraft({ transaction }: { transaction: QueueTransaction })
             <span className="text-[11px]" style={{ color: "var(--ink-tertiary)" }}>
               {source === "llm" ? "Model-written draft" : "Templated draft (no API key set)"}
             </span>
-            <button
+            <Button
+              tone="ghost"
+              compact
               onClick={copy}
-              className="inline-flex items-center gap-1.5 text-[12px] font-medium"
-              style={{ color: copied ? "var(--risk-approve)" : "var(--rust)" }}
+              aria-label={copied ? "Draft copied to clipboard" : "Copy draft to clipboard"}
+              style={{ color: copied ? "var(--risk-approve)" : "var(--rust)", marginRight: -12 }}
+              icon={copied ? <CheckCircle size={13} weight="bold" aria-hidden /> : <Copy size={13} aria-hidden />}
             >
-              {copied ? <CheckCircle size={13} weight="bold" aria-hidden /> : <Copy size={13} aria-hidden />}
               {copied ? "Copied" : "Copy"}
-            </button>
+            </Button>
           </div>
           <pre
             className="text-[12px] leading-[1.65] whitespace-pre-wrap font-sans p-3 max-h-[22rem] overflow-y-auto border"

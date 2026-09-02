@@ -146,7 +146,7 @@ export function QueueTable({
                       setSelected(t);
                     }
                   }}
-                  className="cursor-pointer hover:bg-[var(--rust-soft)] focus-visible:bg-[var(--rust-soft)] transition-colors duration-150"
+                  className="cerb-row hover:bg-[var(--rust-soft)] focus-visible:bg-[var(--rust-soft)]"
                   style={{ borderColor: "var(--rule)" }}
                 >
                   <td className="px-6 py-2 whitespace-nowrap mono-figure text-[12px]" style={{ color: "var(--ink-secondary)" }}>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowCounterClockwise, CheckCircle, Prohibit, WarningOctagon } from "@phosphor-icons/react/dist/ssr";
 import type { CaseAction, CaseActionType, CaseTargetType } from "@/lib/types";
+import { Button } from "./Button";
 
 const ACTION_LABELS: Record<CaseActionType, string> = {
   escalate: "Escalated",
@@ -51,8 +52,6 @@ export function CaseActionControls({
     }
   }
 
-  const btnBase = "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-xs font-medium transition-transform active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed";
-
   if (action && action.action !== "clear") {
     const tone = action.action === "escalate" ? "block" : action.action === "dismiss" ? "approve" : "review";
     return (
@@ -68,15 +67,16 @@ export function CaseActionControls({
           {action.action === "escalate" ? <WarningOctagon size={13} weight="bold" aria-hidden /> : <CheckCircle size={13} weight="bold" aria-hidden />}
           {ACTION_LABELS[action.action]}
         </span>
-        <button
-          onClick={() => record("clear")}
+        <Button
+          tone="ghost"
+          compact
+          loading={pending === "clear"}
           disabled={pending !== null}
-          className={btnBase}
-          style={{ color: "var(--ink-secondary)", border: "1px solid var(--rule)" }}
+          onClick={() => record("clear")}
+          icon={<ArrowCounterClockwise size={12} aria-hidden />}
         >
-          <ArrowCounterClockwise size={12} aria-hidden />
           {pending === "clear" ? "Clearing…" : "Clear"}
-        </button>
+        </Button>
       </div>
     );
   }
@@ -84,24 +84,26 @@ export function CaseActionControls({
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex items-center gap-2 flex-wrap">
-        <button
+        <Button
+          tone="danger"
+          compact={compact}
+          loading={pending === "escalate"}
+          disabled={pending !== null}
           onClick={() => record("escalate")}
-          disabled={pending !== null}
-          className={btnBase}
-          style={{ color: "var(--risk-block)", background: "var(--risk-block-bg)", border: "1px solid var(--risk-block-border)" }}
+          icon={<WarningOctagon size={13} weight="bold" aria-hidden />}
         >
-          <WarningOctagon size={13} weight="bold" aria-hidden />
           {pending === "escalate" ? "Escalating…" : "Escalate"}
-        </button>
-        <button
-          onClick={() => record("dismiss")}
+        </Button>
+        <Button
+          tone="neutral"
+          compact={compact}
+          loading={pending === "dismiss"}
           disabled={pending !== null}
-          className={btnBase}
-          style={{ color: "var(--ink-secondary)", border: "1px solid var(--rule)" }}
+          onClick={() => record("dismiss")}
+          icon={<Prohibit size={13} aria-hidden />}
         >
-          <Prohibit size={13} aria-hidden />
           {pending === "dismiss" ? "Dismissing…" : compact ? "Dismiss" : "Dismiss as false positive"}
-        </button>
+        </Button>
       </div>
       {error && (
         <p className="text-xs" style={{ color: "var(--risk-block)" }} role="alert">
