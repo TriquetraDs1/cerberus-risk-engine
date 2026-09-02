@@ -43,9 +43,14 @@ in the core pipeline.
 
 ---
 
-## Phase 1 — finish the LLM layer (A2, A3)
+## Phase 1 — finish the LLM layer (A2, A3)  ·  ✅ DONE (2026-08-31)
 
-### A2 — chargeback dispute-evidence drafting
+Both shipped with dashboard UI and deterministic template fallbacks. `POST /dispute/{id}`
+(+ `facts_from` distinguishing audit-log facts from caller-supplied ones) and
+`POST /copilot/{ring_id}` (no tools, no writes, fenced case bundle). 16 tests in
+`tests/test_llm_features.py`.
+
+### A2 — chargeback dispute-evidence drafting  ·  ✅ done
 **Goal:** for a `block`/`review` transaction, draft the dispute narrative an ops team would
 file — velocity pattern, amount anomaly, ring linkage, segment cost basis, in processor
 format. Closes a named requirement in `docs/ARCHITECTURE.md` §1.
@@ -63,7 +68,7 @@ format. Closes a named requirement in `docs/ARCHITECTURE.md` §1.
 **Done when:** button produces a structured draft; sample drafts in the repo; fallback
 produces a usable templated draft with no key.
 
-### A3 — analyst "explain this ring" copilot
+### A3 — analyst "explain this ring" copilot  ·  ✅ done
 **Goal:** multi-turn Q&A over one case — the transaction, its graph neighbourhood, the
 ring's history.
 **Effort:** ~3–5 days. **Risk:** higher — retrieval, chat state, prompt-injection surface
@@ -93,7 +98,7 @@ containing "ignore previous instructions") does not alter behaviour.
 This is where detection quality actually goes up. Do B3 first (cheapest, de-risks the
 others by strengthening the eval), then B2, then B1, then B4.
 
-### B3 — stronger adversarial search
+### B3 — stronger adversarial search  ·  ✅ done (null result: bayesopt found the same evasions)
 **Goal:** replace the random hill-climb in `adversarial/attacker.py` (`adaptive_search`)
 with Bayesian optimisation or CMA-ES, so the reported evasion is closer to worst-case.
 **Effort:** ~2–3 days. **Risk:** low-medium; the search space and guardrail are unchanged.
@@ -113,7 +118,7 @@ with Bayesian optimisation or CMA-ES, so the reported evasion is closer to worst
 **Done when:** harness runs with `--searcher bayesopt`; report JSON records which searcher
 produced each result; CI green with updated `--min-recovery`.
 
-### B2 — per-account sequence model
+### B2 — per-account sequence model  ·  ✅ trained + live, escalate-only
 **Goal:** a model that sees the *sequence* of an account's transactions, so a stretched
 burst (slow-ramp) is caught where a 1h-window velocity feature misses it.
 **Effort:** ~1 week. **Risk:** medium-high — new model, new training loop, new eval.
@@ -137,7 +142,7 @@ burst (slow-ramp) is caught where a 1h-window velocity feature misses it.
 sequence model is calibrated; pipeline still reproducible end-to-end; explainability story
 documented (attention weights or a SHAP-on-sequence approximation for the reason codes).
 
-### B1 — GNN ring detector (alongside Louvain, not replacing it)
+### B1 — GNN ring detector (alongside Louvain, not replacing it)  ·  ✅ trained + live as second opinion
 **Goal:** a learned, inductive ring signal — a real answer to "Louvain on synthetic data is
 easy."
 **Effort:** ~1–2 weeks. **Risk:** high — needs more data and tuning than a quick add; can
@@ -306,11 +311,30 @@ matured labels; the doc explains the gap.
 
 ```
 Phase 0  A1 ....................... ✅ done
-Phase 1  A2 → A3 ................. ~1.5 weeks
-Phase 2  B3 → B2 → B1 → B4 ....... ~4–5 weeks
+Phase 1  A2 → A3 .................. ✅ done
+Phase 2  B3 → B2 → B1 ............. ✅ done      B4 → still open
 Phase 3  C1 → C2 → C3 → C5 →
-         B5 → C4 → C6 → C7 ....... ~4–6 weeks
+         B5 → C4 → C6 → C7 ........ ~4–6 weeks
 ```
+
+## What is actually blocking progress now
+
+Everything above that remains unbuilt is infrastructure. The *research* is blocked on one
+thing, and it is not on this list: **the synthetic generator produces rings that are too
+easy to be a test of anything.**
+
+The evidence is already in `docs/EXPERIMENT_ADVANCED_TRAINING.md`. Louvain recovers
+25/25. GraphSAGE scores a perfect 1.0000 — and a `degree >= 2` threshold matches it
+exactly. Injected rings are uniformly dense cliques and innocent households are single
+links, so one integer comparison separates them. No graph model, learned or unsupervised,
+is being tested by this dataset, and no B4-style hardening result on it would mean much
+either.
+
+So the highest-value next piece of work is generator variety, not another model:
+non-uniform ring topologies (chains, stars, partial overlaps, rings that share a member),
+innocent clusters larger than pairs, and rings that form gradually rather than in one
+burst. That single change makes B1, B4, and the identity-rotation limitation genuinely
+measurable for the first time.
 
 Re-run the full pipeline and the adversarial harness after every ML change (Phase 2) and
 re-check CI after every phase. Update `MODEL_CARD.md`, `docs/ARCHITECTURE.md`, and
