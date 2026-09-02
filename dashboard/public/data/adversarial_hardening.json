@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-08-31T10:39:01.863322+00:00",
+  "generated_at": "2026-09-02T06:13:26.784035+00:00",
   "n_restarts": 5,
   "n_steps": 15,
   "searcher": "hillclimb",
-  "n_adversarial_examples": 3377,
+  "n_adversarial_examples": 2500,
   "strategies": {
     "structuring": {
       "baseline_detection": {
@@ -17,38 +17,38 @@
         "combined_score": 0.5
       },
       "evaded_hardened_model": {
-        "point_risk_caught_fraction": 0.9791666666666666,
+        "point_risk_caught_fraction": 0.9769230769230769,
         "ring_recovered_fraction": 1.0,
-        "combined_score": 0.9895833333333333
+        "combined_score": 0.9884615384615385
       },
       "best_evasion_params": {
-        "n_splits": 8.639954188972972,
-        "jitter": 0.4
+        "n_splits": 6.780923497724695,
+        "jitter": 0.31184063739832685
       },
       "recall_decay_original": 0.5,
-      "recall_recovered_after_hardening": 0.48958333333333326
+      "recall_recovered_after_hardening": 0.4884615384615385
     },
     "identity_rotation": {
       "baseline_detection": {
-        "point_risk_caught_fraction": 0.75,
+        "point_risk_caught_fraction": 1.0,
         "ring_recovered_fraction": 1.0,
-        "combined_score": 0.875
+        "combined_score": 1.0
       },
       "evaded_original_model": {
-        "point_risk_caught_fraction": 0.047619047619047616,
+        "point_risk_caught_fraction": 0.045454545454545456,
         "ring_recovered_fraction": 0.0,
-        "combined_score": 0.023809523809523808
+        "combined_score": 0.022727272727272728
       },
       "evaded_hardened_model": {
-        "point_risk_caught_fraction": 0.9333333333333333,
+        "point_risk_caught_fraction": 1.0,
         "ring_recovered_fraction": 0.0,
-        "combined_score": 0.4666666666666667
+        "combined_score": 0.5
       },
       "best_evasion_params": {
-        "n_devices": 5.753891603995172
+        "n_devices": 6.062969027008564
       },
-      "recall_decay_original": 0.8511904761904762,
-      "recall_recovered_after_hardening": 0.44285714285714284
+      "recall_decay_original": 0.9772727272727273,
+      "recall_recovered_after_hardening": 0.4772727272727273
     },
     "slow_ramp": {
       "baseline_detection": {
@@ -67,7 +67,7 @@
         "combined_score": 1.0
       },
       "best_evasion_params": {
-        "ramp_multiplier": 22.254150438243485
+        "ramp_multiplier": 23.9386752111375
       },
       "recall_decay_original": 0.5,
       "recall_recovered_after_hardening": 0.5

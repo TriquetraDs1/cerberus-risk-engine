@@ -1,4786 +1,3266 @@
 {
   "nodes": [
     {
-      "id": "acct_000004",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_000020",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
-    },
-    {
-      "id": "acct_000028",
-      "detected_ring_id": "detected_26",
-      "ground_truth_ring_id": "ring_015"
-    },
-    {
-      "id": "acct_000090",
-      "detected_ring_id": "detected_39",
-      "ground_truth_ring_id": "ring_002"
-    },
-    {
-      "id": "acct_000123",
-      "detected_ring_id": "detected_26",
-      "ground_truth_ring_id": "ring_015"
-    },
-    {
-      "id": "acct_000130",
-      "detected_ring_id": "detected_39",
-      "ground_truth_ring_id": "ring_002"
-    },
-    {
-      "id": "acct_000156",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_000194",
-      "detected_ring_id": "detected_61",
+      "id": "acct_000016",
+      "detected_ring_id": "detected_0",
       "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_000025",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_000052",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_000058",
+      "detected_ring_id": "detected_3",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_000084",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_000178",
+      "detected_ring_id": "detected_9",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_000189",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_016"
     },
     {
       "id": "acct_000197",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_000244",
-      "detected_ring_id": "detected_86",
-      "ground_truth_ring_id": "ring_016"
-    },
-    {
-      "id": "acct_000247",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_000255",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
-    },
-    {
-      "id": "acct_000303",
-      "detected_ring_id": "detected_77",
-      "ground_truth_ring_id": "ring_010"
-    },
-    {
-      "id": "acct_000313",
-      "detected_ring_id": "detected_85",
-      "ground_truth_ring_id": "ring_000"
-    },
-    {
-      "id": "acct_000352",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
-    },
-    {
-      "id": "acct_000354",
-      "detected_ring_id": "detected_7",
-      "ground_truth_ring_id": "ring_011"
-    },
-    {
-      "id": "acct_000393",
-      "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": "ring_022"
-    },
-    {
-      "id": "acct_000398",
-      "detected_ring_id": "detected_22",
-      "ground_truth_ring_id": "ring_003"
-    },
-    {
-      "id": "acct_000407",
-      "detected_ring_id": "detected_30",
-      "ground_truth_ring_id": null
-    },
-    {
-      "id": "acct_000415",
-      "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": "ring_022"
-    },
-    {
-      "id": "acct_000417",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_000481",
-      "detected_ring_id": "detected_30",
-      "ground_truth_ring_id": "ring_014"
-    },
-    {
-      "id": "acct_000486",
-      "detected_ring_id": "detected_86",
-      "ground_truth_ring_id": "ring_016"
-    },
-    {
-      "id": "acct_000522",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": null
-    },
-    {
-      "id": "acct_000531",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_000560",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
-    },
-    {
-      "id": "acct_000575",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_000602",
-      "detected_ring_id": "detected_61",
-      "ground_truth_ring_id": "ring_009"
-    },
-    {
-      "id": "acct_000625",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
-    },
-    {
-      "id": "acct_000654",
-      "detected_ring_id": "detected_45",
-      "ground_truth_ring_id": "ring_017"
-    },
-    {
-      "id": "acct_000684",
-      "detected_ring_id": "detected_22",
-      "ground_truth_ring_id": "ring_003"
-    },
-    {
-      "id": "acct_000697",
-      "detected_ring_id": "detected_46",
-      "ground_truth_ring_id": "ring_021"
-    },
-    {
-      "id": "acct_000702",
-      "detected_ring_id": "detected_49",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_006"
     },
     {
-      "id": "acct_000709",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
-    },
-    {
-      "id": "acct_000723",
-      "detected_ring_id": "detected_22",
-      "ground_truth_ring_id": "ring_003"
-    },
-    {
-      "id": "acct_000769",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
-    },
-    {
-      "id": "acct_000780",
-      "detected_ring_id": "detected_22",
-      "ground_truth_ring_id": "ring_003"
-    },
-    {
-      "id": "acct_000800",
-      "detected_ring_id": "detected_46",
-      "ground_truth_ring_id": "ring_021"
-    },
-    {
-      "id": "acct_000823",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_000871",
-      "detected_ring_id": "detected_10",
+      "id": "acct_000227",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_013"
     },
     {
-      "id": "acct_000982",
-      "detected_ring_id": "detected_63",
-      "ground_truth_ring_id": "ring_018"
+      "id": "acct_000235",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_003"
     },
     {
-      "id": "acct_001046",
-      "detected_ring_id": "detected_64",
+      "id": "acct_000308",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_000320",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_000322",
+      "detected_ring_id": "detected_3",
       "ground_truth_ring_id": "ring_019"
     },
     {
-      "id": "acct_001086",
-      "detected_ring_id": "detected_30",
-      "ground_truth_ring_id": "ring_014"
+      "id": "acct_000326",
+      "detected_ring_id": "detected_17",
+      "ground_truth_ring_id": "ring_007"
     },
     {
-      "id": "acct_001106",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
+      "id": "acct_000333",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_006"
     },
     {
-      "id": "acct_001109",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_001134",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_001142",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_001164",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
-    },
-    {
-      "id": "acct_001165",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_001182",
-      "detected_ring_id": "detected_46",
+      "id": "acct_000340",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_021"
     },
     {
-      "id": "acct_001197",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
+      "id": "acct_000351",
+      "detected_ring_id": "detected_19",
+      "ground_truth_ring_id": "ring_002"
     },
     {
-      "id": "acct_001214",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
+      "id": "acct_000377",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_000"
     },
     {
-      "id": "acct_001223",
-      "detected_ring_id": "detected_7",
-      "ground_truth_ring_id": "ring_011"
-    },
-    {
-      "id": "acct_001233",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_001309",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_001349",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_001357",
-      "detected_ring_id": "detected_61",
-      "ground_truth_ring_id": "ring_009"
-    },
-    {
-      "id": "acct_001361",
-      "detected_ring_id": "detected_88",
-      "ground_truth_ring_id": "ring_001"
-    },
-    {
-      "id": "acct_001498",
-      "detected_ring_id": "detected_63",
-      "ground_truth_ring_id": "ring_018"
-    },
-    {
-      "id": "acct_001504",
-      "detected_ring_id": "detected_4",
+      "id": "acct_000381",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_023"
     },
     {
-      "id": "acct_001589",
-      "detected_ring_id": "detected_64",
-      "ground_truth_ring_id": "ring_019"
+      "id": "acct_000382",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
     },
     {
-      "id": "acct_001691",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
+      "id": "acct_000412",
+      "detected_ring_id": "detected_22",
+      "ground_truth_ring_id": "ring_008"
     },
     {
-      "id": "acct_001720",
-      "detected_ring_id": "detected_73",
+      "id": "acct_000442",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_000454",
+      "detected_ring_id": "detected_23",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_000500",
+      "detected_ring_id": "detected_29",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_000526",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_000534",
+      "detected_ring_id": "detected_9",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_000543",
+      "detected_ring_id": "detected_9",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_000604",
+      "detected_ring_id": "detected_9",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_000671",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_000732",
+      "detected_ring_id": "detected_34",
       "ground_truth_ring_id": "ring_020"
     },
     {
-      "id": "acct_001732",
-      "detected_ring_id": "detected_26",
-      "ground_truth_ring_id": "ring_015"
+      "id": "acct_000737",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
     },
     {
-      "id": "acct_001761",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
+      "id": "acct_000764",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_023"
     },
     {
-      "id": "acct_001838",
-      "detected_ring_id": "detected_18",
+      "id": "acct_000792",
+      "detected_ring_id": "detected_35",
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_000811",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_000866",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_000881",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_000891",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_000892",
+      "detected_ring_id": "detected_38",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_000899",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_000973",
+      "detected_ring_id": "detected_16",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_000995",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_001014",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_001017",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_001035",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_007"
     },
     {
-      "id": "acct_001841",
-      "detected_ring_id": "detected_16",
+      "id": "acct_001044",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_001049",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_001050",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_001080",
+      "detected_ring_id": "detected_17",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_001091",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_001107",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_022"
     },
     {
-      "id": "acct_001845",
+      "id": "acct_001112",
       "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": "ring_022"
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_001145",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_001175",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_001176",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_001224",
+      "detected_ring_id": "detected_42",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_001230",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_001267",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_001273",
+      "detected_ring_id": "detected_42",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_001299",
+      "detected_ring_id": "detected_22",
+      "ground_truth_ring_id": "ring_008"
+    },
+    {
+      "id": "acct_001301",
+      "detected_ring_id": "detected_23",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_001359",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_001367",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_001379",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_001387",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_001400",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_004"
+    },
+    {
+      "id": "acct_001441",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_001469",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_001470",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_001512",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_001515",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_001545",
+      "detected_ring_id": "detected_42",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_001603",
+      "detected_ring_id": "detected_3",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_001608",
+      "detected_ring_id": "detected_47",
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_001667",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_001683",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_001698",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_001701",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_001714",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_001725",
+      "detected_ring_id": "detected_3",
+      "ground_truth_ring_id": "ring_019"
+    },
+    {
+      "id": "acct_001733",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_001760",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_001781",
+      "detected_ring_id": "detected_47",
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_001816",
+      "detected_ring_id": "detected_52",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_001837",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
     },
     {
       "id": "acct_001853",
-      "detected_ring_id": "detected_49",
-      "ground_truth_ring_id": "ring_006"
-    },
-    {
-      "id": "acct_001937",
-      "detected_ring_id": "detected_49",
-      "ground_truth_ring_id": "ring_006"
-    },
-    {
-      "id": "acct_002004",
-      "detected_ring_id": "detected_26",
-      "ground_truth_ring_id": null
-    },
-    {
-      "id": "acct_002044",
-      "detected_ring_id": "detected_49",
-      "ground_truth_ring_id": "ring_006"
-    },
-    {
-      "id": "acct_002058",
-      "detected_ring_id": "detected_64",
-      "ground_truth_ring_id": "ring_019"
-    },
-    {
-      "id": "acct_002113",
-      "detected_ring_id": "detected_77",
-      "ground_truth_ring_id": "ring_010"
-    },
-    {
-      "id": "acct_002143",
-      "detected_ring_id": "detected_4",
-      "ground_truth_ring_id": "ring_023"
-    },
-    {
-      "id": "acct_002162",
-      "detected_ring_id": "detected_64",
-      "ground_truth_ring_id": "ring_019"
-    },
-    {
-      "id": "acct_002220",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
-    },
-    {
-      "id": "acct_002231",
-      "detected_ring_id": "detected_86",
-      "ground_truth_ring_id": "ring_016"
-    },
-    {
-      "id": "acct_002244",
-      "detected_ring_id": "detected_85",
-      "ground_truth_ring_id": "ring_000"
-    },
-    {
-      "id": "acct_002303",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
-    },
-    {
-      "id": "acct_002344",
-      "detected_ring_id": "detected_26",
-      "ground_truth_ring_id": "ring_015"
-    },
-    {
-      "id": "acct_002368",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_002411",
-      "detected_ring_id": "detected_71",
+      "detected_ring_id": "detected_9",
       "ground_truth_ring_id": "ring_024"
     },
     {
-      "id": "acct_002418",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
-    },
-    {
-      "id": "acct_002420",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_002425",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
-    },
-    {
-      "id": "acct_002449",
-      "detected_ring_id": "detected_77",
-      "ground_truth_ring_id": "ring_010"
-    },
-    {
-      "id": "acct_002484",
-      "detected_ring_id": "detected_77",
-      "ground_truth_ring_id": "ring_010"
-    },
-    {
-      "id": "acct_002522",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
-    },
-    {
-      "id": "acct_002536",
-      "detected_ring_id": "detected_88",
-      "ground_truth_ring_id": "ring_001"
-    },
-    {
-      "id": "acct_002574",
-      "detected_ring_id": "detected_26",
+      "id": "acct_001896",
+      "detected_ring_id": "detected_42",
       "ground_truth_ring_id": "ring_015"
     },
     {
-      "id": "acct_002649",
-      "detected_ring_id": "detected_49",
+      "id": "acct_001911",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_006"
     },
     {
-      "id": "acct_002662",
-      "detected_ring_id": "detected_61",
-      "ground_truth_ring_id": "ring_009"
+      "id": "acct_001932",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_006"
     },
     {
-      "id": "acct_002668",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
+      "id": "acct_001966",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_005"
     },
     {
-      "id": "acct_002700",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_002703",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_002768",
-      "detected_ring_id": "detected_63",
-      "ground_truth_ring_id": "ring_018"
-    },
-    {
-      "id": "acct_002788",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_002855",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
-    },
-    {
-      "id": "acct_002882",
-      "detected_ring_id": "detected_46",
+      "id": "acct_001980",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_021"
     },
     {
-      "id": "acct_002918",
-      "detected_ring_id": "detected_49",
-      "ground_truth_ring_id": "ring_006"
-    },
-    {
-      "id": "acct_002926",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_002946",
-      "detected_ring_id": "detected_88",
-      "ground_truth_ring_id": "ring_001"
-    },
-    {
-      "id": "acct_002959",
-      "detected_ring_id": "detected_4",
+      "id": "acct_002035",
+      "detected_ring_id": "detected_38",
       "ground_truth_ring_id": "ring_023"
     },
     {
-      "id": "acct_003003",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_003006",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_003010",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_003038",
-      "detected_ring_id": "detected_39",
-      "ground_truth_ring_id": "ring_002"
-    },
-    {
-      "id": "acct_003136",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_003143",
-      "detected_ring_id": "detected_86",
-      "ground_truth_ring_id": "ring_016"
-    },
-    {
-      "id": "acct_003154",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_003193",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
-    },
-    {
-      "id": "acct_003195",
-      "detected_ring_id": "detected_7",
-      "ground_truth_ring_id": "ring_011"
-    },
-    {
-      "id": "acct_003217",
-      "detected_ring_id": "detected_64",
-      "ground_truth_ring_id": "ring_019"
-    },
-    {
-      "id": "acct_003291",
-      "detected_ring_id": "detected_7",
-      "ground_truth_ring_id": null
-    },
-    {
-      "id": "acct_003330",
-      "detected_ring_id": "detected_77",
-      "ground_truth_ring_id": "ring_010"
-    },
-    {
-      "id": "acct_003339",
-      "detected_ring_id": "detected_69",
-      "ground_truth_ring_id": "ring_012"
-    },
-    {
-      "id": "acct_003360",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
-    },
-    {
-      "id": "acct_003373",
-      "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": "ring_022"
-    },
-    {
-      "id": "acct_003383",
-      "detected_ring_id": "detected_77",
-      "ground_truth_ring_id": "ring_010"
-    },
-    {
-      "id": "acct_003412",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_003424",
-      "detected_ring_id": "detected_30",
-      "ground_truth_ring_id": "ring_014"
-    },
-    {
-      "id": "acct_003441",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
-    },
-    {
-      "id": "acct_003448",
-      "detected_ring_id": "detected_45",
-      "ground_truth_ring_id": "ring_017"
-    },
-    {
-      "id": "acct_003460",
-      "detected_ring_id": "detected_30",
-      "ground_truth_ring_id": "ring_014"
-    },
-    {
-      "id": "acct_003475",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_003492",
-      "detected_ring_id": "detected_7",
-      "ground_truth_ring_id": "ring_011"
-    },
-    {
-      "id": "acct_003500",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
-    },
-    {
-      "id": "acct_003507",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_003535",
-      "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": "ring_022"
-    },
-    {
-      "id": "acct_003560",
-      "detected_ring_id": "detected_45",
-      "ground_truth_ring_id": "ring_017"
-    },
-    {
-      "id": "acct_003564",
-      "detected_ring_id": "detected_22",
-      "ground_truth_ring_id": "ring_003"
-    },
-    {
-      "id": "acct_003577",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
-    },
-    {
-      "id": "acct_003583",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_003590",
-      "detected_ring_id": "detected_4",
-      "ground_truth_ring_id": "ring_023"
-    },
-    {
-      "id": "acct_003595",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_003635",
-      "detected_ring_id": "detected_85",
-      "ground_truth_ring_id": "ring_000"
-    },
-    {
-      "id": "acct_003645",
-      "detected_ring_id": "detected_26",
+      "id": "acct_002037",
+      "detected_ring_id": "detected_42",
       "ground_truth_ring_id": "ring_015"
     },
     {
-      "id": "acct_003661",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_003676",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_003692",
-      "detected_ring_id": "detected_77",
-      "ground_truth_ring_id": "ring_010"
-    },
-    {
-      "id": "acct_003725",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_003770",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_003794",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_003804",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_003822",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_003829",
-      "detected_ring_id": "detected_64",
-      "ground_truth_ring_id": "ring_019"
-    },
-    {
-      "id": "acct_003864",
-      "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": "ring_022"
-    },
-    {
-      "id": "acct_003866",
-      "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": null
-    },
-    {
-      "id": "acct_003900",
-      "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": "ring_022"
-    },
-    {
-      "id": "acct_003908",
-      "detected_ring_id": "detected_61",
-      "ground_truth_ring_id": "ring_009"
-    },
-    {
-      "id": "acct_003947",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": null
-    },
-    {
-      "id": "acct_003960",
-      "detected_ring_id": "detected_4",
+      "id": "acct_002086",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_023"
     },
     {
-      "id": "acct_003999",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
-    },
-    {
-      "id": "acct_004030",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_004031",
-      "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": "ring_022"
-    },
-    {
-      "id": "acct_004048",
-      "detected_ring_id": "detected_30",
-      "ground_truth_ring_id": "ring_014"
-    },
-    {
-      "id": "acct_004055",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_004081",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_004131",
-      "detected_ring_id": "detected_22",
-      "ground_truth_ring_id": "ring_003"
-    },
-    {
-      "id": "acct_004132",
-      "detected_ring_id": "detected_4",
-      "ground_truth_ring_id": "ring_023"
-    },
-    {
-      "id": "acct_004133",
-      "detected_ring_id": "detected_77",
-      "ground_truth_ring_id": "ring_010"
-    },
-    {
-      "id": "acct_004193",
-      "detected_ring_id": "detected_85",
-      "ground_truth_ring_id": "ring_000"
-    },
-    {
-      "id": "acct_004195",
-      "detected_ring_id": "detected_45",
-      "ground_truth_ring_id": "ring_017"
-    },
-    {
-      "id": "acct_004248",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_004281",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_004296",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
-    },
-    {
-      "id": "acct_004304",
-      "detected_ring_id": "detected_88",
-      "ground_truth_ring_id": "ring_001"
-    },
-    {
-      "id": "acct_004309",
-      "detected_ring_id": "detected_26",
-      "ground_truth_ring_id": "ring_015"
-    },
-    {
-      "id": "acct_004321",
-      "detected_ring_id": "detected_88",
-      "ground_truth_ring_id": "ring_001"
-    },
-    {
-      "id": "acct_004371",
-      "detected_ring_id": "detected_45",
-      "ground_truth_ring_id": "ring_017"
-    },
-    {
-      "id": "acct_004387",
-      "detected_ring_id": "detected_49",
-      "ground_truth_ring_id": "ring_006"
-    },
-    {
-      "id": "acct_004393",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
-    },
-    {
-      "id": "acct_004401",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_004455",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_004458",
-      "detected_ring_id": "detected_16",
-      "ground_truth_ring_id": "ring_022"
-    },
-    {
-      "id": "acct_004509",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
-    },
-    {
-      "id": "acct_004511",
-      "detected_ring_id": "detected_30",
-      "ground_truth_ring_id": "ring_014"
-    },
-    {
-      "id": "acct_004520",
-      "detected_ring_id": "detected_7",
-      "ground_truth_ring_id": "ring_011"
-    },
-    {
-      "id": "acct_004548",
-      "detected_ring_id": "detected_30",
-      "ground_truth_ring_id": "ring_014"
-    },
-    {
-      "id": "acct_004573",
-      "detected_ring_id": "detected_55",
-      "ground_truth_ring_id": "ring_005"
-    },
-    {
-      "id": "acct_004620",
-      "detected_ring_id": "detected_49",
-      "ground_truth_ring_id": "ring_006"
-    },
-    {
-      "id": "acct_004672",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
-    },
-    {
-      "id": "acct_004677",
-      "detected_ring_id": "detected_7",
-      "ground_truth_ring_id": "ring_011"
-    },
-    {
-      "id": "acct_004681",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_004702",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": null
-    },
-    {
-      "id": "acct_004716",
-      "detected_ring_id": "detected_73",
-      "ground_truth_ring_id": "ring_020"
-    },
-    {
-      "id": "acct_004735",
-      "detected_ring_id": "detected_61",
-      "ground_truth_ring_id": "ring_009"
-    },
-    {
-      "id": "acct_004745",
-      "detected_ring_id": "detected_71",
-      "ground_truth_ring_id": "ring_024"
-    },
-    {
-      "id": "acct_004751",
-      "detected_ring_id": "detected_26",
-      "ground_truth_ring_id": "ring_015"
-    },
-    {
-      "id": "acct_004756",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_004811",
-      "detected_ring_id": "detected_89",
-      "ground_truth_ring_id": "ring_008"
-    },
-    {
-      "id": "acct_004901",
-      "detected_ring_id": "detected_7",
-      "ground_truth_ring_id": "ring_011"
-    },
-    {
-      "id": "acct_004908",
-      "detected_ring_id": "detected_10",
-      "ground_truth_ring_id": "ring_013"
-    },
-    {
-      "id": "acct_004909",
-      "detected_ring_id": "detected_86",
-      "ground_truth_ring_id": "ring_016"
-    },
-    {
-      "id": "acct_004922",
-      "detected_ring_id": "detected_0",
-      "ground_truth_ring_id": "ring_004"
-    },
-    {
-      "id": "acct_004923",
-      "detected_ring_id": "detected_85",
-      "ground_truth_ring_id": "ring_000"
-    },
-    {
-      "id": "acct_004930",
-      "detected_ring_id": "detected_18",
-      "ground_truth_ring_id": "ring_007"
-    },
-    {
-      "id": "acct_004937",
-      "detected_ring_id": "detected_39",
-      "ground_truth_ring_id": "ring_002"
-    },
-    {
-      "id": "acct_004975",
-      "detected_ring_id": "detected_63",
+      "id": "acct_002096",
+      "detected_ring_id": null,
       "ground_truth_ring_id": "ring_018"
     },
     {
-      "id": "acct_004982",
-      "detected_ring_id": "detected_61",
+      "id": "acct_002111",
+      "detected_ring_id": "detected_23",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002122",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_002123",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_002134",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_002165",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_002171",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002205",
+      "detected_ring_id": "detected_47",
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_002266",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_002289",
+      "detected_ring_id": "detected_52",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_002293",
+      "detected_ring_id": "detected_35",
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_002302",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_002341",
+      "detected_ring_id": "detected_17",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002342",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002436",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_002442",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_002448",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_002470",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_002583",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_002617",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_002622",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_002640",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_002647",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_002686",
+      "detected_ring_id": "detected_29",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002722",
+      "detected_ring_id": "detected_47",
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_002752",
+      "detected_ring_id": "detected_0",
       "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_002760",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_002769",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_002776",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002792",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002794",
+      "detected_ring_id": "detected_52",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_002864",
+      "detected_ring_id": "detected_9",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_002917",
+      "detected_ring_id": "detected_9",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_002945",
+      "detected_ring_id": "detected_0",
+      "ground_truth_ring_id": "ring_009"
+    },
+    {
+      "id": "acct_002949",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_002963",
+      "detected_ring_id": "detected_23",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_002993",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_002995",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_003020",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_004"
+    },
+    {
+      "id": "acct_003028",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_003104",
+      "detected_ring_id": "detected_22",
+      "ground_truth_ring_id": "ring_008"
+    },
+    {
+      "id": "acct_003131",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_003148",
+      "detected_ring_id": "detected_29",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_003151",
+      "detected_ring_id": "detected_19",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_003155",
+      "detected_ring_id": "detected_17",
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_003223",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_003239",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_003302",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_003353",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_003355",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_004"
+    },
+    {
+      "id": "acct_003359",
+      "detected_ring_id": "detected_29",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_003363",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_003399",
+      "detected_ring_id": "detected_38",
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_003421",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_003460",
+      "detected_ring_id": "detected_23",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_003477",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_014"
+    },
+    {
+      "id": "acct_003480",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_003522",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_003556",
+      "detected_ring_id": "detected_29",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_003558",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_003571",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_003578",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_003584",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_003595",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_003602",
+      "detected_ring_id": "detected_42",
+      "ground_truth_ring_id": "ring_015"
+    },
+    {
+      "id": "acct_003603",
+      "detected_ring_id": "detected_9",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_003604",
+      "detected_ring_id": "detected_9",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_003630",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_003636",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_003640",
+      "detected_ring_id": "detected_19",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_003642",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_003662",
+      "detected_ring_id": "detected_44",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_003703",
+      "detected_ring_id": "detected_19",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_003755",
+      "detected_ring_id": "detected_52",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_003761",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_003816",
+      "detected_ring_id": "detected_9",
+      "ground_truth_ring_id": "ring_024"
+    },
+    {
+      "id": "acct_003825",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_003870",
+      "detected_ring_id": "detected_19",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_003872",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_003896",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_003995",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_003999",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_004014",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_004090",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_022"
+    },
+    {
+      "id": "acct_004130",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_004133",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_004139",
+      "detected_ring_id": "detected_17",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_004179",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_004235",
+      "detected_ring_id": "detected_52",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_004236",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_000"
+    },
+    {
+      "id": "acct_004279",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_004331",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_005"
+    },
+    {
+      "id": "acct_004341",
+      "detected_ring_id": "detected_52",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_004344",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_004353",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_023"
+    },
+    {
+      "id": "acct_004382",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_004449",
+      "detected_ring_id": "detected_22",
+      "ground_truth_ring_id": "ring_008"
+    },
+    {
+      "id": "acct_004464",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_004"
+    },
+    {
+      "id": "acct_004480",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_004563",
+      "detected_ring_id": "detected_52",
+      "ground_truth_ring_id": "ring_001"
+    },
+    {
+      "id": "acct_004572",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_018"
+    },
+    {
+      "id": "acct_004595",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_011"
+    },
+    {
+      "id": "acct_004622",
+      "detected_ring_id": "detected_22",
+      "ground_truth_ring_id": "ring_008"
+    },
+    {
+      "id": "acct_004648",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_017"
+    },
+    {
+      "id": "acct_004674",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_007"
+    },
+    {
+      "id": "acct_004686",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_012"
+    },
+    {
+      "id": "acct_004696",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_004739",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_004749",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_020"
+    },
+    {
+      "id": "acct_004753",
+      "detected_ring_id": "detected_35",
+      "ground_truth_ring_id": "ring_003"
+    },
+    {
+      "id": "acct_004771",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": null
+    },
+    {
+      "id": "acct_004779",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_016"
+    },
+    {
+      "id": "acct_004806",
+      "detected_ring_id": "detected_57",
+      "ground_truth_ring_id": "ring_010"
+    },
+    {
+      "id": "acct_004822",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_021"
+    },
+    {
+      "id": "acct_004838",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_013"
+    },
+    {
+      "id": "acct_004890",
+      "detected_ring_id": null,
+      "ground_truth_ring_id": "ring_006"
+    },
+    {
+      "id": "acct_004950",
+      "detected_ring_id": "detected_19",
+      "ground_truth_ring_id": "ring_002"
+    },
+    {
+      "id": "acct_004962",
+      "detected_ring_id": "detected_34",
+      "ground_truth_ring_id": "ring_020"
     }
   ],
   "edges": [
     {
-      "source": "acct_000004",
-      "target": "acct_000871",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_001165",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_001214",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_002368",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_002700",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_003010",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_003136",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_003661",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_004455",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_004756",
-      "weight": 2
-    },
-    {
-      "source": "acct_000004",
-      "target": "acct_004908",
-      "weight": 2
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_000769",
-      "weight": 1
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_001691",
-      "weight": 1
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_001838",
-      "weight": 1
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_002425",
-      "weight": 1
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_002855",
-      "weight": 1
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_003360",
-      "weight": 1
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_003999",
-      "weight": 1
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_004296",
-      "weight": 1
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_004393",
-      "weight": 1
-    },
-    {
-      "source": "acct_000020",
-      "target": "acct_004930",
-      "weight": 1
-    },
-    {
-      "source": "acct_000028",
-      "target": "acct_000123",
-      "weight": 1
-    },
-    {
-      "source": "acct_000028",
-      "target": "acct_001732",
-      "weight": 1
-    },
-    {
-      "source": "acct_000028",
-      "target": "acct_002344",
-      "weight": 1
-    },
-    {
-      "source": "acct_000028",
-      "target": "acct_002574",
-      "weight": 1
-    },
-    {
-      "source": "acct_000028",
-      "target": "acct_003645",
-      "weight": 1
-    },
-    {
-      "source": "acct_000028",
-      "target": "acct_004309",
-      "weight": 1
-    },
-    {
-      "source": "acct_000028",
-      "target": "acct_004751",
-      "weight": 1
-    },
-    {
-      "source": "acct_000090",
-      "target": "acct_000130",
-      "weight": 2
-    },
-    {
-      "source": "acct_000090",
-      "target": "acct_003038",
-      "weight": 2
-    },
-    {
-      "source": "acct_000090",
-      "target": "acct_004937",
-      "weight": 2
-    },
-    {
-      "source": "acct_000123",
-      "target": "acct_001732",
-      "weight": 1
-    },
-    {
-      "source": "acct_000123",
-      "target": "acct_002344",
-      "weight": 1
-    },
-    {
-      "source": "acct_000123",
-      "target": "acct_002574",
-      "weight": 1
-    },
-    {
-      "source": "acct_000123",
-      "target": "acct_003645",
-      "weight": 1
-    },
-    {
-      "source": "acct_000123",
-      "target": "acct_004309",
-      "weight": 1
-    },
-    {
-      "source": "acct_000123",
-      "target": "acct_004751",
-      "weight": 1
-    },
-    {
-      "source": "acct_000130",
-      "target": "acct_003038",
-      "weight": 2
-    },
-    {
-      "source": "acct_000130",
-      "target": "acct_004937",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_000531",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_000575",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_000823",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_001134",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_003006",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_003412",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_003595",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_003822",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_004401",
-      "weight": 2
-    },
-    {
-      "source": "acct_000156",
-      "target": "acct_004573",
-      "weight": 2
-    },
-    {
-      "source": "acct_000194",
-      "target": "acct_000602",
-      "weight": 2
-    },
-    {
-      "source": "acct_000194",
-      "target": "acct_001357",
-      "weight": 2
-    },
-    {
-      "source": "acct_000194",
-      "target": "acct_002662",
-      "weight": 2
-    },
-    {
-      "source": "acct_000194",
-      "target": "acct_003908",
-      "weight": 2
-    },
-    {
-      "source": "acct_000194",
-      "target": "acct_004735",
-      "weight": 2
-    },
-    {
-      "source": "acct_000194",
-      "target": "acct_004982",
-      "weight": 2
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_001142",
-      "weight": 1
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_001349",
-      "weight": 1
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_001720",
-      "weight": 1
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_002420",
-      "weight": 1
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_003003",
-      "weight": 1
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_003583",
-      "weight": 1
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_003676",
-      "weight": 1
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_003770",
-      "weight": 1
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_004248",
-      "weight": 1
-    },
-    {
-      "source": "acct_000197",
-      "target": "acct_004716",
-      "weight": 1
-    },
-    {
-      "source": "acct_000244",
-      "target": "acct_000486",
-      "weight": 1
-    },
-    {
-      "source": "acct_000244",
-      "target": "acct_002231",
-      "weight": 1
-    },
-    {
-      "source": "acct_000244",
-      "target": "acct_003143",
-      "weight": 1
-    },
-    {
-      "source": "acct_000244",
-      "target": "acct_004909",
-      "weight": 1
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_000417",
-      "weight": 2
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_002703",
-      "weight": 2
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_002788",
-      "weight": 2
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_003154",
-      "weight": 2
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_003475",
-      "weight": 2
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_004055",
-      "weight": 2
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_004081",
-      "weight": 2
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_004281",
-      "weight": 2
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_004681",
-      "weight": 2
-    },
-    {
-      "source": "acct_000247",
-      "target": "acct_004811",
-      "weight": 2
-    },
-    {
-      "source": "acct_000255",
-      "target": "acct_000560",
-      "weight": 1
-    },
-    {
-      "source": "acct_000255",
-      "target": "acct_000625",
-      "weight": 1
-    },
-    {
-      "source": "acct_000255",
-      "target": "acct_000709",
-      "weight": 1
-    },
-    {
-      "source": "acct_000255",
-      "target": "acct_001164",
-      "weight": 1
-    },
-    {
-      "source": "acct_000255",
-      "target": "acct_001761",
-      "weight": 1
-    },
-    {
-      "source": "acct_000255",
-      "target": "acct_002303",
-      "weight": 1
-    },
-    {
-      "source": "acct_000255",
-      "target": "acct_002418",
-      "weight": 1
-    },
-    {
-      "source": "acct_000255",
-      "target": "acct_002522",
-      "weight": 1
-    },
-    {
-      "source": "acct_000255",
-      "target": "acct_003339",
-      "weight": 1
-    },
-    {
-      "source": "acct_000303",
-      "target": "acct_002113",
-      "weight": 1
-    },
-    {
-      "source": "acct_000303",
-      "target": "acct_002449",
-      "weight": 1
-    },
-    {
-      "source": "acct_000303",
-      "target": "acct_002484",
-      "weight": 1
-    },
-    {
-      "source": "acct_000303",
-      "target": "acct_003330",
-      "weight": 1
-    },
-    {
-      "source": "acct_000303",
-      "target": "acct_003383",
-      "weight": 1
-    },
-    {
-      "source": "acct_000303",
-      "target": "acct_003692",
-      "weight": 1
-    },
-    {
-      "source": "acct_000303",
-      "target": "acct_004133",
-      "weight": 1
-    },
-    {
-      "source": "acct_000313",
-      "target": "acct_002244",
-      "weight": 1
-    },
-    {
-      "source": "acct_000313",
-      "target": "acct_003635",
-      "weight": 1
-    },
-    {
-      "source": "acct_000313",
-      "target": "acct_004193",
-      "weight": 1
-    },
-    {
-      "source": "acct_000313",
-      "target": "acct_004923",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_001106",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_001197",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_002220",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_002668",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_003193",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_003441",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_003500",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_003577",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_004509",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_004672",
-      "weight": 1
-    },
-    {
-      "source": "acct_000352",
-      "target": "acct_004922",
-      "weight": 1
-    },
-    {
-      "source": "acct_000354",
-      "target": "acct_001223",
-      "weight": 2
-    },
-    {
-      "source": "acct_000354",
-      "target": "acct_003195",
-      "weight": 2
-    },
-    {
-      "source": "acct_000354",
-      "target": "acct_003492",
-      "weight": 2
-    },
-    {
-      "source": "acct_000354",
-      "target": "acct_004520",
-      "weight": 2
-    },
-    {
-      "source": "acct_000354",
-      "target": "acct_004677",
-      "weight": 2
-    },
-    {
-      "source": "acct_000354",
-      "target": "acct_004901",
-      "weight": 2
-    },
-    {
-      "source": "acct_000393",
-      "target": "acct_000415",
-      "weight": 1
-    },
-    {
-      "source": "acct_000393",
-      "target": "acct_001841",
-      "weight": 1
-    },
-    {
-      "source": "acct_000393",
-      "target": "acct_001845",
-      "weight": 1
-    },
-    {
-      "source": "acct_000393",
-      "target": "acct_003373",
-      "weight": 1
-    },
-    {
-      "source": "acct_000393",
-      "target": "acct_003535",
-      "weight": 1
-    },
-    {
-      "source": "acct_000393",
-      "target": "acct_003864",
-      "weight": 1
-    },
-    {
-      "source": "acct_000393",
-      "target": "acct_003900",
-      "weight": 1
-    },
-    {
-      "source": "acct_000393",
-      "target": "acct_004031",
-      "weight": 1
-    },
-    {
-      "source": "acct_000393",
-      "target": "acct_004458",
-      "weight": 1
-    },
-    {
-      "source": "acct_000398",
-      "target": "acct_000684",
-      "weight": 2
-    },
-    {
-      "source": "acct_000398",
-      "target": "acct_000723",
-      "weight": 2
-    },
-    {
-      "source": "acct_000398",
-      "target": "acct_000780",
-      "weight": 2
-    },
-    {
-      "source": "acct_000398",
-      "target": "acct_003564",
-      "weight": 2
-    },
-    {
-      "source": "acct_000398",
-      "target": "acct_004131",
-      "weight": 2
-    },
-    {
-      "source": "acct_000407",
-      "target": "acct_003460",
-      "weight": 1
-    },
-    {
-      "source": "acct_000415",
-      "target": "acct_001841",
-      "weight": 1
-    },
-    {
-      "source": "acct_000415",
-      "target": "acct_001845",
-      "weight": 1
-    },
-    {
-      "source": "acct_000415",
-      "target": "acct_003373",
-      "weight": 1
-    },
-    {
-      "source": "acct_000415",
-      "target": "acct_003535",
-      "weight": 1
-    },
-    {
-      "source": "acct_000415",
-      "target": "acct_003864",
-      "weight": 1
-    },
-    {
-      "source": "acct_000415",
-      "target": "acct_003900",
-      "weight": 1
-    },
-    {
-      "source": "acct_000415",
-      "target": "acct_004031",
+      "source": "acct_000016",
+      "target": "acct_001470",
       "weight": 1
     },
     {
-      "source": "acct_000415",
-      "target": "acct_004458",
+      "source": "acct_000016",
+      "target": "acct_002752",
       "weight": 1
-    },
-    {
-      "source": "acct_000417",
-      "target": "acct_002703",
-      "weight": 2
-    },
-    {
-      "source": "acct_000417",
-      "target": "acct_002788",
-      "weight": 2
-    },
-    {
-      "source": "acct_000417",
-      "target": "acct_003154",
-      "weight": 2
-    },
-    {
-      "source": "acct_000417",
-      "target": "acct_003475",
-      "weight": 2
-    },
-    {
-      "source": "acct_000417",
-      "target": "acct_004055",
-      "weight": 2
     },
     {
-      "source": "acct_000417",
-      "target": "acct_004081",
-      "weight": 2
-    },
-    {
-      "source": "acct_000417",
-      "target": "acct_004281",
-      "weight": 2
-    },
-    {
-      "source": "acct_000417",
-      "target": "acct_004681",
-      "weight": 2
-    },
-    {
-      "source": "acct_000417",
-      "target": "acct_004811",
-      "weight": 2
-    },
-    {
-      "source": "acct_000481",
-      "target": "acct_001086",
-      "weight": 2
-    },
-    {
-      "source": "acct_000481",
-      "target": "acct_003424",
-      "weight": 2
-    },
-    {
-      "source": "acct_000481",
-      "target": "acct_003460",
-      "weight": 2
-    },
-    {
-      "source": "acct_000481",
-      "target": "acct_004048",
-      "weight": 2
-    },
-    {
-      "source": "acct_000481",
-      "target": "acct_004511",
-      "weight": 2
-    },
-    {
-      "source": "acct_000481",
-      "target": "acct_004548",
-      "weight": 2
-    },
-    {
-      "source": "acct_000486",
-      "target": "acct_002231",
+      "source": "acct_000016",
+      "target": "acct_002945",
       "weight": 1
     },
     {
-      "source": "acct_000486",
-      "target": "acct_003143",
+      "source": "acct_000025",
+      "target": "acct_000442",
       "weight": 1
     },
     {
-      "source": "acct_000486",
-      "target": "acct_004909",
+      "source": "acct_000025",
+      "target": "acct_000526",
       "weight": 1
     },
     {
-      "source": "acct_000522",
-      "target": "acct_002368",
+      "source": "acct_000025",
+      "target": "acct_000737",
       "weight": 1
-    },
-    {
-      "source": "acct_000531",
-      "target": "acct_000575",
-      "weight": 2
-    },
-    {
-      "source": "acct_000531",
-      "target": "acct_000823",
-      "weight": 2
-    },
-    {
-      "source": "acct_000531",
-      "target": "acct_001134",
-      "weight": 2
-    },
-    {
-      "source": "acct_000531",
-      "target": "acct_003006",
-      "weight": 2
-    },
-    {
-      "source": "acct_000531",
-      "target": "acct_003412",
-      "weight": 2
-    },
-    {
-      "source": "acct_000531",
-      "target": "acct_003595",
-      "weight": 2
     },
     {
-      "source": "acct_000531",
-      "target": "acct_003822",
-      "weight": 2
-    },
-    {
-      "source": "acct_000531",
-      "target": "acct_004401",
-      "weight": 2
-    },
-    {
-      "source": "acct_000531",
-      "target": "acct_004573",
-      "weight": 2
-    },
-    {
-      "source": "acct_000560",
-      "target": "acct_000625",
+      "source": "acct_000025",
+      "target": "acct_001049",
       "weight": 1
     },
     {
-      "source": "acct_000560",
-      "target": "acct_000709",
+      "source": "acct_000025",
+      "target": "acct_001714",
       "weight": 1
     },
     {
-      "source": "acct_000560",
-      "target": "acct_001164",
+      "source": "acct_000025",
+      "target": "acct_002096",
       "weight": 1
     },
     {
-      "source": "acct_000560",
-      "target": "acct_001761",
+      "source": "acct_000025",
+      "target": "acct_002442",
       "weight": 1
     },
     {
-      "source": "acct_000560",
-      "target": "acct_002303",
+      "source": "acct_000025",
+      "target": "acct_003239",
       "weight": 1
     },
     {
-      "source": "acct_000560",
-      "target": "acct_002418",
+      "source": "acct_000025",
+      "target": "acct_003896",
       "weight": 1
     },
     {
-      "source": "acct_000560",
-      "target": "acct_002522",
+      "source": "acct_000025",
+      "target": "acct_004344",
       "weight": 1
     },
     {
-      "source": "acct_000560",
-      "target": "acct_003339",
+      "source": "acct_000025",
+      "target": "acct_004572",
       "weight": 1
-    },
-    {
-      "source": "acct_000575",
-      "target": "acct_000823",
-      "weight": 2
-    },
-    {
-      "source": "acct_000575",
-      "target": "acct_001134",
-      "weight": 2
-    },
-    {
-      "source": "acct_000575",
-      "target": "acct_003006",
-      "weight": 2
-    },
-    {
-      "source": "acct_000575",
-      "target": "acct_003412",
-      "weight": 2
-    },
-    {
-      "source": "acct_000575",
-      "target": "acct_003595",
-      "weight": 2
-    },
-    {
-      "source": "acct_000575",
-      "target": "acct_003822",
-      "weight": 2
-    },
-    {
-      "source": "acct_000575",
-      "target": "acct_004401",
-      "weight": 2
-    },
-    {
-      "source": "acct_000575",
-      "target": "acct_004573",
-      "weight": 2
-    },
-    {
-      "source": "acct_000602",
-      "target": "acct_001357",
-      "weight": 2
     },
     {
-      "source": "acct_000602",
-      "target": "acct_002662",
+      "source": "acct_000058",
+      "target": "acct_000322",
       "weight": 2
     },
     {
-      "source": "acct_000602",
-      "target": "acct_003908",
+      "source": "acct_000058",
+      "target": "acct_001603",
       "weight": 2
     },
     {
-      "source": "acct_000602",
-      "target": "acct_004735",
+      "source": "acct_000058",
+      "target": "acct_001725",
       "weight": 2
-    },
-    {
-      "source": "acct_000602",
-      "target": "acct_004982",
-      "weight": 2
-    },
-    {
-      "source": "acct_000625",
-      "target": "acct_000709",
-      "weight": 1
-    },
-    {
-      "source": "acct_000625",
-      "target": "acct_001164",
-      "weight": 1
-    },
-    {
-      "source": "acct_000625",
-      "target": "acct_001761",
-      "weight": 1
     },
     {
-      "source": "acct_000625",
-      "target": "acct_002303",
+      "source": "acct_000084",
+      "target": "acct_001107",
       "weight": 1
     },
     {
-      "source": "acct_000625",
-      "target": "acct_002418",
+      "source": "acct_000178",
+      "target": "acct_000534",
       "weight": 1
     },
     {
-      "source": "acct_000625",
-      "target": "acct_002522",
+      "source": "acct_000178",
+      "target": "acct_000543",
       "weight": 1
     },
     {
-      "source": "acct_000625",
-      "target": "acct_003339",
+      "source": "acct_000178",
+      "target": "acct_000604",
       "weight": 1
-    },
-    {
-      "source": "acct_000654",
-      "target": "acct_003448",
-      "weight": 1
-    },
-    {
-      "source": "acct_000654",
-      "target": "acct_003560",
-      "weight": 1
-    },
-    {
-      "source": "acct_000654",
-      "target": "acct_004195",
-      "weight": 1
-    },
-    {
-      "source": "acct_000654",
-      "target": "acct_004371",
-      "weight": 1
-    },
-    {
-      "source": "acct_000684",
-      "target": "acct_000723",
-      "weight": 2
-    },
-    {
-      "source": "acct_000684",
-      "target": "acct_000780",
-      "weight": 2
-    },
-    {
-      "source": "acct_000684",
-      "target": "acct_003564",
-      "weight": 2
-    },
-    {
-      "source": "acct_000684",
-      "target": "acct_004131",
-      "weight": 2
-    },
-    {
-      "source": "acct_000697",
-      "target": "acct_000800",
-      "weight": 2
-    },
-    {
-      "source": "acct_000697",
-      "target": "acct_001182",
-      "weight": 2
-    },
-    {
-      "source": "acct_000697",
-      "target": "acct_002882",
-      "weight": 2
     },
     {
-      "source": "acct_000702",
+      "source": "acct_000178",
       "target": "acct_001853",
       "weight": 1
     },
     {
-      "source": "acct_000702",
-      "target": "acct_001937",
+      "source": "acct_000178",
+      "target": "acct_002864",
       "weight": 1
     },
     {
-      "source": "acct_000702",
-      "target": "acct_002044",
+      "source": "acct_000178",
+      "target": "acct_002917",
       "weight": 1
     },
     {
-      "source": "acct_000702",
-      "target": "acct_002649",
+      "source": "acct_000178",
+      "target": "acct_003603",
       "weight": 1
     },
     {
-      "source": "acct_000702",
-      "target": "acct_002918",
+      "source": "acct_000178",
+      "target": "acct_003604",
       "weight": 1
     },
     {
-      "source": "acct_000702",
-      "target": "acct_004387",
+      "source": "acct_000178",
+      "target": "acct_003816",
       "weight": 1
     },
     {
-      "source": "acct_000702",
-      "target": "acct_004620",
+      "source": "acct_000189",
+      "target": "acct_000866",
       "weight": 1
     },
     {
-      "source": "acct_000709",
-      "target": "acct_001164",
+      "source": "acct_000189",
+      "target": "acct_001044",
       "weight": 1
     },
     {
-      "source": "acct_000709",
-      "target": "acct_001761",
+      "source": "acct_000189",
+      "target": "acct_001359",
       "weight": 1
     },
     {
-      "source": "acct_000709",
-      "target": "acct_002303",
+      "source": "acct_000189",
+      "target": "acct_001441",
       "weight": 1
     },
     {
-      "source": "acct_000709",
-      "target": "acct_002418",
+      "source": "acct_000189",
+      "target": "acct_003761",
       "weight": 1
     },
     {
-      "source": "acct_000709",
-      "target": "acct_002522",
+      "source": "acct_000189",
+      "target": "acct_004779",
       "weight": 1
     },
     {
-      "source": "acct_000709",
-      "target": "acct_003339",
-      "weight": 1
-    },
-    {
-      "source": "acct_000709",
-      "target": "acct_003804",
-      "weight": 1
-    },
-    {
-      "source": "acct_000723",
-      "target": "acct_000780",
+      "source": "acct_000197",
+      "target": "acct_000333",
       "weight": 2
     },
     {
-      "source": "acct_000723",
-      "target": "acct_003564",
+      "source": "acct_000197",
+      "target": "acct_001667",
       "weight": 2
     },
     {
-      "source": "acct_000723",
-      "target": "acct_004131",
+      "source": "acct_000197",
+      "target": "acct_001911",
       "weight": 2
     },
     {
-      "source": "acct_000769",
-      "target": "acct_001691",
+      "source": "acct_000197",
+      "target": "acct_001932",
+      "weight": 2
+    },
+    {
+      "source": "acct_000197",
+      "target": "acct_002165",
+      "weight": 2
+    },
+    {
+      "source": "acct_000197",
+      "target": "acct_003578",
+      "weight": 2
+    },
+    {
+      "source": "acct_000197",
+      "target": "acct_003642",
+      "weight": 2
+    },
+    {
+      "source": "acct_000197",
+      "target": "acct_003995",
+      "weight": 2
+    },
+    {
+      "source": "acct_000197",
+      "target": "acct_004179",
+      "weight": 2
+    },
+    {
+      "source": "acct_000197",
+      "target": "acct_004890",
+      "weight": 2
+    },
+    {
+      "source": "acct_000320",
+      "target": "acct_000973",
       "weight": 1
     },
     {
-      "source": "acct_000769",
-      "target": "acct_001838",
+      "source": "acct_000320",
+      "target": "acct_001112",
       "weight": 1
     },
     {
-      "source": "acct_000769",
-      "target": "acct_002425",
+      "source": "acct_000322",
+      "target": "acct_001603",
+      "weight": 2
+    },
+    {
+      "source": "acct_000322",
+      "target": "acct_001725",
+      "weight": 2
+    },
+    {
+      "source": "acct_000326",
+      "target": "acct_001080",
       "weight": 1
     },
     {
-      "source": "acct_000769",
-      "target": "acct_002855",
+      "source": "acct_000326",
+      "target": "acct_002341",
       "weight": 1
     },
     {
-      "source": "acct_000769",
-      "target": "acct_003360",
+      "source": "acct_000326",
+      "target": "acct_003155",
       "weight": 1
     },
     {
-      "source": "acct_000769",
-      "target": "acct_003947",
+      "source": "acct_000326",
+      "target": "acct_004139",
       "weight": 1
     },
     {
-      "source": "acct_000769",
+      "source": "acct_000333",
+      "target": "acct_001667",
+      "weight": 2
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_001911",
+      "weight": 2
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_001932",
+      "weight": 2
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_002165",
+      "weight": 2
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_003578",
+      "weight": 2
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_003642",
+      "weight": 2
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_003995",
+      "weight": 2
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_004179",
+      "weight": 2
+    },
+    {
+      "source": "acct_000333",
+      "target": "acct_004890",
+      "weight": 2
+    },
+    {
+      "source": "acct_000340",
+      "target": "acct_001980",
+      "weight": 1
+    },
+    {
+      "source": "acct_000340",
+      "target": "acct_002123",
+      "weight": 1
+    },
+    {
+      "source": "acct_000340",
+      "target": "acct_003302",
+      "weight": 1
+    },
+    {
+      "source": "acct_000340",
+      "target": "acct_003421",
+      "weight": 1
+    },
+    {
+      "source": "acct_000340",
+      "target": "acct_004822",
+      "weight": 1
+    },
+    {
+      "source": "acct_000351",
+      "target": "acct_003151",
+      "weight": 2
+    },
+    {
+      "source": "acct_000351",
+      "target": "acct_003640",
+      "weight": 2
+    },
+    {
+      "source": "acct_000351",
+      "target": "acct_003703",
+      "weight": 2
+    },
+    {
+      "source": "acct_000351",
+      "target": "acct_003870",
+      "weight": 2
+    },
+    {
+      "source": "acct_000351",
+      "target": "acct_004950",
+      "weight": 2
+    },
+    {
+      "source": "acct_000377",
       "target": "acct_003999",
       "weight": 1
     },
     {
-      "source": "acct_000769",
-      "target": "acct_004296",
+      "source": "acct_000382",
+      "target": "acct_000671",
       "weight": 1
     },
     {
-      "source": "acct_000769",
-      "target": "acct_004393",
+      "source": "acct_000382",
+      "target": "acct_000891",
       "weight": 1
     },
     {
-      "source": "acct_000769",
-      "target": "acct_004930",
+      "source": "acct_000382",
+      "target": "acct_001145",
       "weight": 1
     },
     {
-      "source": "acct_000780",
-      "target": "acct_003564",
-      "weight": 2
+      "source": "acct_000382",
+      "target": "acct_001837",
+      "weight": 1
     },
     {
-      "source": "acct_000780",
-      "target": "acct_004131",
-      "weight": 2
+      "source": "acct_000382",
+      "target": "acct_002448",
+      "weight": 1
     },
     {
-      "source": "acct_000800",
-      "target": "acct_001182",
-      "weight": 2
+      "source": "acct_000382",
+      "target": "acct_002647",
+      "weight": 1
     },
     {
-      "source": "acct_000800",
-      "target": "acct_002882",
-      "weight": 2
+      "source": "acct_000382",
+      "target": "acct_002993",
+      "weight": 1
     },
     {
-      "source": "acct_000823",
-      "target": "acct_001134",
-      "weight": 2
+      "source": "acct_000382",
+      "target": "acct_003363",
+      "weight": 1
     },
     {
-      "source": "acct_000823",
-      "target": "acct_003006",
-      "weight": 2
+      "source": "acct_000382",
+      "target": "acct_004279",
+      "weight": 1
     },
     {
-      "source": "acct_000823",
-      "target": "acct_003412",
-      "weight": 2
+      "source": "acct_000382",
+      "target": "acct_004696",
+      "weight": 1
     },
     {
-      "source": "acct_000823",
-      "target": "acct_003595",
-      "weight": 2
+      "source": "acct_000382",
+      "target": "acct_004806",
+      "weight": 1
     },
     {
-      "source": "acct_000823",
-      "target": "acct_003822",
-      "weight": 2
+      "source": "acct_000412",
+      "target": "acct_001299",
+      "weight": 1
     },
     {
-      "source": "acct_000823",
-      "target": "acct_004401",
-      "weight": 2
+      "source": "acct_000412",
+      "target": "acct_003104",
+      "weight": 1
     },
     {
-      "source": "acct_000823",
-      "target": "acct_004573",
-      "weight": 2
+      "source": "acct_000412",
+      "target": "acct_004449",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_001165",
-      "weight": 2
+      "source": "acct_000412",
+      "target": "acct_004622",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_001214",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_000526",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_002368",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_000737",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_002700",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_001049",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_003010",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_001714",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_003136",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_002096",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_003661",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_002442",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_004455",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_003239",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_004756",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_003896",
+      "weight": 1
     },
     {
-      "source": "acct_000871",
-      "target": "acct_004908",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_004344",
+      "weight": 1
     },
     {
-      "source": "acct_000982",
-      "target": "acct_001498",
-      "weight": 2
+      "source": "acct_000442",
+      "target": "acct_004572",
+      "weight": 1
     },
     {
-      "source": "acct_000982",
-      "target": "acct_002768",
-      "weight": 2
+      "source": "acct_000454",
+      "target": "acct_001301",
+      "weight": 1
     },
     {
-      "source": "acct_000982",
-      "target": "acct_004975",
-      "weight": 2
+      "source": "acct_000454",
+      "target": "acct_002111",
+      "weight": 1
     },
     {
-      "source": "acct_001046",
-      "target": "acct_001589",
-      "weight": 2
+      "source": "acct_000454",
+      "target": "acct_002963",
+      "weight": 1
     },
     {
-      "source": "acct_001046",
-      "target": "acct_002058",
-      "weight": 2
-    },
-    {
-      "source": "acct_001046",
-      "target": "acct_002162",
-      "weight": 2
-    },
-    {
-      "source": "acct_001046",
-      "target": "acct_003217",
-      "weight": 2
-    },
-    {
-      "source": "acct_001046",
-      "target": "acct_003829",
-      "weight": 2
-    },
-    {
-      "source": "acct_001086",
-      "target": "acct_003424",
-      "weight": 2
-    },
-    {
-      "source": "acct_001086",
+      "source": "acct_000454",
       "target": "acct_003460",
-      "weight": 2
-    },
-    {
-      "source": "acct_001086",
-      "target": "acct_004048",
-      "weight": 2
-    },
-    {
-      "source": "acct_001086",
-      "target": "acct_004511",
-      "weight": 2
-    },
-    {
-      "source": "acct_001086",
-      "target": "acct_004548",
-      "weight": 2
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_001197",
-      "weight": 1
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_002220",
-      "weight": 1
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_002668",
-      "weight": 1
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_003193",
-      "weight": 1
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_003441",
-      "weight": 1
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_003500",
-      "weight": 1
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_003577",
-      "weight": 1
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_004509",
-      "weight": 1
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_004672",
-      "weight": 1
-    },
-    {
-      "source": "acct_001106",
-      "target": "acct_004922",
-      "weight": 1
-    },
-    {
-      "source": "acct_001109",
-      "target": "acct_001233",
-      "weight": 1
-    },
-    {
-      "source": "acct_001109",
-      "target": "acct_001309",
-      "weight": 1
-    },
-    {
-      "source": "acct_001109",
-      "target": "acct_002411",
       "weight": 1
     },
     {
-      "source": "acct_001109",
-      "target": "acct_002926",
+      "source": "acct_000500",
+      "target": "acct_002686",
       "weight": 1
     },
     {
-      "source": "acct_001109",
-      "target": "acct_003507",
+      "source": "acct_000500",
+      "target": "acct_003148",
       "weight": 1
     },
     {
-      "source": "acct_001109",
-      "target": "acct_003725",
+      "source": "acct_000500",
+      "target": "acct_003359",
       "weight": 1
-    },
-    {
-      "source": "acct_001109",
-      "target": "acct_003794",
-      "weight": 1
-    },
-    {
-      "source": "acct_001109",
-      "target": "acct_003804",
-      "weight": 1
-    },
-    {
-      "source": "acct_001109",
-      "target": "acct_004030",
-      "weight": 1
-    },
-    {
-      "source": "acct_001109",
-      "target": "acct_004745",
-      "weight": 1
-    },
-    {
-      "source": "acct_001134",
-      "target": "acct_003006",
-      "weight": 2
-    },
-    {
-      "source": "acct_001134",
-      "target": "acct_003412",
-      "weight": 2
-    },
-    {
-      "source": "acct_001134",
-      "target": "acct_003595",
-      "weight": 2
-    },
-    {
-      "source": "acct_001134",
-      "target": "acct_003822",
-      "weight": 2
     },
     {
-      "source": "acct_001134",
-      "target": "acct_004401",
-      "weight": 2
-    },
-    {
-      "source": "acct_001134",
-      "target": "acct_004573",
-      "weight": 2
-    },
-    {
-      "source": "acct_001142",
-      "target": "acct_001349",
+      "source": "acct_000500",
+      "target": "acct_003556",
       "weight": 1
     },
     {
-      "source": "acct_001142",
-      "target": "acct_001720",
+      "source": "acct_000526",
+      "target": "acct_000737",
       "weight": 1
     },
     {
-      "source": "acct_001142",
-      "target": "acct_002420",
+      "source": "acct_000526",
+      "target": "acct_001049",
       "weight": 1
     },
     {
-      "source": "acct_001142",
-      "target": "acct_003003",
+      "source": "acct_000526",
+      "target": "acct_001714",
       "weight": 1
     },
     {
-      "source": "acct_001142",
-      "target": "acct_003583",
+      "source": "acct_000526",
+      "target": "acct_002096",
       "weight": 1
     },
     {
-      "source": "acct_001142",
-      "target": "acct_003676",
+      "source": "acct_000526",
+      "target": "acct_002442",
       "weight": 1
     },
     {
-      "source": "acct_001142",
-      "target": "acct_003770",
+      "source": "acct_000526",
+      "target": "acct_003239",
       "weight": 1
     },
     {
-      "source": "acct_001142",
-      "target": "acct_004248",
+      "source": "acct_000526",
+      "target": "acct_003896",
       "weight": 1
     },
     {
-      "source": "acct_001142",
-      "target": "acct_004716",
+      "source": "acct_000526",
+      "target": "acct_004344",
       "weight": 1
     },
     {
-      "source": "acct_001164",
-      "target": "acct_001761",
+      "source": "acct_000526",
+      "target": "acct_004572",
       "weight": 1
     },
     {
-      "source": "acct_001164",
-      "target": "acct_002303",
+      "source": "acct_000534",
+      "target": "acct_000543",
       "weight": 1
     },
     {
-      "source": "acct_001164",
-      "target": "acct_002418",
+      "source": "acct_000534",
+      "target": "acct_000604",
       "weight": 1
     },
     {
-      "source": "acct_001164",
-      "target": "acct_002522",
+      "source": "acct_000534",
+      "target": "acct_001853",
       "weight": 1
     },
     {
-      "source": "acct_001164",
-      "target": "acct_003339",
+      "source": "acct_000534",
+      "target": "acct_002864",
       "weight": 1
-    },
-    {
-      "source": "acct_001165",
-      "target": "acct_001214",
-      "weight": 2
-    },
-    {
-      "source": "acct_001165",
-      "target": "acct_002368",
-      "weight": 2
-    },
-    {
-      "source": "acct_001165",
-      "target": "acct_002700",
-      "weight": 2
-    },
-    {
-      "source": "acct_001165",
-      "target": "acct_003010",
-      "weight": 2
-    },
-    {
-      "source": "acct_001165",
-      "target": "acct_003136",
-      "weight": 2
-    },
-    {
-      "source": "acct_001165",
-      "target": "acct_003661",
-      "weight": 2
     },
     {
-      "source": "acct_001165",
-      "target": "acct_004455",
-      "weight": 2
-    },
-    {
-      "source": "acct_001165",
-      "target": "acct_004756",
-      "weight": 2
-    },
-    {
-      "source": "acct_001165",
-      "target": "acct_004908",
-      "weight": 2
-    },
-    {
-      "source": "acct_001182",
-      "target": "acct_002882",
-      "weight": 2
-    },
-    {
-      "source": "acct_001197",
-      "target": "acct_002220",
+      "source": "acct_000534",
+      "target": "acct_002917",
       "weight": 1
     },
     {
-      "source": "acct_001197",
-      "target": "acct_002668",
+      "source": "acct_000534",
+      "target": "acct_003603",
       "weight": 1
     },
     {
-      "source": "acct_001197",
-      "target": "acct_003193",
+      "source": "acct_000534",
+      "target": "acct_003604",
       "weight": 1
     },
     {
-      "source": "acct_001197",
-      "target": "acct_003441",
+      "source": "acct_000534",
+      "target": "acct_003816",
       "weight": 1
     },
     {
-      "source": "acct_001197",
-      "target": "acct_003500",
+      "source": "acct_000543",
+      "target": "acct_000604",
       "weight": 1
     },
     {
-      "source": "acct_001197",
-      "target": "acct_003577",
+      "source": "acct_000543",
+      "target": "acct_001853",
       "weight": 1
     },
     {
-      "source": "acct_001197",
-      "target": "acct_004509",
+      "source": "acct_000543",
+      "target": "acct_002864",
       "weight": 1
     },
     {
-      "source": "acct_001197",
-      "target": "acct_004672",
+      "source": "acct_000543",
+      "target": "acct_002917",
       "weight": 1
     },
     {
-      "source": "acct_001197",
-      "target": "acct_004922",
+      "source": "acct_000543",
+      "target": "acct_003603",
       "weight": 1
-    },
-    {
-      "source": "acct_001214",
-      "target": "acct_002368",
-      "weight": 2
-    },
-    {
-      "source": "acct_001214",
-      "target": "acct_002700",
-      "weight": 2
-    },
-    {
-      "source": "acct_001214",
-      "target": "acct_003010",
-      "weight": 2
-    },
-    {
-      "source": "acct_001214",
-      "target": "acct_003136",
-      "weight": 2
-    },
-    {
-      "source": "acct_001214",
-      "target": "acct_003661",
-      "weight": 2
-    },
-    {
-      "source": "acct_001214",
-      "target": "acct_004455",
-      "weight": 2
-    },
-    {
-      "source": "acct_001214",
-      "target": "acct_004756",
-      "weight": 2
-    },
-    {
-      "source": "acct_001214",
-      "target": "acct_004908",
-      "weight": 2
-    },
-    {
-      "source": "acct_001223",
-      "target": "acct_003195",
-      "weight": 2
-    },
-    {
-      "source": "acct_001223",
-      "target": "acct_003492",
-      "weight": 2
-    },
-    {
-      "source": "acct_001223",
-      "target": "acct_004520",
-      "weight": 2
-    },
-    {
-      "source": "acct_001223",
-      "target": "acct_004677",
-      "weight": 2
     },
     {
-      "source": "acct_001223",
-      "target": "acct_004901",
-      "weight": 2
-    },
-    {
-      "source": "acct_001233",
-      "target": "acct_001309",
+      "source": "acct_000543",
+      "target": "acct_003604",
       "weight": 1
     },
     {
-      "source": "acct_001233",
-      "target": "acct_002411",
+      "source": "acct_000543",
+      "target": "acct_003816",
       "weight": 1
     },
     {
-      "source": "acct_001233",
-      "target": "acct_002926",
+      "source": "acct_000604",
+      "target": "acct_001853",
       "weight": 1
     },
     {
-      "source": "acct_001233",
-      "target": "acct_003507",
+      "source": "acct_000604",
+      "target": "acct_002864",
       "weight": 1
     },
     {
-      "source": "acct_001233",
-      "target": "acct_003725",
+      "source": "acct_000604",
+      "target": "acct_002917",
       "weight": 1
     },
     {
-      "source": "acct_001233",
-      "target": "acct_003794",
+      "source": "acct_000604",
+      "target": "acct_003603",
       "weight": 1
     },
     {
-      "source": "acct_001233",
-      "target": "acct_003804",
+      "source": "acct_000604",
+      "target": "acct_003604",
       "weight": 1
     },
     {
-      "source": "acct_001233",
-      "target": "acct_004030",
+      "source": "acct_000604",
+      "target": "acct_003816",
       "weight": 1
     },
     {
-      "source": "acct_001233",
-      "target": "acct_004745",
+      "source": "acct_000671",
+      "target": "acct_000891",
       "weight": 1
     },
     {
-      "source": "acct_001309",
-      "target": "acct_002411",
+      "source": "acct_000671",
+      "target": "acct_001145",
       "weight": 1
     },
     {
-      "source": "acct_001309",
-      "target": "acct_002926",
+      "source": "acct_000671",
+      "target": "acct_001701",
       "weight": 1
     },
     {
-      "source": "acct_001309",
-      "target": "acct_003507",
+      "source": "acct_000671",
+      "target": "acct_001837",
       "weight": 1
     },
     {
-      "source": "acct_001309",
-      "target": "acct_003725",
+      "source": "acct_000671",
+      "target": "acct_002448",
       "weight": 1
     },
     {
-      "source": "acct_001309",
-      "target": "acct_003794",
+      "source": "acct_000671",
+      "target": "acct_002647",
       "weight": 1
     },
     {
-      "source": "acct_001309",
-      "target": "acct_003804",
+      "source": "acct_000671",
+      "target": "acct_002792",
       "weight": 1
     },
     {
-      "source": "acct_001309",
-      "target": "acct_004030",
+      "source": "acct_000671",
+      "target": "acct_002993",
       "weight": 1
     },
     {
-      "source": "acct_001309",
-      "target": "acct_004745",
+      "source": "acct_000671",
+      "target": "acct_003363",
       "weight": 1
     },
     {
-      "source": "acct_001349",
-      "target": "acct_001720",
+      "source": "acct_000671",
+      "target": "acct_004279",
       "weight": 1
     },
     {
-      "source": "acct_001349",
-      "target": "acct_002420",
+      "source": "acct_000671",
+      "target": "acct_004696",
       "weight": 1
     },
     {
-      "source": "acct_001349",
-      "target": "acct_003003",
+      "source": "acct_000671",
+      "target": "acct_004806",
       "weight": 1
     },
     {
-      "source": "acct_001349",
-      "target": "acct_003583",
+      "source": "acct_000732",
+      "target": "acct_003558",
       "weight": 1
     },
     {
-      "source": "acct_001349",
-      "target": "acct_003676",
+      "source": "acct_000732",
+      "target": "acct_004749",
       "weight": 1
     },
     {
-      "source": "acct_001349",
-      "target": "acct_003770",
+      "source": "acct_000732",
+      "target": "acct_004962",
       "weight": 1
     },
     {
-      "source": "acct_001349",
-      "target": "acct_004248",
+      "source": "acct_000737",
+      "target": "acct_001049",
       "weight": 1
     },
     {
-      "source": "acct_001349",
-      "target": "acct_004716",
+      "source": "acct_000737",
+      "target": "acct_001714",
       "weight": 1
-    },
-    {
-      "source": "acct_001357",
-      "target": "acct_002662",
-      "weight": 2
-    },
-    {
-      "source": "acct_001357",
-      "target": "acct_003908",
-      "weight": 2
-    },
-    {
-      "source": "acct_001357",
-      "target": "acct_004735",
-      "weight": 2
-    },
-    {
-      "source": "acct_001357",
-      "target": "acct_004982",
-      "weight": 2
-    },
-    {
-      "source": "acct_001361",
-      "target": "acct_002536",
-      "weight": 2
-    },
-    {
-      "source": "acct_001361",
-      "target": "acct_002946",
-      "weight": 2
-    },
-    {
-      "source": "acct_001361",
-      "target": "acct_004304",
-      "weight": 2
-    },
-    {
-      "source": "acct_001361",
-      "target": "acct_004321",
-      "weight": 2
-    },
-    {
-      "source": "acct_001498",
-      "target": "acct_002768",
-      "weight": 2
-    },
-    {
-      "source": "acct_001498",
-      "target": "acct_004975",
-      "weight": 2
-    },
-    {
-      "source": "acct_001504",
-      "target": "acct_002143",
-      "weight": 2
-    },
-    {
-      "source": "acct_001504",
-      "target": "acct_002959",
-      "weight": 2
-    },
-    {
-      "source": "acct_001504",
-      "target": "acct_003590",
-      "weight": 2
-    },
-    {
-      "source": "acct_001504",
-      "target": "acct_003960",
-      "weight": 2
-    },
-    {
-      "source": "acct_001504",
-      "target": "acct_004132",
-      "weight": 2
     },
     {
-      "source": "acct_001589",
-      "target": "acct_002058",
-      "weight": 2
-    },
-    {
-      "source": "acct_001589",
-      "target": "acct_002162",
-      "weight": 2
-    },
-    {
-      "source": "acct_001589",
-      "target": "acct_003217",
-      "weight": 2
-    },
-    {
-      "source": "acct_001589",
-      "target": "acct_003829",
-      "weight": 2
-    },
-    {
-      "source": "acct_001691",
-      "target": "acct_001838",
+      "source": "acct_000737",
+      "target": "acct_002096",
       "weight": 1
     },
     {
-      "source": "acct_001691",
-      "target": "acct_002425",
+      "source": "acct_000737",
+      "target": "acct_002442",
       "weight": 1
     },
     {
-      "source": "acct_001691",
-      "target": "acct_002855",
+      "source": "acct_000737",
+      "target": "acct_003239",
       "weight": 1
     },
     {
-      "source": "acct_001691",
-      "target": "acct_003360",
+      "source": "acct_000737",
+      "target": "acct_003896",
       "weight": 1
     },
     {
-      "source": "acct_001691",
-      "target": "acct_003999",
+      "source": "acct_000737",
+      "target": "acct_004344",
       "weight": 1
     },
     {
-      "source": "acct_001691",
-      "target": "acct_004296",
+      "source": "acct_000737",
+      "target": "acct_004572",
       "weight": 1
     },
     {
-      "source": "acct_001691",
-      "target": "acct_004393",
+      "source": "acct_000792",
+      "target": "acct_002293",
       "weight": 1
     },
     {
-      "source": "acct_001691",
-      "target": "acct_004930",
+      "source": "acct_000792",
+      "target": "acct_004753",
       "weight": 1
     },
     {
-      "source": "acct_001720",
-      "target": "acct_002420",
+      "source": "acct_000811",
+      "target": "acct_000881",
       "weight": 1
     },
     {
-      "source": "acct_001720",
-      "target": "acct_003003",
+      "source": "acct_000811",
+      "target": "acct_001512",
       "weight": 1
     },
     {
-      "source": "acct_001720",
-      "target": "acct_003583",
+      "source": "acct_000811",
+      "target": "acct_001698",
       "weight": 1
     },
     {
-      "source": "acct_001720",
-      "target": "acct_003676",
+      "source": "acct_000811",
+      "target": "acct_002122",
       "weight": 1
     },
     {
-      "source": "acct_001720",
-      "target": "acct_003770",
+      "source": "acct_000811",
+      "target": "acct_002266",
       "weight": 1
     },
     {
-      "source": "acct_001720",
-      "target": "acct_004248",
+      "source": "acct_000811",
+      "target": "acct_002760",
       "weight": 1
     },
     {
-      "source": "acct_001720",
-      "target": "acct_004716",
+      "source": "acct_000811",
+      "target": "acct_003477",
       "weight": 1
     },
     {
-      "source": "acct_001732",
-      "target": "acct_002344",
+      "source": "acct_000866",
+      "target": "acct_001044",
       "weight": 1
     },
     {
-      "source": "acct_001732",
-      "target": "acct_002574",
+      "source": "acct_000866",
+      "target": "acct_001359",
       "weight": 1
     },
     {
-      "source": "acct_001732",
-      "target": "acct_003645",
+      "source": "acct_000866",
+      "target": "acct_001441",
       "weight": 1
     },
     {
-      "source": "acct_001732",
-      "target": "acct_004309",
+      "source": "acct_000866",
+      "target": "acct_003761",
       "weight": 1
     },
     {
-      "source": "acct_001732",
-      "target": "acct_004751",
+      "source": "acct_000866",
+      "target": "acct_004779",
       "weight": 1
     },
     {
-      "source": "acct_001761",
-      "target": "acct_002303",
+      "source": "acct_000881",
+      "target": "acct_001512",
       "weight": 1
     },
     {
-      "source": "acct_001761",
-      "target": "acct_002418",
+      "source": "acct_000881",
+      "target": "acct_001698",
       "weight": 1
     },
     {
-      "source": "acct_001761",
-      "target": "acct_002522",
+      "source": "acct_000881",
+      "target": "acct_002122",
       "weight": 1
     },
     {
-      "source": "acct_001761",
-      "target": "acct_003339",
+      "source": "acct_000881",
+      "target": "acct_002266",
       "weight": 1
     },
     {
-      "source": "acct_001838",
-      "target": "acct_002425",
+      "source": "acct_000881",
+      "target": "acct_002760",
       "weight": 1
     },
     {
-      "source": "acct_001838",
-      "target": "acct_002855",
+      "source": "acct_000881",
+      "target": "acct_003477",
       "weight": 1
     },
     {
-      "source": "acct_001838",
-      "target": "acct_003360",
+      "source": "acct_000891",
+      "target": "acct_001145",
       "weight": 1
     },
     {
-      "source": "acct_001838",
-      "target": "acct_003999",
+      "source": "acct_000891",
+      "target": "acct_001837",
       "weight": 1
     },
     {
-      "source": "acct_001838",
-      "target": "acct_004296",
+      "source": "acct_000891",
+      "target": "acct_002448",
       "weight": 1
     },
     {
-      "source": "acct_001838",
-      "target": "acct_004393",
+      "source": "acct_000891",
+      "target": "acct_002647",
       "weight": 1
     },
     {
-      "source": "acct_001838",
-      "target": "acct_004930",
+      "source": "acct_000891",
+      "target": "acct_002993",
       "weight": 1
     },
     {
-      "source": "acct_001841",
-      "target": "acct_001845",
+      "source": "acct_000891",
+      "target": "acct_003363",
       "weight": 1
     },
     {
-      "source": "acct_001841",
-      "target": "acct_003373",
+      "source": "acct_000891",
+      "target": "acct_004279",
       "weight": 1
     },
     {
-      "source": "acct_001841",
-      "target": "acct_003535",
+      "source": "acct_000891",
+      "target": "acct_004696",
       "weight": 1
     },
     {
-      "source": "acct_001841",
-      "target": "acct_003864",
+      "source": "acct_000891",
+      "target": "acct_004806",
       "weight": 1
     },
     {
-      "source": "acct_001841",
-      "target": "acct_003900",
+      "source": "acct_000892",
+      "target": "acct_002035",
       "weight": 1
     },
     {
-      "source": "acct_001841",
-      "target": "acct_004031",
+      "source": "acct_000892",
+      "target": "acct_003399",
       "weight": 1
     },
     {
-      "source": "acct_001841",
-      "target": "acct_004458",
+      "source": "acct_000973",
+      "target": "acct_001112",
       "weight": 1
     },
     {
-      "source": "acct_001845",
-      "target": "acct_003373",
+      "source": "acct_001044",
+      "target": "acct_001359",
       "weight": 1
     },
     {
-      "source": "acct_001845",
-      "target": "acct_003535",
+      "source": "acct_001044",
+      "target": "acct_001441",
       "weight": 1
     },
     {
-      "source": "acct_001845",
-      "target": "acct_003864",
+      "source": "acct_001044",
+      "target": "acct_003761",
       "weight": 1
     },
     {
-      "source": "acct_001845",
-      "target": "acct_003900",
+      "source": "acct_001044",
+      "target": "acct_004779",
       "weight": 1
     },
     {
-      "source": "acct_001845",
-      "target": "acct_004031",
+      "source": "acct_001049",
+      "target": "acct_001714",
       "weight": 1
     },
     {
-      "source": "acct_001845",
-      "target": "acct_004458",
+      "source": "acct_001049",
+      "target": "acct_002096",
       "weight": 1
     },
     {
-      "source": "acct_001853",
-      "target": "acct_001937",
+      "source": "acct_001049",
+      "target": "acct_002442",
       "weight": 1
     },
     {
-      "source": "acct_001853",
-      "target": "acct_002044",
+      "source": "acct_001049",
+      "target": "acct_003239",
       "weight": 1
     },
     {
-      "source": "acct_001853",
-      "target": "acct_002649",
-      "weight": 1
+      "source": "acct_001049",
+      "target": "acct_003896",
+      "weight": 2
     },
     {
-      "source": "acct_001853",
-      "target": "acct_002918",
+      "source": "acct_001049",
+      "target": "acct_004344",
       "weight": 1
     },
     {
-      "source": "acct_001853",
-      "target": "acct_004387",
+      "source": "acct_001049",
+      "target": "acct_004572",
       "weight": 1
     },
     {
-      "source": "acct_001853",
-      "target": "acct_004620",
+      "source": "acct_001080",
+      "target": "acct_002341",
       "weight": 1
     },
     {
-      "source": "acct_001937",
-      "target": "acct_002044",
+      "source": "acct_001080",
+      "target": "acct_004139",
       "weight": 1
     },
     {
-      "source": "acct_001937",
-      "target": "acct_002649",
+      "source": "acct_001145",
+      "target": "acct_001837",
       "weight": 1
     },
     {
-      "source": "acct_001937",
-      "target": "acct_002918",
+      "source": "acct_001145",
+      "target": "acct_002448",
       "weight": 1
     },
     {
-      "source": "acct_001937",
-      "target": "acct_004387",
+      "source": "acct_001145",
+      "target": "acct_002647",
       "weight": 1
     },
     {
-      "source": "acct_001937",
-      "target": "acct_004620",
+      "source": "acct_001145",
+      "target": "acct_002993",
       "weight": 1
     },
     {
-      "source": "acct_002004",
-      "target": "acct_002574",
+      "source": "acct_001145",
+      "target": "acct_003363",
       "weight": 1
     },
     {
-      "source": "acct_002044",
-      "target": "acct_002649",
+      "source": "acct_001145",
+      "target": "acct_004279",
       "weight": 1
     },
     {
-      "source": "acct_002044",
-      "target": "acct_002918",
+      "source": "acct_001145",
+      "target": "acct_004696",
       "weight": 1
     },
     {
-      "source": "acct_002044",
-      "target": "acct_004387",
+      "source": "acct_001145",
+      "target": "acct_004806",
       "weight": 1
     },
     {
-      "source": "acct_002044",
-      "target": "acct_004620",
+      "source": "acct_001175",
+      "target": "acct_002769",
       "weight": 1
     },
     {
-      "source": "acct_002058",
-      "target": "acct_002162",
+      "source": "acct_001224",
+      "target": "acct_001273",
       "weight": 2
     },
     {
-      "source": "acct_002058",
-      "target": "acct_003217",
+      "source": "acct_001224",
+      "target": "acct_001545",
       "weight": 2
     },
     {
-      "source": "acct_002058",
-      "target": "acct_003829",
+      "source": "acct_001224",
+      "target": "acct_001896",
       "weight": 2
-    },
-    {
-      "source": "acct_002113",
-      "target": "acct_002449",
-      "weight": 1
-    },
-    {
-      "source": "acct_002113",
-      "target": "acct_002484",
-      "weight": 1
-    },
-    {
-      "source": "acct_002113",
-      "target": "acct_003330",
-      "weight": 1
-    },
-    {
-      "source": "acct_002113",
-      "target": "acct_003383",
-      "weight": 1
-    },
-    {
-      "source": "acct_002113",
-      "target": "acct_003692",
-      "weight": 1
-    },
-    {
-      "source": "acct_002113",
-      "target": "acct_004133",
-      "weight": 1
     },
     {
-      "source": "acct_002143",
-      "target": "acct_002959",
+      "source": "acct_001224",
+      "target": "acct_002037",
       "weight": 2
     },
     {
-      "source": "acct_002143",
-      "target": "acct_003590",
+      "source": "acct_001224",
+      "target": "acct_003602",
       "weight": 2
     },
     {
-      "source": "acct_002143",
-      "target": "acct_003960",
+      "source": "acct_001273",
+      "target": "acct_001545",
       "weight": 2
     },
     {
-      "source": "acct_002143",
-      "target": "acct_004132",
+      "source": "acct_001273",
+      "target": "acct_001896",
       "weight": 2
     },
     {
-      "source": "acct_002162",
-      "target": "acct_003217",
+      "source": "acct_001273",
+      "target": "acct_002037",
       "weight": 2
     },
     {
-      "source": "acct_002162",
-      "target": "acct_003829",
+      "source": "acct_001273",
+      "target": "acct_003602",
       "weight": 2
-    },
-    {
-      "source": "acct_002220",
-      "target": "acct_002668",
-      "weight": 1
-    },
-    {
-      "source": "acct_002220",
-      "target": "acct_003193",
-      "weight": 1
-    },
-    {
-      "source": "acct_002220",
-      "target": "acct_003441",
-      "weight": 1
-    },
-    {
-      "source": "acct_002220",
-      "target": "acct_003500",
-      "weight": 1
-    },
-    {
-      "source": "acct_002220",
-      "target": "acct_003577",
-      "weight": 1
-    },
-    {
-      "source": "acct_002220",
-      "target": "acct_004509",
-      "weight": 1
-    },
-    {
-      "source": "acct_002220",
-      "target": "acct_004672",
-      "weight": 1
-    },
-    {
-      "source": "acct_002220",
-      "target": "acct_004922",
-      "weight": 1
-    },
-    {
-      "source": "acct_002231",
-      "target": "acct_003143",
-      "weight": 1
-    },
-    {
-      "source": "acct_002231",
-      "target": "acct_004909",
-      "weight": 1
-    },
-    {
-      "source": "acct_002244",
-      "target": "acct_003635",
-      "weight": 1
     },
     {
-      "source": "acct_002244",
-      "target": "acct_004193",
+      "source": "acct_001299",
+      "target": "acct_003104",
       "weight": 1
     },
     {
-      "source": "acct_002244",
-      "target": "acct_004923",
+      "source": "acct_001299",
+      "target": "acct_004449",
       "weight": 1
     },
     {
-      "source": "acct_002303",
-      "target": "acct_002418",
+      "source": "acct_001299",
+      "target": "acct_004622",
       "weight": 1
     },
     {
-      "source": "acct_002303",
-      "target": "acct_002522",
+      "source": "acct_001301",
+      "target": "acct_002111",
       "weight": 1
     },
     {
-      "source": "acct_002303",
-      "target": "acct_003339",
+      "source": "acct_001301",
+      "target": "acct_002963",
       "weight": 1
-    },
-    {
-      "source": "acct_002344",
-      "target": "acct_002574",
-      "weight": 1
-    },
-    {
-      "source": "acct_002344",
-      "target": "acct_003645",
-      "weight": 1
-    },
-    {
-      "source": "acct_002344",
-      "target": "acct_004309",
-      "weight": 1
-    },
-    {
-      "source": "acct_002344",
-      "target": "acct_004751",
-      "weight": 1
-    },
-    {
-      "source": "acct_002368",
-      "target": "acct_002700",
-      "weight": 2
-    },
-    {
-      "source": "acct_002368",
-      "target": "acct_003010",
-      "weight": 2
-    },
-    {
-      "source": "acct_002368",
-      "target": "acct_003136",
-      "weight": 2
-    },
-    {
-      "source": "acct_002368",
-      "target": "acct_003661",
-      "weight": 2
-    },
-    {
-      "source": "acct_002368",
-      "target": "acct_004455",
-      "weight": 2
-    },
-    {
-      "source": "acct_002368",
-      "target": "acct_004756",
-      "weight": 2
-    },
-    {
-      "source": "acct_002368",
-      "target": "acct_004908",
-      "weight": 2
-    },
-    {
-      "source": "acct_002411",
-      "target": "acct_002926",
-      "weight": 1
-    },
-    {
-      "source": "acct_002411",
-      "target": "acct_003507",
-      "weight": 1
-    },
-    {
-      "source": "acct_002411",
-      "target": "acct_003725",
-      "weight": 1
-    },
-    {
-      "source": "acct_002411",
-      "target": "acct_003794",
-      "weight": 1
-    },
-    {
-      "source": "acct_002411",
-      "target": "acct_003804",
-      "weight": 1
-    },
-    {
-      "source": "acct_002411",
-      "target": "acct_004030",
-      "weight": 1
-    },
-    {
-      "source": "acct_002411",
-      "target": "acct_004745",
-      "weight": 1
-    },
-    {
-      "source": "acct_002418",
-      "target": "acct_002522",
-      "weight": 1
-    },
-    {
-      "source": "acct_002418",
-      "target": "acct_003339",
-      "weight": 1
-    },
-    {
-      "source": "acct_002420",
-      "target": "acct_003003",
-      "weight": 1
-    },
-    {
-      "source": "acct_002420",
-      "target": "acct_003583",
-      "weight": 1
-    },
-    {
-      "source": "acct_002420",
-      "target": "acct_003676",
-      "weight": 1
-    },
-    {
-      "source": "acct_002420",
-      "target": "acct_003770",
-      "weight": 1
-    },
-    {
-      "source": "acct_002420",
-      "target": "acct_004248",
-      "weight": 1
-    },
-    {
-      "source": "acct_002420",
-      "target": "acct_004716",
-      "weight": 1
-    },
-    {
-      "source": "acct_002425",
-      "target": "acct_002855",
-      "weight": 1
-    },
-    {
-      "source": "acct_002425",
-      "target": "acct_003360",
-      "weight": 1
-    },
-    {
-      "source": "acct_002425",
-      "target": "acct_003999",
-      "weight": 1
-    },
-    {
-      "source": "acct_002425",
-      "target": "acct_004296",
-      "weight": 1
-    },
-    {
-      "source": "acct_002425",
-      "target": "acct_004393",
-      "weight": 1
-    },
-    {
-      "source": "acct_002425",
-      "target": "acct_004930",
-      "weight": 1
-    },
-    {
-      "source": "acct_002449",
-      "target": "acct_002484",
-      "weight": 1
-    },
-    {
-      "source": "acct_002449",
-      "target": "acct_003330",
-      "weight": 1
-    },
-    {
-      "source": "acct_002449",
-      "target": "acct_003383",
-      "weight": 1
-    },
-    {
-      "source": "acct_002449",
-      "target": "acct_003692",
-      "weight": 1
-    },
-    {
-      "source": "acct_002449",
-      "target": "acct_004133",
-      "weight": 1
-    },
-    {
-      "source": "acct_002484",
-      "target": "acct_003330",
-      "weight": 1
-    },
-    {
-      "source": "acct_002484",
-      "target": "acct_003383",
-      "weight": 1
-    },
-    {
-      "source": "acct_002484",
-      "target": "acct_003692",
-      "weight": 1
-    },
-    {
-      "source": "acct_002484",
-      "target": "acct_004133",
-      "weight": 1
-    },
-    {
-      "source": "acct_002522",
-      "target": "acct_003339",
-      "weight": 1
-    },
-    {
-      "source": "acct_002536",
-      "target": "acct_002946",
-      "weight": 2
-    },
-    {
-      "source": "acct_002536",
-      "target": "acct_004304",
-      "weight": 2
-    },
-    {
-      "source": "acct_002536",
-      "target": "acct_004321",
-      "weight": 2
-    },
-    {
-      "source": "acct_002574",
-      "target": "acct_003645",
-      "weight": 1
-    },
-    {
-      "source": "acct_002574",
-      "target": "acct_004309",
-      "weight": 1
-    },
-    {
-      "source": "acct_002574",
-      "target": "acct_004751",
-      "weight": 1
-    },
-    {
-      "source": "acct_002649",
-      "target": "acct_002918",
-      "weight": 1
-    },
-    {
-      "source": "acct_002649",
-      "target": "acct_004387",
-      "weight": 1
-    },
-    {
-      "source": "acct_002649",
-      "target": "acct_004620",
-      "weight": 1
-    },
-    {
-      "source": "acct_002662",
-      "target": "acct_003908",
-      "weight": 2
-    },
-    {
-      "source": "acct_002662",
-      "target": "acct_004735",
-      "weight": 2
-    },
-    {
-      "source": "acct_002662",
-      "target": "acct_004982",
-      "weight": 2
-    },
-    {
-      "source": "acct_002668",
-      "target": "acct_003193",
-      "weight": 1
-    },
-    {
-      "source": "acct_002668",
-      "target": "acct_003441",
-      "weight": 1
-    },
-    {
-      "source": "acct_002668",
-      "target": "acct_003500",
-      "weight": 1
-    },
-    {
-      "source": "acct_002668",
-      "target": "acct_003577",
-      "weight": 1
-    },
-    {
-      "source": "acct_002668",
-      "target": "acct_004509",
-      "weight": 1
-    },
-    {
-      "source": "acct_002668",
-      "target": "acct_004672",
-      "weight": 1
-    },
-    {
-      "source": "acct_002668",
-      "target": "acct_004922",
-      "weight": 1
-    },
-    {
-      "source": "acct_002700",
-      "target": "acct_003010",
-      "weight": 2
-    },
-    {
-      "source": "acct_002700",
-      "target": "acct_003136",
-      "weight": 2
-    },
-    {
-      "source": "acct_002700",
-      "target": "acct_003661",
-      "weight": 2
-    },
-    {
-      "source": "acct_002700",
-      "target": "acct_004455",
-      "weight": 2
-    },
-    {
-      "source": "acct_002700",
-      "target": "acct_004756",
-      "weight": 2
-    },
-    {
-      "source": "acct_002700",
-      "target": "acct_004908",
-      "weight": 2
-    },
-    {
-      "source": "acct_002703",
-      "target": "acct_002788",
-      "weight": 2
-    },
-    {
-      "source": "acct_002703",
-      "target": "acct_003154",
-      "weight": 2
-    },
-    {
-      "source": "acct_002703",
-      "target": "acct_003475",
-      "weight": 2
-    },
-    {
-      "source": "acct_002703",
-      "target": "acct_004055",
-      "weight": 2
-    },
-    {
-      "source": "acct_002703",
-      "target": "acct_004081",
-      "weight": 2
-    },
-    {
-      "source": "acct_002703",
-      "target": "acct_004281",
-      "weight": 2
-    },
-    {
-      "source": "acct_002703",
-      "target": "acct_004681",
-      "weight": 2
-    },
-    {
-      "source": "acct_002703",
-      "target": "acct_004811",
-      "weight": 2
-    },
-    {
-      "source": "acct_002768",
-      "target": "acct_004975",
-      "weight": 2
-    },
-    {
-      "source": "acct_002788",
-      "target": "acct_003154",
-      "weight": 2
-    },
-    {
-      "source": "acct_002788",
-      "target": "acct_003475",
-      "weight": 2
-    },
-    {
-      "source": "acct_002788",
-      "target": "acct_004055",
-      "weight": 2
-    },
-    {
-      "source": "acct_002788",
-      "target": "acct_004081",
-      "weight": 2
-    },
-    {
-      "source": "acct_002788",
-      "target": "acct_004281",
-      "weight": 2
-    },
-    {
-      "source": "acct_002788",
-      "target": "acct_004681",
-      "weight": 2
-    },
-    {
-      "source": "acct_002788",
-      "target": "acct_004811",
-      "weight": 2
-    },
-    {
-      "source": "acct_002855",
-      "target": "acct_003360",
-      "weight": 1
-    },
-    {
-      "source": "acct_002855",
-      "target": "acct_003999",
-      "weight": 1
-    },
-    {
-      "source": "acct_002855",
-      "target": "acct_004296",
-      "weight": 1
-    },
-    {
-      "source": "acct_002855",
-      "target": "acct_004393",
-      "weight": 1
-    },
-    {
-      "source": "acct_002855",
-      "target": "acct_004930",
-      "weight": 1
-    },
-    {
-      "source": "acct_002918",
-      "target": "acct_004387",
-      "weight": 1
-    },
-    {
-      "source": "acct_002918",
-      "target": "acct_004620",
-      "weight": 1
-    },
-    {
-      "source": "acct_002926",
-      "target": "acct_003507",
-      "weight": 1
-    },
-    {
-      "source": "acct_002926",
-      "target": "acct_003725",
-      "weight": 1
-    },
-    {
-      "source": "acct_002926",
-      "target": "acct_003794",
-      "weight": 1
-    },
-    {
-      "source": "acct_002926",
-      "target": "acct_003804",
-      "weight": 1
-    },
-    {
-      "source": "acct_002926",
-      "target": "acct_004030",
-      "weight": 1
-    },
-    {
-      "source": "acct_002926",
-      "target": "acct_004745",
-      "weight": 1
-    },
-    {
-      "source": "acct_002946",
-      "target": "acct_004304",
-      "weight": 2
-    },
-    {
-      "source": "acct_002946",
-      "target": "acct_004321",
-      "weight": 2
-    },
-    {
-      "source": "acct_002959",
-      "target": "acct_003590",
-      "weight": 2
-    },
-    {
-      "source": "acct_002959",
-      "target": "acct_003960",
-      "weight": 2
-    },
-    {
-      "source": "acct_002959",
-      "target": "acct_004132",
-      "weight": 2
-    },
-    {
-      "source": "acct_003003",
-      "target": "acct_003583",
-      "weight": 1
-    },
-    {
-      "source": "acct_003003",
-      "target": "acct_003676",
-      "weight": 1
-    },
-    {
-      "source": "acct_003003",
-      "target": "acct_003770",
-      "weight": 1
-    },
-    {
-      "source": "acct_003003",
-      "target": "acct_004248",
-      "weight": 1
-    },
-    {
-      "source": "acct_003003",
-      "target": "acct_004716",
-      "weight": 1
-    },
-    {
-      "source": "acct_003006",
-      "target": "acct_003412",
-      "weight": 2
-    },
-    {
-      "source": "acct_003006",
-      "target": "acct_003595",
-      "weight": 2
-    },
-    {
-      "source": "acct_003006",
-      "target": "acct_003822",
-      "weight": 2
-    },
-    {
-      "source": "acct_003006",
-      "target": "acct_004401",
-      "weight": 2
-    },
-    {
-      "source": "acct_003006",
-      "target": "acct_004573",
-      "weight": 2
-    },
-    {
-      "source": "acct_003010",
-      "target": "acct_003136",
-      "weight": 2
-    },
-    {
-      "source": "acct_003010",
-      "target": "acct_003661",
-      "weight": 2
-    },
-    {
-      "source": "acct_003010",
-      "target": "acct_004455",
-      "weight": 2
-    },
-    {
-      "source": "acct_003010",
-      "target": "acct_004756",
-      "weight": 2
-    },
-    {
-      "source": "acct_003010",
-      "target": "acct_004908",
-      "weight": 2
-    },
-    {
-      "source": "acct_003038",
-      "target": "acct_004937",
-      "weight": 2
-    },
-    {
-      "source": "acct_003136",
-      "target": "acct_003661",
-      "weight": 2
-    },
-    {
-      "source": "acct_003136",
-      "target": "acct_004455",
-      "weight": 2
-    },
-    {
-      "source": "acct_003136",
-      "target": "acct_004756",
-      "weight": 2
-    },
-    {
-      "source": "acct_003136",
-      "target": "acct_004908",
-      "weight": 2
-    },
-    {
-      "source": "acct_003143",
-      "target": "acct_004909",
-      "weight": 1
-    },
-    {
-      "source": "acct_003154",
-      "target": "acct_003475",
-      "weight": 2
-    },
-    {
-      "source": "acct_003154",
-      "target": "acct_004055",
-      "weight": 2
-    },
-    {
-      "source": "acct_003154",
-      "target": "acct_004081",
-      "weight": 2
-    },
-    {
-      "source": "acct_003154",
-      "target": "acct_004281",
-      "weight": 2
-    },
-    {
-      "source": "acct_003154",
-      "target": "acct_004681",
-      "weight": 2
-    },
-    {
-      "source": "acct_003154",
-      "target": "acct_004702",
-      "weight": 1
-    },
-    {
-      "source": "acct_003154",
-      "target": "acct_004811",
-      "weight": 2
-    },
-    {
-      "source": "acct_003193",
-      "target": "acct_003441",
-      "weight": 1
-    },
-    {
-      "source": "acct_003193",
-      "target": "acct_003500",
-      "weight": 1
-    },
-    {
-      "source": "acct_003193",
-      "target": "acct_003577",
-      "weight": 1
-    },
-    {
-      "source": "acct_003193",
-      "target": "acct_004509",
-      "weight": 1
-    },
-    {
-      "source": "acct_003193",
-      "target": "acct_004672",
-      "weight": 1
-    },
-    {
-      "source": "acct_003193",
-      "target": "acct_004922",
-      "weight": 1
-    },
-    {
-      "source": "acct_003195",
-      "target": "acct_003291",
-      "weight": 1
-    },
-    {
-      "source": "acct_003195",
-      "target": "acct_003492",
-      "weight": 2
-    },
-    {
-      "source": "acct_003195",
-      "target": "acct_004520",
-      "weight": 2
-    },
-    {
-      "source": "acct_003195",
-      "target": "acct_004677",
-      "weight": 2
-    },
-    {
-      "source": "acct_003195",
-      "target": "acct_004901",
-      "weight": 2
-    },
-    {
-      "source": "acct_003217",
-      "target": "acct_003829",
-      "weight": 2
-    },
-    {
-      "source": "acct_003330",
-      "target": "acct_003383",
-      "weight": 1
-    },
-    {
-      "source": "acct_003330",
-      "target": "acct_003692",
-      "weight": 1
-    },
-    {
-      "source": "acct_003330",
-      "target": "acct_004133",
-      "weight": 1
-    },
-    {
-      "source": "acct_003360",
-      "target": "acct_003999",
-      "weight": 1
-    },
-    {
-      "source": "acct_003360",
-      "target": "acct_004296",
-      "weight": 1
-    },
-    {
-      "source": "acct_003360",
-      "target": "acct_004393",
-      "weight": 1
-    },
-    {
-      "source": "acct_003360",
-      "target": "acct_004930",
-      "weight": 1
-    },
-    {
-      "source": "acct_003373",
-      "target": "acct_003535",
-      "weight": 1
-    },
-    {
-      "source": "acct_003373",
-      "target": "acct_003864",
-      "weight": 1
-    },
-    {
-      "source": "acct_003373",
-      "target": "acct_003900",
-      "weight": 1
-    },
-    {
-      "source": "acct_003373",
-      "target": "acct_004031",
-      "weight": 1
-    },
-    {
-      "source": "acct_003373",
-      "target": "acct_004458",
-      "weight": 1
-    },
-    {
-      "source": "acct_003383",
-      "target": "acct_003692",
-      "weight": 1
-    },
-    {
-      "source": "acct_003383",
-      "target": "acct_004133",
-      "weight": 1
-    },
-    {
-      "source": "acct_003412",
-      "target": "acct_003595",
-      "weight": 2
-    },
-    {
-      "source": "acct_003412",
-      "target": "acct_003822",
-      "weight": 2
-    },
-    {
-      "source": "acct_003412",
-      "target": "acct_004401",
-      "weight": 2
-    },
-    {
-      "source": "acct_003412",
-      "target": "acct_004573",
-      "weight": 2
     },
     {
-      "source": "acct_003424",
+      "source": "acct_001301",
       "target": "acct_003460",
+      "weight": 1
+    },
+    {
+      "source": "acct_001359",
+      "target": "acct_001441",
+      "weight": 1
+    },
+    {
+      "source": "acct_001359",
+      "target": "acct_003761",
+      "weight": 1
+    },
+    {
+      "source": "acct_001359",
+      "target": "acct_004779",
+      "weight": 1
+    },
+    {
+      "source": "acct_001441",
+      "target": "acct_003761",
+      "weight": 1
+    },
+    {
+      "source": "acct_001441",
+      "target": "acct_004779",
+      "weight": 1
+    },
+    {
+      "source": "acct_001470",
+      "target": "acct_002752",
+      "weight": 1
+    },
+    {
+      "source": "acct_001470",
+      "target": "acct_002945",
+      "weight": 1
+    },
+    {
+      "source": "acct_001512",
+      "target": "acct_001698",
+      "weight": 1
+    },
+    {
+      "source": "acct_001512",
+      "target": "acct_002122",
+      "weight": 1
+    },
+    {
+      "source": "acct_001512",
+      "target": "acct_002266",
+      "weight": 1
+    },
+    {
+      "source": "acct_001512",
+      "target": "acct_002760",
+      "weight": 1
+    },
+    {
+      "source": "acct_001512",
+      "target": "acct_003477",
+      "weight": 1
+    },
+    {
+      "source": "acct_001515",
+      "target": "acct_002342",
+      "weight": 1
+    },
+    {
+      "source": "acct_001515",
+      "target": "acct_002776",
+      "weight": 1
+    },
+    {
+      "source": "acct_001515",
+      "target": "acct_003636",
+      "weight": 1
+    },
+    {
+      "source": "acct_001515",
+      "target": "acct_003662",
+      "weight": 1
+    },
+    {
+      "source": "acct_001545",
+      "target": "acct_001896",
       "weight": 2
     },
     {
-      "source": "acct_003424",
-      "target": "acct_004048",
+      "source": "acct_001545",
+      "target": "acct_002037",
       "weight": 2
     },
     {
-      "source": "acct_003424",
-      "target": "acct_004511",
+      "source": "acct_001545",
+      "target": "acct_003602",
       "weight": 2
     },
     {
-      "source": "acct_003424",
-      "target": "acct_004548",
+      "source": "acct_001603",
+      "target": "acct_001725",
       "weight": 2
     },
     {
-      "source": "acct_003441",
-      "target": "acct_003500",
+      "source": "acct_001608",
+      "target": "acct_001781",
       "weight": 1
     },
     {
-      "source": "acct_003441",
-      "target": "acct_003577",
+      "source": "acct_001608",
+      "target": "acct_002205",
       "weight": 1
     },
     {
-      "source": "acct_003441",
-      "target": "acct_004509",
+      "source": "acct_001608",
+      "target": "acct_002722",
       "weight": 1
     },
     {
-      "source": "acct_003441",
-      "target": "acct_004672",
-      "weight": 1
-    },
-    {
-      "source": "acct_003441",
-      "target": "acct_004922",
-      "weight": 1
-    },
-    {
-      "source": "acct_003448",
-      "target": "acct_003560",
-      "weight": 1
-    },
-    {
-      "source": "acct_003448",
-      "target": "acct_004195",
-      "weight": 1
-    },
-    {
-      "source": "acct_003448",
-      "target": "acct_004371",
-      "weight": 1
-    },
-    {
-      "source": "acct_003460",
-      "target": "acct_004048",
+      "source": "acct_001667",
+      "target": "acct_001911",
       "weight": 2
     },
     {
-      "source": "acct_003460",
-      "target": "acct_004511",
+      "source": "acct_001667",
+      "target": "acct_001932",
       "weight": 2
     },
     {
-      "source": "acct_003460",
-      "target": "acct_004548",
+      "source": "acct_001667",
+      "target": "acct_002165",
       "weight": 2
     },
     {
-      "source": "acct_003475",
-      "target": "acct_004055",
+      "source": "acct_001667",
+      "target": "acct_003578",
       "weight": 2
     },
     {
-      "source": "acct_003475",
-      "target": "acct_004081",
+      "source": "acct_001667",
+      "target": "acct_003642",
       "weight": 2
     },
     {
-      "source": "acct_003475",
-      "target": "acct_004281",
+      "source": "acct_001667",
+      "target": "acct_003995",
       "weight": 2
     },
     {
-      "source": "acct_003475",
-      "target": "acct_004681",
+      "source": "acct_001667",
+      "target": "acct_004179",
       "weight": 2
     },
     {
-      "source": "acct_003475",
-      "target": "acct_004811",
+      "source": "acct_001667",
+      "target": "acct_004890",
       "weight": 2
     },
     {
-      "source": "acct_003492",
-      "target": "acct_004520",
+      "source": "acct_001698",
+      "target": "acct_002122",
+      "weight": 1
+    },
+    {
+      "source": "acct_001698",
+      "target": "acct_002266",
+      "weight": 1
+    },
+    {
+      "source": "acct_001698",
+      "target": "acct_002760",
+      "weight": 1
+    },
+    {
+      "source": "acct_001698",
+      "target": "acct_003477",
+      "weight": 1
+    },
+    {
+      "source": "acct_001701",
+      "target": "acct_002792",
+      "weight": 1
+    },
+    {
+      "source": "acct_001714",
+      "target": "acct_002096",
+      "weight": 1
+    },
+    {
+      "source": "acct_001714",
+      "target": "acct_002442",
+      "weight": 1
+    },
+    {
+      "source": "acct_001714",
+      "target": "acct_003239",
+      "weight": 1
+    },
+    {
+      "source": "acct_001714",
+      "target": "acct_003896",
+      "weight": 1
+    },
+    {
+      "source": "acct_001714",
+      "target": "acct_004344",
+      "weight": 1
+    },
+    {
+      "source": "acct_001714",
+      "target": "acct_004572",
+      "weight": 1
+    },
+    {
+      "source": "acct_001781",
+      "target": "acct_002205",
+      "weight": 1
+    },
+    {
+      "source": "acct_001781",
+      "target": "acct_002722",
+      "weight": 1
+    },
+    {
+      "source": "acct_001816",
+      "target": "acct_002289",
       "weight": 2
     },
     {
-      "source": "acct_003492",
-      "target": "acct_004677",
+      "source": "acct_001816",
+      "target": "acct_002794",
+      "weight": 1
+    },
+    {
+      "source": "acct_001816",
+      "target": "acct_003755",
       "weight": 2
     },
     {
-      "source": "acct_003492",
-      "target": "acct_004901",
+      "source": "acct_001816",
+      "target": "acct_004235",
+      "weight": 1
+    },
+    {
+      "source": "acct_001816",
+      "target": "acct_004341",
+      "weight": 1
+    },
+    {
+      "source": "acct_001816",
+      "target": "acct_004563",
       "weight": 2
     },
     {
-      "source": "acct_003500",
-      "target": "acct_003577",
+      "source": "acct_001837",
+      "target": "acct_002448",
       "weight": 1
     },
     {
-      "source": "acct_003500",
-      "target": "acct_004509",
+      "source": "acct_001837",
+      "target": "acct_002647",
       "weight": 1
     },
     {
-      "source": "acct_003500",
-      "target": "acct_004672",
+      "source": "acct_001837",
+      "target": "acct_002993",
       "weight": 1
     },
     {
-      "source": "acct_003500",
-      "target": "acct_004922",
+      "source": "acct_001837",
+      "target": "acct_003363",
       "weight": 1
     },
     {
-      "source": "acct_003507",
-      "target": "acct_003725",
+      "source": "acct_001837",
+      "target": "acct_004279",
       "weight": 1
     },
     {
-      "source": "acct_003507",
-      "target": "acct_003794",
+      "source": "acct_001837",
+      "target": "acct_004696",
       "weight": 1
     },
     {
-      "source": "acct_003507",
-      "target": "acct_003804",
+      "source": "acct_001837",
+      "target": "acct_004806",
       "weight": 1
     },
     {
-      "source": "acct_003507",
-      "target": "acct_004030",
+      "source": "acct_001853",
+      "target": "acct_002864",
       "weight": 1
     },
     {
-      "source": "acct_003507",
-      "target": "acct_004745",
+      "source": "acct_001853",
+      "target": "acct_002917",
       "weight": 1
     },
     {
-      "source": "acct_003535",
-      "target": "acct_003864",
+      "source": "acct_001853",
+      "target": "acct_003603",
       "weight": 1
     },
     {
-      "source": "acct_003535",
-      "target": "acct_003900",
+      "source": "acct_001853",
+      "target": "acct_003604",
       "weight": 1
     },
     {
-      "source": "acct_003535",
-      "target": "acct_004031",
+      "source": "acct_001853",
+      "target": "acct_003816",
       "weight": 1
     },
     {
-      "source": "acct_003535",
-      "target": "acct_004458",
-      "weight": 1
-    },
-    {
-      "source": "acct_003560",
-      "target": "acct_004195",
-      "weight": 1
-    },
-    {
-      "source": "acct_003560",
-      "target": "acct_004371",
-      "weight": 1
-    },
-    {
-      "source": "acct_003564",
-      "target": "acct_004131",
+      "source": "acct_001896",
+      "target": "acct_002037",
       "weight": 2
     },
     {
-      "source": "acct_003577",
-      "target": "acct_004509",
-      "weight": 1
-    },
-    {
-      "source": "acct_003577",
-      "target": "acct_004672",
-      "weight": 1
-    },
-    {
-      "source": "acct_003577",
-      "target": "acct_004922",
-      "weight": 1
-    },
-    {
-      "source": "acct_003583",
-      "target": "acct_003676",
-      "weight": 1
-    },
-    {
-      "source": "acct_003583",
-      "target": "acct_003770",
-      "weight": 1
-    },
-    {
-      "source": "acct_003583",
-      "target": "acct_004248",
-      "weight": 1
-    },
-    {
-      "source": "acct_003583",
-      "target": "acct_004716",
-      "weight": 1
-    },
-    {
-      "source": "acct_003590",
-      "target": "acct_003960",
+      "source": "acct_001896",
+      "target": "acct_003602",
       "weight": 2
     },
     {
-      "source": "acct_003590",
-      "target": "acct_004132",
+      "source": "acct_001911",
+      "target": "acct_001932",
       "weight": 2
     },
     {
-      "source": "acct_003595",
-      "target": "acct_003822",
+      "source": "acct_001911",
+      "target": "acct_002165",
       "weight": 2
     },
     {
-      "source": "acct_003595",
-      "target": "acct_004401",
+      "source": "acct_001911",
+      "target": "acct_003578",
       "weight": 2
     },
     {
-      "source": "acct_003595",
-      "target": "acct_004573",
+      "source": "acct_001911",
+      "target": "acct_003642",
       "weight": 2
     },
     {
-      "source": "acct_003635",
-      "target": "acct_004193",
-      "weight": 1
-    },
-    {
-      "source": "acct_003635",
-      "target": "acct_004923",
-      "weight": 1
-    },
-    {
-      "source": "acct_003645",
-      "target": "acct_004309",
-      "weight": 1
-    },
-    {
-      "source": "acct_003645",
-      "target": "acct_004751",
-      "weight": 1
-    },
-    {
-      "source": "acct_003661",
-      "target": "acct_004455",
+      "source": "acct_001911",
+      "target": "acct_003995",
       "weight": 2
     },
     {
-      "source": "acct_003661",
-      "target": "acct_004756",
+      "source": "acct_001911",
+      "target": "acct_004179",
       "weight": 2
     },
     {
-      "source": "acct_003661",
-      "target": "acct_004908",
+      "source": "acct_001911",
+      "target": "acct_004890",
       "weight": 2
     },
     {
-      "source": "acct_003676",
-      "target": "acct_003770",
-      "weight": 1
-    },
-    {
-      "source": "acct_003676",
-      "target": "acct_004248",
-      "weight": 1
-    },
-    {
-      "source": "acct_003676",
-      "target": "acct_004716",
-      "weight": 1
-    },
-    {
-      "source": "acct_003692",
-      "target": "acct_004133",
-      "weight": 1
-    },
-    {
-      "source": "acct_003725",
-      "target": "acct_003794",
-      "weight": 1
-    },
-    {
-      "source": "acct_003725",
-      "target": "acct_003804",
-      "weight": 1
-    },
-    {
-      "source": "acct_003725",
-      "target": "acct_004030",
-      "weight": 1
-    },
-    {
-      "source": "acct_003725",
-      "target": "acct_004745",
-      "weight": 1
-    },
-    {
-      "source": "acct_003770",
-      "target": "acct_004248",
-      "weight": 1
-    },
-    {
-      "source": "acct_003770",
-      "target": "acct_004716",
-      "weight": 1
-    },
-    {
-      "source": "acct_003794",
-      "target": "acct_003804",
-      "weight": 1
-    },
-    {
-      "source": "acct_003794",
-      "target": "acct_004030",
-      "weight": 1
-    },
-    {
-      "source": "acct_003794",
-      "target": "acct_004745",
-      "weight": 1
-    },
-    {
-      "source": "acct_003804",
-      "target": "acct_004030",
-      "weight": 1
-    },
-    {
-      "source": "acct_003804",
-      "target": "acct_004745",
-      "weight": 1
-    },
-    {
-      "source": "acct_003822",
-      "target": "acct_004401",
+      "source": "acct_001932",
+      "target": "acct_002165",
       "weight": 2
     },
     {
-      "source": "acct_003822",
-      "target": "acct_004573",
+      "source": "acct_001932",
+      "target": "acct_003578",
       "weight": 2
     },
     {
-      "source": "acct_003864",
-      "target": "acct_003866",
+      "source": "acct_001932",
+      "target": "acct_003642",
+      "weight": 2
+    },
+    {
+      "source": "acct_001932",
+      "target": "acct_003995",
+      "weight": 2
+    },
+    {
+      "source": "acct_001932",
+      "target": "acct_004179",
+      "weight": 2
+    },
+    {
+      "source": "acct_001932",
+      "target": "acct_004890",
+      "weight": 2
+    },
+    {
+      "source": "acct_001980",
+      "target": "acct_002123",
       "weight": 1
     },
     {
-      "source": "acct_003864",
-      "target": "acct_003900",
+      "source": "acct_001980",
+      "target": "acct_003302",
       "weight": 1
     },
     {
-      "source": "acct_003864",
-      "target": "acct_004031",
+      "source": "acct_001980",
+      "target": "acct_003421",
       "weight": 1
     },
     {
-      "source": "acct_003864",
-      "target": "acct_004458",
+      "source": "acct_001980",
+      "target": "acct_004822",
       "weight": 1
     },
     {
-      "source": "acct_003900",
-      "target": "acct_004031",
+      "source": "acct_002035",
+      "target": "acct_003399",
       "weight": 1
     },
     {
-      "source": "acct_003900",
-      "target": "acct_004458",
+      "source": "acct_002037",
+      "target": "acct_003602",
+      "weight": 2
+    },
+    {
+      "source": "acct_002096",
+      "target": "acct_002442",
       "weight": 1
     },
     {
-      "source": "acct_003908",
-      "target": "acct_004735",
-      "weight": 2
-    },
-    {
-      "source": "acct_003908",
-      "target": "acct_004982",
-      "weight": 2
-    },
-    {
-      "source": "acct_003960",
-      "target": "acct_004132",
-      "weight": 2
-    },
-    {
-      "source": "acct_003999",
-      "target": "acct_004296",
+      "source": "acct_002096",
+      "target": "acct_003239",
       "weight": 1
     },
     {
-      "source": "acct_003999",
-      "target": "acct_004393",
+      "source": "acct_002096",
+      "target": "acct_003896",
       "weight": 1
     },
     {
-      "source": "acct_003999",
-      "target": "acct_004930",
+      "source": "acct_002096",
+      "target": "acct_004344",
       "weight": 1
     },
     {
-      "source": "acct_004030",
-      "target": "acct_004745",
+      "source": "acct_002096",
+      "target": "acct_004572",
       "weight": 1
     },
     {
-      "source": "acct_004031",
-      "target": "acct_004458",
+      "source": "acct_002111",
+      "target": "acct_002963",
       "weight": 1
     },
     {
-      "source": "acct_004048",
-      "target": "acct_004511",
-      "weight": 2
-    },
-    {
-      "source": "acct_004048",
-      "target": "acct_004548",
-      "weight": 2
-    },
-    {
-      "source": "acct_004055",
-      "target": "acct_004081",
-      "weight": 2
-    },
-    {
-      "source": "acct_004055",
-      "target": "acct_004281",
-      "weight": 2
-    },
-    {
-      "source": "acct_004055",
-      "target": "acct_004681",
-      "weight": 2
-    },
-    {
-      "source": "acct_004055",
-      "target": "acct_004811",
-      "weight": 2
-    },
-    {
-      "source": "acct_004081",
-      "target": "acct_004281",
-      "weight": 2
-    },
-    {
-      "source": "acct_004081",
-      "target": "acct_004681",
-      "weight": 2
-    },
-    {
-      "source": "acct_004081",
-      "target": "acct_004811",
-      "weight": 2
-    },
-    {
-      "source": "acct_004193",
-      "target": "acct_004923",
+      "source": "acct_002111",
+      "target": "acct_003460",
       "weight": 1
     },
     {
-      "source": "acct_004195",
-      "target": "acct_004371",
+      "source": "acct_002122",
+      "target": "acct_002266",
       "weight": 1
     },
     {
-      "source": "acct_004248",
-      "target": "acct_004716",
+      "source": "acct_002122",
+      "target": "acct_002760",
       "weight": 1
     },
     {
-      "source": "acct_004281",
-      "target": "acct_004681",
-      "weight": 2
-    },
-    {
-      "source": "acct_004281",
-      "target": "acct_004811",
-      "weight": 2
-    },
-    {
-      "source": "acct_004296",
-      "target": "acct_004393",
+      "source": "acct_002122",
+      "target": "acct_003477",
       "weight": 1
     },
     {
-      "source": "acct_004296",
-      "target": "acct_004930",
+      "source": "acct_002123",
+      "target": "acct_003302",
       "weight": 1
     },
     {
-      "source": "acct_004304",
-      "target": "acct_004321",
-      "weight": 2
-    },
-    {
-      "source": "acct_004309",
-      "target": "acct_004751",
+      "source": "acct_002123",
+      "target": "acct_003421",
       "weight": 1
     },
     {
-      "source": "acct_004387",
-      "target": "acct_004620",
+      "source": "acct_002123",
+      "target": "acct_004822",
       "weight": 1
     },
     {
-      "source": "acct_004393",
-      "target": "acct_004930",
+      "source": "acct_002165",
+      "target": "acct_003578",
+      "weight": 2
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_003642",
+      "weight": 2
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_003995",
+      "weight": 2
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_004179",
+      "weight": 2
+    },
+    {
+      "source": "acct_002165",
+      "target": "acct_004890",
+      "weight": 2
+    },
+    {
+      "source": "acct_002171",
+      "target": "acct_002993",
       "weight": 1
     },
     {
-      "source": "acct_004401",
-      "target": "acct_004573",
-      "weight": 2
-    },
-    {
-      "source": "acct_004455",
-      "target": "acct_004756",
-      "weight": 2
-    },
-    {
-      "source": "acct_004455",
-      "target": "acct_004908",
-      "weight": 2
-    },
-    {
-      "source": "acct_004509",
-      "target": "acct_004672",
+      "source": "acct_002171",
+      "target": "acct_004771",
       "weight": 1
     },
     {
-      "source": "acct_004509",
-      "target": "acct_004922",
+      "source": "acct_002205",
+      "target": "acct_002722",
       "weight": 1
     },
     {
-      "source": "acct_004511",
-      "target": "acct_004548",
-      "weight": 2
-    },
-    {
-      "source": "acct_004520",
-      "target": "acct_004677",
-      "weight": 2
-    },
-    {
-      "source": "acct_004520",
-      "target": "acct_004901",
-      "weight": 2
-    },
-    {
-      "source": "acct_004672",
-      "target": "acct_004922",
+      "source": "acct_002266",
+      "target": "acct_002760",
       "weight": 1
     },
     {
-      "source": "acct_004677",
-      "target": "acct_004901",
+      "source": "acct_002266",
+      "target": "acct_003477",
+      "weight": 1
+    },
+    {
+      "source": "acct_002289",
+      "target": "acct_002794",
+      "weight": 1
+    },
+    {
+      "source": "acct_002289",
+      "target": "acct_003755",
       "weight": 2
     },
     {
-      "source": "acct_004681",
-      "target": "acct_004811",
+      "source": "acct_002289",
+      "target": "acct_004235",
+      "weight": 1
+    },
+    {
+      "source": "acct_002289",
+      "target": "acct_004341",
+      "weight": 1
+    },
+    {
+      "source": "acct_002289",
+      "target": "acct_004563",
       "weight": 2
     },
     {
-      "source": "acct_004735",
-      "target": "acct_004982",
+      "source": "acct_002293",
+      "target": "acct_004753",
+      "weight": 1
+    },
+    {
+      "source": "acct_002341",
+      "target": "acct_004139",
+      "weight": 1
+    },
+    {
+      "source": "acct_002342",
+      "target": "acct_002776",
+      "weight": 1
+    },
+    {
+      "source": "acct_002342",
+      "target": "acct_003636",
+      "weight": 1
+    },
+    {
+      "source": "acct_002342",
+      "target": "acct_003662",
+      "weight": 1
+    },
+    {
+      "source": "acct_002436",
+      "target": "acct_003223",
+      "weight": 1
+    },
+    {
+      "source": "acct_002442",
+      "target": "acct_003239",
+      "weight": 1
+    },
+    {
+      "source": "acct_002442",
+      "target": "acct_003896",
+      "weight": 1
+    },
+    {
+      "source": "acct_002442",
+      "target": "acct_004344",
+      "weight": 1
+    },
+    {
+      "source": "acct_002442",
+      "target": "acct_004572",
+      "weight": 1
+    },
+    {
+      "source": "acct_002448",
+      "target": "acct_002647",
+      "weight": 1
+    },
+    {
+      "source": "acct_002448",
+      "target": "acct_002993",
+      "weight": 1
+    },
+    {
+      "source": "acct_002448",
+      "target": "acct_003363",
+      "weight": 1
+    },
+    {
+      "source": "acct_002448",
+      "target": "acct_004279",
+      "weight": 1
+    },
+    {
+      "source": "acct_002448",
+      "target": "acct_004696",
+      "weight": 1
+    },
+    {
+      "source": "acct_002448",
+      "target": "acct_004806",
+      "weight": 1
+    },
+    {
+      "source": "acct_002647",
+      "target": "acct_002993",
+      "weight": 1
+    },
+    {
+      "source": "acct_002647",
+      "target": "acct_003363",
+      "weight": 1
+    },
+    {
+      "source": "acct_002647",
+      "target": "acct_004279",
+      "weight": 1
+    },
+    {
+      "source": "acct_002647",
+      "target": "acct_004696",
+      "weight": 1
+    },
+    {
+      "source": "acct_002647",
+      "target": "acct_004806",
+      "weight": 1
+    },
+    {
+      "source": "acct_002686",
+      "target": "acct_003148",
+      "weight": 1
+    },
+    {
+      "source": "acct_002686",
+      "target": "acct_003359",
+      "weight": 1
+    },
+    {
+      "source": "acct_002686",
+      "target": "acct_003556",
+      "weight": 1
+    },
+    {
+      "source": "acct_002752",
+      "target": "acct_002945",
+      "weight": 1
+    },
+    {
+      "source": "acct_002760",
+      "target": "acct_003477",
+      "weight": 1
+    },
+    {
+      "source": "acct_002776",
+      "target": "acct_003636",
+      "weight": 1
+    },
+    {
+      "source": "acct_002776",
+      "target": "acct_003662",
+      "weight": 1
+    },
+    {
+      "source": "acct_002794",
+      "target": "acct_003755",
+      "weight": 1
+    },
+    {
+      "source": "acct_002794",
+      "target": "acct_004235",
+      "weight": 1
+    },
+    {
+      "source": "acct_002794",
+      "target": "acct_004341",
+      "weight": 1
+    },
+    {
+      "source": "acct_002794",
+      "target": "acct_004563",
+      "weight": 1
+    },
+    {
+      "source": "acct_002864",
+      "target": "acct_002917",
+      "weight": 1
+    },
+    {
+      "source": "acct_002864",
+      "target": "acct_003603",
+      "weight": 1
+    },
+    {
+      "source": "acct_002864",
+      "target": "acct_003604",
+      "weight": 1
+    },
+    {
+      "source": "acct_002864",
+      "target": "acct_003816",
+      "weight": 1
+    },
+    {
+      "source": "acct_002917",
+      "target": "acct_003603",
+      "weight": 1
+    },
+    {
+      "source": "acct_002917",
+      "target": "acct_003604",
+      "weight": 1
+    },
+    {
+      "source": "acct_002917",
+      "target": "acct_003816",
+      "weight": 1
+    },
+    {
+      "source": "acct_002963",
+      "target": "acct_003460",
+      "weight": 1
+    },
+    {
+      "source": "acct_002993",
+      "target": "acct_003363",
+      "weight": 1
+    },
+    {
+      "source": "acct_002993",
+      "target": "acct_004279",
+      "weight": 1
+    },
+    {
+      "source": "acct_002993",
+      "target": "acct_004696",
+      "weight": 1
+    },
+    {
+      "source": "acct_002993",
+      "target": "acct_004771",
+      "weight": 1
+    },
+    {
+      "source": "acct_002993",
+      "target": "acct_004806",
+      "weight": 1
+    },
+    {
+      "source": "acct_002995",
+      "target": "acct_004686",
+      "weight": 1
+    },
+    {
+      "source": "acct_003020",
+      "target": "acct_003355",
+      "weight": 1
+    },
+    {
+      "source": "acct_003104",
+      "target": "acct_004449",
+      "weight": 1
+    },
+    {
+      "source": "acct_003104",
+      "target": "acct_004622",
+      "weight": 1
+    },
+    {
+      "source": "acct_003148",
+      "target": "acct_003359",
+      "weight": 1
+    },
+    {
+      "source": "acct_003148",
+      "target": "acct_003556",
+      "weight": 1
+    },
+    {
+      "source": "acct_003151",
+      "target": "acct_003640",
       "weight": 2
     },
     {
-      "source": "acct_004756",
-      "target": "acct_004908",
+      "source": "acct_003151",
+      "target": "acct_003703",
       "weight": 2
+    },
+    {
+      "source": "acct_003151",
+      "target": "acct_003870",
+      "weight": 2
+    },
+    {
+      "source": "acct_003151",
+      "target": "acct_004950",
+      "weight": 2
+    },
+    {
+      "source": "acct_003239",
+      "target": "acct_003896",
+      "weight": 1
+    },
+    {
+      "source": "acct_003239",
+      "target": "acct_004344",
+      "weight": 1
+    },
+    {
+      "source": "acct_003239",
+      "target": "acct_004572",
+      "weight": 1
+    },
+    {
+      "source": "acct_003302",
+      "target": "acct_003421",
+      "weight": 1
+    },
+    {
+      "source": "acct_003302",
+      "target": "acct_004822",
+      "weight": 1
+    },
+    {
+      "source": "acct_003359",
+      "target": "acct_003556",
+      "weight": 1
+    },
+    {
+      "source": "acct_003363",
+      "target": "acct_004279",
+      "weight": 1
+    },
+    {
+      "source": "acct_003363",
+      "target": "acct_004696",
+      "weight": 1
+    },
+    {
+      "source": "acct_003363",
+      "target": "acct_004806",
+      "weight": 1
+    },
+    {
+      "source": "acct_003421",
+      "target": "acct_004822",
+      "weight": 1
+    },
+    {
+      "source": "acct_003558",
+      "target": "acct_004749",
+      "weight": 1
+    },
+    {
+      "source": "acct_003558",
+      "target": "acct_004962",
+      "weight": 1
+    },
+    {
+      "source": "acct_003571",
+      "target": "acct_004331",
+      "weight": 1
+    },
+    {
+      "source": "acct_003578",
+      "target": "acct_003642",
+      "weight": 2
+    },
+    {
+      "source": "acct_003578",
+      "target": "acct_003995",
+      "weight": 2
+    },
+    {
+      "source": "acct_003578",
+      "target": "acct_004179",
+      "weight": 2
+    },
+    {
+      "source": "acct_003578",
+      "target": "acct_004890",
+      "weight": 2
+    },
+    {
+      "source": "acct_003603",
+      "target": "acct_003604",
+      "weight": 1
+    },
+    {
+      "source": "acct_003603",
+      "target": "acct_003816",
+      "weight": 1
+    },
+    {
+      "source": "acct_003604",
+      "target": "acct_003816",
+      "weight": 1
+    },
+    {
+      "source": "acct_003636",
+      "target": "acct_003662",
+      "weight": 1
+    },
+    {
+      "source": "acct_003640",
+      "target": "acct_003703",
+      "weight": 2
+    },
+    {
+      "source": "acct_003640",
+      "target": "acct_003870",
+      "weight": 2
+    },
+    {
+      "source": "acct_003640",
+      "target": "acct_004950",
+      "weight": 2
+    },
+    {
+      "source": "acct_003642",
+      "target": "acct_003995",
+      "weight": 2
+    },
+    {
+      "source": "acct_003642",
+      "target": "acct_004179",
+      "weight": 2
+    },
+    {
+      "source": "acct_003642",
+      "target": "acct_004890",
+      "weight": 2
+    },
+    {
+      "source": "acct_003703",
+      "target": "acct_003870",
+      "weight": 2
+    },
+    {
+      "source": "acct_003703",
+      "target": "acct_004950",
+      "weight": 2
+    },
+    {
+      "source": "acct_003755",
+      "target": "acct_004235",
+      "weight": 1
+    },
+    {
+      "source": "acct_003755",
+      "target": "acct_004341",
+      "weight": 1
+    },
+    {
+      "source": "acct_003755",
+      "target": "acct_004563",
+      "weight": 2
+    },
+    {
+      "source": "acct_003761",
+      "target": "acct_004779",
+      "weight": 1
+    },
+    {
+      "source": "acct_003870",
+      "target": "acct_004950",
+      "weight": 2
+    },
+    {
+      "source": "acct_003896",
+      "target": "acct_004344",
+      "weight": 1
+    },
+    {
+      "source": "acct_003896",
+      "target": "acct_004572",
+      "weight": 1
+    },
+    {
+      "source": "acct_003995",
+      "target": "acct_004179",
+      "weight": 2
+    },
+    {
+      "source": "acct_003995",
+      "target": "acct_004890",
+      "weight": 2
+    },
+    {
+      "source": "acct_004179",
+      "target": "acct_004890",
+      "weight": 2
+    },
+    {
+      "source": "acct_004235",
+      "target": "acct_004341",
+      "weight": 1
+    },
+    {
+      "source": "acct_004235",
+      "target": "acct_004563",
+      "weight": 1
+    },
+    {
+      "source": "acct_004279",
+      "target": "acct_004696",
+      "weight": 1
+    },
+    {
+      "source": "acct_004279",
+      "target": "acct_004806",
+      "weight": 1
+    },
+    {
+      "source": "acct_004341",
+      "target": "acct_004563",
+      "weight": 1
+    },
+    {
+      "source": "acct_004344",
+      "target": "acct_004572",
+      "weight": 1
+    },
+    {
+      "source": "acct_004449",
+      "target": "acct_004622",
+      "weight": 1
+    },
+    {
+      "source": "acct_004480",
+      "target": "acct_004648",
+      "weight": 1
+    },
+    {
+      "source": "acct_004696",
+      "target": "acct_004806",
+      "weight": 1
+    },
+    {
+      "source": "acct_004749",
+      "target": "acct_004962",
+      "weight": 1
     }
   ]
 }

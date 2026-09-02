@@ -36,10 +36,13 @@ def test_louvain_recovers_injected_rings():
     )
 
     assert report["n_rings"] == 8
-    # every ring should land almost entirely in one community; the exact recovery
-    # rate can vary slightly with the graph structure, so assert a high bar, not 100%.
-    assert report["mean_ring_recovery"] >= 0.9
-    assert report["n_perfectly_recovered"] >= 6
+    # The bar is deliberately lower than it used to be (it was 0.9, when every ring was a
+    # clique on one shared device). Star, chain and partial rings are genuinely harder to
+    # cluster — a `partial` ring contains members with no shared identifier at all, and no
+    # graph method can recover those. Recovery near 1.0 on this generator would now
+    # indicate a leak, not a good detector.
+    assert report["mean_ring_recovery"] >= 0.5
+    assert report["n_perfectly_recovered"] >= 3
 
 
 def test_isolated_pair_alone_is_never_flagged():
@@ -57,9 +60,13 @@ def test_isolated_pair_alone_is_never_flagged():
 
 
 def test_household_false_positive_rate_is_reported_and_bounded():
+    """Runs the detector the way it is actually deployed: with transactions, so the
+    behavioural coordination filter applies. Structure alone cannot separate a four-person
+    family from a four-person ring — they are the same graph — and testing the
+    structure-only path here would assert a bound the deployed system does not rely on."""
     result = generate_dataset(_small_config())
     graph = build_graph(result["entity_edges"])
-    detection = detect_communities(graph)
+    detection = detect_communities(graph, transactions=result["transactions"])
 
     report = evaluate_against_ground_truth(
         detection, result["rings_ground_truth"], result["household_pairs"]
@@ -69,3 +76,24 @@ def test_household_false_positive_rate_is_reported_and_bounded():
     # not zero-or-one — a real number that could go into a slide, not a suspiciously
     # perfect result.
     assert 0.0 <= report["household_false_positive_rate"] <= 0.5
+
+
+def test_behavioural_filter_beats_structure_alone_on_false_positives():
+    """The point of the coordination layer, pinned as a test: with larger innocent
+    households, structure alone false-positives badly, and adding the behavioural signal
+    is what makes the detector usable. If a future change makes these equal, the
+    coordination filter has stopped doing anything."""
+    result = generate_dataset(_small_config())
+    graph = build_graph(result["entity_edges"])
+
+    structural = evaluate_against_ground_truth(
+        detect_communities(graph), result["rings_ground_truth"], result["household_pairs"]
+    )
+    behavioural = evaluate_against_ground_truth(
+        detect_communities(graph, transactions=result["transactions"]),
+        result["rings_ground_truth"],
+        result["household_pairs"],
+    )
+    assert (
+        behavioural["household_false_positive_rate"] < structural["household_false_positive_rate"]
+    )

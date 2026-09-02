@@ -21,8 +21,10 @@ from cerberus.common.config import (
     SYNTHETIC_ENTITY_EDGES_CSV,
     SYNTHETIC_HOUSEHOLD_PAIRS_JSON,
     SYNTHETIC_RINGS_JSON,
+    SYNTHETIC_TRANSACTIONS_CSV,
 )
 from cerberus.detection.ring_detector import (
+    COORDINATION_THRESHOLD,
     build_graph,
     detect_communities,
     evaluate_against_ground_truth,
@@ -34,6 +36,7 @@ def main() -> None:
         raise SystemExit("No data found — run `python scripts/generate_data.py` first.")
 
     edges = pd.read_csv(SYNTHETIC_ENTITY_EDGES_CSV)
+    txns = pd.read_csv(SYNTHETIC_TRANSACTIONS_CSV, parse_dates=["timestamp"])
     rings_ground_truth = json.loads(SYNTHETIC_RINGS_JSON.read_text())
     household_pairs = [tuple(p) for p in json.loads(SYNTHETIC_HOUSEHOLD_PAIRS_JSON.read_text())]
 
@@ -42,12 +45,42 @@ def main() -> None:
     print(f"  {graph.number_of_nodes():,} accounts, {graph.number_of_edges():,} unique links")
 
     print("Running Louvain community detection...")
-    result = detect_communities(graph)
-    print(f"  {len(result.communities):,} communities found, {len(result.flagged_ring_ids)} flagged as candidate rings (size >= 3)")
+    result = detect_communities(graph, transactions=txns)
+    n_candidates = sum(1 for m in result.communities.values() if len(m) >= 3)
+    print(f"  {len(result.communities):,} communities found")
+    print(f"  {n_candidates} of size >= 3 (structural candidates)")
+    print(f"  {len(result.flagged_ring_ids)} of those also look behaviourally coordinated -> flagged as rings")
+    if result.coordination:
+        scores = sorted(result.coordination.values(), reverse=True)
+        print(
+            f"  coordination score across candidates: max {scores[0]:.2f}, "
+            f"median {scores[len(scores) // 2]:.2f}, min {scores[-1]:.2f}"
+        )
 
     print("\nValidating against synthetic ground truth...")
     report = evaluate_against_ground_truth(result, rings_ground_truth, household_pairs)
     report["generated_at"] = datetime.now(timezone.utc).isoformat()
+
+    # The coordination threshold is a choice, so ship the curve it was chosen from. A
+    # single operating point with no alternatives shown is an assertion; the curve lets a
+    # reader see what was traded away and pick differently.
+    if result.coordination:
+        report["coordination_threshold"] = COORDINATION_THRESHOLD
+        report["coordination_scores"] = {str(k): round(v, 4) for k, v in result.coordination.items()}
+        ring_accounts = {a for members in rings_ground_truth.values() for a in members}
+        curve = []
+        for t in (0.24, 0.26, 0.28, 0.30, 0.32):
+            caught = innocent = 0
+            for cid, score in result.coordination.items():
+                members = result.communities[cid]
+                is_ring = sum(m in ring_accounts for m in members) / len(members) > 0.5
+                if score >= t:
+                    caught += is_ring
+                    innocent += not is_ring
+            curve.append(
+                {"threshold": t, "ring_communities_flagged": caught, "innocent_communities_flagged": innocent}
+            )
+        report["coordination_threshold_curve"] = curve
 
     print("\n--- Honest ring-detection report ---")
     print(f"Injected rings:                {report['n_rings']}")

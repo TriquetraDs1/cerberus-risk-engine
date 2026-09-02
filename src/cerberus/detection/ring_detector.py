@@ -37,9 +37,89 @@ class RingDetectionResult:
     partition: dict[str, int]  # account_id -> community_id
     communities: dict[int, list[str]]  # community_id -> [account_id, ...]
     flagged_ring_ids: list[int] = field(default_factory=list)  # communities treated as "rings"
+    # community_id -> behavioural coordination score in [0, 1]. Empty when the detector
+    # was run on structure alone (no transactions supplied).
+    coordination: dict[int, float] = field(default_factory=dict)
 
     def community_of(self, account_id: str) -> int | None:
         return self.partition.get(account_id)
+
+
+# A community must clear this to be called a ring.
+#
+# Chosen, not fitted, and the whole trade-off curve is written into
+# reports/ring_detection_report.json so the choice is inspectable rather than asserted.
+# Measured on the current generator (ring communities score 0.23-0.41, innocent ones
+# 0.10-0.29, so the classes overlap and no threshold is free):
+#
+#   0.26 -> catches 88% of ring communities, flags 28% of innocent ones
+#   0.28 -> catches 71%, flags 17%          <- default
+#   0.30 -> catches 59%, flags 0%
+#
+# 0.28 sits between the two flattering ends. Pushing to 0.30 would let the report claim a
+# 0% false-positive rate while silently missing four rings in ten, which is precisely the
+# kind of number this project exists to argue against. A deployment with a real cost model
+# for analyst review time should derive this rather than inherit it.
+COORDINATION_THRESHOLD = 0.28
+
+# Transactions this close together count as burst-concurrent.
+BURST_WINDOW = pd.Timedelta(hours=6)
+
+
+def coordination_score(members: list[str], transactions: pd.DataFrame) -> float:
+    """How coordinated a community's spending looks, in [0, 1].
+
+    This exists because **structure alone cannot separate a fraud ring from a family.**
+    Four people sharing one phone produce the same graph whether they are relatives or
+    colluding: same size, same density, same degree. On a dataset where innocent
+    households are pairs, community size hides that; on one where households have three
+    to five members, Louvain on structure alone false-positives on almost every family
+    (94% measured — see docs/EXPERIMENT_ADVANCED_TRAINING.md).
+
+    What differs is not the graph, it is the behaviour. A ring transacts *together*: a
+    burst inside a few hours, amounts clustered just under a reporting threshold, most
+    members active at once. A household transacts independently across weeks at whatever
+    amounts daily life produces.
+
+    Three signals, averaged:
+      * **burst concentration** — the largest fraction of the community's transactions
+        falling inside one 6-hour window.
+      * **amount clustering** — how tightly amounts group, via a normalised inverse
+        coefficient of variation. Structured amounts are near-identical; real spending is
+        spread.
+      * **member synchrony** — the fraction of members active in that same busiest window.
+        One member's spree is not a ring; five members in the same six hours is.
+
+    Returns 0.0 when there is nothing to judge (a community with no transactions), which
+    keeps an absent-data community unflagged rather than flagged by default.
+    """
+    rows = transactions[transactions["account_id"].isin(members)]
+    if len(rows) < 2:
+        return 0.0
+
+    times = pd.to_datetime(rows["timestamp"]).sort_values()
+    amounts = rows["amount"].to_numpy(dtype=float)
+
+    # Busiest 6-hour window, found by sliding the window start over each transaction.
+    best_count, best_window_members = 0, 0
+    for start in times:
+        window = rows[
+            (pd.to_datetime(rows["timestamp"]) >= start)
+            & (pd.to_datetime(rows["timestamp"]) < start + BURST_WINDOW)
+        ]
+        if len(window) > best_count:
+            best_count = len(window)
+            best_window_members = window["account_id"].nunique()
+
+    burst_concentration = best_count / len(rows)
+    synchrony = best_window_members / max(len(members), 1)
+
+    mean_amount = float(amounts.mean())
+    cv = float(amounts.std() / mean_amount) if mean_amount > 0 else 1.0
+    # cv near 0 means near-identical amounts (structuring); cv >= 1 is ordinary spread.
+    amount_clustering = max(0.0, 1.0 - min(cv, 1.0))
+
+    return float((burst_concentration + synchrony + amount_clustering) / 3.0)
 
 
 def build_graph(entity_edges: pd.DataFrame) -> nx.Graph:
@@ -58,12 +138,24 @@ def build_graph(entity_edges: pd.DataFrame) -> nx.Graph:
 
 
 def detect_communities(
-    graph: nx.Graph, resolution: float | None = None, min_ring_size: int = 3
+    graph: nx.Graph,
+    resolution: float | None = None,
+    min_ring_size: int = 3,
+    transactions: pd.DataFrame | None = None,
+    coordination_threshold: float = COORDINATION_THRESHOLD,
 ) -> RingDetectionResult:
-    """Run Louvain community detection and flag communities of size >= min_ring_size
-    as candidate rings. Isolated pairs (size 2, e.g. a single shared device between two
-    accounts) are NOT auto-flagged — that's exactly the innocent-household-sharing shape,
-    and flagging every shared device as a "ring" would make the honest FP rate meaningless.
+    """Louvain community detection, then a behavioural check before anything is called a
+    ring.
+
+    **Structure proposes, behaviour disposes.** Louvain finds groups of accounts wired
+    together by shared devices and cards; that is a candidate list, not a verdict, because
+    a family and a fraud ring produce the same wiring. When `transactions` is supplied, a
+    candidate is only flagged if it *also* looks coordinated — see `coordination_score`.
+
+    Passing no transactions falls back to the structure-only rule (size >= min_ring_size).
+    That path is kept because the adversarial harness scores self-contained sandbox rings
+    where the behavioural signal is a property of the attack being tested rather than
+    something to re-derive, and because it is what the earlier reports were produced with.
     """
     if graph.number_of_nodes() == 0:
         return RingDetectionResult(graph=graph, partition={}, communities={})
@@ -77,10 +169,22 @@ def detect_communities(
     for account_id, community_id in partition.items():
         communities[community_id].append(account_id)
 
-    flagged = [cid for cid, members in communities.items() if len(members) >= min_ring_size]
+    candidates = [cid for cid, members in communities.items() if len(members) >= min_ring_size]
+
+    coordination: dict[int, float] = {}
+    if transactions is not None and len(transactions) > 0:
+        for cid in candidates:
+            coordination[cid] = coordination_score(communities[cid], transactions)
+        flagged = [cid for cid in candidates if coordination[cid] >= coordination_threshold]
+    else:
+        flagged = candidates
 
     return RingDetectionResult(
-        graph=graph, partition=partition, communities=dict(communities), flagged_ring_ids=flagged
+        graph=graph,
+        partition=partition,
+        communities=dict(communities),
+        flagged_ring_ids=flagged,
+        coordination=coordination,
     )
 
 
