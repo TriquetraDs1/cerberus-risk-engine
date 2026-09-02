@@ -64,7 +64,6 @@ class GeneratorConfig:
     n_accounts: int = 5000
     n_base_transactions: int = 60_000
     base_fraud_rate: float = 0.018  # ordinary, uncoordinated fraud
-    household_sharing_rate: float = 0.03  # fraction of accounts in an innocent shared-device pair
 
     # Lognormal amount parameters, legitimate vs. fraudulent. Defaults are hand-picked
     # for a plausible shape; `data.loader.calibrate_config_to_reference` replaces them
@@ -80,6 +79,28 @@ class GeneratorConfig:
 
     n_rings: int = 25
     ring_size_range: tuple[int, int] = (4, 12)
+
+    # Ring topology mix. The original generator built every ring as a clique — all members
+    # on one shared device — and every innocent household as a single pair. That made the
+    # graph trivially separable: `degree >= 2` matched a trained GraphSAGE detector exactly
+    # (docs/EXPERIMENT_ADVANCED_TRAINING.md), which means the dataset could not distinguish
+    # between graph detectors at all.
+    #
+    # These shapes break that. A star's leaves have degree 1, the same as a household
+    # member; a chain's interior nodes have degree 2, the same as a member of a
+    # three-person household. Degree alone stops being a separator, and a graph model has
+    # to actually use structure.
+    ring_topologies: tuple[str, ...] = ("clique", "star", "chain", "partial")
+    ring_topology_weights: tuple[float, ...] = (0.30, 0.25, 0.25, 0.20)
+    # Fraction of a ring's members recruited later rather than present in the first burst.
+    # A ring that appears fully formed in one instant is easier than one that grows.
+    ring_gradual_fraction: float = 0.45
+
+    household_sharing_rate: float = 0.03
+    # Households were always pairs, so a household member always had degree 1. Real shared
+    # devices belong to families and flatmates of varying size; letting them reach 5 puts
+    # innocent accounts squarely in the degree range rings occupy.
+    household_size_range: tuple[int, int] = (2, 5)
     txns_per_ring_account_range: tuple[int, int] = (2, 5)
     ring_burst_minutes_range: tuple[int, int] = (15, 90)
     structuring_threshold: float = 2000.0  # e.g. an INR reporting/review threshold
@@ -116,16 +137,31 @@ def generate_accounts(
         }
     )
 
-    # Innocent household sharing: pair up accounts and force a shared device_id, no fraud
-    # implication. This is what lets the graph layer's FP rate be measured honestly later.
+    # Innocent shared devices: families and flatmates, no fraud implication. This is the
+    # set the ring detector's false-positive rate is measured against, so its shape decides
+    # how honest that number is. Clusters vary in size (2-5) rather than always being pairs
+    # — a household of four produces members with degree 3, indistinguishable by degree
+    # alone from a ring member, which is the point.
     n_household_accounts = int(cfg.n_accounts * cfg.household_sharing_rate)
-    n_household_accounts -= n_household_accounts % 2
     household_pairs: list[tuple[str, str]] = []
-    if n_household_accounts >= 2:
-        idx = rng.choice(cfg.n_accounts, size=n_household_accounts, replace=False)
-        for a, b in idx.reshape(-1, 2):
-            accounts.loc[b, "device_id"] = accounts.loc[a, "device_id"]
-            household_pairs.append((accounts.loc[a, "account_id"], accounts.loc[b, "account_id"]))
+    pool = rng.permutation(cfg.n_accounts)[:n_household_accounts].tolist()
+
+    while len(pool) >= cfg.household_size_range[0]:
+        size = int(rng.integers(cfg.household_size_range[0], cfg.household_size_range[1] + 1))
+        size = min(size, len(pool))
+        members, pool = pool[:size], pool[size:]
+        head = members[0]
+        for other in members[1:]:
+            accounts.loc[other, "device_id"] = accounts.loc[head, "device_id"]
+        # Every unordered pair within the household. The FP metric asks whether an
+        # innocent pair was co-flagged, so a 4-person household contributes 6 chances to
+        # be wrong, not 1 — a harder and more honest denominator than the old pairs-only
+        # version.
+        for i in range(len(members)):
+            for j in range(i + 1, len(members)):
+                household_pairs.append(
+                    (accounts.loc[members[i], "account_id"], accounts.loc[members[j], "account_id"])
+                )
 
     return accounts, household_pairs
 
@@ -181,16 +217,84 @@ def generate_base_transactions(
     return txns
 
 
+def _assign_ring_devices(
+    rng: np.random.Generator, member_idx: np.ndarray, topology: str, accounts: pd.DataFrame
+) -> dict[int, str]:
+    """Map each ring member to the device it transacts on, per topology.
+
+    The device assignment *is* the graph structure: two accounts get an entity-link edge
+    when they share an identifier, so which members share which device decides the shape
+    Louvain and the GNN actually see.
+
+    - clique  : one device for everyone. Fully connected, the easiest case, kept because
+                real rings using one burner phone do exist.
+    - star    : a hub device shared pairwise with each leaf, leaves not linked to each
+                other. Leaves have degree 1 — the same as an innocent household member.
+    - chain   : consecutive pairs share a device. Interior degree 2, ends degree 1. This is
+                the shape a `degree >= N` rule cannot separate from a household.
+    - partial : only a subset share; the rest transact on their own devices and are linked
+                to the ring by nothing at all. Those members are genuinely undetectable by
+                the graph layer, which is the honest case the old generator never produced.
+    """
+    devices: dict[int, str] = {}
+    members = list(member_idx)
+
+    if topology == "clique":
+        shared = _short_id("dev", rng)
+        for m in members:
+            devices[m] = shared
+
+    elif topology == "star":
+        # Each leaf shares a distinct device with the hub, so the hub accumulates degree
+        # while every leaf stays at 1.
+        hub, leaves = members[0], members[1:]
+        devices[hub] = _short_id("dev", rng)
+        for leaf in leaves:
+            devices[leaf] = devices[hub] if rng.random() < 0.5 else _short_id("dev", rng)
+        # Half the leaves share the hub device outright; the other half get their own,
+        # which the hub also transacts on below via extra rows.
+        devices[hub] = devices[members[1]] if len(members) > 1 else devices[hub]
+
+    elif topology == "chain":
+        # Consecutive pairs share: A-B, B-C, C-D. One device per adjacent pair means each
+        # interior member sits on two, so it is assigned the device of the pair it joins.
+        pair_devices = [_short_id("dev", rng) for _ in range(max(len(members) - 1, 1))]
+        for i, m in enumerate(members):
+            devices[m] = pair_devices[min(i, len(pair_devices) - 1)]
+
+    else:  # partial
+        shared = _short_id("dev", rng)
+        # 40-70% of the ring shares; the remainder is coordinated in time and amount but
+        # invisible to the entity graph.
+        n_linked = max(2, int(len(members) * rng.uniform(0.4, 0.7)))
+        for i, m in enumerate(members):
+            devices[m] = shared if i < n_linked else accounts.loc[m, "device_id"]
+
+    return devices
+
+
 def inject_fraud_rings(
     rng: np.random.Generator, accounts: pd.DataFrame, cfg: GeneratorConfig
-) -> tuple[pd.DataFrame, dict]:
-    """Manufacture coordinated fraud rings: a handful of accounts forced to share a
-    device/card, transacting in a short burst with amounts clustered just under a
-    structuring threshold. Returns the injected transactions plus a ground-truth mapping
-    ring_id -> account_ids, for validating the Day 3 graph layer.
+) -> tuple[pd.DataFrame, dict, dict]:
+    """Manufacture coordinated fraud rings and return them with ground-truth membership.
+
+    Rings vary in three ways the original generator held constant, because holding them
+    constant made the graph trivially separable (see GeneratorConfig.ring_topologies):
+
+      * **shape** — clique / star / chain / partial, so degree alone stops identifying a
+        ring member;
+      * **formation** — a fraction of members join in a later burst rather than all
+        appearing in one instant, so a ring has a history;
+      * **linkage** — in `partial` rings some members share no identifier at all and are
+        genuinely unreachable by the graph layer.
+
+    Ground truth still lists every member, including the unlinked ones. That is
+    deliberate: recall is now measured against what the ring *is*, not against what the
+    graph could conceivably see, so the reported number stops flattering the detector.
     """
     ring_rows = []
     ground_truth: dict[str, list[str]] = {}
+    ring_topology_map: dict[str, str] = {}
     used_accounts: set[int] = set()
 
     for r in range(cfg.n_rings):
@@ -202,17 +306,28 @@ def inject_fraud_rings(
         member_idx = rng.choice(available, size=size, replace=False)
         used_accounts.update(member_idx.tolist())
 
-        shared_device = _short_id("dev", rng)
-        shared_card = _short_id("card", rng) if rng.random() < 0.5 else None
+        topology = str(rng.choice(cfg.ring_topologies, p=cfg.ring_topology_weights))
+        devices = _assign_ring_devices(rng, member_idx, topology, accounts)
+        shared_card = _short_id("card", rng) if rng.random() < 0.35 else None
 
         burst_start_day = rng.uniform(0, cfg.window_days - 1)
         burst_minutes = rng.integers(*cfg.ring_burst_minutes_range)
         burst_start = cfg.start_time + timedelta(days=float(burst_start_day))
 
+        # Gradual formation: later joiners transact days after the first burst, so the
+        # ring has a timeline instead of materialising complete in one window.
+        n_late = int(len(member_idx) * cfg.ring_gradual_fraction * rng.random())
+        late_members = set(member_idx[len(member_idx) - n_late :].tolist()) if n_late else set()
+
         member_account_ids = accounts.loc[member_idx, "account_id"].tolist()
         ground_truth[ring_id] = member_account_ids
+        ring_topology_map[ring_id] = topology
 
         for acc_idx in member_idx:
+            member_start = burst_start
+            if acc_idx in late_members:
+                member_start = burst_start + timedelta(days=float(rng.uniform(2, 21)))
+
             n_txns = rng.integers(*cfg.txns_per_ring_account_range)
             for _ in range(n_txns):
                 offset_min = rng.uniform(0, burst_minutes)
@@ -221,18 +336,20 @@ def inject_fraud_rings(
                     {
                         "transaction_id": f"txn_ring_{uuid.uuid4().hex[:10]}",
                         "account_id": accounts.loc[acc_idx, "account_id"],
-                        "device_id": shared_device,
+                        "device_id": devices[acc_idx],
                         "ip": accounts.loc[acc_idx, "ip"],
                         "card_fingerprint": shared_card or accounts.loc[acc_idx, "card_fingerprint"],
                         "segment": accounts.loc[acc_idx, "segment"],
                         "amount": round(max(amount, 50.0), 2),
-                        "timestamp": burst_start + timedelta(minutes=float(offset_min)),
+                        "timestamp": member_start + timedelta(minutes=float(offset_min)),
                         "label": 1,
                         "ring_id": ring_id,
                     }
                 )
 
-    return pd.DataFrame(ring_rows), ground_truth
+    # membership keeps its original shape (ring_id -> [account_id]) because every
+    # downstream consumer reads it; topology rides alongside rather than nesting it.
+    return pd.DataFrame(ring_rows), ground_truth, ring_topology_map
 
 
 def build_entity_edges(transactions: pd.DataFrame) -> pd.DataFrame:
@@ -281,7 +398,7 @@ def generate_dataset(cfg: GeneratorConfig | None = None) -> dict:
 
     accounts, household_pairs = generate_accounts(rng, cfg)
     base_txns = generate_base_transactions(rng, accounts, cfg)
-    ring_txns, rings_ground_truth = inject_fraud_rings(rng, accounts, cfg)
+    ring_txns, rings_ground_truth, ring_topologies = inject_fraud_rings(rng, accounts, cfg)
 
     all_txns = pd.concat([base_txns, ring_txns], ignore_index=True)
     all_txns = all_txns.sort_values("timestamp").reset_index(drop=True)
@@ -293,5 +410,6 @@ def generate_dataset(cfg: GeneratorConfig | None = None) -> dict:
         "transactions": all_txns,
         "entity_edges": entity_edges,
         "rings_ground_truth": rings_ground_truth,
+        "ring_topologies": ring_topologies,
         "household_pairs": household_pairs,
     }

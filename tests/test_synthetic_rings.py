@@ -38,11 +38,31 @@ def test_injected_rings_are_labeled_fraud_and_share_an_entity():
         assert len(ring_txns) > 0
         assert (ring_txns["label"] == 1).all()
         assert set(ring_txns["account_id"]) <= set(member_accounts)
-        # every ring's transactions share at least one device_id across all members
-        assert ring_txns["device_id"].nunique() == 1
+        # Rings are no longer uniform cliques — they come in clique / star / chain /
+        # partial shapes, so "every member on one device" is deliberately false now.
+        # What must still hold is that a ring is *linked*: at least two of its members
+        # share a device. A ring with no shared identifier at all would be invisible to
+        # the graph layer by construction and could never be recovered, which would make
+        # the recovery metric meaningless rather than hard.
+        device_counts = ring_txns.groupby("device_id")["account_id"].nunique()
+        assert (device_counts >= 2).any(), f"{ring_id} has no device shared by two members"
 
 
 def test_entity_edges_recover_ring_membership():
+    """Every ring must leave a recoverable trace in the entity graph — but not the same
+    trace it used to.
+
+    The old assertion was that the ring's first two members share an edge, which only held
+    because every ring was a clique on one device. Rings now come in four shapes: a star's
+    leaves connect to the hub and not to each other, a chain connects consecutive members
+    only, and a `partial` ring leaves some members with no shared identifier at all.
+
+    So the contract is weaker and more honest: at least two members of each ring are
+    connected, so the ring is *reachable* by a graph method. Anything stronger would be
+    asserting the clique topology this generator was changed to stop producing; anything
+    weaker would let a completely unlinked ring through and make ring recovery
+    unmeasurable rather than merely hard.
+    """
     result = generate_dataset(_small_config())
     edges = result["entity_edges"]
     rings = result["rings_ground_truth"]
@@ -51,9 +71,12 @@ def test_entity_edges_recover_ring_membership():
     linked_pairs = set(zip(edges["entity_a"], edges["entity_b"], strict=True)) | set(
         zip(edges["entity_b"], edges["entity_a"], strict=True)
     )
-    # every ring of size >= 2 should contribute at least one recoverable edge
-    for member_accounts in rings.values():
+
+    for ring_id, member_accounts in rings.items():
         if len(member_accounts) < 2:
             continue
-        a, b = member_accounts[0], member_accounts[1]
-        assert (a, b) in linked_pairs or (b, a) in linked_pairs
+        members = set(member_accounts)
+        has_internal_edge = any(
+            (a, b) in linked_pairs for a in members for b in members if a != b
+        )
+        assert has_internal_edge, f"{ring_id} left no recoverable edge in the entity graph"

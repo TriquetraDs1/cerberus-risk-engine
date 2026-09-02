@@ -87,7 +87,13 @@ def score_ring(
     if graph.number_of_nodes() == 0:
         ring_recovered_fraction = 0.0
     else:
-        detection = detect_communities(graph, min_ring_size=min_ring_size)
+        # Transactions are passed so the harness attacks the detector that is actually
+        # deployed. detect_communities filters structural candidates by behavioural
+        # coordination; omitting them here would test a structure-only detector that no
+        # longer exists, and would report robustness for something nobody runs.
+        detection = detect_communities(
+            graph, min_ring_size=min_ring_size, transactions=txns
+        )
         communities = [detection.community_of(m) for m in ring.member_account_ids]
         communities = [c for c in communities if c is not None]
         if not communities:

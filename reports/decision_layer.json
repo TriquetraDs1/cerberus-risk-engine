@@ -1,75 +1,75 @@
 {
-  "generated_at": "2026-08-31T10:38:25.813125+00:00",
-  "global_default_threshold": 0.136986301369863,
-  "overall_savings_pct_vs_global_threshold": 16.53282616262044,
+  "generated_at": "2026-09-02T06:12:35.931390+00:00",
+  "global_default_threshold": 0.16666666666666666,
+  "overall_savings_pct_vs_global_threshold": 21.76735978830453,
   "segments": {
     "grocery_essentials": {
       "cost_matrix": {
         "segment": "grocery_essentials",
-        "mean_amount": 124.17918809980806,
-        "fp_cost": 18.626878214971207,
-        "fn_cost": 149.17918809980807
+        "mean_amount": 111.42556376608485,
+        "fp_cost": 16.713834564912727,
+        "fn_cost": 136.42556376608485
       },
-      "block_threshold": 0.23809523809523808,
-      "review_threshold": 0.11904761904761904,
-      "n_transactions": 4869,
-      "n_block": 32,
-      "n_review": 4,
-      "n_approve": 4833,
-      "cost_at_optimal_threshold": 6973.83975950096,
-      "cost_at_global_default_threshold": 7011.093515930903,
-      "cost_savings_pct": 0.531354436298606
+      "block_threshold": 0.16666666666666666,
+      "review_threshold": 0.08333333333333333,
+      "n_transactions": 4862,
+      "n_block": 113,
+      "n_review": 10,
+      "n_approve": 4739,
+      "cost_at_optimal_threshold": 4015.0520257357625,
+      "cost_at_global_default_threshold": 4015.0520257357625,
+      "cost_savings_pct": 0.0
     },
     "electronics_highvalue": {
       "cost_matrix": {
         "segment": "electronics_highvalue",
-        "mean_amount": 730.8955378779898,
-        "fp_cost": 36.54477689389949,
-        "fn_cost": 755.8955378779898
+        "mean_amount": 720.8637862852335,
+        "fp_cost": 36.043189314261674,
+        "fn_cost": 745.8637862852335
       },
-      "block_threshold": 0.04823151125401929,
-      "review_threshold": 0.024115755627009645,
-      "n_transactions": 3017,
-      "n_block": 346,
-      "n_review": 572,
-      "n_approve": 2099,
-      "cost_at_optimal_threshold": 27093.052801864927,
-      "cost_at_global_default_threshold": 31355.254375724373,
-      "cost_savings_pct": 13.593261029830122
+      "block_threshold": 0.0547945205479452,
+      "review_threshold": 0.0273972602739726,
+      "n_transactions": 2994,
+      "n_block": 366,
+      "n_review": 162,
+      "n_approve": 2466,
+      "cost_at_optimal_threshold": 28846.81723306689,
+      "cost_at_global_default_threshold": 39372.65110517459,
+      "cost_savings_pct": 26.733871295561126
     },
     "digital_subscription": {
       "cost_matrix": {
         "segment": "digital_subscription",
-        "mean_amount": 183.12520028539396,
-        "fp_cost": 18.312520028539396,
-        "fn_cost": 208.12520028539396
+        "mean_amount": 181.03541301433432,
+        "fp_cost": 18.103541301433435,
+        "fn_cost": 206.03541301433432
       },
-      "block_threshold": 0.09803921568627451,
-      "review_threshold": 0.049019607843137254,
-      "n_transactions": 3018,
-      "n_block": 249,
-      "n_review": 196,
-      "n_approve": 2573,
-      "cost_at_optimal_threshold": 12783.387778208136,
-      "cost_at_global_default_threshold": 13339.763058607687,
-      "cost_savings_pct": 4.170803319033022
+      "block_threshold": 0.16666666666666666,
+      "review_threshold": 0.08333333333333333,
+      "n_transactions": 3016,
+      "n_block": 221,
+      "n_review": 20,
+      "n_approve": 2775,
+      "cost_at_optimal_threshold": 14369.032030524904,
+      "cost_at_global_default_threshold": 14369.032030524904,
+      "cost_savings_pct": 0.0
     },
     "travel_luxury": {
       "cost_matrix": {
         "segment": "travel_luxury",
-        "mean_amount": 1492.7856542178113,
-        "fp_cost": 29.855713084356225,
-        "fn_cost": 1517.7856542178113
+        "mean_amount": 1498.3850557139153,
+        "fp_cost": 29.967701114278306,
+        "fn_cost": 1523.3850557139153
       },
-      "block_threshold": 0.019444444444444445,
-      "review_threshold": 0.009722222222222222,
-      "n_transactions": 1209,
-      "n_block": 331,
-      "n_review": 0,
-      "n_approve": 878,
-      "cost_at_optimal_threshold": 18242.56212911987,
-      "cost_at_global_default_threshold": 26280.047531052493,
-      "cost_savings_pct": 30.583983504731236
+      "block_threshold": 0.0547945205479452,
+      "review_threshold": 0.0273972602739726,
+      "n_transactions": 1242,
+      "n_block": 178,
+      "n_review": 93,
+      "n_approve": 971,
+      "cost_at_optimal_threshold": 16862.04181953874,
+      "cost_at_global_default_threshold": 24169.354684736976,
+      "cost_savings_pct": 30.233793829062503
     }
   },
   "limitations": [
