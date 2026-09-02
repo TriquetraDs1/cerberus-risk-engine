@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-02T06:14:01.530226+00:00",
+  "generated_at": "2026-09-02T07:40:41.424709+00:00",
   "point_risk_model": {
-    "generated_at": "2026-09-02T06:12:21.437055+00:00",
+    "generated_at": "2026-09-02T07:38:32.599358+00:00",
     "n_train": 38762,
     "n_calib": 9690,
     "n_test": 12114,
@@ -105,7 +105,7 @@
     "household_false_positive_rate": 0.22277227722772278,
     "n_flagged_communities": 17,
     "n_total_communities": 66,
-    "generated_at": "2026-09-02T06:11:40.955635+00:00",
+    "generated_at": "2026-09-02T07:38:08.443568+00:00",
     "coordination_threshold": 0.28,
     "coordination_scores": {
       "0": 0.3056,
@@ -184,7 +184,7 @@
     ]
   },
   "decision_layer": {
-    "generated_at": "2026-09-02T06:12:35.931390+00:00",
+    "generated_at": "2026-09-02T07:38:55.049595+00:00",
     "global_default_threshold": 0.16666666666666666,
     "overall_savings_pct_vs_global_threshold": 21.76735978830453,
     "segments": {

@@ -59,8 +59,8 @@ Isotonic regression fit on the held-out calibration split (`cerberus.detection.
 calibration`), not `CalibratedClassifierCV(cv="prefit")` — deprecated in sklearn 1.6,
 and a one-line hand-rolled isotonic map is exactly what that method does internally
 anyway. `class_weight="balanced"` skews raw LightGBM scores away from true P(fraud);
-calibration closes that gap. Last measured: Brier score 0.0819 → 0.0163, expected
-calibration error 0.1926 → 0.0023 (see `reports/baseline_metrics.json` for live numbers,
+calibration closes that gap. Last measured: Brier score 0.0905 → 0.0173, expected
+calibration error 0.2035 → 0.0034 (see `reports/baseline_metrics.json` for live numbers,
 and the System Health page's reliability diagram for a visual).
 
 ## Decision layer
@@ -69,7 +69,7 @@ Per-segment cost matrices, not one global FP:FN ratio — see `cerberus.decision
 cost_matrix` and `reports/decision_layer.json`. Each segment's cost is derived from its
 own mean transaction amount + a documented retention-sensitivity multiplier (a
 methodology choice, not a calibrated business study — see Limitations). Segmented
-routing costs ~16.5% less than one global threshold applied everywhere.
+routing costs ~21.8% less than one global threshold applied everywhere.
 
 ## Adversarial robustness
 
@@ -81,7 +81,7 @@ on what it finds. Last measured (`reports/adversarial_hardening_report.json`):
 | Strategy | Detection, unattacked | Under attack | After hardening |
 |---|---|---|---|
 | Structuring | 1.00 | 0.50 | 0.99 |
-| Identity rotation | 0.88 | 0.02 | 0.47 |
+| Identity rotation | 1.00 | 0.02 | 0.50 |
 | Slow ramp | 1.00 | 0.50 | 1.00 |
 
 Structuring and slow-ramp harden well because they're detectable point-risk features
@@ -107,8 +107,9 @@ it. See `docs/EXPERIMENT_ADVANCED_TRAINING.md` for the three-way ablation.
 ## Sequence model (secondary signal)
 
 `cerberus.detection.sequence_risk` — a 2-layer GRU over the 8 transactions ending at the
-one being scored. Held out: ROC-AUC 0.8371 (above the booster's 0.8153), PR-AUC 0.3011
-(below its 0.3141). A 70/30 ensemble reaches PR-AUC 0.3341, beating point-risk alone.
+one being scored. Held out: ROC-AUC 0.9066 (above the booster's 0.9023), PR-AUC 0.5842
+(below its 0.6000). A 70/30 ensemble reaches PR-AUC 0.6140, beating point-risk alone —
+which is the only comparison that justifies shipping a second model.
 
 It is weighted 0.3 in the offline comparison and is **not** permitted to overrule the
 booster, because it produces no reason codes and `docs/ARCHITECTURE.md` §1 requires an
@@ -126,17 +127,27 @@ escalation attaches its own reason code naming which model raised it.
 
 ## GNN ring detector (evaluated, not adopted)
 
-`cerberus.detection.gnn_ring` — GraphSAGE, held-out ROC-AUC 1.0000, 25/25 rings, 1.3%
-household false-positive rate against Louvain's 9.3%.
+`cerberus.detection.gnn_ring` — GraphSAGE over the entity-link graph, run alongside
+Louvain and never in place of it.
 
-**That perfect score is not evidence the GNN works.** A control that flags every account
-with `degree >= 2` matches it exactly — 100% recovery, 1.3% false positives. Message
-passing contributed nothing: injected rings are dense cliques (degree 5–11) and innocent
-households are single links (degree 1), so one integer comparison separates them. The
-number measures how easy the synthetic graph is, which makes it evidence *for* the
-"Louvain on synthetic data is easy" critique rather than against it. The control runs on
-every invocation and is written into `reports/gnn_ring_metrics.json` so the 1.0000 cannot
-be quoted on its own. Louvain remains the default detector.
+An earlier version of this section reported a held-out ROC-AUC of **1.0000**. That was
+**not** evidence the GNN worked:
+a control flagging every account with `degree >= 2` matched it exactly. That was a fact
+about the dataset, not the model — injected rings were uniformly dense cliques and
+innocent households were single links, so one integer comparison separated them.
+
+The generator was changed for exactly this reason (see `docs/EXPERIMENT_ADVANCED_TRAINING.md`).
+With varied ring topologies the GNN now scores a real **0.8863 ROC-AUC**, and the degree
+control no longer matches it — 44.9% mean ring recovery versus 40.0%. Message passing
+finally contributes something measurable.
+
+Louvain still wins on recovery (69.1% vs 44.9%), and the GNN wins on false positives
+(0.0% vs 22.3%). Neither dominates, which is a more useful result than either winning
+outright: they fail differently, and a production system would run both.
+
+The control still runs on every invocation and is written into
+`reports/gnn_ring_metrics.json`, because the moment a score becomes flattering again is
+exactly when it needs a baseline beside it. Louvain remains the default detector.
 
 **Live integration is second-opinion only.** `/score` returns `gnn_ring_score` and
 `gnn_agrees_with_louvain` alongside the authoritative Louvain `ring_id`. Agreement is

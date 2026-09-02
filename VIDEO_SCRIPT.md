@@ -36,12 +36,12 @@ the dashboard + a terminal, your voice over it. Every number below matches
 > rotation — spread the ring across more devices so the graph never forms a community.
 > Slow ramp — stretch the burst so velocity features never fire.
 >
-> Unattacked, combined detection is 1.00 on all three. Under attack, recall decays 45 to
-> 67 percent. For structuring, the point-risk model's catch rate collapses from 100 percent
-> to 1 percent.
+> Unattacked, combined detection is 1.00 on all three. Under attack, structuring and slow
+> ramp both fall to 0.50 — half the ring walks straight through — and identity rotation
+> collapses to 0.02.
 >
-> Then we retrain on what the search found. Structuring recovers to 0.92, slow ramp to
-> 0.86. Identity rotation recovers to only 0.47 — and I'll come back to why that one is
+> Then we retrain on what the search found. Structuring comes back to 0.99, slow ramp to
+> 1.00. Identity rotation recovers to only 0.50 — and I'll come back to why that one is
 > reported, not fixed. This regression check runs in CI on every push."
 
 ---
@@ -50,10 +50,10 @@ the dashboard + a terminal, your voice over it. Every number below matches
 
 **On screen:** `/health` (System Health) — the reliability diagram.
 
-> "The point-risk model is gradient-boosted trees, ROC-AUC 0.82, on a chronological
+> "The point-risk model is gradient-boosted trees, ROC-AUC 0.90, on a chronological
 > three-way split — never random, because fraud rings cluster in time and would leak
-> across a random boundary. The score is isotonic-calibrated: Brier score drops from 0.082
-> to 0.016, expected calibration error from 0.19 to 0.002. So `risk_score` is a real
+> across a random boundary. The score is isotonic-calibrated: Brier score drops from 0.091
+> to 0.017, expected calibration error from 0.20 to 0.003. So `risk_score` is a real
 > probability the decision layer can reason about, not just a ranking."
 
 ---
@@ -62,14 +62,27 @@ the dashboard + a terminal, your voice over it. Every number below matches
 
 **On screen:** `/rings` (Ring Network), then back to Review Queue; click a `block` row to open the drawer.
 
-> "Coordinated rings are caught with an entity-link graph and Louvain community detection —
-> 25 of 25 injected rings recovered, with an honest 9.3 percent false-positive rate on
-> innocent households that share a device. That number is reported, not buried.
+> "Coordinated rings are caught with an entity-link graph and Louvain community detection.
+> Thirteen of twenty-five rings recovered perfectly, sixty-nine percent mean recovery, and
+> a twenty-two percent false-positive rate on innocent households.
+>
+> Those numbers are deliberately not better. Rings here come in four shapes — some are
+> cliques, some are stars, some are chains, and some have members sharing no identifier at
+> all, which no graph method can recover. And households are families of up to five, not
+> pairs. On an easier dataset this scored twenty-five of twenty-five, and that number
+> measured the dataset, not the detector.
+>
+> The false-positive rate is the interesting part. On structure alone it was ninety-four
+> percent, because a four-person family and a four-person ring are the same graph. So the
+> detector doesn't stop at structure: a community is only flagged if it also *behaves*
+> like a ring — a burst inside a few hours, amounts clustered just under a threshold, most
+> members active at once. That took false positives from ninety-four percent to
+> twenty-two.
 >
 > Routing is cost-optimised per segment, not accuracy-optimised. Each segment's
 > false-positive and false-negative costs come from its own transaction data. Segmented
-> routing costs 16.5 percent less than one global threshold — and most of that saving is
-> in travel, where the ticket size is large and a missed fraud is expensive."
+> routing costs 21.8 percent less than one global threshold — and most of that saving is
+> in travel and electronics, where ticket sizes are large and a missed fraud is expensive."
 
 **On screen:** the open drawer — point at Reason codes and Cost basis.
 
@@ -130,7 +143,8 @@ curl -s localhost:8000/explain/txn_demo | jq
 
 > "What this doesn't claim. The fraud rings are synthetic and the adversary is code I
 > wrote — this validates robustness to known evasion classes, not a real-world guarantee.
-> The ring detector's false-positive rate needs a backtest on real non-fraud data.
+> The ring detector's twenty-two percent false-positive rate still needs a backtest on
+> real non-fraud data.
 > Identity rotation attacks Louvain specifically, and Louvain is unsupervised — retraining
 > a classifier can't teach a community-detection algorithm anything, so that evasion is
 > reported as an open limitation, not patched over.

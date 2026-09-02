@@ -120,9 +120,9 @@ collection; a replicated store for the entity-graph cache.
 
 | Day | Deliverable | Status |
 |---|---|---|
-| 1–2 | Synthetic data generator with injectable fraud rings + baseline point-risk model. Get a number, any honest number. | ✅ Done — ROC-AUC 0.8153, calibrated (Brier 0.0819→0.0163) |
-| 3 | Entity-link graph + Louvain on synthetic rings. Confirm it recovers the injected rings. | ✅ Done — 25/25 rings, 100% recovery, 9.3% honest FP rate |
-| 4 | Cost matrix + threshold optimization + 3-way routing. | ✅ Done — per-segment, 16.5% cheaper than one global threshold |
+| 1–2 | Synthetic data generator with injectable fraud rings + baseline point-risk model. Get a number, any honest number. | ✅ Done — ROC-AUC 0.9023, calibrated (Brier 0.0905→0.0173) |
+| 3 | Entity-link graph + Louvain on synthetic rings. Confirm it recovers the injected rings. | ✅ Done — 13/25 rings, 69.1% recovery, 22.3% FP after a behavioural coordination filter (94.1% on structure alone) |
+| 4 | Cost matrix + threshold optimization + 3-way routing. | ✅ Done — per-segment, 21.8% cheaper than one global threshold |
 | 5–6 | Adversarial harness: 2–3 evasion strategies, measure recall decay, retrain, show recovery. This is the differentiator — protect this time budget above all else. | ✅ Done — 3 adaptive strategies, before/attack/after chart, CI regression gate |
 | 7 | FastAPI serving + audit log + drift check. Thin, enterprise-shaped not enterprise-scale. | ✅ Done — /score, /health, /metrics, SQLite audit log, demoable graceful degradation |
 | 8 | Stretch LLM layer (dispute drafting / plain-English reason codes) only if on schedule. | ✅ Done, all three: A1 narration (`queue.json` `explanation`, `GET /explain/{id}`), A2 dispute drafting (`POST /dispute/{id}`), A3 case copilot (`POST /copilot/{ring_id}`). Each has dashboard UI and a deterministic template fallback, so the repo runs with no API key. |
@@ -135,10 +135,12 @@ collection; a replicated store for the entity-graph cache.
   against yourself?"* Yes — and that's the honest framing, stated explicitly: this
   validates robustness to known evasion classes, not a real-world adversarial guarantee.
   Naming the limitation is the point of "honest metrics."
-- *"Louvain on synthetic data is easy — validated on anything real?"* Not yet, and the
-  evidence now says the critique is right. A GraphSAGE detector scores a perfect 1.0000
-  on this graph — but so does `degree >= 2`, so the graph is separable without any
-  learning at all (`scripts/train_gnn_rings.py` runs that control on every invocation).
-  What that measures is the dataset's easiness, not either detector's power. The honest
-  next step is harder ring topologies plus a backtest of the FP rate against the
+- *"Louvain on synthetic data is easy — validated on anything real?"* The critique was
+  right, and acting on it is the most useful thing this project did. On the original
+  generator a GraphSAGE detector scored a perfect 1.0000 — and so did `degree >= 2`, so
+  the graph was separable without any learning at all. The generator was rebuilt with
+  four ring topologies, gradual formation, and multi-person households. The GNN now
+  scores 0.8863, the degree control no longer matches it, and Louvain-on-structure turned
+  out to false-positive on 94% of families, which is why the detector now requires
+  behavioural coordination too. Still outstanding: a backtest of the FP rate against the
   non-fraud portion of a real dataset.

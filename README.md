@@ -159,13 +159,16 @@ layer, and two additional models beyond the original scope:
 - Synthetic data generator with injectable fraud rings, innocent household sharing, and
   four merchant segments with genuinely different fraud economics
 - Baseline point-risk model (LightGBM) with **isotonic probability calibration** —
-  Brier score 0.0819 → 0.0163, expected calibration error 0.1926 → 0.0023. `risk_score`
+  Brier score 0.0905 → 0.0173, expected calibration error 0.2035 → 0.0034. `risk_score`
   is a real probability, not just a ranking.
-- Louvain ring detector — **25/25 injected rings recovered (100% mean recovery)**, and
-  an honest **9.3% false-positive rate** on innocent household device-sharing
+- Louvain ring detector with a **behavioural coordination filter** — 13/25 rings
+  recovered perfectly, 69.1% mean recovery, and a **22.3% false-positive rate** on
+  innocent household device-sharing. Structure alone scored 94.1% false positives,
+  because a four-person family and a four-person ring are the same graph; a community is
+  now only flagged if it *also* bursts in time and clusters its amounts.
 - **Per-segment cost matrix + 3-way routing** (`cerberus.decision.cost_matrix`) — each
   segment's FP/FN cost is derived from its own transaction data, not one global
-  assumption. Segmented routing costs **16.5% less** than applying one threshold to
+  assumption. Segmented routing costs **21.8% less** than applying one threshold to
   every segment.
 - **Adversarial hardening harness** (`cerberus.adversarial`) — the actual
   differentiator. Three evasion strategies (structuring, identity rotation, slow-ramp

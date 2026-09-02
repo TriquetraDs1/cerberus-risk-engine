@@ -317,24 +317,25 @@ Phase 3  C1 → C2 → C3 → C5 →
          B5 → C4 → C6 → C7 ........ ~4–6 weeks
 ```
 
+## The generator problem — fixed 2026-08-31
+
+This section used to say the research was blocked because the generator produced rings a
+`degree >= 2` threshold separated perfectly, so no graph model was being tested at all.
+That is done. Rings now come in four topologies (clique, star, chain, partial), form
+gradually, and innocent households are 2-5 accounts rather than pairs.
+
+Two results came out of it. The GNN's meaningless 1.0000 became a real 0.8863 and the
+degree control stopped matching it. And Louvain-on-structure was revealed to
+false-positive on 94% of innocent households — a four-person family and a four-person
+ring are the same graph — which is why `detect_communities` now requires behavioural
+coordination as well as structure.
+
 ## What is actually blocking progress now
 
-Everything above that remains unbuilt is infrastructure. The *research* is blocked on one
-thing, and it is not on this list: **the synthetic generator produces rings that are too
-easy to be a test of anything.**
-
-The evidence is already in `docs/EXPERIMENT_ADVANCED_TRAINING.md`. Louvain recovers
-25/25. GraphSAGE scores a perfect 1.0000 — and a `degree >= 2` threshold matches it
-exactly. Injected rings are uniformly dense cliques and innocent households are single
-links, so one integer comparison separates them. No graph model, learned or unsupervised,
-is being tested by this dataset, and no B4-style hardening result on it would mean much
-either.
-
-So the highest-value next piece of work is generator variety, not another model:
-non-uniform ring topologies (chains, stars, partial overlaps, rings that share a member),
-innocent clusters larger than pairs, and rings that form gradually rather than in one
-burst. That single change makes B1, B4, and the identity-rotation limitation genuinely
-measurable for the first time.
+Real data. The ring detector's false-positive rate has still never been checked against
+the non-fraud portion of a real dataset, and it is the one number a panel is most likely
+to push on. Everything else remaining is infrastructure (Phase 3) or B4, which is now
+worth attempting because the dataset can finally distinguish between graph detectors.
 
 Re-run the full pipeline and the adversarial harness after every ML change (Phase 2) and
 re-check CI after every phase. Update `MODEL_CARD.md`, `docs/ARCHITECTURE.md`, and

@@ -29,12 +29,12 @@ named in `IMPLEMENTATION_ROADMAP.md`.
 
 | Component | Where | Real result |
 |---|---|---|
-| Synthetic data + rings | `src/cerberus/data/synthetic_rings.py` | 60,565 txns, 25 injected rings, 75 innocent household-sharing pairs, 4 merchant segments |
-| Point-risk model | `src/cerberus/detection/point_risk.py` | ROC-AUC 0.8153, PR-AUC 0.3141; 19 features, Optuna-tuned against cost |
-| **Calibration** | `src/cerberus/detection/calibration.py` | Brier 0.0819→0.0163, ECE 0.1926→0.0023 (isotonic regression) |
-| Ring detector (Louvain) | `src/cerberus/detection/ring_detector.py` | 25/25 rings recovered (100%), 9.3% honest FP rate on innocent sharing |
-| **Decision layer (Day 4)** | `src/cerberus/decision/cost_matrix.py` | Per-segment cost matrices, 16.5% cheaper than one global threshold |
-| **Adversarial harness (Day 5-6)** | `src/cerberus/adversarial/` | 3 adaptive strategies, hillclimb + bayesopt searchers. Structuring/slow-ramp fall to 0.50 under attack and recover to 0.99/1.00. Identity rotation 0.88→0.02→0.47 — worse than an earlier version; cause understood and documented, not patched. |
+| Synthetic data + rings | `src/cerberus/data/synthetic_rings.py` | 60,566 txns; 25 rings across 4 topologies (clique/star/chain/partial) with gradual formation; 202 innocent household pairs from 2-5 person clusters; 4 merchant segments |
+| Point-risk model | `src/cerberus/detection/point_risk.py` | ROC-AUC 0.9023, PR-AUC 0.6000; 19 features, Optuna-tuned against cost |
+| **Calibration** | `src/cerberus/detection/calibration.py` | Brier 0.0905→0.0173, ECE 0.2035→0.0034 (isotonic regression) |
+| Ring detector (Louvain + behaviour) | `src/cerberus/detection/ring_detector.py` | 13/25 rings, 69.1% mean recovery, 22.3% FP. Structure alone gave 94.1% FP — the coordination filter is what makes it usable. |
+| **Decision layer (Day 4)** | `src/cerberus/decision/cost_matrix.py` | Per-segment cost matrices, 21.8% cheaper than one global threshold |
+| **Adversarial harness (Day 5-6)** | `src/cerberus/adversarial/` | 3 adaptive strategies, hillclimb + bayesopt searchers. All three start at 1.00. Structuring/slow-ramp fall to 0.50 and recover to 0.99/1.00. Identity rotation 1.00→0.02→0.50 — the graph layer is what it attacks, and Louvain isn't retrainable. |
 | **Serving API (Day 7)** | `src/cerberus/serving/app.py` | FastAPI `/score`, `/health`, `/metrics`, `/explain/{id}`, SQLite audit log, demoable graceful degradation |
 | **A1 narration (Day 8)** | `src/cerberus/llm/` | 2-3 sentence plain-English summary per decision, in `queue.json` and `/explain`. LLM (Claude) if `ANTHROPIC_API_KEY` set, deterministic template otherwise. Never re-scores. |
 | **Dashboard** | `dashboard/` (Next.js) | Review Queue, Ring Network, Adversarial Hardening, System Health — all reading real pipeline output; the drawer shows the A1 Summary |
@@ -92,9 +92,13 @@ change the model/pipeline, re-run the scripts above in order and the dashboard u
   graph structure, which identity rotation dissolves — its under-attack score went
   0.33 → 0.00. ROC-AUC was *highest* in that configuration; only the harness caught it.
   Don't "fix" the exclusion. See `docs/EXPERIMENT_ADVANCED_TRAINING.md`.
-- **The GNN's ROC-AUC 1.0000 is not a result.** A `degree >= 2` threshold matches it
-  exactly. `scripts/train_gnn_rings.py` runs that control every time and writes it into
-  the report; never quote the GNN number without it.
+- **Always read the GNN's degree-baseline control before its own score.** On the old
+  easy generator the GNN scored 1.0000 and a `degree >= 2` threshold matched it exactly —
+  a fact about the dataset, not the model. The generator was fixed; the control stays,
+  because the moment a score becomes flattering again is when it most needs a baseline.
+- **The ring detector needs transactions, not just a graph.** `detect_communities` filters
+  structural candidates by behavioural coordination; calling it without `transactions=`
+  falls back to structure alone, which false-positives on 94% of households.
 - **Reason codes** are shared between the offline export and the live API via
   `src/cerberus/detection/explain.py` — don't duplicate that logic again.
 - **The adversarial harness only ever attacks its own sandboxed model.** This is a

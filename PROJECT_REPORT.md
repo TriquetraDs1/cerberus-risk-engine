@@ -72,7 +72,7 @@ Nothing here is aspirational.
 
 ### Point-risk model — `src/cerberus/detection/point_risk.py`
 - LightGBM (falls back to sklearn `HistGradientBoostingClassifier` if unavailable).
-- **ROC-AUC 0.8153, PR-AUC 0.3141** on a chronological three-way split (train 64% /
+- **ROC-AUC 0.9023, PR-AUC 0.6000** on a chronological three-way split (train 64% /
   calibration 16% / test 20%). Splits are time-based everywhere — never random — because
   rings cluster in time and would leak across a random boundary.
 - 19 features: 15 behavioural (amount, z-score, amount vs. trailing mean, 1h/24h/7d
@@ -84,16 +84,25 @@ Nothing here is aspirational.
 
 ### Probability calibration — `src/cerberus/detection/calibration.py` *(beyond original scope)*
 - Isotonic regression on the held-out calibration split.
-- **Brier score 0.0819 → 0.0163. Expected calibration error 0.1926 → 0.0023.**
+- **Brier score 0.0905 → 0.0173. Expected calibration error 0.2035 → 0.0034.**
 - Why it was needed: `class_weight="balanced"` skews raw LightGBM scores away from true
   P(fraud); calibration closes that gap so `risk_score` is an actual probability the
   decision layer can reason about, not just a ranking.
 
 ### Ring detector — `src/cerberus/detection/ring_detector.py`
 - Entity-link graph (shared device / IP / card / address) + Louvain community detection.
-- **25/25 injected rings recovered (100% mean recovery).**
-- **9.3% false-positive rate** (7 of 75) on innocent household device-sharing — reported,
-  not hidden. This is the honest FP-cost story for the graph layer.
+- **13/25 rings recovered perfectly, 69.1% mean recovery**, and a **22.3%
+  false-positive rate** on innocent household sharing.
+- Those numbers are deliberately worse than they were. Rings now come in four topologies
+  and some members share no identifier at all; households are families of up to five. On
+  the old generator this read 25/25 and 9.3%, and a one-line `degree >= 2` rule matched a
+  trained GNN exactly — the score measured the dataset, not the detector.
+- **Structure alone scored 94.1% false positives** on the harder data, because a
+  four-person family and a four-person ring are the same graph. The detector now flags a
+  community only if it *also* behaves like a ring: a burst inside six hours, amounts
+  clustered just under a threshold, most members active at once. That took false
+  positives from 94.1% to 22.3%. The threshold is chosen, not fitted, and the full
+  trade-off curve ships in `reports/ring_detection_report.json`.
 - Louvain over a GNN is deliberate: explainable, fast to validate against ground truth,
   and feasible for a solo 10-day build. GNN is named as the production path.
 
@@ -102,10 +111,10 @@ Nothing here is aspirational.
   transaction amount plus a documented retention-sensitivity multiplier, not one global
   FP:FN assumption.
 - 3-way routing (approve / review / block) per segment.
-- **Segmented routing costs 16.5% less** than applying one global threshold everywhere.
-  The saving concentrates in `travel_luxury` (30.6% — huge tickets, so a missed fraud is
-  expensive and a tight threshold pays off) and is near-zero in `grocery_essentials`
-  (0.5%). That spread is the point: one threshold is wrong in different directions for
+- **Segmented routing costs 21.8% less** than applying one global threshold everywhere.
+  The saving concentrates in `travel_luxury` (30.2%) and `electronics_highvalue` (26.7%) —
+  large tickets, so a missed fraud is expensive and a tight threshold pays off — and is
+  zero in grocery and digital, where the global threshold already sat at their optimum. That spread is the point: one threshold is wrong in different directions for
   different segments.
 - Worth knowing before you demo: **travel produces zero reviews** (block ≥ 0.019, review
   ≥ 0.0097 — nothing lands between them). At that cost ratio the optimiser decided human
@@ -123,7 +132,7 @@ never trigger). Combined detection score, from `reports/adversarial_hardening_re
 |---|---|---|---|
 | Structuring | 1.00 | 0.50 | **0.99** |
 | Slow ramp | 1.00 | 0.50 | **1.00** |
-| Identity rotation | 0.88 | 0.02 | 0.47 |
+| Identity rotation | 1.00 | 0.02 | 0.50 |
 
 A `--searcher bayesopt` mode exists alongside the default hill-climb and found
 essentially the same evasions — a null result worth keeping, because it tests the

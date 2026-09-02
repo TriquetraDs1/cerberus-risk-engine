@@ -39,7 +39,7 @@ If a result is a null result, it says so.
 
 ## Strategic principles
 
-1. **Honesty is the product.** The 9.3% false-positive rate, the evasion that does not
+1. **Honesty is the product.** The 22.3% false-positive rate, the evasion that does not
    recover, the GNN whose perfect score a one-line control matches — these are the
    differentiators, not the blemishes. Design must give them the same weight as the wins,
    not bury them in a footnote.

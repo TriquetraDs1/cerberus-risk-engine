@@ -34,7 +34,7 @@
   "household_false_positive_rate": 0.22277227722772278,
   "n_flagged_communities": 17,
   "n_total_communities": 66,
-  "generated_at": "2026-09-02T06:11:40.955635+00:00",
+  "generated_at": "2026-09-02T07:38:08.443568+00:00",
   "coordination_threshold": 0.28,
   "coordination_scores": {
     "0": 0.3056,
